@@ -10,9 +10,6 @@ $primary-invert: $kaldi-red-invert
 $body-color: #333
 $black: #2b2523
 
-.navbar .navbar-menu
-  box-shadow:none !important
-
 .content .taglist
   list-style: none
   margin-bottom: 0
@@ -71,8 +68,6 @@ $black: #2b2523
 .margin-top-0
   margin-top: 0 !important
 
-.navbar-item .icon
-  color: $primary
 // Override for use of svg's from https://simpleicons.org/
 .icon svg
   width: 1.5rem
@@ -112,7 +107,7 @@ $menu-label-color: $white-ter
     vertical-align: middle
     display: inline
 
-@import "~bulma"
+// @import "~bulma"
 
 //My stuff
 
@@ -145,14 +140,38 @@ body
 
 //End Text
 
+//navbar
+
+nav 
+  display: flex
+  justify-content: center
+  max-height: 60px
+
+.circle
+  width: 10px
+  height: 10px
+  border-radius: 1000%
+  color: grey
+  background-color: grey
+  margin: 0 20px 0 20px
+
+.square
+  width: 15px
+  height: 15px
+  color: grey
+  background-color: grey
+  margin: 0 20px 0 20px
+
+//end navbar
+
 .full-page
   width: 100vw
   min-height: 100vh
 
 .flex-center
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: flex
+  justify-content: center
+  align-items: center
 
 .huge-text
   font-size: 10em
