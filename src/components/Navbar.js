@@ -5,6 +5,7 @@ import logo from '../img/logo.svg'
 const Navbar = class extends React.Component {
 
   render() {
+    console.log(window.location.pathname)
     return (
       <nav id="navbar">
         <Link to="/" title="Logo">
