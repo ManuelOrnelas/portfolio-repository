@@ -8,10 +8,15 @@ export default class BlogIndexPage extends React.Component {
     
   return (
       <Layout>
-      <div className='full-page-title yellow white-text'>
-        <h1>Graphics Design.</h1>
+      <div className='full-page flex-center yellow white-text'>
+        <h1 className='huge-text'>Graphics Design.</h1>
       </div>
+      <div className='full-page'>
+      <div className='lateral-space'>
+      <h1 className='projects'>Projects.</h1>
         <GraphicsDesignRoll />
+        </div>
+      </div>
       </Layout>
     )
   }
