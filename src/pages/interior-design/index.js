@@ -8,6 +8,9 @@ export default class BlogIndexPage extends React.Component {
     
   return (
       <Layout>
+      <div className='full-page-title yellow white-text'>
+        <h1>Interior Design.</h1>
+      </div>
         <InteriorDesignRoll />
       </Layout>
     )

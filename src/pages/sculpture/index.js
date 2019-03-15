@@ -8,6 +8,9 @@ export default class BlogIndexPage extends React.Component {
     
   return (
       <Layout>
+      <div className='full-page-title yellow white-text'>
+        <h1>Sculpture.</h1>
+      </div>
         <SculptureRoll />
       </Layout>
     )
