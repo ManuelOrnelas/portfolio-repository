@@ -172,6 +172,15 @@ nav {
   a {
     padding: 0 20px 0 20px;
   }
+
+  a.logo {
+    margin-right: auto;
+  }
+
+  #item-list {
+    position: absolute;
+    height: 4rem;
+  }
 }
 
 .circle {
