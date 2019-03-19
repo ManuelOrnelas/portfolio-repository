@@ -15,7 +15,7 @@ export const ProductDesignPostTemplate = ({
   helmet,
 }) => {
   const PostContent = contentComponent || Content
-
+  
   return (
     <section className="section">
       {helmet || ''}
@@ -58,7 +58,7 @@ const ProductDesignPost = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
-    <Layout>
+    <Layout primaryColor={post.frontmatter.pageColor}>
       <ProductDesignPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
@@ -88,8 +88,8 @@ ProductDesignPost.propTypes = {
 export default ProductDesignPost
 
 export const pageQuery = graphql`
-  query ProductDesignPostByID($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+  query ProductDesignPostByID($id: String!, $pageKey: String!) {
+    markdownRemark(id: { eq: $id }, frontmatter: { templateKey: { eq: $pageKey } }) {
       id
       html
       frontmatter {
@@ -97,6 +97,7 @@ export const pageQuery = graphql`
         title
         description
         tags
+        pageColor
       }
     }
   }

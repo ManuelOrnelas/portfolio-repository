@@ -9,8 +9,8 @@ const WritingPage = ({data}) => {
 
   return (
     <Layout primaryColor={color}>
-      <div className='full-page flex justifycontent-center alignitems-center yellow white-text'>
-        <h1 className='huge-text'>Writing.</h1>
+      <div className='full-page flex justifycontent-center alignitems-center bcg yellow white-text'>
+        <h1 id='page-title' className='huge-text'>Writing.</h1>
       </div>
       <div className='full-page'>
         <div className='lateral-space'>

@@ -1,17 +1,16 @@
 import React from 'react'
 
-import { graphql } from 'gatsby'
-
 import Layout from '../../components/Layout'
 import SculptureRoll from '../../components/SculptureRoll'
 
 const SculpturePage = ({data}) => {
-  let color = data.allMarkdownRemark.edges[0].node.frontmatter.pageColor.replace('\\', '');
+  let color
+  if (data.allMarkdownRemark.edges[0].node) color = data.allMarkdownRemark.edges[0].node.frontmatter.pageColor.replace('\\', '');
 
   return (
     <Layout primaryColor={color}>
-      <div className='full-page flex justifycontent-center alignitems-center orange white-text'>
-        <h1 className='huge-text margin-0'>Sculpture.</h1>
+      <div className='full-page flex justifycontent-center alignitems-center bcg orange white-text'>
+        <h1 id='page-title' className='huge-text margin-0'>Sculpture.</h1>
       </div>
       <div className='full-page'>
         <div className='lateral-space'>

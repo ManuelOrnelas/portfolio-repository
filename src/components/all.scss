@@ -12,8 +12,156 @@ $black: #2b2523;
 
 $red: #FF6060;
 
+// FONTS
+@font-face {
+  font-family: 'Sofia Pro SemiBold';
+  src: url('/fonts/SofiaProSemiBold.ttf');
+}
+
 body {
   overflow-x: hidden;
+}
+
+html,
+body {
+  margin: 0
+}
+
+// COLORS
+.yellow {
+  --color: #FFD42D;
+}
+
+.orange {
+  --color: #FF6060;
+}
+
+// COLOR BEHAVIOR
+.text {
+  color: var(--color);
+}
+
+.bcg {
+  background-color: var(--color);
+}
+
+// TEXT
+.white-text {
+  color: white;
+}
+
+.huge-text {
+  font-size: 10em;
+}
+
+// FONT SIZE
+.font-100 {
+  font-size: 1rem;
+}
+
+.font-125 {
+  font-size: 1.25rem;
+}
+
+.font-150 {
+  font-size: 1.5rem;
+}
+
+.font-175 {
+  font-size: 1.75rem;
+}
+
+.font-200 {
+  font-size: 200rem;
+}
+
+// FONT WEIGHT
+.fontweight-light {
+  font-weight: lighter;
+}
+
+.fontweight-normal {
+  font-weight: normal;
+}
+
+.fontweight-bold {
+  font-weight: bold;
+}
+
+// MARGINS
+.margin-0 {
+  margin: 0;
+}
+
+// OVERFLOW
+.overflowy-hidden {
+  overflow-y: hidden;
+}
+
+.overflowx-hidden {
+  overflow-x: hidden;
+}
+
+// FLEX 
+.flex {
+  display: flex;
+}
+
+.flex.justifycontent-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex.alignitems-center {
+  align-items: center;
+}
+
+
+// NAVBAR
+nav { 
+  display: flex;
+  justify-content: center;
+  max-height: 4.5rem;
+
+  a {
+    padding: 0 20px 0 20px;
+  }
+
+  a.logo {
+    margin-right: auto;
+  }
+
+  #item-list {
+    position: absolute;
+    height: 4rem;
+  }
+}
+
+.circle {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background-color: #ffffff80;
+  transition: .25s ease-in-out;
+  // margin: 0 20px 0 20px
+}
+
+.square {
+  width: 1rem;
+  height: 1rem;
+  background-color: #fff;
+  transition: .25s ease-in-out;
+  // margin: 0 20px 0 20px
+}
+
+.navbar-brand .navbar-item.logo {
+  padding: 0 1rem;
+}
+
+// FOOTER
+footer.footer {
+  padding: 3rem 0rem 0rem;
+  background-color: transparent;
 }
 
 .content .taglist {
@@ -79,34 +227,11 @@ body {
   margin-top: 0 !important;
 }
 
-/* MARGINS */
-.margin-0 {
-  margin: 0;
-}
-
-/* OVERFLOW */
-.overflowy-hidden {
-  overflow-y: hidden;
-}
-
-.overflowx-hidden {
-  overflow-x: hidden;
-}
-
 // Override for use of svg's from https://simpleicons.org/
 .icon svg {
   width: 1.5rem;
   height: 1.5rem;
   fill: currentColor;
-}
-
-.navbar-brand .navbar-item.logo {
-  padding: 0 1rem;
-}
-
-footer.footer {
-  padding: 3rem 0rem 0rem;
-  background-color: transparent;
 }
 
 //Menu overrides
@@ -144,103 +269,10 @@ $menu-label-color: $white-ter;
   }
 }
 
-// @import "~bulma"
-
-//My stuff
-
-//Normalizer
-
-html,
-body {
-  margin: 0
-}
-
-//End Normalizer
-//Colors
-
-.yellow {
-  background-color: #FFD42D;
-}
-
-.light-yellow {
-  background-color: #FFD948;
-}
-
-.orange {
-  background-color: #FF6060;
-}
-
-//End colors
-
-//Text 
-
-.white-text {
-  color: white;
-}
-
-//End Text
-
-//navbar
-
-nav { 
-  display: flex;
-  justify-content: center;
-  max-height: 4.5rem;
-
-  a {
-    padding: 0 20px 0 20px;
-  }
-
-  a.logo {
-    margin-right: auto;
-  }
-
-  #item-list {
-    position: absolute;
-    height: 4rem;
-  }
-}
-
-.circle {
-  width: 0.6rem;
-  height: 0.6rem;
-  border-radius: 50%;
-  background-color: #ffffff80;
-  transition: .25s ease-in-out;
-  // margin: 0 20px 0 20px
-}
-
-.square {
-  width: 1rem;
-  height: 1rem;
-  background-color: #fff;
-  transition: .25s ease-in-out;
-  // margin: 0 20px 0 20px
-}
-
-//end navbar
-
 .full-page {
   width: 100vw;
   min-height: 100vh;
   overflow-x: hidden;
-}
-
-.flex {
-  display: flex;
-}
-
-.flex.justifycontent-center {
-  justify-content: center;
-  align-items: center;
-}
-
-.flex.alignitems-center {
-  align-items: center;
-}
-
-.huge-text {
-  font-size: 10em;
 }
 
 .lateral-space {
@@ -251,4 +283,9 @@ nav {
   font-size: 64px;
   padding-top: 20vh;
   padding-bottom: 36px;
+}
+
+// PAGE
+.full-page h1#page-title {
+  font-family: "Sofia Pro SemiBold";
 }

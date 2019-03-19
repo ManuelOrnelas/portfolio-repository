@@ -58,7 +58,7 @@ const SculpturePost = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
-    <Layout>
+    <Layout primaryColor={post.frontmatter.pageColor}>
       <SculpturePostTemplate
         content={post.html}
         contentComponent={HTMLContent}
@@ -75,6 +75,7 @@ const SculpturePost = ({ data }) => {
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
       />
+      <p>{post.frontmatter.pageColor}</p>
     </Layout>
   )
 }
@@ -88,8 +89,8 @@ SculpturePost.propTypes = {
 export default SculpturePost
 
 export const pageQuery = graphql`
-  query SculpturePostByID($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+  query SculpturePostByID($id: String!, $pageKey: String!) {
+    markdownRemark(id: { eq: $id }, frontmatter: { templateKey: { eq: $pageKey } }) {
       id
       html
       frontmatter {
@@ -97,6 +98,7 @@ export const pageQuery = graphql`
         title
         description
         tags
+        pageColor
       }
     }
   }
