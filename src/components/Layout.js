@@ -61,7 +61,7 @@ const TemplateWrapper = (props) => {
             <meta property="og:image" content="/img/og-image.jpg" />
           </Helmet>
           <Navbar color={props.primaryColor ? props.primaryColor : null} />
-          <div>{props.children}</div>
+          <div className='overflowx-hidden'>{props.children}</div>
           <Footer />
         </div>
       )}

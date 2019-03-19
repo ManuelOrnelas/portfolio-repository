@@ -10,8 +10,8 @@ const SculpturePage = ({data}) => {
 
   return (
     <Layout primaryColor={color}>
-      <div className='full-page flex-center orange white-text'>
-        <h1 className='huge-text'>Sculpture.</h1>
+      <div className='full-page flex justifycontent-center alignitems-center orange white-text'>
+        <h1 className='huge-text margin-0'>Sculpture.</h1>
       </div>
       <div className='full-page'>
         <div className='lateral-space'>

@@ -12,6 +12,10 @@ $black: #2b2523;
 
 $red: #FF6060;
 
+body {
+  overflow-x: hidden;
+}
+
 .content .taglist {
   list-style: none;
   margin-bottom: 0;
@@ -73,6 +77,20 @@ $red: #FF6060;
 
 .margin-top-0 {
   margin-top: 0 !important;
+}
+
+/* MARGINS */
+.margin-0 {
+  margin: 0;
+}
+
+/* OVERFLOW */
+.overflowy-hidden {
+  overflow-y: hidden;
+}
+
+.overflowx-hidden {
+  overflow-x: hidden;
 }
 
 // Override for use of svg's from https://simpleicons.org/
@@ -184,18 +202,19 @@ nav {
 }
 
 .circle {
-  width: 10px;
-  height: 10px;
+  width: 0.6rem;
+  height: 0.6rem;
   border-radius: 50%;
-  color: grey;
-  background-color: grey;
+  background-color: #ffffff80;
+  transition: .25s ease-in-out;
   // margin: 0 20px 0 20px
 }
 
 .square {
-  width: 15px;
-  height: 15px;
+  width: 1rem;
+  height: 1rem;
   background-color: #fff;
+  transition: .25s ease-in-out;
   // margin: 0 20px 0 20px
 }
 
@@ -204,6 +223,7 @@ nav {
 .full-page {
   width: 100vw;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .flex {
