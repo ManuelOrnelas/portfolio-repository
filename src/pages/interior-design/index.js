@@ -3,11 +3,11 @@ import React from 'react'
 import Layout from '../../components/Layout'
 import InteriorDesignRoll from '../../components/InteriorDesignRoll'
 
-export default class BlogIndexPage extends React.Component {
-  render() {
-    
+const InteriorDesignPage = ({data}) => {
+  let color = data.allMarkdownRemark.edges[0].node.frontmatter.pageColor.replace('\\', '');
+
   return (
-      <Layout>
+    <Layout primaryColor={color}>
       <div className='full-page flex-center yellow white-text'>
         <h1 className='huge-text'>Interior Design.</h1>
       </div>
@@ -17,7 +17,22 @@ export default class BlogIndexPage extends React.Component {
           <InteriorDesignRoll />
         </div>
       </div>
-      </Layout>
-    )
-  }
+    </Layout>
+  )
 }
+
+export const query = graphql`
+  query InteriorDesignQuery {
+    allMarkdownRemark(filter: { frontmatter : { templateKey: { eq: "interior-design-post"}}}) {
+      edges {
+        node {
+          frontmatter {
+            pageColor
+          }
+        }
+      }
+    }
+  }
+`
+
+export default InteriorDesignPage

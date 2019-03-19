@@ -1,5 +1,6 @@
 ---
 templateKey: 'index-page'
+pageColor: \#FFD42D
 title: 'Great coffee with a conscience'
 image: /img/home-jumbotron.jpg
 heading: Great coffee with a conscience

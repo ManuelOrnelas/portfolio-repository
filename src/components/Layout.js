@@ -7,7 +7,7 @@ import Footer from '../components/Footer'
 
 import './all.scss'
 
-const TemplateWrapper = ({ children }) => {
+const TemplateWrapper = (props) => {
   return (
     <StaticQuery
       query={graphql`
@@ -60,8 +60,8 @@ const TemplateWrapper = ({ children }) => {
             <meta property="og:url" content="/" />
             <meta property="og:image" content="/img/og-image.jpg" />
           </Helmet>
-          <Navbar />
-          <div>{children}</div>
+          <Navbar color={props.primaryColor ? props.primaryColor : null} />
+          <div>{props.children}</div>
           <Footer />
         </div>
       )}
