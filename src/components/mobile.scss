@@ -1,4 +1,8 @@
 @media (max-width: 920px) {
+  .huge-text {
+    font-size: 6rem;
+  }
+
   #item-list {
     width: 35vw;
   }
@@ -11,6 +15,10 @@
 }
 
 @media (max-width: 450px) {
+  .huge-text {
+    word-break: break-all;
+  }
+
   #item-list {
     right: 0.5rem;
     width: 70vw;
