@@ -33,45 +33,45 @@ export default class Navbar extends React.Component {
         </Link>
         <div id='item-list' className='flex'>
           <Link className="flex justifycontent-center alignitems-center" to="/" data-target="root">
-            <div id="root" className={this.state.path ?
-              (this.state.path === '/' ? 'square' : 'circle')
-              : null
+            <div id="root" className={this.state.path === '/'
+              ? 'square'
+              : 'circle'
             }/>
           </Link>
           <Link className="flex justifycontent-center alignitems-center" to="/sculpture" data-target="sculpture">
-            <div id="sculpture" className={this.state.path ?
-              (this.state.path  === '/sculpture' ? 'square' : 'circle')
-              : null
+            <div id="sculpture" className={this.state.path  === '/sculpture'
+              ? 'square'
+              : 'circle'
             }/>
           </Link>
           <Link className="flex justifycontent-center alignitems-center" to="/graphics-design" data-target="graphics-design">
-            <div id="graphics-design" className={this.state.path ?
-              (this.state.path  === '/graphics-design' ? 'square' : 'circle')
-              : null
+            <div id="graphics-design" className={this.state.path  === '/graphics-design'
+              ? 'square'
+              : 'circle'
             }/>
           </Link>
           <Link className="flex justifycontent-center alignitems-center" to="/product-design" data-target="product-design">
-            <div id="product-design" className={this.state.path ?
-              (this.state.path === '/product-design' ? 'square' : 'circle')
-              : null
+            <div id="product-design" className={this.state.path === '/product-design'
+              ? 'square'
+              : 'circle'
             }/>
           </Link>
           <Link className="flex justifycontent-center alignitems-center" to="/drawing" data-target="drawing">
-            <div id="drawing" className={this.state.path ?
-              (this.state.path === '/drawing' ? 'square' : 'circle')
-              : null
+            <div id="drawing" className={this.state.path === '/drawing'
+              ? 'square'
+              : 'circle'
             }/>
           </Link>
           <Link className="flex justifycontent-center alignitems-center" to="/writing" data-target="writing">
-            <div id="writing" className={this.state.path  ? 
-              (this.state.path === '/writing' ? 'square' : 'circle')
-              : null
+            <div id="writing" className={this.state.path === '/writing'
+              ? 'square'
+              : 'circle'
             }/>
           </Link>
           <Link className="flex justifycontent-center alignitems-center" to="/interior-design" data-target="interior-design">
-            <div id="interior-design" className={this.state.path  ? 
-              (this.state.path === '/interior-design' ? 'square' : 'circle')
-              : null
+            <div id="interior-design" className={this.state.path === '/interior-design'
+              ? 'square'
+              : 'circle'
             }/>
           </Link>
         </div>
