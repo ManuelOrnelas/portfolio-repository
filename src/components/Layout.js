@@ -8,6 +8,9 @@ import Footer from '../components/Footer'
 import './all.scss'
 
 const TemplateWrapper = (props) => {
+  let color = ''
+  if (props.primaryColor) color = props.primaryColor.replace('\\', '')
+
   return (
     <StaticQuery
       query={graphql`
@@ -60,9 +63,12 @@ const TemplateWrapper = (props) => {
             <meta property="og:url" content="/" />
             <meta property="og:image" content="/img/og-image.jpg" />
           </Helmet>
-          <Navbar color={props.primaryColor ? props.primaryColor : null} />
+          <Navbar color={color} />
           <div className='overflowx-hidden'>{props.children}</div>
-          <Footer />
+          {props.footer
+            ? <Footer color={color} />
+            : null
+          }
         </div>
       )}
     />

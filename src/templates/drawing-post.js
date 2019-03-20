@@ -58,7 +58,7 @@ const DrawingPost = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
-    <Layout>
+    <Layout primaryColor={post.frontmatter.pageColor}>
       <DrawingPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
@@ -93,6 +93,7 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
+        pageColor
         date(formatString: "MMMM DD, YYYY")
         title
         description

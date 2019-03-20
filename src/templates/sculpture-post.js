@@ -75,7 +75,6 @@ const SculpturePost = ({ data }) => {
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
       />
-      <p>{post.frontmatter.pageColor}</p>
     </Layout>
   )
 }
@@ -94,11 +93,11 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
+        pageColor
         date(formatString: "MMMM DD, YYYY")
         title
         description
         tags
-        pageColor
       }
     }
   }

@@ -58,7 +58,7 @@ const InteriorDesignPost = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
-    <Layout>
+    <Layout primaryColor={post.frontmatter.pageColor}>
       <InteriorDesignPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
@@ -88,11 +88,12 @@ InteriorDesignPost.propTypes = {
 export default InteriorDesignPost
 
 export const pageQuery = graphql`
-  query InteriorDesignPostByID($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+  query InteriorDesignPostByID($id: String!, $pageKey: String!) {
+    markdownRemark(id: { eq: $id }, frontmatter: { templateKey: { eq: $pageKey } }) {
       id
       html
       frontmatter {
+        pageColor
         date(formatString: "MMMM DD, YYYY")
         title
         description

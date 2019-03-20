@@ -121,7 +121,7 @@ body {
 nav { 
   display: flex;
   justify-content: center;
-  max-height: 4.5rem;
+  height: 4.5rem;
 
   a {
     padding: 0 20px 0 20px;
@@ -271,8 +271,12 @@ $menu-label-color: $white-ter;
 
 .full-page {
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
   overflow-x: hidden;
+}
+
+.full-page:first-of-type {
+  height: calc(100vh - 4.5rem);
 }
 
 .lateral-space {

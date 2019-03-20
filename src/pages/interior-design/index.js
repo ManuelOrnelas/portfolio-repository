@@ -4,7 +4,8 @@ import Layout from '../../components/Layout'
 import InteriorDesignRoll from '../../components/InteriorDesignRoll'
 
 const InteriorDesignPage = ({data}) => {
-  let color = data.allMarkdownRemark.edges[0].node.frontmatter.pageColor.replace('\\', '');
+  let color = ''
+  color = data.allMarkdownRemark.edges[0].node.frontmatter.pageColor.replace('\\', '');
 
   return (
     <Layout primaryColor={color}>

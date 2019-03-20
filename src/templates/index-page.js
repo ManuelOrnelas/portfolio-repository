@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
+import { /*Link,*/ graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
-import Features from '../components/Features'
+//import Features from '../components/Features'
 
 export const IndexPageTemplate = ({
   image,
@@ -15,6 +15,10 @@ export const IndexPageTemplate = ({
   intro,
   main,
 }) => (
+  <div>
+
+  </div>
+  /*
     <div>
         <div
           className="full-width-image margin-top-0"
@@ -107,6 +111,7 @@ export const IndexPageTemplate = ({
     </div>
   </section>
   </div>
+  */
 )
 
 IndexPageTemplate.propTypes = {
@@ -125,7 +130,7 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <Layout>
+    <Layout primaryColor={frontmatter.pageColor} footer={true}>
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
@@ -153,6 +158,7 @@ export const pageQuery = graphql`
 query IndexPageTemplate {
   markdownRemark(frontmatter: {templateKey: {eq: "index-page"}}) {
       frontmatter {
+        pageColor
         title
         image {
           childImageSharp {

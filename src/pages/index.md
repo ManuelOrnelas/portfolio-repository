@@ -1,7 +1,7 @@
 ---
 templateKey: 'index-page'
 pageColor: \#FFD42D
-title: 'Great coffee with a conscience'
+title: 'Intro'
 image: /img/home-jumbotron.jpg
 heading: Great coffee with a conscience
 subheading: Support sustainable farming while enjoying a cup
