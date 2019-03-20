@@ -16,7 +16,9 @@ export const IndexPageTemplate = ({
   main,
 }) => (
   <div>
-
+    <div className='full-page flex justifycontent-center aligncontent-center bcg yellow white-text'>
+      <h1 id='page-title' className='huge-text'>{title}</h1>
+    </div>
   </div>
   /*
     <div>

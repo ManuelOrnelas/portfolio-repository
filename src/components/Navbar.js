@@ -18,6 +18,12 @@ export default class Navbar extends React.Component {
           <img src={logo} alt="NUCABE" style={{ width: '60px' }} />
         </Link>
         <div id='item-list' className='flex'>
+          <Link className="flex justifycontent-center alignitems-center" to="/" data-target="root">
+            <div id="root" className={windowGlobal ?
+              (windowGlobal.location.pathname==='/' ? 'square' : 'circle')
+              : null
+            }/>
+          </Link>
           <Link className="flex justifycontent-center alignitems-center" to="/sculpture" data-target="sculpture">
             <div id="sculpture" className={windowGlobal ?
               (windowGlobal.location.pathname==='/sculpture' ? 'square' : 'circle')
