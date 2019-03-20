@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
 import './all.scss'
+import './mobile.scss'
 
 const TemplateWrapper = (props) => {
   let color = ''

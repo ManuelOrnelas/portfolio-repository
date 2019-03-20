@@ -126,6 +126,10 @@ nav {
   a.logo {
     margin-right: auto;
     margin-left: 1rem;
+
+    img {
+      width: 3.75rem;
+    }
   }
 
   #item-list {
@@ -134,7 +138,7 @@ nav {
     min-width: 25vw;
 
     a {
-      flex-basis: 25%;
+      flex-basis: 15%;
     }
   }
 }

@@ -1,0 +1,18 @@
+@media (max-width: 920px) {
+  #item-list {
+    width: 35vw;
+  }
+}
+
+@media (max-width: 720px) {
+  #item-list {
+    width: 50vw;
+  }
+}
+
+@media (max-width: 450px) {
+  #item-list {
+    right: 0.5rem;
+    width: 70vw;
+  }
+}

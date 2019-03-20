@@ -29,7 +29,7 @@ export default class Navbar extends React.Component {
     return (
       <nav id="navbar" style={{backgroundColor: this.props.color }}>
         <Link to="/" title="Logo" className='logo'>
-          <img src={logo} alt="NUCABE" style={{ width: '60px' }} />
+          <img src={logo} alt="NUCABE" />
         </Link>
         <div id='item-list' className='flex'>
           <Link className="flex justifycontent-center alignitems-center" to="/" data-target="root">
