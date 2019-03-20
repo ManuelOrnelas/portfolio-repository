@@ -123,17 +123,19 @@ nav {
   justify-content: center;
   height: 4.5rem;
 
-  a {
-    padding: 0 20px 0 20px;
-  }
-
   a.logo {
     margin-right: auto;
+    margin-left: 1rem;
   }
 
   #item-list {
     position: absolute;
     height: 4rem;
+    min-width: 25vw;
+
+    a {
+      flex-basis: 25%;
+    }
   }
 }
 
