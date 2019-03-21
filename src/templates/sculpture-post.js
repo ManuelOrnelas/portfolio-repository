@@ -55,25 +55,33 @@ SculpturePostTemplate.propTypes = {
 }
 
 const SculpturePost = ({ data }) => {
-  const { markdownRemark: post } = data
+  // get graphql data
+  let colors = data.colorsQuery.frontmatter.colors
+  let page = data.pageQuery.frontmatter
+
+  // if this color (index) exists use it,
+  // otherwise, use the first color
+  let pageColor = ''
+  if (page.color && colors[page.color - 1]) pageColor = colors[page.color - 1].replace('\\', '')
+  else pageColor = colors[0].replace('\\', '')
 
   return (
-    <Layout primaryColor={post.frontmatter.pageColor}>
+    <Layout primaryColor={pageColor}>
       <SculpturePostTemplate
-        content={post.html}
+        content={page.html}
         contentComponent={HTMLContent}
-        description={post.frontmatter.description}
+        description={page.description}
         helmet={
           <Helmet titleTemplate="%s | Blog">
-            <title>{`${post.frontmatter.title}`}</title>
+            <title>{`${page.title}`}</title>
             <meta
               name="description"
-              content={`${post.frontmatter.description}`}
+              content={`${page.description}`}
             />
           </Helmet>
         }
-        tags={post.frontmatter.tags}
-        title={post.frontmatter.title}
+        tags={page.tags}
+        title={page.title}
       />
     </Layout>
   )
@@ -88,16 +96,22 @@ SculpturePost.propTypes = {
 export default SculpturePost
 
 export const pageQuery = graphql`
-  query SculpturePostByID($id: String!, $pageKey: String!) {
-    markdownRemark(id: { eq: $id }, frontmatter: { templateKey: { eq: $pageKey } }) {
+  query SculpturePost($id: String!, $pageKey: String!) {
+    pageQuery: markdownRemark(id: { eq: $id }, frontmatter: { templateKey: { eq: $pageKey } }) {
       id
       html
       frontmatter {
-        pageColor
+        color
         date(formatString: "MMMM DD, YYYY")
         title
         description
         tags
+      }
+    }
+
+    colorsQuery: markdownRemark(frontmatter: { fileID: { eq: "colors" } }) {
+      frontmatter {
+        colors
       }
     }
   }

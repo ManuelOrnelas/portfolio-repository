@@ -55,25 +55,33 @@ ProductDesignPostTemplate.propTypes = {
 }
 
 const ProductDesignPost = ({ data }) => {
-  const { markdownRemark: post } = data
+  // get graphql data
+  let colors = data.colorsQuery.frontmatter.colors
+  let post = data.postQuery.frontmatter
+
+  // if this color (index) exists use it,
+  // otherwise, use the first color
+  let pageColor = ''
+  if (post.color && colors[post.color - 1]) pageColor = colors[post.color - 1].replace('\\', '')
+  else pageColor = colors[0].replace('\\', '')
 
   return (
-    <Layout primaryColor={post.frontmatter.pageColor}>
+    <Layout primaryColor={pageColor}>
       <ProductDesignPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
-        description={post.frontmatter.description}
+        description={post.description}
         helmet={
           <Helmet titleTemplate="%s | Blog">
-            <title>{`${post.frontmatter.title}`}</title>
+            <title>{`${post.title}`}</title>
             <meta
               name="description"
-              content={`${post.frontmatter.description}`}
+              content={`${post.description}`}
             />
           </Helmet>
         }
-        tags={post.frontmatter.tags}
-        title={post.frontmatter.title}
+        tags={post.tags}
+        title={post.title}
       />
     </Layout>
   )
@@ -81,23 +89,30 @@ const ProductDesignPost = ({ data }) => {
 
 ProductDesignPost.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
+    postQuery: PropTypes.object,
+    colorsQuery: PropTypes.object,
   }),
 }
 
 export default ProductDesignPost
 
 export const pageQuery = graphql`
-  query ProductDesignPostByID($id: String!, $pageKey: String!) {
-    markdownRemark(id: { eq: $id }, frontmatter: { templateKey: { eq: $pageKey } }) {
+  query ProductDesignPost($id: String!, $pageKey: String!) {
+    postQuery: markdownRemark(id: { eq: $id }, frontmatter: { templateKey: { eq: $pageKey } }) {
       id
       html
       frontmatter {
-        pageColor
+        color
         date(formatString: "MMMM DD, YYYY")
         title
         description
         tags
+      }
+    }
+
+    colorsQuery: markdownRemark(frontmatter: { fileID: { eq: "colors" } }) {
+      frontmatter {
+        colors
       }
     }
   }

@@ -10,7 +10,7 @@ import './mobile.scss'
 
 const TemplateWrapper = (props) => {
   let color = ''
-  if (props.primaryColor) color = props.primaryColor.replace('\\', '')
+  if (props.primaryColor) color = props.primaryColor
 
   return (
     <StaticQuery

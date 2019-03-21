@@ -128,20 +128,33 @@ IndexPageTemplate.propTypes = {
   }),
 }
 
-const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+const IndexPage = ({data}) => {
+  // get graphql data
+  let colors = data.colorsQuery.frontmatter.colors
+  let page = data.pageQuery.frontmatter
 
+  // if this color (index) exists use it,
+  // otherwise, use the first color
+  let pageColor = ''
+  if (page.color && colors[page.color - 1]) pageColor = colors[page.color - 1].replace('\\', '')
+  else pageColor = colors[0].replace('\\', '')
+  /*
+  const { page } = data.pageQuery.markdownRemark
+  const { colors } = data.colorsQuery.markdownRemark*/
+
+  // console.log(page)
+  // console.log(colors)
   return (
-    <Layout primaryColor={frontmatter.pageColor} footer={true}>
-      <IndexPageTemplate
-        image={frontmatter.image}
-        title={frontmatter.title}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
-      />
+    <Layout primaryColor={pageColor} footer={true}>
+      {/* <IndexPageTemplate
+        image={page.image}
+        title={page.title}
+        heading={page.heading}
+        subheading={page.subheading}
+        mainpitch={page.mainpitch}
+        description={page.description}
+        intro={page.intro}
+      /> */}
     </Layout>
   )
 }
@@ -157,40 +170,46 @@ IndexPage.propTypes = {
 export default IndexPage
 
 export const pageQuery = graphql`
-query IndexPageTemplate {
-  markdownRemark(frontmatter: {templateKey: {eq: "index-page"}}) {
-      frontmatter {
-        pageColor
-        title
-        image {
-          childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
+query IndexPageTemplate($pageKey: String!) {
+  pageQuery: markdownRemark(frontmatter: {templateKey: {eq: $pageKey}}) {
+    frontmatter {
+      color
+      title
+      image {
+        childImageSharp {
+          fluid(maxWidth: 2048, quality: 100) {
+            ...GatsbyImageSharpFluid
           }
         }
-        heading
-        subheading
-        mainpitch {
-          title
-          description
-        }
+      }
+      heading
+      subheading
+      mainpitch {
+        title
         description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
+      }
+      description
+      intro {
+        blurbs {
+          image {
+            childImageSharp {
+              fluid(maxWidth: 240, quality: 64) {
+                ...GatsbyImageSharpFluid
               }
             }
-            text
           }
-          heading
-          description
+          text
         }
+        heading
+        description
       }
     }
   }
+
+  colorsQuery: markdownRemark(frontmatter: { fileID: { eq: "colors" } }) {
+    frontmatter {
+      colors
+    }
+  }
+}
 `

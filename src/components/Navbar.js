@@ -18,17 +18,9 @@ export default class Navbar extends React.Component {
   }
 
   render() {
-    // fetch color
-    // let color = '';
-    // if (this.props.color) color = this.props.color.replace('\\','')
-    
-    // define window
-    // const windowGlobal = typeof window !== 'undefined' && window;
-    // if(windowGlobal) console.log(windowGlobal.location.pathname)
-
     return (
       <nav id="navbar" style={{backgroundColor: this.props.color }}>
-        <Link to="/" title="Logo" className='logo'>
+        <Link to="/" title="Logo" className='logo flex aligncontent-center'>
           <img src={logo} alt="NUCABE" />
         </Link>
         <div id='item-list' className='flex'>
