@@ -2,8 +2,6 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-import AOS from 'aos'
-
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
@@ -15,9 +13,15 @@ const TemplateWrapper = (props) => {
   let color = ''
   if (props.primaryColor) color = props.primaryColor
 
-  AOS.init({
-    duration: 1000,
-  })
+  // we only want this code to be run if we're running on browser
+  const isBrowser = typeof document !== 'undefined'
+  const AOS = isBrowser ? require('aos') : undefined
+
+  if(AOS) {
+    AOS.init({
+      duration: 1000,
+    })
+  }
 
   return (
     <StaticQuery

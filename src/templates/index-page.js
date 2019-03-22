@@ -18,17 +18,19 @@ export const IndexPageTemplate = ({
 }) => {
 
   function handleArrowClick(event) {
-    let pageRoot = document.querySelector('div#home')
+    if(typeof document !== 'undefined' && document) {
+      let pageRoot = document.querySelector('div#home')
 
-    // get the main section element
-    let el = event.target.closest('.full-page')
+      // get the main section element
+      let el = event.target.closest('.full-page')
 
-    // find out index number of the section div relative to the parent
-    let i = 0;
-    while( (el = el.previousSibling) != null) i++;
+      // find out index number of the section div relative to the parent
+      let i = 0;
+      while( (el = el.previousSibling) != null) i++
 
-    // we want to scroll to the next section so we will select it
-    pageRoot.children[i + 1].scrollIntoView();
+      // we want to scroll to the next section so we will select it
+      pageRoot.children[i + 1].scrollIntoView()
+    }
   }
 
   return (

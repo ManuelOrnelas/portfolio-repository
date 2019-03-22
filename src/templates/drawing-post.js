@@ -16,13 +16,30 @@ export const DrawingPostTemplate = ({
 }) => {
   const PostContent = contentComponent || Content
 
+  function handleArrowClick(event) {
+    if(typeof document !== 'undefined' && document) {
+      let pageRoot = document.querySelector('div#home')
+
+      // get the main section element
+      let el = event.target.closest('.full-page')
+
+      // find out index number of the section div relative to the parent
+      let i = 0;
+      while ((el = el.previousSibling) != null) i++
+
+      // we want to scroll to the next section so we will select it
+      pageRoot.children[i + 1].scrollIntoView()
+    }
+  }
+
   return (
     <section className="section">
       {helmet || ''}
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+            <h1 className="title is-size-2 has-text-weight-bold is-bold-light"
+              data-aos='fade-up' data-aos-delay='0'>
               {title}
             </h1>
             <p>{description}</p>
