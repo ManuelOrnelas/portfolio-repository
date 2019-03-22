@@ -6,6 +6,7 @@ import Layout from '../components/Layout'
 //import Features from '../components/Features'
 
 export const IndexPageTemplate = ({
+  color,
   image,
   title,
   heading,
@@ -14,12 +15,42 @@ export const IndexPageTemplate = ({
   description,
   intro,
   main,
-}) => (
-  <div>
-    <div className='full-page flex justifycontent-center aligncontent-center bcg yellow white-text'>
-      <h1 id='page-title' className='huge-text text-center'>{title}</h1>
+}) => {
+
+  function handleArrowClick(event) {
+    let pageRoot = document.querySelector('div#home')
+
+    // get the main section element
+    let el = event.target.closest('.full-page')
+
+    // find out index number of the section div relative to the parent
+    let i = 0;
+    while( (el = el.previousSibling) != null) i++;
+
+    // we want to scroll to the next section so we will select it
+    pageRoot.children[i + 1].scrollIntoView();
+  }
+
+  return (
+  <div id="home">
+    <div
+      className='full-page'
+      style={{backgroundColor: color}}>
+      <div className='flex justifycontent-center aligncontent-center'>
+        <h1 id='page-title' className='huge-text text-center white-text'
+          data-aos='fade-up' data-aos-delay='0'>{title}</h1>
+      </div>
+
+      <div data-aos='fade-up' data-aos-delay='0' data-aos-offset='0'>
+        <span className="arrow arrow-down bottom-center clickable" onClick={(e) => handleArrowClick(e)}></span>
+      </div>
     </div>
-  </div>
+
+    <div className='full-page'>
+      <div className='flex flex-column'>
+      </div>
+    </div>
+  </div>)
   /*
     <div>
         <div
@@ -114,9 +145,10 @@ export const IndexPageTemplate = ({
   </section>
   </div>
   */
-)
+}
 
 IndexPageTemplate.propTypes = {
+  color: PropTypes.string,
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
   heading: PropTypes.string,
@@ -130,7 +162,7 @@ IndexPageTemplate.propTypes = {
 
 const IndexPage = ({data}) => {
   // get graphql data
-  let colors = data.colorsQuery.frontmatter.colors
+  let { colors } = data.colorsQuery.frontmatter
   let page = data.pageQuery.frontmatter
 
   // if this color (index) exists use it,
@@ -146,7 +178,8 @@ const IndexPage = ({data}) => {
   // console.log(colors)
   return (
     <Layout primaryColor={pageColor} footer={true}>
-      {/* <IndexPageTemplate
+      <IndexPageTemplate
+        color={pageColor}
         image={page.image}
         title={page.title}
         heading={page.heading}
@@ -154,7 +187,7 @@ const IndexPage = ({data}) => {
         mainpitch={page.mainpitch}
         description={page.description}
         intro={page.intro}
-      /> */}
+      /> 
     </Layout>
   )
 }

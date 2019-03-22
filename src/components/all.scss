@@ -18,22 +18,24 @@ $red: #FF6060;
   src: url('/fonts/SofiaProSemiBold.ttf');
 }
 
-body {
-  overflow-x: hidden;
-}
-
 html,
 body {
-  margin: 0
+  margin: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth; 
 }
 
 // COLORS
-.yellow {
-  --color: #FFD42D;
+.white {
+  --color: #fff;
 }
 
-.orange {
-  --color: #FF6060;
+.yellow {
+  --color: #ffd42d;
+}
+
+.red {
+  --color: #ff6060;
 }
 
 // COLOR BEHAVIOR
@@ -111,6 +113,14 @@ body {
   display: flex;
 }
 
+.flex.flex-column {
+  flex-direction: column;
+}
+
+.flex.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .flex.justifycontent-center {
   justify-content: center;
   align-items: center;
@@ -120,6 +130,56 @@ body {
   align-items: center;
 }
 
+// GEOMETRY
+.circle {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background-color: #ffffff80;
+  transition: .25s ease-in-out;
+}
+
+.square {
+  width: 1rem;
+  height: 1rem;
+  background-color: #fff;
+  transition: .25s ease-in-out;
+}
+
+.arrow {
+  --color: #fff;
+
+  display: block;
+  margin: 0 auto;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-width: 0.15rem;
+  border-color: var(--color);
+  border-style: solid;
+  border-radius: 0.125rem;
+  transform: rotate(45deg);
+  cursor: pointer;
+  
+  &.arrow-up {
+    border-right: none;
+    border-bottom: none;
+  }
+
+  &.arrow-down {
+    border-top: none;
+    border-left: none;
+  }
+
+  &.arrow-right {
+    border-bottom: none;
+    border-left: none;
+  }
+
+  &.arrow-left {
+    border-top: none;
+    border-right: none;
+  }
+}
 
 // NAVBAR
 nav { 
@@ -145,23 +205,6 @@ nav {
       flex-basis: 15%;
     }
   }
-}
-
-.circle {
-  width: 0.6rem;
-  height: 0.6rem;
-  border-radius: 50%;
-  background-color: #ffffff80;
-  transition: .25s ease-in-out;
-  // margin: 0 20px 0 20px
-}
-
-.square {
-  width: 1rem;
-  height: 1rem;
-  background-color: #fff;
-  transition: .25s ease-in-out;
-  // margin: 0 20px 0 20px
 }
 
 .navbar-brand .navbar-item.logo {
