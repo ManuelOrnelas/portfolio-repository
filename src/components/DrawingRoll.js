@@ -13,7 +13,7 @@ class DrawingRoll extends React.Component {
         {posts && (posts.map(({ node: post }) => (
           <div className="is-parent column is-6" key={post.id}>
             <Link className="title has-text-primary is-size-4" to={post.fields.slug}>
-              <img src={post.frontmatter.thumbnail.childImageSharp.fluid.src}/>
+              <img src={post.frontmatter.image.childImageSharp.fluid.src}/>
             </Link>
           </div>
         )))}
@@ -46,7 +46,7 @@ export default () => (
               slug
             }
             frontmatter {
-              thumbnail {
+              image {
                 childImageSharp {
                   fluid(maxWidth: 400, maxHeight: 250) {
                     src

@@ -9,7 +9,8 @@ export const InteriorDesignPostTemplate = ({
   content,
   contentComponent,
   description,
-  tags,
+  image,
+  details,
   title,
   helmet,
 }) => {
@@ -21,10 +22,13 @@ export const InteriorDesignPostTemplate = ({
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+            <h1 className="title is-size-2 has-text-weight-bold is-bold-light"
+              data-aos='fade-up' data-aos-delay='0'>
               {title}
             </h1>
+            <img src={image.childImageSharp.fluid.src} alt="Hello" />
             <p>{description}</p>
+            <p>{details}</p>
             <PostContent content={content} />
           </div>
         </div>
@@ -67,8 +71,9 @@ const InteriorDesignPost = ({ data }) => {
             />
           </Helmet>
         }
-        tags={post.tags}
         title={post.title}
+        image={post.image}
+        details={post.details}
       />
     </Layout>
   )
@@ -93,6 +98,14 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         description
+        image {
+          childImageSharp {
+            fluid(maxWidth: 100, maxHeight: 100) {
+              src
+            }
+          }
+        }
+        details
       }
     }
 
