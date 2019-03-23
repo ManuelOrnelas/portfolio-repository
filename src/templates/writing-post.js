@@ -9,7 +9,8 @@ export const WritingPostTemplate = ({
   content,
   contentComponent,
   description,
-  tags,
+  image,
+  details,
   title,
   helmet,
 }) => {
@@ -21,10 +22,13 @@ export const WritingPostTemplate = ({
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+            <h1 className="title is-size-2 has-text-weight-bold is-bold-light"
+              data-aos='fade-up' data-aos-delay='0'>
               {title}
             </h1>
+            <img src={image.childImageSharp.fluid.src} alt="Hello" />
             <p>{description}</p>
+            <p>{details}</p>
             <PostContent content={content} />
           </div>
         </div>
@@ -44,31 +48,32 @@ WritingPostTemplate.propTypes = {
 const WritingPost = ({ data }) => {
   // get graphql data
   let colors = data.colorsQuery.frontmatter.colors
-  let page = data.pageQuery.frontmatter
+  let post = data.pageQuery.frontmatter
 
   // if this color (index) exists use it,
   // otherwise, use the first color
   let pageColor = ''
-  if (page.color && colors[page.color - 1]) pageColor = colors[page.color - 1].replace('\\', '')
+  if (post.color && colors[post.color - 1]) pageColor = colors[post.color - 1].replace('\\', '')
   else pageColor = colors[0].replace('\\', '')
 
   return (
     <Layout primaryColor={pageColor}>
       <WritingPostTemplate
-        content={page.html}
+        content={post.html}
         contentComponent={HTMLContent}
-        description={page.description}
+        description={post.description}
         helmet={
           <Helmet titleTemplate="%s">
-            <title>{`${page.title}`}</title>
+            <title>{`${post.title}`}</title>
             <meta
               name="description"
-              content={`${page.description}`}
+              content={`${post.description}`}
             />
           </Helmet>
         }
-        tags={page.tags}
-        title={page.title}
+        title={post.title}
+        image={post.image}
+        details={post.details}
       />
     </Layout>
   )
@@ -92,6 +97,14 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         description
+        image {
+          childImageSharp {
+            fluid(maxWidth: 100, maxHeight: 100) {
+              src
+            }
+          }
+        }
+        details
       }
     }
 

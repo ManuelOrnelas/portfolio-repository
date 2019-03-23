@@ -9,7 +9,7 @@ export const DrawingPostTemplate = ({
   content,
   contentComponent,
   description,
-  thumbnail,
+  image,
   details,
   title,
   helmet,
@@ -44,7 +44,7 @@ export const DrawingPostTemplate = ({
               data-aos='fade-up' data-aos-delay='0'>
               {title}
             </h1>
-            <img src={thumbnail.childImageSharp.fluid.src} alt="Hello" />
+            <img src={image.childImageSharp.fluid.src} alt="Hello" />
             <p>{description}</p>
             <p>{details}</p>
             <PostContent content={content} />
@@ -90,7 +90,7 @@ const DrawingPost = ({ data }) => {
           </Helmet>
         }
         title={post.title}
-        thumbnail={post.thumbnail}
+        image={post.image}
         details={post.details}
       />
     </Layout>
@@ -116,7 +116,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         description
-        thumbnail {
+        image {
           childImageSharp {
             fluid(maxWidth: 100, maxHeight: 100) {
               src
