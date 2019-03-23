@@ -83,7 +83,7 @@ const SculpturePost = ({ data }) => {
         contentComponent={HTMLContent}
         description={page.description}
         helmet={
-          <Helmet titleTemplate="%s | Blog">
+          <Helmet titleTemplate="%s">
             <title>{`${page.title}`}</title>
             <meta
               name="description"
