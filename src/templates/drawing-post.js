@@ -9,7 +9,8 @@ export const DrawingPostTemplate = ({
   content,
   contentComponent,
   description,
-  tags,
+  illustration,
+  details,
   title,
   helmet,
 }) => {
@@ -43,7 +44,9 @@ export const DrawingPostTemplate = ({
               data-aos='fade-up' data-aos-delay='0'>
               {title}
             </h1>
+            <img src={illustration} alt="Hello" />
             <p>{description}</p>
+            <p>{details}</p>
             <PostContent content={content} />
           </div>
         </div>
@@ -86,8 +89,9 @@ const DrawingPost = ({ data }) => {
             />
           </Helmet>
         }
-        tags={post.tags}
         title={post.title}
+        illustration={post.illustration}
+        details={post.details}
       />
     </Layout>
   )
@@ -112,6 +116,8 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         description
+        illustration
+        details
       }
     }
 
