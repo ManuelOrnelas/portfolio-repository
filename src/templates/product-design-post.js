@@ -3,18 +3,14 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
 
 export const ProductDesignPostTemplate = ({
-  content,
-  contentComponent,
   description,
   image,
   details,
   title,
   helmet,
 }) => {
-  const PostContent = contentComponent || Content
   
   return (
     <section className="section">
@@ -29,7 +25,6 @@ export const ProductDesignPostTemplate = ({
             <img src={image.childImageSharp.fluid.src} alt="Hello" />
             <p>{description}</p>
             <p>{details}</p>
-            <PostContent content={content} />
           </div>
         </div>
       </div>
@@ -38,8 +33,6 @@ export const ProductDesignPostTemplate = ({
 }
 
 ProductDesignPostTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.object,
@@ -59,8 +52,6 @@ const ProductDesignPost = ({ data }) => {
   return (
     <Layout primaryColor={pageColor}>
       <ProductDesignPostTemplate
-        content={post.html}
-        contentComponent={HTMLContent}
         description={post.description}
         helmet={
           <Helmet titleTemplate="%s">
@@ -92,7 +83,6 @@ export const pageQuery = graphql`
   query ProductDesignPost($id: String!, $pageKey: String!) {
     postQuery: markdownRemark(id: { eq: $id }, frontmatter: { templateKey: { eq: $pageKey } }) {
       id
-      html
       frontmatter {
         color
         date(formatString: "MMMM DD, YYYY")
