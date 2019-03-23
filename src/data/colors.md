@@ -5,7 +5,7 @@ colors:
  - \#fa4a4d # Red
  - \#4bb4fe # Cyan
  - \#fa9bbc # Rose
- - \#7b7b7b # Green
+ - \#5cd657 # Green
  - \#fea529 # Orange
  - \#964dfe # Purple
 ---
