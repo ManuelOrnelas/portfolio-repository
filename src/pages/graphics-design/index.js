@@ -50,7 +50,7 @@ class GraphicsDesignPage extends React.Component {
             style={{backgroundColor: this.state.pageColor}}>
             <div className='flex justifycontent-center aligncontent-center'>
               <h1 id='page-title' className='text-center huge-text white-text'
-                data-aos='fade-up' data-aos-delay='0'>Graphics Design.</h1>
+                data-aos='fade-up' data-aos-delay='0'>Graphic.</h1>
             </div>
 
             <div data-aos='fade-up' data-aos-delay='0' data-aos-offset='0'>

@@ -57,6 +57,12 @@ export default class Navbar extends React.Component {
               : 'circle'
             }/>
           </Link>
+          <Link className="flex justifycontent-center alignitems-center" to="/interior-design" data-target="interior-design">
+            <div id="interior-design" className={section.includes('interior-design')
+              ? 'square'
+              : 'circle'
+            } />
+          </Link>
           <Link className="flex justifycontent-center alignitems-center" to="/drawing" data-target="drawing">
             <div id="drawing" className={section.includes('drawing')
               ? 'square'
@@ -65,12 +71,6 @@ export default class Navbar extends React.Component {
           </Link>
           <Link className="flex justifycontent-center alignitems-center" to="/writing" data-target="writing">
             <div id="writing" className={section.includes('writing')
-              ? 'square'
-              : 'circle'
-            }/>
-          </Link>
-          <Link className="flex justifycontent-center alignitems-center" to="/interior-design" data-target="interior-design">
-            <div id="interior-design" className={section.includes('interior-design')
               ? 'square'
               : 'circle'
             }/>

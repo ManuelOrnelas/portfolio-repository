@@ -49,7 +49,7 @@ class InteriorDesignPage extends React.Component {
             style={{backgroundColor: this.state.pageColor}}>
             <div className='flex justifycontent-center alignitems-center'>
               <h1 id='page-title' className='text-center huge-text white-text'
-                data-aos='fade-up' data-aos-delay='0' data-aos-offset='0'>Interior Design.</h1>
+                data-aos='fade-up' data-aos-delay='0' data-aos-offset='0'>Interior.</h1>
             </div>
 
             <div data-aos='fade-up' data-aos-delay='0' data-aos-offset='0'>
