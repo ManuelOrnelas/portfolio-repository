@@ -7,7 +7,7 @@ class DrawingRoll extends React.Component {
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
-    
+
     return (
       <div className="columns is-multiline">
       {posts && (posts
@@ -19,8 +19,7 @@ class DrawingRoll extends React.Component {
             <article className="tile is-child box notification">
               <p>
                 <Link className="title has-text-primary is-size-4" to={post.fields.slug}>
-                  {post.frontmatter.thumbnail}
-                  <img src={post.frontmatter.thumbnail}/>
+                  <img src={post.frontmatter.thumbnail.childImageSharp.fluid.src}/>
                 </Link>
                 <span> &bull; </span>
                 <span className="subtitle is-size-5 is-block">{post.frontmatter.date}</span>
@@ -65,7 +64,13 @@ export default () => (
               slug
             }
             frontmatter {
-              thumbnail
+              thumbnail {
+                childImageSharp {
+                  fluid(maxWidth: 400, maxHeight: 250) {
+                    src
+                  }
+                }
+              }
             }
           }
         }
