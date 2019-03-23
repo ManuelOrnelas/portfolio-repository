@@ -1,5 +1,5 @@
 ---
-templateKey: 'index-page'
+templateKey: index-page
 color: 1
 title: Intro.
 image: /img/home-jumbotron.jpg

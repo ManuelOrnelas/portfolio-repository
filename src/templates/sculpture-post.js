@@ -1,49 +1,60 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
-export const SculpturePostTemplate = ({
-  content,
-  contentComponent,
-  description,
-  tags,
-  title,
-  helmet,
-}) => {
-  const PostContent = contentComponent || Content
+export class SculpturePostTemplate extends React.Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <section className="section">
-      {helmet || ''}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
-            <PostContent content={content} />
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className="taglist">
-                  {tags.map(tag => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
+    let { content, contentComponent, description, tags, title, helmet } = this.props
+
+    this.state = {
+      helmet,
+      title,
+      description,
+      tags,
+      postContent: contentComponent || Content,
+      content,
+    }
+  }
+
+  handleArrowClick = (event) => {
+    if(typeof document !== 'undefined' && document) {
+      let pageRoot = document.querySelector('div#home')
+
+      // get the main section element
+      let el = event.target.closest('.full-page')
+
+      // find out index number of the section div relative to the parent
+      let i = 0;
+      while( (el = el.previousSibling) != null) i++
+
+      // we want to scroll to the next section so we will select it
+      if(pageRoot.children[i + 1]) pageRoot.children[i + 1].scrollIntoView()
+    }
+  }
+
+  render() {
+    return (
+      <section className="section">
+        {this.state.helmet || ''}
+        <div className="container content">
+          <div className="columns">
+            <div className="column is-10 is-offset-1">
+              <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+                {this.state.title}
+              </h1>
+              <p>{this.state.description}</p>
+              <this.state.postContent content={this.state.content} />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  )
+      </section>
+    )
+  }
 }
 
 SculpturePostTemplate.propTypes = {
@@ -105,7 +116,6 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         description
-        tags
       }
     }
 

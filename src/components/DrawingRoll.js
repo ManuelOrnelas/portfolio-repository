@@ -19,7 +19,8 @@ class DrawingRoll extends React.Component {
             <article className="tile is-child box notification">
               <p>
                 <Link className="title has-text-primary is-size-4" to={post.fields.slug}>
-                  {post.frontmatter.title}
+                  {post.frontmatter.thumbnail}
+                  <img src={post.frontmatter.thumbnail}/>
                 </Link>
                 <span> &bull; </span>
                 <span className="subtitle is-size-5 is-block">{post.frontmatter.date}</span>
@@ -64,9 +65,7 @@ export default () => (
               slug
             }
             frontmatter {
-              title
-              templateKey
-              date(formatString: "MMMM DD, YYYY")
+              thumbnail
             }
           }
         }

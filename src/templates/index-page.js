@@ -1,23 +1,32 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { /*Link,*/ graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 //import Features from '../components/Features'
 
-export const IndexPageTemplate = ({
-  color,
-  image,
-  title,
-  heading,
-  subheading,
-  mainpitch,
-  description,
-  intro,
-  main,
-}) => {
+export class IndexPageTemplate extends React.Component {
+  constructor(props) {
+    super(props)
 
-  function handleArrowClick(event) {
+    // fetch all data from the props
+    let { color, image,title, heading, subheading, mainpitch, description, intro, main } = this.props
+
+    this.state = {
+      color,
+      secondaryColor: '',
+      image,
+      title,
+      heading,
+      subheading,
+      mainpitch,
+      description,
+      intro,
+      main
+    }
+  }
+
+  handleArrowClick = (event) => {
     if(typeof document !== 'undefined' && document) {
       let pageRoot = document.querySelector('div#home')
 
@@ -29,30 +38,28 @@ export const IndexPageTemplate = ({
       while( (el = el.previousSibling) != null) i++
 
       // we want to scroll to the next section so we will select it
-      pageRoot.children[i + 1].scrollIntoView()
+      if(pageRoot.children[i + 1]) pageRoot.children[i + 1].scrollIntoView()
     }
   }
 
-  return (
-  <div id="home">
-    <div
-      className='full-page'
-      style={{backgroundColor: color}}>
-      <div className='flex justifycontent-center aligncontent-center'>
-        <h1 id='page-title' className='huge-text text-center white-text'
-          data-aos='fade-up' data-aos-delay='0'>{title}</h1>
+  render() {
+    return (
+      <div id="home">
+        <div
+          className='full-page'
+          style={{backgroundColor: this.state.color}}>
+          <div className='flex justifycontent-center aligncontent-center'>
+            <h1 id='page-title' className='huge-text text-center white-text'
+              data-aos='fade-up' data-aos-delay='0'>{this.state.title}</h1>
+          </div>
+  
+          <div data-aos='fade-up' data-aos-delay='0' data-aos-offset='0'>
+            <span className="arrow arrow-down bottom-center clickable" onClick={this.handleArrowClick}></span>
+          </div>
+        </div>
       </div>
-
-      <div data-aos='fade-up' data-aos-delay='0' data-aos-offset='0'>
-        <span className="arrow arrow-down bottom-center clickable" onClick={(e) => handleArrowClick(e)}></span>
-      </div>
-    </div>
-
-    <div className='full-page'>
-      <div className='flex flex-column'>
-      </div>
-    </div>
-  </div>)
+    )
+  }
   /*
     <div>
         <div
@@ -162,7 +169,7 @@ IndexPageTemplate.propTypes = {
   }),
 }
 
-const IndexPage = ({data}) => {
+export const IndexPage = ({data}) => {
   // get graphql data
   let { colors } = data.colorsQuery.frontmatter
   let page = data.pageQuery.frontmatter
@@ -179,7 +186,7 @@ const IndexPage = ({data}) => {
   // console.log(page)
   // console.log(colors)
   return (
-    <Layout primaryColor={pageColor} footer={true}>
+    <Layout primaryColor={pageColor}>
       <IndexPageTemplate
         color={pageColor}
         image={page.image}
