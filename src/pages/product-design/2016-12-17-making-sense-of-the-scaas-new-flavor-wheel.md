@@ -1,9 +1,7 @@
 ---
 templateKey: product-design-post
-color: 4
 title: Exemplo Product Design
 date: 2016-12-17T15:04:10.000Z
-image: /img/thumbnail.png
 description: This is just a small example of product design
-details: Product. 99x99. 12/2010
 ---
+![123123](https://raw.githubusercontent.com/ManuelOrnelas/portfolio/master/static/img/blog-index.jpg "123123")
