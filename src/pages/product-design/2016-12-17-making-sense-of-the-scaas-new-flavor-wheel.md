@@ -1,6 +1,6 @@
 ---
 templateKey: product-design-post
-color: 2
+color: 4
 title: Exemplo Sculpture
 date: 2016-12-17T15:04:10.000Z
 image: /img/thumbnail.png
