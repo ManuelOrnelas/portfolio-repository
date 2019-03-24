@@ -8,4 +8,5 @@ colors:
  - \#5cd657 # Green
  - \#fea529 # Orange
  - \#964dfe # Purple
+ - \#e7eeed # Grey
 ---
