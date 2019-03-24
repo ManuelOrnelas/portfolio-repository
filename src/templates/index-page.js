@@ -45,9 +45,7 @@ export class IndexPageTemplate extends React.Component {
   render() {
     return (
       <div id="home">
-        <div
-          className='full-page'
-          style={{backgroundColor: this.state.color}}>
+        <div className='full-page' style={{backgroundColor: this.state.color}}>
           <div className='flex justifycontent-center aligncontent-center'>
             <h1 id='page-title' className='huge-text text-center white-text'
               data-aos='fade-up' data-aos-delay='0'>{this.state.title}</h1>
@@ -56,6 +54,39 @@ export class IndexPageTemplate extends React.Component {
           <div data-aos='fade-up' data-aos-delay='0' data-aos-offset='0'>
             <span className="arrow arrow-down bottom-center clickable" onClick={this.handleArrowClick}></span>
           </div>
+        </div>
+        <div className='full-page-minimum grey'>
+          <h1>Nucabé</h1>
+          <p>Pessoa com muita vontade de experimentar coisas novas, 20 anos e a contar, rabeta.</p>
+          <p>Lorem ipsum pila lorem ipsum pila ipsum pila lorem ipsum pila ipsum pila lorem ipsum pila</p>
+        </div>
+        <div className='full-page-minimum grey'>
+          <h1>Historical line</h1>
+          <h2>Pre-Academic</h2>
+          <ul>
+            <li>1998 Born in Terceira Island</li>
+            <li>2016 Participation in MITO's art installation exhibition</li>
+            <li>2016 Changed Course from Sculpture to Equipment Design</li>
+            <li>2017 Sent 2 Medals for the New Ideas in Medallic Sculpture exhibition in Japan</li> 
+          </ul>
+        </div>
+        <div className='full-page-minimum grey'>
+          <h1>News</h1>
+          <div>
+            <img src="/img/thumbnail.jpg" />
+            <h1>Sent 2 dicks to Mateus</h1>
+            <p>This is a small description of what happened</p>
+          </div>  
+          <div>
+            <img src="/img/thumbnail.jpg" />
+            <h1>Sent 2 dicks to Mateus</h1>
+            <p>This is a small description of what happened</p>
+          </div> 
+          <div>
+            <img src="/img/thumbnail.jpg" />
+            <h1>Sent 2 dicks to Mateus</h1>
+            <p>This is a small description of what happened</p>
+          </div> 
         </div>
       </div>
     )
