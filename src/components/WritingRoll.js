@@ -9,13 +9,11 @@ class WritingRoll extends React.Component {
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-      <div className="columns is-multiline">
+      <div>
         {posts && (posts.map(({ node: post }) => (
-          <div className="is-parent column is-6" key={post.id}>
-            <Link className="title has-text-primary is-size-4" to={post.fields.slug}>
-              <img src={post.frontmatter.image.childImageSharp.fluid.src}/>
-            </Link>
-          </div>
+          <Link className="title has-text-primary is-size-4" to={post.fields.slug}>
+            <img src={post.frontmatter.image.childImageSharp.fluid.src}/>
+          </Link>
         )))}
       </div>
     );
