@@ -325,7 +325,11 @@ $menu-label-color: $white-ter;
 .full-page {
   width: 100vw;
   height: 100vh;
-  overflow-x: hidden;
+}
+
+.full-page-minimum {
+  min-width: 100vw;
+  min-height: 100vh;
 }
 
 .full-page:first-of-type {
