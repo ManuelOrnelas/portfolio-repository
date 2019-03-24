@@ -57,7 +57,7 @@ class InteriorDesignPage extends React.Component {
               </div>
           </div>
 
-          <div className='full-page-minimum'>
+          <div className='full-page-minimum grey'>
             <div className='lateral-space'>
               <h1 className='projects'>Projects.</h1>
               <InteriorDesignRoll />

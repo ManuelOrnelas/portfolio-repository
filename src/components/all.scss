@@ -345,6 +345,7 @@ $menu-label-color: $white-ter;
 }
 
 .projects {
+  margin: 0;
   font-size: 72px;
   padding-top: 20vh;
   padding-bottom: 36px;
@@ -366,4 +367,9 @@ $menu-label-color: $white-ter;
   padding-top: 100px;
   width: 50%;
   float: right;
+}
+
+.thumbnail {
+  border-radius: 5px;
+  margin: 3px 5px 3px 5px;
 }

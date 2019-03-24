@@ -12,7 +12,7 @@ class DrawingRoll extends React.Component {
       <div>
         {posts && (posts.map(({ node: post }) => (
           <Link className="title has-text-primary is-size-4" to={post.fields.slug}>
-            <img src={post.frontmatter.image.childImageSharp.fluid.src}/>
+            <img className="thumbnail" src={post.frontmatter.image.childImageSharp.fluid.src}/>
           </Link>
         )))}
       </div>
