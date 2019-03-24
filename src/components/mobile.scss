@@ -6,6 +6,7 @@
   #item-list {
     width: 35vw;
   }
+
 }
 
 @media (max-width: 720px) {
@@ -14,6 +15,15 @@
   }
   .logo {
     display: none;
+  }
+  .left {
+    padding-top: 25px;
+    width: 100%;
+  }
+
+  .right {
+    padding-top: 25px;
+    width: 100%
   }
 }
 

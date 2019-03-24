@@ -46,7 +46,7 @@ export default () => (
             frontmatter {
               image {
                 childImageSharp {
-                  fluid(maxWidth: 400, maxHeight: 250) {
+                  fluid(maxWidth: 150, maxHeight: 150) {
                     src
                   }
                 }

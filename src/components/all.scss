@@ -355,3 +355,15 @@ $menu-label-color: $white-ter;
 .full-page h1#page-title {
   font-family: "Sofia Pro SemiBold";
 }
+
+.left {
+  padding-top: 100px;
+  width: 50%;
+  float: left;
+}
+
+.right {
+  padding-top: 100px;
+  width: 50%;
+  float: right;
+}
