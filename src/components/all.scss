@@ -189,20 +189,23 @@ body {
 nav { 
   display: flex;
   justify-content: center;
-  height: 4.5rem;
+  height: 5.5rem;
 
   a.logo {
-    margin-right: auto;
-    margin-left: 1rem;
+    // margin-right: auto;
+    // margin-left: 2rem;
+    position: absolute;
+    left: 30px;
+    top: 6px;
 
     img {
-      width: 3.75rem;
+      width: 10rem;
     }
   }
 
   #item-list {
     position: absolute;
-    height: 4.5rem;
+    height: 5.5rem;
     min-width: 25vw;
 
     a {
