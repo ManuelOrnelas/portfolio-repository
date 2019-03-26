@@ -9,4 +9,5 @@ colors:
  - \#fea529 # Orange
  - \#964dfe # Purple
  - \#e7eeed # Grey
+postColor: \#e7eeed
 ---

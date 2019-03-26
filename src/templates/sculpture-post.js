@@ -43,17 +43,20 @@ SculpturePostTemplate.propTypes = {
 
 const SculpturePost = ({ data }) => {
   // get graphql data
-  let colors = data.colorsQuery.frontmatter.colors
+  let { colors, postColor } = data.colorsQuery.frontmatter
   let post = data.pageQuery.frontmatter
+
+  // parse post color code
+  postColor = postColor.replace('\\', '')
 
   // if this color (index) exists use it,
   // otherwise, use the first color
-  let pageColor = ''
-  if (post.color && colors[post.color - 1]) pageColor = colors[post.color - 1].replace('\\', '')
-  else pageColor = colors[0].replace('\\', '')
+  let sectionColor = ''
+  if (post.color && colors[post.color - 1]) sectionColor = colors[post.color - 1].replace('\\', '')
+  else sectionColor = colors[0].replace('\\', '')
 
   return (
-    <Layout primaryColor={pageColor}>
+    <Layout primaryColor={sectionColor} postColor={postColor}>
       <SculpturePostTemplate
         description={post.description}
         helmet={
@@ -104,6 +107,7 @@ export const pageQuery = graphql`
     colorsQuery: markdownRemark(frontmatter: { fileID: { eq: "colors" } }) {
       frontmatter {
         colors
+        postColor
       }
     }
   }

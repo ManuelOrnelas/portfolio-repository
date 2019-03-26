@@ -137,14 +137,13 @@ body {
   width: 0.6rem;
   height: 0.6rem;
   border-radius: 50%;
-  background-color: #ffffff80;
+  background-color: #ffffff50;
   transition: .25s ease-in-out;
 }
 
 .square {
   width: 1rem;
   height: 1rem;
-  background-color: #fff;
   transition: .25s ease-in-out;
 }
 
@@ -208,6 +207,14 @@ nav {
 
     a {
       flex-basis: 15%;
+
+      .square {
+        background-color: var(--activeColor);
+      }
+
+      .circle {
+        background-color: var(--inactiveColor);
+      }
     }
   }
 }

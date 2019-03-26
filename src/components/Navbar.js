@@ -18,25 +18,34 @@ export default class Navbar extends React.Component {
   }
 
   render() {
-    let urlParts = this.state.path.split('/')
-
     // get setcion from URL pathname
-    let section = ''
-
+    let urlParts = this.state.path.split('/'),
+      section = ''
     // if the URL parts array is bigger than 1
     // then it means the URL is different than "/"
     if(urlParts.length > 1) section = urlParts[1]
 
+    // if postColor is set on props obj
+    // then this is a post
+    let isPost = false
+    if(this.props.postColor) isPost = true 
+    
+    console.log(this.props)
     return (
-      <nav id="navbar" style={{backgroundColor: this.props.color }}>
+      <nav id="navbar" style={{backgroundColor: (isPost ? this.props.postColor : this.props.color)}}>
+        {/* LOGO */}
         <Link to="/" title="Logo" className='logo flex aligncontent-center'>
-          <img src={logo} alt="NUCABE" />
+          <img src={logo} alt="NUCABE" style={{fill: (isPost ? 'black' : undefined)}}/>
         </Link>
-        <div id='item-list' className='flex'>
+
+        <div id='item-list' className='flex' style={{
+          '--activeColor': (isPost ? this.props.color : '#fff'), 
+          '--inactiveColor': (isPost ? 'rgba(55,51,34, .6)' : '#ffffff50')
+          }}>
           <Link className="flex justifycontent-center alignitems-center" to="/" data-target="root">
-            <div id="root" className={this.state.path === '/'
+            <div id="root" className={(this.state.path === '/'
               ? 'square'
-              : 'circle'
+              : 'circle')
             }/>
           </Link>
           <Link className="flex justifycontent-center alignitems-center" to="/sculpture" data-target="sculpture">

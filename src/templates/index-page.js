@@ -75,17 +75,17 @@ export class IndexPageTemplate extends React.Component {
         <div className='full-page-minimum'>
           <h1>News</h1>
           <div>
-            <img src="/img/thumbnail.jpg" />
+            <img alt='Thumbnail' src="/img/thumbnail.jpg" />
             <h1>Sent 2 dicks to Mateus</h1>
             <p>This is a small description of what happened</p>
           </div>  
           <div>
-            <img src="/img/thumbnail.jpg" />
+            <img alt='Thumbnail'  src="/img/thumbnail.jpg" />
             <h1>Sent 2 dicks to Mateus</h1>
             <p>This is a small description of what happened</p>
           </div> 
           <div>
-            <img src="/img/thumbnail.jpg" />
+            <img alt='Thumbnail' src="/img/thumbnail.jpg" />
             <h1>Sent 2 dicks to Mateus</h1>
             <p>This is a small description of what happened</p>
           </div> 

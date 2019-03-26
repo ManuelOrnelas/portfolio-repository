@@ -43,9 +43,12 @@ InteriorDesignPostTemplate.propTypes = {
 
 const InteriorDesignPost = ({ data }) => {
   // get graphql data
-  let { colors } = data.colorsQuery.frontmatter
+  let { colors, postColor } = data.colorsQuery.frontmatter
   let post = data.postQuery.frontmatter
 
+  // parse post color code
+  postColor = postColor.replace('\\', '')
+  
   // if this color (index) exists use it,
   // otherwise, use the first color
   let pageColor = ''
@@ -53,7 +56,7 @@ const InteriorDesignPost = ({ data }) => {
   else pageColor = colors[0].replace('\\', '')
 
   return (
-    <Layout primaryColor={pageColor}>
+    <Layout primaryColor={pageColor} postColor={postColor}>
       <InteriorDesignPostTemplate
         description={post.description}
         helmet={
@@ -105,6 +108,7 @@ export const pageQuery = graphql`
     colorsQuery: markdownRemark(frontmatter: { fileID: { eq: "colors" } }) {
       frontmatter {
         colors
+        postColor
       }
     }
   }

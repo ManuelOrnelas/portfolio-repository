@@ -43,8 +43,11 @@ WritingPostTemplate.propTypes = {
 
 const WritingPost = ({ data }) => {
   // get graphql data
-  let colors = data.colorsQuery.frontmatter.colors
+  let { colors, postColor } = data.colorsQuery.frontmatter
   let post = data.pageQuery.frontmatter
+
+  // parse post color code
+  postColor = postColor.replace('\\', '')
 
   // if this color (index) exists use it,
   // otherwise, use the first color
@@ -53,7 +56,7 @@ const WritingPost = ({ data }) => {
   else pageColor = colors[0].replace('\\', '')
 
   return (
-    <Layout primaryColor={pageColor}>
+    <Layout primaryColor={pageColor} postColor={postColor}>
       <WritingPostTemplate
         description={post.description}
         helmet={
@@ -104,6 +107,7 @@ export const pageQuery = graphql`
     colorsQuery: markdownRemark(frontmatter: { fileID: { eq: "colors" } }) {
       frontmatter {
         colors
+        postColor
       }
     }
   }
