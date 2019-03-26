@@ -27,7 +27,7 @@
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 470px) {
   .huge-text {
     font-size: 4rem;
     word-break: break-all;
@@ -35,5 +35,9 @@
 
   #item-list {
     width: 90vw;
+  }
+
+  .lateral-space {
+    padding: 0 10vw 0 10vw;
   }
 }
