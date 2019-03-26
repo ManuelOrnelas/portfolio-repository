@@ -11,12 +11,12 @@ export const DrawingPostTemplate = ({
   title,
   helmet,
 }) => {
-
+  
   return (
     <section className="section">
       {helmet || ''}
       <div className="left">
-        <div className="flex justifycontent-center aligncontent-center">
+        <div className="flex justifycontent-center aligncontent-center slight-left">
         <div>
           <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
             {title}
@@ -27,7 +27,7 @@ export const DrawingPostTemplate = ({
         </div>
       </div>
       <div className="right">
-        <div className="flex justifycontent-center aligncontent-center">
+        <div className="flex justifycontent-center aligncontent-center slight-right">
           <img src={image.childImageSharp.fluid.src} alt="Hello" />
         </div>
       </div>
