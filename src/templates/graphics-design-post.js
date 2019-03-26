@@ -18,8 +18,7 @@ export const GraphicsDesignPostTemplate = ({
       <div className="left">
         <div className="flex justifycontent-center aligncontent-center">
         <div>
-          <h1 className="title is-size-2 has-text-weight-bold is-bold-light"
-            data-aos='fade-up' data-aos-delay='0'>
+          <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
             {title}
           </h1>
           <p>{description}</p>
