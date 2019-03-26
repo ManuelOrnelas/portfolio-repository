@@ -27,6 +27,12 @@
   }
 }
 
+@media (max-width: 540px) {
+  .lateral-space {
+    padding: 0 10vw 0 10vw;
+  }
+}
+
 @media (max-width: 470px) {
   .huge-text {
     font-size: 4rem;
@@ -35,9 +41,5 @@
 
   #item-list {
     width: 90vw;
-  }
-
-  .lateral-space {
-    padding: 0 10vw 0 10vw;
   }
 }

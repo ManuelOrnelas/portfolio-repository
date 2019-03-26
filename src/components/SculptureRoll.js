@@ -9,7 +9,7 @@ class SculptureRoll extends React.Component {
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-      <div>
+      <div className='thumbnail-gallery'>
         {posts && (posts.map(({ node: post }) => (
           <Link className="title has-text-primary is-size-4" to={post.fields.slug}>
             <img className="thumbnail" src={post.frontmatter.image.childImageSharp.fluid.src}/>
