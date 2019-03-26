@@ -11,23 +11,6 @@ export const DrawingPostTemplate = ({
   title,
   helmet,
 }) => {
-  /*
-  function handleArrowClick(event) {
-    if(typeof document !== 'undefined' && document) {
-      let pageRoot = document.querySelector('div#home')
-
-      // get the main section element
-      let el = event.target.closest('.full-page')
-
-      // find out index number of the section div relative to the parent
-      let i = 0;
-      while ((el = el.previousSibling) != null) i++
-
-      // we want to scroll to the next section so we will select it
-      pageRoot.children[i + 1].scrollIntoView()
-    }
-  }
-  */
 
   return (
     <section className="section">
