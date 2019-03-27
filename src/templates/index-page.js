@@ -64,15 +64,25 @@ export class IndexPageTemplate extends React.Component {
         </div>
 
         <div className='full-page-minimum' style={{backgroundColor: this.state.color}}>
-          <div className='historical-line'>
-            <h1>Historical line</h1>
-            <h2>Pre-Academic</h2>
-            <ul>
-              <li>1998 Born in Terceira Island</li>
-              <li>2016 Participation in MITO's art installation exhibition</li>
-              <li>2016 Changed Course from Sculpture to Equipment Design</li>
-              <li>2017 Sent 2 Medals for the New Ideas in Medallic Sculpture exhibition in Japan</li> 
-            </ul>
+          <div className='historical-left'>
+            <div className='historical-line'>
+              <div className='white-circle'></div>
+              <div className='white-circle'></div>
+              <div className='white-circle'></div>
+              <div className='white-circle'></div>
+            </div>
+          </div>
+          <div className='historical-right'>
+            <div className='historical-line-text'>
+              <h1>Historical line</h1>
+              <h2>Pre-Academic</h2>
+              <ul>
+                <li>1998  Born in Terceira Island</li>
+                <li>2016  Participation in MITO's art installation exhibition</li>
+                <li>2016  Changed Course from Sculpture to Equipment Design</li>
+                <li>2017  Sent 2 Medals for the New Ideas in Medallic Sculpture exhibition in Japan</li>
+              </ul>
+            </div>
           </div>
         </div>
 
