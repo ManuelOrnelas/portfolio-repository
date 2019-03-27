@@ -39,8 +39,8 @@ export default class Navbar extends React.Component {
         </Link>
 
         <div id='item-list' className='flex' style={{
-          '--activeColor': (isPost ? this.props.color : '#fff'), 
-          '--inactiveColor': (isPost ? 'rgba(55,51,34, .6)' : '#ffffff50')
+          '--active-color': (isPost ? this.props.color : '#fff'), 
+          '--inactive-color': (isPost ? 'rgba(55,51,34, .6)' : '#ffffff50')
           }}>
           <Link className="flex justifycontent-center alignitems-center" to="/" data-target="root">
             <div id="root" className={(this.state.path === '/'
