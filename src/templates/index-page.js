@@ -44,8 +44,8 @@ export class IndexPageTemplate extends React.Component {
 
   render() {
     return (
-      <div id="home">
-        <div className='full-page' style={{backgroundColor: this.state.color}}>
+      <div id='home'>
+        <div className='full-page' style={{backgroundColor: this.state.color}}> 
           <div className='flex justifycontent-center aligncontent-center'>
             <h1 id='page-title' className='huge-text text-center white-text'
               data-aos='fade-up' data-aos-delay='0'>{this.state.title}</h1>
@@ -63,7 +63,7 @@ export class IndexPageTemplate extends React.Component {
           </div>
         </div>
 
-        <div className='full-page-minimum'>
+        <div className='full-page-minimum' style={{backgroundColor: this.state.color}}>
           <div className='historical-line'>
             <h1>Historical line</h1>
             <h2>Pre-Academic</h2>

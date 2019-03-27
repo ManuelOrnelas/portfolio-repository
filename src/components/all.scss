@@ -27,6 +27,12 @@ body {
   background-color: #e7eeed;
 }
 
+// ALL TEXT
+
+h1, h2, p, li {
+  color: #353535
+}
+
 // COLORS
 .white {
   --color: #fff;
@@ -420,5 +426,20 @@ $menu-label-color: $white-ter;
 }
 
 .historical-line {
-  padding: 30vh 0 10vh 5vh;
+  padding: 25vh 0 10vh 5vh;
+
+  h1 {
+    font-size: 72px;
+    color: white;
+  }
+
+  h2 {
+
+  }
+
+  ul {
+    list-style-type: none;
+    padding-inline-start: 0;
+  }
+
 }
