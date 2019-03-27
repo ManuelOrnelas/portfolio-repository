@@ -56,39 +56,45 @@ export class IndexPageTemplate extends React.Component {
         </div>
 
         <div className='full-page-minimum'>
-          <h1>Nucabé</h1>
-          <p>Pessoa com muita vontade de experimentar coisas novas, 20 anos e a contar, rabeta.</p>
-          <p>Lorem ipsum pila lorem ipsum pila ipsum pila lorem ipsum pila ipsum pila lorem ipsum pila</p>
+          <div className='who-and-why'> 
+            <h1>Nucabé.</h1>
+            <p>Pessoa com muita vontade de experimentar coisas novas, 20 anos e a contar, rabeta.</p>
+            <p className='bio'>Lorem ipsum pila lorem ipsum pila ipsum pila lorem ipsum pila ipsum pila lorem ipsum pila</p>
+          </div>
         </div>
 
         <div className='full-page-minimum'>
-          <h1>Historical line</h1>
-          <h2>Pre-Academic</h2>
-          <ul>
-            <li>1998 Born in Terceira Island</li>
-            <li>2016 Participation in MITO's art installation exhibition</li>
-            <li>2016 Changed Course from Sculpture to Equipment Design</li>
-            <li>2017 Sent 2 Medals for the New Ideas in Medallic Sculpture exhibition in Japan</li> 
-          </ul>
+          <div className='historical-line'>
+            <h1>Historical line</h1>
+            <h2>Pre-Academic</h2>
+            <ul>
+              <li>1998 Born in Terceira Island</li>
+              <li>2016 Participation in MITO's art installation exhibition</li>
+              <li>2016 Changed Course from Sculpture to Equipment Design</li>
+              <li>2017 Sent 2 Medals for the New Ideas in Medallic Sculpture exhibition in Japan</li> 
+            </ul>
+          </div>
         </div>
 
         <div className='full-page-minimum'>
-          <h1>News</h1>
-          <div>
-            <img alt='Thumbnail' src="/img/thumbnail.jpg" />
-            <h1>Sent 2 dicks to Mateus</h1>
-            <p>This is a small description of what happened</p>
-          </div>  
-          <div>
-            <img alt='Thumbnail'  src="/img/thumbnail.jpg" />
-            <h1>Sent 2 dicks to Mateus</h1>
-            <p>This is a small description of what happened</p>
-          </div> 
-          <div>
-            <img alt='Thumbnail' src="/img/thumbnail.jpg" />
-            <h1>Sent 2 dicks to Mateus</h1>
-            <p>This is a small description of what happened</p>
-          </div> 
+          <div className='news'>
+            <h1>News</h1>
+            <div>
+              <img alt='Thumbnail' src="/img/thumbnail.jpg" />
+              <h1>Sent 2 dicks to Mateus</h1>
+              <p>This is a small description of what happened</p>
+            </div>  
+            <div>
+              <img alt='Thumbnail'  src="/img/thumbnail.jpg" />
+              <h1>Sent 2 dicks to Mateus</h1>
+              <p>This is a small description of what happened</p>
+            </div> 
+            <div>
+              <img alt='Thumbnail' src="/img/thumbnail.jpg" />
+              <h1>Sent 2 dicks to Mateus</h1>
+              <p>This is a small description of what happened</p>
+            </div> 
+          </div>
         </div>
       </div>
     )

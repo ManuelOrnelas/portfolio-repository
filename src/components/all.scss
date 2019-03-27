@@ -393,3 +393,32 @@ $menu-label-color: $white-ter;
 .slight-right {
   padding-right: 15vw;
 }
+
+//INDEX PAGE - Who and Why
+
+.who-and-why {
+  max-width: 40%;
+  padding: 30vh 0 10vh 20vw;
+
+  h1 {
+    font-size: 72px;
+    color: #ffd42d;
+    margin: 0 0 0 0;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  p:last-of-type {
+    font-size: 18px;
+  }
+
+  .bio {
+    font-weight: light;
+  }
+}
+
+.historical-line {
+  padding: 30vh 0 10vh 5vh;
+}
