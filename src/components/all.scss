@@ -209,11 +209,11 @@ nav {
       flex-basis: 15%;
 
       .square {
-        background-color: var(--activeColor);
+        background-color: var(--active-color);
       }
 
       .circle {
-        background-color: var(--inactiveColor);
+        background-color: var(--inactive-color);
       }
     }
   }
