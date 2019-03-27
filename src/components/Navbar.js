@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import logo from '../img/logo.svg'
+import whiteLogo from '../img/white-logo.svg'
 
 export default class Navbar extends React.Component {
   constructor(props) {
@@ -35,7 +36,7 @@ export default class Navbar extends React.Component {
       <nav id="navbar" style={{backgroundColor: (isPost ? this.props.postColor : this.props.color)}}>
         {/* LOGO */}
         <Link to="/" title="Logo" className='logo flex aligncontent-center'>
-          <img src={logo} alt="NUCABE" style={{fill: (isPost ? 'black' : undefined)}}/>
+          <img src={(isPost ? logo : whiteLogo)} alt="NUCABE" />
         </Link>
 
         <div id='item-list' className='flex' style={{
