@@ -27,6 +27,12 @@ body {
   background-color: #e7eeed;
 }
 
+// ALL TEXT
+
+h1, h2, p, li {
+  color: #353535
+}
+
 // COLORS
 .white {
   --color: #fff;
@@ -392,4 +398,75 @@ $menu-label-color: $white-ter;
 
 .slight-right {
   padding-right: 15vw;
+}
+
+//INDEX PAGE - Who and Why
+
+.who-and-why {
+  max-width: 40%;
+  padding: 30vh 0 10vh 20vw;
+
+  h1 {
+    font-size: 72px;
+    color: #ffd42d;
+    margin: 0 0 0 0;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  p:last-of-type {
+    font-size: 18px;
+  }
+
+  .bio {
+    font-weight: light;
+  }
+}
+
+// INDEX - Historical Line
+
+.historical-left {
+  width: 25%;
+  float: left;
+}
+
+.historical-right {
+  width: 75%;
+  float: right;
+}
+
+.historical-line {
+  margin: 27vh 0 0 20vw;
+  width: 7px;
+  height: 50vh;
+  background-color: white;
+  border-radius: 30px;
+
+  .white-circle {
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+  }
+}
+
+.historical-line-text {
+  padding: 20vh 0 10vh 0;
+
+  h1 {
+    font-size: 72px;
+    color: white;
+  }
+
+  h2 {
+
+  }
+
+  ul {
+    list-style-type: none;
+    padding-inline-start: 0;
+  }
+
 }
