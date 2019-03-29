@@ -44,8 +44,13 @@ export class IndexPageTemplate extends React.Component {
 
   render() {
     return (
+<<<<<<< HEAD
       <div id="home" style={{ '--page-color': this.state.color }}>
         <div className='full-page bcg-page-color'>
+=======
+      <div id='home'>
+        <div className='full-page' style={{backgroundColor: this.state.color}}> 
+>>>>>>> 0a017cf3d806dad32f9ffd30b24d4eb5ba7c0a6f
           <div className='flex justifycontent-center aligncontent-center'>
             <h1 id='page-title' className='huge-text text-center white-text'
               data-aos='fade-up' data-aos-delay='0'>{this.state.title}</h1>
@@ -84,26 +89,43 @@ vulputate dictum, elit nulla sodales ante, ac aliquet nulla nunc at dolor.</p>
         </div>
 
         <div className='full-page-minimum'>
+<<<<<<< HEAD
           <div className='container'>
+=======
+          <div className='news'>
+>>>>>>> 0a017cf3d806dad32f9ffd30b24d4eb5ba7c0a6f
             <h1>News</h1>
             <div>
               <img alt='Thumbnail' src="/img/thumbnail.jpg" />
               <h1>Sent 2 dicks to Mateus</h1>
               <p>This is a small description of what happened</p>
+<<<<<<< HEAD
             </div>
 
+=======
+            </div>  
+>>>>>>> 0a017cf3d806dad32f9ffd30b24d4eb5ba7c0a6f
             <div>
               <img alt='Thumbnail'  src="/img/thumbnail.jpg" />
               <h1>Sent 2 dicks to Mateus</h1>
               <p>This is a small description of what happened</p>
+<<<<<<< HEAD
             </div>
 
+=======
+            </div> 
+>>>>>>> 0a017cf3d806dad32f9ffd30b24d4eb5ba7c0a6f
             <div>
               <img alt='Thumbnail' src="/img/thumbnail.jpg" />
               <h1>Sent 2 dicks to Mateus</h1>
               <p>This is a small description of what happened</p>
+<<<<<<< HEAD
             </div>
           </div> 
+=======
+            </div> 
+          </div>
+>>>>>>> 0a017cf3d806dad32f9ffd30b24d4eb5ba7c0a6f
         </div>
       </div>
     )
