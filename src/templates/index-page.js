@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
-//import Features from '../components/Features'
+// import Features from '../components/Features'
 
 export class IndexPageTemplate extends React.Component {
   constructor(props) {
@@ -44,13 +44,8 @@ export class IndexPageTemplate extends React.Component {
 
   render() {
     return (
-<<<<<<< HEAD
-      <div id="home" style={{ '--page-color': this.state.color }}>
+      <div id='home' style={{ '--page-color': this.state.color }}>
         <div className='full-page bcg-page-color'>
-=======
-      <div id='home'>
-        <div className='full-page' style={{backgroundColor: this.state.color}}> 
->>>>>>> 0a017cf3d806dad32f9ffd30b24d4eb5ba7c0a6f
           <div className='flex justifycontent-center aligncontent-center'>
             <h1 id='page-title' className='huge-text text-center white-text'
               data-aos='fade-up' data-aos-delay='0'>{this.state.title}</h1>
@@ -64,9 +59,9 @@ export class IndexPageTemplate extends React.Component {
           <div className='container'>
             <h1 id='title' className='text-page-color'>Nucabé</h1>
             <p className='grey'>Pessoa com muita vontade de experimentar coisas novas, 20 anos e a contar, rabeta.</p>
-            <p className='grey'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan arcu a pulvinar mollis. 
-Morbi a malesuada ipsum. Sed porttitor sagittis felis, at luctus metus ornare sit amet. Ut laoreet, arcu non 
-vulputate dictum, elit nulla sodales ante, ac aliquet nulla nunc at dolor.</p>
+            <p className='grey'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan arcu a pulvinar mollis.
+  Morbi a malesuada ipsum. Sed porttitor sagittis felis, at luctus metus ornare sit amet. Ut laoreet, arcu non
+  vulputate dictum, elit nulla sodales ante, ac aliquet nulla nunc at dolor.</p>
             <div className='flex'>
               <span id='email'></span>
               <span id='instagram'></span>
@@ -83,147 +78,131 @@ vulputate dictum, elit nulla sodales ante, ac aliquet nulla nunc at dolor.</p>
               <li>1998 Born in Terceira Island</li>
               <li>2016 Participation in MITO's art installation exhibition</li>
               <li>2016 Changed Course from Sculpture to Equipment Design</li>
-              <li>2017 Sent 2 Medals for the New Ideas in Medallic Sculpture exhibition in Japan</li> 
+              <li>2017 Sent 2 Medals for the New Ideas in Medallic Sculpture exhibition in Japan</li>
             </ul>
           </div>
         </div>
 
         <div className='full-page-minimum'>
-<<<<<<< HEAD
           <div className='container'>
-=======
-          <div className='news'>
->>>>>>> 0a017cf3d806dad32f9ffd30b24d4eb5ba7c0a6f
             <h1>News</h1>
             <div>
               <img alt='Thumbnail' src="/img/thumbnail.jpg" />
               <h1>Sent 2 dicks to Mateus</h1>
               <p>This is a small description of what happened</p>
-<<<<<<< HEAD
             </div>
 
-=======
-            </div>  
->>>>>>> 0a017cf3d806dad32f9ffd30b24d4eb5ba7c0a6f
-            <div>
-              <img alt='Thumbnail'  src="/img/thumbnail.jpg" />
-              <h1>Sent 2 dicks to Mateus</h1>
-              <p>This is a small description of what happened</p>
-<<<<<<< HEAD
-            </div>
-
-=======
-            </div> 
->>>>>>> 0a017cf3d806dad32f9ffd30b24d4eb5ba7c0a6f
             <div>
               <img alt='Thumbnail' src="/img/thumbnail.jpg" />
               <h1>Sent 2 dicks to Mateus</h1>
               <p>This is a small description of what happened</p>
-<<<<<<< HEAD
             </div>
-          </div> 
-=======
-            </div> 
+
+            <div>
+              <img alt='Thumbnail' src="/img/thumbnail.jpg" />
+              <h1>Sent 2 dicks to Mateus</h1>
+              <p>This is a small description of what happened</p>
+            </div>
           </div>
->>>>>>> 0a017cf3d806dad32f9ffd30b24d4eb5ba7c0a6f
+
+          {/*
+          <div>
+            <div
+              className="full-width-image margin-top-0"
+              style={{
+                backgroundImage: `url(${
+                  !!this.state.image.childImageSharp
+                    ? this.state.image.childImageSharp.fluid.src
+                    : this.state.image
+                  })`,
+                backgroundPosition: `top left`,
+                backgroundAttachment: `fixed`,
+              }}
+            >
+              <div style={{
+                display: 'flex',
+                height: '150px',
+                lineHeight: '1',
+                justifyContent: 'space-around',
+                alignItems: 'left',
+                flexDirection: 'column'
+              }}>
+                <h1
+                  className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
+                  style={{
+                    boxShadow: 'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
+                    backgroundColor: 'rgb(255, 68, 0)',
+                    color: 'white',
+                    lineHeight: '1',
+                    padding: '0.25em'
+                  }}
+                >
+                  {this.state.title}
+                </h1>
+                <h3 className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
+                  style={{
+                    boxShadow: 'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
+                    backgroundColor: 'rgb(255, 68, 0)',
+                    color: 'white',
+                    lineHeight: '1',
+                    padding: '0.25em'
+                  }}
+                >
+                  {this.state.subheading}
+                </h3>
+              </div>
+            </div>
+            <section className="section section--gradient">
+              <div className="container">
+                <div className="section">
+                  <div className="columns">
+                    <div className="column is-10 is-offset-1">
+                      <div className="content">
+                        <div className="content">
+                          <div className="tile">
+                            <h1 className="title">{this.state.mainpitch.title}</h1>
+                          </div>
+                          <div className="tile">
+                            <h3 className="subtitle">{this.state.mainpitch.description}</h3>
+                          </div>
+                        </div>
+                        <div className="columns">
+                          <div className="column is-12">
+                            <h3 className="has-text-weight-semibold is-size-2">
+                              {this.state.heading}
+                            </h3>
+                            <p>{this.state.description}</p>
+                          </div>
+                        </div>
+                        <Features gridItems={this.state.intro.blurbs} />
+                        <div className="columns">
+                          <div className="column is-12 has-text-centered">
+                            <Link className="btn" to="/products">
+                              See all products
+                  </Link>
+                          </div>
+                        </div>
+                        <div className="column is-12">
+                          <h3 className="has-text-weight-semibold is-size-2">
+                            Latest stories
+                    </h3>
+                          <div className="column is-12 has-text-centered">
+                            <Link className="btn" to="/blog">
+                              Read more
+                    </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>*/}
         </div>
       </div>
     )
   }
-  /*
-    <div>
-        <div
-          className="full-width-image margin-top-0"
-          style={{
-            backgroundImage: `url(${
-              !!image.childImageSharp
-                ? image.childImageSharp.fluid.src
-                : image
-            })`,
-            backgroundPosition: `top left`,
-            backgroundAttachment: `fixed`,
-          }}
-    >
-  <div style={{
-        display: 'flex',
-        height: '150px',
-        lineHeight: '1',
-        justifyContent: 'space-around',
-        alignItems: 'left',
-        flexDirection: 'column' }}>
-      <h1
-        className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-        style={{
-          boxShadow: 'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-          backgroundColor: 'rgb(255, 68, 0)',
-          color: 'white',
-          lineHeight: '1',
-          padding: '0.25em'
-        }}
-      >
-        {title}
-      </h1>
-      <h3 className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            boxShadow: 'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em'
-          }}
-      >
-        {subheading}
-      </h3>
-      </div>
-    </div>
-  <section className="section section--gradient">
-    <div className="container">
-      <div className="section">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <div className="content">
-              <div className="content">
-                <div className="tile">
-                  <h1 className="title">{mainpitch.title}</h1>
-                </div>
-                <div className="tile">
-                  <h3 className="subtitle">{mainpitch.description}</h3>
-                </div>
-              </div>
-              <div className="columns">
-                <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    {heading}
-                  </h3>
-                  <p>{description}</p>
-                </div>
-              </div>
-              <Features gridItems={intro.blurbs} />
-              <div className="columns">
-              <div className="column is-12 has-text-centered">
-                <Link className="btn" to="/products">
-                  See all products
-                </Link>
-                </div>
-              </div>
-              <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
-                  </h3>
-                  <div className="column is-12 has-text-centered">
-                  <Link className="btn" to="/blog">
-                    Read more
-                  </Link>
-                  </div>
-              </div>
-              </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  </div>
-  */
 }
 
 IndexPageTemplate.propTypes = {
