@@ -40,6 +40,14 @@ body {
   --color: #ff6060;
 }
 
+.black {
+  --color: #353535;
+}
+
+.grey {
+  --color: #353535;
+}
+
 // COLOR BEHAVIOR
 .text {
   color: var(--color);
@@ -47,6 +55,14 @@ body {
 
 .bcg {
   background-color: var(--color);
+}
+
+.text-page-color {
+  color: var(--page-color);
+}
+
+.bcg-page-color {
+  background-color: var(--page-color);
 }
 
 // TEXT
@@ -130,6 +146,13 @@ body {
 
 .flex.alignitems-center {
   align-items: center;
+}
+
+// CONTAINERS
+.container {
+  width: 65rem;
+  max-width: 90%;
+  margin: 0 auto;
 }
 
 // GEOMETRY
@@ -339,13 +362,22 @@ $menu-label-color: $white-ter;
   height: 100vh;
 }
 
+.full-page:first-of-type {
+  height: calc(100vh - 4.5rem);
+}
+
 .full-page-minimum {
   min-width: 100vw;
   min-height: 100vh;
 }
 
-.full-page:first-of-type {
-  height: calc(100vh - 4.5rem);
+.full-page-minimum:nth-of-type(2n+1) {
+  background-color: var(--page-color); 
+}
+
+.full-page-minimum #title {
+  font-size: 7rem;
+  margin: 0;
 }
 
 .lateral-space {

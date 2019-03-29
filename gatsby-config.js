@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Nucabe',
+    title: 'Nucabé',
     description:
       'Manuel Ornelas\' Portfolio',
   },
