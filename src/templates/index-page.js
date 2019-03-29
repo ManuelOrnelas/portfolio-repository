@@ -55,37 +55,44 @@ export class IndexPageTemplate extends React.Component {
           </div>
         </div>
 
-        <div className='full-page-minimum'>
-          <div className='container'>
-            <h1 id='title' className='text-page-color'>Nucabé</h1>
-            <p className='grey'>Pessoa com muita vontade de experimentar coisas novas, 20 anos e a contar, rabeta.</p>
-            <p className='grey'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan arcu a pulvinar mollis.
-  Morbi a malesuada ipsum. Sed porttitor sagittis felis, at luctus metus ornare sit amet. Ut laoreet, arcu non
-  vulputate dictum, elit nulla sodales ante, ac aliquet nulla nunc at dolor.</p>
-            <div className='flex'>
-              <span id='email'></span>
-              <span id='instagram'></span>
-              <span id='facebook'></span>
+        <div id='who-why' className='full-page-minimum flex alignitems-center'>
+          <div className='container flex'>
+            <div> 
+              <h1 id='title' className='text-page-color'>Nucabé</h1>
+              <p className='grey fontsize-3'>Pessoa com muita vontade de experimentar coisas novas, 20 anos e a contar, rabeta.</p>
+              <p className='grey fontsize-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan arcu a pulvinar mollis.
+    Morbi a malesuada ipsum. Sed porttitor sagittis felis, at luctus metus ornare sit amet. Ut laoreet, arcu non
+    vulputate dictum, elit nulla sodales ante, ac aliquet nulla nunc at dolor.</p>
+              <div className='flex'>
+                <span id='email'></span>
+                <span id='instagram'></span>
+                <span id='facebook'></span>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className='full-page-minimum'>
+        <div id='historical-line' className='full-page-minimum flex alignitems-center'>
           <div className='container'>
-            <h1 id='title' class='white-text'>Historical line</h1>
-            <h2>Pre-Academic</h2>
-            <ul>
-              <li>1998 Born in Terceira Island</li>
-              <li>2016 Participation in MITO's art installation exhibition</li>
-              <li>2016 Changed Course from Sculpture to Equipment Design</li>
-              <li>2017 Sent 2 Medals for the New Ideas in Medallic Sculpture exhibition in Japan</li>
-            </ul>
+            <div id='timeline'>
+              
+            </div>
+            <div>
+              <h1 id='title' class='white-text'>Historical line</h1>
+              <h2>Pre-Academic</h2>
+              <ul>
+                <li>1998 Born in Terceira Island</li>
+                <li>2016 Participation in MITO's art installation exhibition</li>
+                <li>2016 Changed Course from Sculpture to Equipment Design</li>
+                <li>2017 Sent 2 Medals for the New Ideas in Medallic Sculpture exhibition in Japan</li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div className='full-page-minimum'>
+        <div className='full-page-minimum flex alignitems-center'>
           <div className='container'>
-            <h1>News</h1>
+            <h1 id='title'>News</h1>
             <div>
               <img alt='Thumbnail' src="/img/thumbnail.jpg" />
               <h1>Sent 2 dicks to Mateus</h1>
