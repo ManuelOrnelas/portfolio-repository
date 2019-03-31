@@ -5,12 +5,41 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 // import Features from '../components/Features'
 
+function NewsItem(props) {
+  return (
+    <li>
+      <div id='news-info' className='flex'>
+        <img src={props.data.thumbnail.childImageSharp.fluid.src}></img>
+        <p id='date'>{props.data.date}</p>
+        <h1>{props.data.title}</h1>
+        <p id='description'>{props.data.description}</p>
+      </div>
+
+      <hr className='grey rounded margin-tb-2 w-85'></hr>
+    </li>
+  )
+}
+
+function NewsList(props) {
+  const newsItems = props.news.map(item => {
+    return (
+      <NewsItem data={item}></NewsItem>
+    )
+  })
+
+  return (
+    <ul className='list-reset'>
+      {newsItems}
+    </ul>
+  )
+}
+
 export class IndexPageTemplate extends React.Component {
   constructor(props) {
     super(props)
 
     // fetch all data from the props
-    let { color, image,title, heading, subheading, mainpitch, description, intro, main } = this.props
+    let { color, image, title, heading, subheading, mainpitch, description, intro, main, news } = this.props
 
     this.state = {
       color,
@@ -22,7 +51,8 @@ export class IndexPageTemplate extends React.Component {
       mainpitch,
       description,
       intro,
-      main
+      main,
+      news
     }
   }
 
@@ -93,23 +123,7 @@ export class IndexPageTemplate extends React.Component {
         <div className='full-page-minimum flex alignitems-center'>
           <div className='container'>
             <h1 id='title'>News</h1>
-            <div>
-              <img alt='Thumbnail' src="/img/thumbnail.jpg" />
-              <h1>Sent 2 dicks to Mateus</h1>
-              <p>This is a small description of what happened</p>
-            </div>
-
-            <div>
-              <img alt='Thumbnail' src="/img/thumbnail.jpg" />
-              <h1>Sent 2 dicks to Mateus</h1>
-              <p>This is a small description of what happened</p>
-            </div>
-
-            <div>
-              <img alt='Thumbnail' src="/img/thumbnail.jpg" />
-              <h1>Sent 2 dicks to Mateus</h1>
-              <p>This is a small description of what happened</p>
-            </div>
+            <NewsList news={this.state.news}></NewsList>
           </div>
 
           {/*
@@ -223,6 +237,7 @@ IndexPageTemplate.propTypes = {
   intro: PropTypes.shape({
     blurbs: PropTypes.array,
   }),
+  news: PropTypes.array
 }
 
 export const IndexPage = ({data}) => {
@@ -247,6 +262,7 @@ export const IndexPage = ({data}) => {
         mainpitch={page.mainpitch}
         description={page.description}
         intro={page.intro}
+        news={page.news}
       /> 
     </Layout>
   )
@@ -277,10 +293,6 @@ query IndexPageTemplate($pageKey: String!) {
       }
       heading
       subheading
-      mainpitch {
-        title
-        description
-      }
       description
       intro {
         blurbs {
@@ -294,6 +306,22 @@ query IndexPageTemplate($pageKey: String!) {
           text
         }
         heading
+        description
+      }
+      mainpitch {
+        title
+        description
+      }
+      news {
+        title
+        thumbnail {
+          childImageSharp {
+            fluid {
+              src
+            }
+          }
+        }
+        date
         description
       }
     }

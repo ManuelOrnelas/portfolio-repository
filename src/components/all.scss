@@ -109,7 +109,6 @@ h1, h2, p, li {
   font-size: 200rem;
 }
 
-
 // SPECIFIC FONT SIZES 
 .fontsize-1 {
   font-size: 1rem;
@@ -126,6 +125,7 @@ h1, h2, p, li {
 .fontsize-4 {
   font-size: 7rem;
 }
+
 // FONT WEIGHT
 .fontweight-light {
   font-weight: lighter;
@@ -139,9 +139,40 @@ h1, h2, p, li {
   font-weight: bold;
 }
 
+// WIDTH
+.w-90 {
+  width: 90%;
+}
+
+.w-85 {
+  width: 85%;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.w-75 {
+  width: 75%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
 // MARGINS
 .margin-0 {
   margin: 0;
+}
+
+.margin-tb-1 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.margin-tb-2 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 // OVERFLOW
@@ -180,6 +211,25 @@ h1, h2, p, li {
   width: 65rem;
   max-width: 90%;
   margin: 0 auto;
+}
+
+// LISTS
+.list-reset {
+  list-style: none;
+}
+
+// HORIZONTAL BARS
+hr {
+  width: 95%;
+  height: 0.25rem;
+  margin: 0 auto;
+  background-color: #E1E4E3;
+  border: none;
+  border-style: none;
+}
+
+hr.rounded {
+  border-radius: 0.5rem;
 }
 
 // GEOMETRY

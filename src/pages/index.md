@@ -14,6 +14,18 @@ sidebarSections:
   - Who & Why: whoandwhy
   - Historial Line: historicalline
   - News: news
+news:
+  - title: Sent 2 dicks to Mateus
+    thumbnail: /img/news/news.png
+    date: December 11, 2018
+    description: >
+      Avenir Light is a clean and stylish font favored by designers. It’s easy on the eyes and a great go to font for titles, paragraphs & more.
+  - title: Sent 2 dicks to Mateus
+    thumbnail: /img/news/news.png
+    date: December 12, 2018
+    description: >
+      Avenir Light is a clean and stylish font favored by designers. It’s easy on the eyes and a great go to font for titles, paragraphs & more.
+
 mainpitch:
   title: Why Kaldi
   description: >
