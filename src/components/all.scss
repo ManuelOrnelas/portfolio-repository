@@ -14,8 +14,28 @@ $red: #FF6060;
 
 // FONTS
 @font-face {
-  font-family: 'Sofia Pro SemiBold';
+  font-family: 'SofiaPro';
+  src: url('/fonts/SofiaProLight.ttf');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'SofiaPro';
+  src: urL('/fonts/SofiaProMedium.ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'SofiaPro';
   src: url('/fonts/SofiaProSemiBold.ttf');
+  font-weight: 700; 
+}
+
+@font-face {
+  font-family: 'SofiaPro';
+  src: url('/fonts/SofiaProBold.ttf');
+  font-weight: 800;
+  font-style: normal;
 }
 
 html,
@@ -23,7 +43,7 @@ body {
   margin: 0;
   overflow-x: hidden;
   scroll-behavior: smooth; 
-  font-family: "Sofia Pro SemiBold";
+  font-family: 'SofiaPro';
   background-color: #e7eeed;
 }
 
@@ -31,6 +51,14 @@ body {
 
 h1, h2, p, li {
   color: #353535
+}
+
+h1 {
+  font-weight: bold;
+}
+
+p {
+  font-weight: normal;
 }
 
 // COLORS
@@ -136,7 +164,6 @@ h1, h2, p, li {
 
 // FONT WEIGHT
 .fontweight-light {
-  font-family: "Sofia Pro";
   font-weight: lighter;
 }
 
@@ -148,8 +175,8 @@ h1, h2, p, li {
   font-weight: bold;
 }
 
-.fontweight-300 {
-  font-weight: 300;
+.fontweight-bolder {
+  font-weight: 800;
 }
 
 // WIDTH
@@ -484,7 +511,7 @@ $menu-label-color: $white-ter;
 
 // PAGE
 .full-page h1#page-title {
-  font-family: "Sofia Pro SemiBold";
+  font-weight: 600;
 }
 
 .left {
@@ -592,10 +619,6 @@ $menu-label-color: $white-ter;
     > div {
       padding: 0 2rem;
 
-      p#date {
-        font-family: "Sofia Pro Light";
-      }
-
       h1 {
         font-size: 3rem;
         line-height: 3rem;
@@ -603,7 +626,6 @@ $menu-label-color: $white-ter;
     }
 
     p#description {
-      font-family: "Sofia Pro Light";
       font-size: 1.25rem;
       color: #707070;
     }
