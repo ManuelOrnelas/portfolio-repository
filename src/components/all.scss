@@ -616,26 +616,40 @@ $menu-label-color: $white-ter;
     list-style-type: none;
     padding-inline-start: 0;
   }
-
 }
 
+// INDEX PAGE
 #home {
-  #news-info {
-    > div {
-      padding: 0 2rem;
+  #news {
+    li {
+      #news-item {
+        img {
+          flex-basis: 10%;
+        }
 
-      h1 {
-        font-size: 3rem;
-        line-height: 3rem;
+        #info {
+          flex-basis: 25%;  
+          padding: 0 2rem;
+
+          h1 {
+            font-size: 3rem;
+            line-height: 3rem;
+          }
+        }
+
+        #description {
+          flex-basis: 65%; 
+          align-items: flex-end;
+
+          p {
+            font-size: 1.25rem;
+            color: #707070;
+          }
+        }
       }
-    }
-
-    #description {
-      align-items: flex-end;
-
-      p {
-        font-size: 1.25rem;
-        color: #707070;
+    
+      &:last-of-type hr {
+        display: none;
       }
     }
   }

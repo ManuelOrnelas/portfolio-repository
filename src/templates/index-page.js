@@ -8,16 +8,16 @@ import Layout from '../components/Layout'
 function NewsItem(props) {
   return (
     <li>
-      <div id='news-info' className='flex'>
+      <div id='news-item' className='flex'>
         <img alt={props.data.title}
           src={props.data.thumbnail.childImageSharp.fluid.src}
           className='fit-contain'></img>
-        <div className='flex flex-column'>
-          <p id='date' className='margin-0'>{props.data.date}</p>
-          <h1 className='margin-0'>{props.data.title}</h1>
+        <div id='info' className='flex flex-column'>
+          <p id='date' className='margin-0 fontweight-light'>{props.data.date}</p>
+          <h1 className='margin-0 fontweight-normal'>{props.data.title}</h1>
         </div>
         <div id='description' className='flex'>
-          <p className='margin-0'>{props.data.description}</p>
+          <p className='margin-0 fontweight-light'>{props.data.description}</p>
         </div>
       </div>
 
@@ -34,7 +34,7 @@ function NewsList(props) {
   })
 
   return (
-    <ul className='list-reset'>
+    <ul id='news' className='list-reset'>
       {newsItems}
     </ul>
   )

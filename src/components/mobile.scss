@@ -18,20 +18,32 @@
 }
 
 @media (max-width: 720px) {
-  #item-list {
-    width: 50vw;
-  }
-  .logo {
-    display: none;
-  }
-  .left {
-    padding-top: 25px;
-    width: 100%;
+  nav {
+    #item-list {
+      width: 50vw;
+    }
+    .logo {
+      display: none;
+    }
+    .left {
+      padding-top: 25px;
+      width: 100%;
+    }
+  
+    .right {
+      padding-top: 25px;
+      width: 100%
+    }
   }
 
-  .right {
-    padding-top: 25px;
-    width: 100%
+  #home {
+    #news-item {
+      flex-direction: column;
+
+      #info {
+        padding: 0;
+      }
+    }
   }
 }
 
