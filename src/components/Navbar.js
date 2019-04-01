@@ -31,7 +31,6 @@ export default class Navbar extends React.Component {
     let isPost = false
     if(this.props.postColor) isPost = true 
     
-    console.log(this.props)
     return (
       <nav id="navbar" style={{backgroundColor: (isPost ? this.props.postColor : this.props.color)}}>
         {/* LOGO */}
