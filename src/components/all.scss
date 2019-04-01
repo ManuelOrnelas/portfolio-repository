@@ -54,6 +54,10 @@ h1, h2, p, li {
   --color: #353535;
 }
 
+.light-grey {
+  --color: #707070;
+}
+
 // COLOR BEHAVIOR
 .text {
   color: var(--color);
@@ -123,11 +127,16 @@ h1, h2, p, li {
 }
 
 .fontsize-4 {
+  font-size: 3rem;
+}
+
+.fontsize-5 {
   font-size: 7rem;
 }
 
 // FONT WEIGHT
 .fontweight-light {
+  font-family: "Sofia Pro";
   font-weight: lighter;
 }
 
@@ -137,6 +146,10 @@ h1, h2, p, li {
 
 .fontweight-bold {
   font-weight: bold;
+}
+
+.fontweight-300 {
+  font-weight: 300;
 }
 
 // WIDTH
@@ -572,4 +585,27 @@ $menu-label-color: $white-ter;
     padding-inline-start: 0;
   }
 
+}
+
+#home {
+  #news-info {
+    > div {
+      padding: 0 2rem;
+
+      p#date {
+        font-family: "Sofia Pro Light";
+      }
+
+      h1 {
+        font-size: 3rem;
+        line-height: 3rem;
+      }
+    }
+
+    p#description {
+      font-family: "Sofia Pro Light";
+      font-size: 1.25rem;
+      color: #707070;
+    }
+  }
 }

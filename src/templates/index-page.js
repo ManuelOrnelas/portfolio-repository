@@ -8,10 +8,12 @@ import Layout from '../components/Layout'
 function NewsItem(props) {
   return (
     <li>
-      <div id='news-info' className='flex'>
-        <img src={props.data.thumbnail.childImageSharp.fluid.src}></img>
-        <p id='date'>{props.data.date}</p>
-        <h1>{props.data.title}</h1>
+      <div id='news-info' className='flex alignitems-center'>
+        <img alt={props.data.title} src={props.data.thumbnail.childImageSharp.fluid.src}></img>
+        <div className='flex flex-column'>
+          <p id='date' className='margin-0'>{props.data.date}</p>
+          <h1 className='margin-0'>{props.data.title}</h1>
+        </div>
         <p id='description'>{props.data.description}</p>
       </div>
 

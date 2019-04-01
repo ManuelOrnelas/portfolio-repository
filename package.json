@@ -1,8 +1,13 @@
 {
   "name": "manuel-ornelas-portfolio",
+  "private": true,
   "description": "Manuel Ornelas Portfolio",
   "version": "1.1.3",
-  "author": "Austin Green",
+  "author": {
+    "name": "Nucabé",
+    "email": "hello@nucabe.com",
+    "url": "https://nucabe.com"
+  },
   "dependencies": {
     "aos": "^3.0.0-beta.6",
     "bulma": "^0.7.0",
