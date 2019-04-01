@@ -179,6 +179,11 @@ p {
   font-weight: 800;
 }
 
+// IMAGE
+img.fit-contain {
+  object-fit: contain;
+}
+
 // WIDTH
 .w-90 {
   width: 90%;
@@ -625,9 +630,13 @@ $menu-label-color: $white-ter;
       }
     }
 
-    p#description {
-      font-size: 1.25rem;
-      color: #707070;
+    #description {
+      align-items: flex-end;
+
+      p {
+        font-size: 1.25rem;
+        color: #707070;
+      }
     }
   }
 }

@@ -8,13 +8,17 @@ import Layout from '../components/Layout'
 function NewsItem(props) {
   return (
     <li>
-      <div id='news-info' className='flex alignitems-center'>
-        <img alt={props.data.title} src={props.data.thumbnail.childImageSharp.fluid.src}></img>
+      <div id='news-info' className='flex'>
+        <img alt={props.data.title}
+          src={props.data.thumbnail.childImageSharp.fluid.src}
+          className='fit-contain'></img>
         <div className='flex flex-column'>
           <p id='date' className='margin-0'>{props.data.date}</p>
           <h1 className='margin-0'>{props.data.title}</h1>
         </div>
-        <p id='description'>{props.data.description}</p>
+        <div id='description' className='flex'>
+          <p className='margin-0'>{props.data.description}</p>
+        </div>
       </div>
 
       <hr className='grey rounded margin-tb-2 w-85'></hr>
@@ -41,7 +45,16 @@ export class IndexPageTemplate extends React.Component {
     super(props)
 
     // fetch all data from the props
-    let { color, image, title, heading, subheading, mainpitch, description, intro, main, news } = this.props
+    let { color,
+      image,
+      title,
+      heading,
+      subheading,
+      mainpitch,
+      description,
+      intro,
+      main,
+      news } = this.props
 
     this.state = {
       color,
@@ -127,101 +140,6 @@ export class IndexPageTemplate extends React.Component {
             <h1 id='title'>News</h1>
             <NewsList news={this.state.news}></NewsList>
           </div>
-
-          {/*
-          <div>
-            <div
-              className="full-width-image margin-top-0"
-              style={{
-                backgroundImage: `url(${
-                  !!this.state.image.childImageSharp
-                    ? this.state.image.childImageSharp.fluid.src
-                    : this.state.image
-                  })`,
-                backgroundPosition: `top left`,
-                backgroundAttachment: `fixed`,
-              }}
-            >
-              <div style={{
-                display: 'flex',
-                height: '150px',
-                lineHeight: '1',
-                justifyContent: 'space-around',
-                alignItems: 'left',
-                flexDirection: 'column'
-              }}>
-                <h1
-                  className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-                  style={{
-                    boxShadow: 'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-                    backgroundColor: 'rgb(255, 68, 0)',
-                    color: 'white',
-                    lineHeight: '1',
-                    padding: '0.25em'
-                  }}
-                >
-                  {this.state.title}
-                </h1>
-                <h3 className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-                  style={{
-                    boxShadow: 'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-                    backgroundColor: 'rgb(255, 68, 0)',
-                    color: 'white',
-                    lineHeight: '1',
-                    padding: '0.25em'
-                  }}
-                >
-                  {this.state.subheading}
-                </h3>
-              </div>
-            </div>
-            <section className="section section--gradient">
-              <div className="container">
-                <div className="section">
-                  <div className="columns">
-                    <div className="column is-10 is-offset-1">
-                      <div className="content">
-                        <div className="content">
-                          <div className="tile">
-                            <h1 className="title">{this.state.mainpitch.title}</h1>
-                          </div>
-                          <div className="tile">
-                            <h3 className="subtitle">{this.state.mainpitch.description}</h3>
-                          </div>
-                        </div>
-                        <div className="columns">
-                          <div className="column is-12">
-                            <h3 className="has-text-weight-semibold is-size-2">
-                              {this.state.heading}
-                            </h3>
-                            <p>{this.state.description}</p>
-                          </div>
-                        </div>
-                        <Features gridItems={this.state.intro.blurbs} />
-                        <div className="columns">
-                          <div className="column is-12 has-text-centered">
-                            <Link className="btn" to="/products">
-                              See all products
-                  </Link>
-                          </div>
-                        </div>
-                        <div className="column is-12">
-                          <h3 className="has-text-weight-semibold is-size-2">
-                            Latest stories
-                    </h3>
-                          <div className="column is-12 has-text-centered">
-                            <Link className="btn" to="/blog">
-                              Read more
-                    </Link>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>*/}
         </div>
       </div>
     )
