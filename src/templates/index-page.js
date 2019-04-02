@@ -95,8 +95,13 @@ export class IndexPageTemplate extends React.Component {
             <h1 id='page-title' className='huge-text text-center white-text'
               data-aos='fade-up' data-aos-delay='0'>{this.state.title}</h1>
           </div>
-          <div data-aos='fade-up' data-aos-delay='0' data-aos-offset='0'>
-            <span className="arrow arrow-down bottom-center clickable" onClick={this.handleArrowClick}></span>
+          
+          <div id='arrow'>
+            <div data-aos='fade-up'data-aos-delay='0'
+              data-aos-offset='0' data-aos-anchor='#arrow'>
+              <span className="arrow arrow-down bottom-center clickable"
+                onClick={this.handleArrowClick}></span>
+            </div>
           </div>
         </div>
 

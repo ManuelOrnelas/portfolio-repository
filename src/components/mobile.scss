@@ -23,7 +23,7 @@
       width: 50vw;
     }
 
-    .logo {
+    a.logo {
       display: none;
     }
 
@@ -64,6 +64,24 @@
   nav {
     #item-list {
       width: 90vw;
+    }
+  }
+
+  div.full-page {
+    > div:first-of-type {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      max-width: 95%;
+      width: 20rem;
+      transform: translate(-50%, -50%);
+    }
+    
+    div#arrow {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 }
