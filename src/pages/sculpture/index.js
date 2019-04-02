@@ -44,10 +44,10 @@ class SculpturePage extends React.Component {
   render () {
     return (
       <Layout primaryColor={this.state.pageColor}>
-        <div id='sculpture-page'>
-          <div
-            className='full-page'
-            style={{backgroundColor: this.state.pageColor}}>
+        <div id='sculpture-page' style={{
+          '--page-color': this.state.pageColor
+        }}>
+          <div className='full-page bcg-color page-color'>
             <div className='flex justifycontent-center aligncontent-center'>
               <h1 id='page-title' className='text-center huge-text white-text'
                 data-aos='fade-up' data-aos-delay='0'>Sculpture.</h1>
@@ -59,8 +59,8 @@ class SculpturePage extends React.Component {
           </div>
           
           <div className='full-page-minimum'>
-            <div className='lateral-space'>
-              <h1 className='projects'>Projects.</h1>
+            <div className='container'>
+              <h1 className='projects text-color page-color'>Projects.</h1>
               <SculptureRoll />
             </div>
           </div>

@@ -61,7 +61,7 @@ class WritingPage extends React.Component {
 
           <div className='full-page-minimum'>
             <div className='lateral-space'>
-              <h1 className='projects'>Projects.</h1>
+              <h1 className='projects' style={{color: this.state.pageColor}}>Projects.</h1>
               <WritingRoll />
             </div>
           </div>

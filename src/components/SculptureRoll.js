@@ -11,8 +11,8 @@ class SculptureRoll extends React.Component {
     return (
       <div className='thumbnail-gallery'>
         {posts && (posts.map(({ node: post }) => (
-          <Link className="title has-text-primary is-size-4" to={post.fields.slug}>
-            <img className="thumbnail" src={post.frontmatter.image.childImageSharp.fluid.src}/>
+          <Link title={post.frontmatter.title} className="title has-text-primary is-size-4" to={post.fields.slug}>
+            <img alt={post.frontmatter.title} className="thumbnail" src={post.frontmatter.image.childImageSharp.fluid.src}/>
           </Link>
         )))}
       </div>
@@ -44,6 +44,7 @@ export default () => (
               slug
             }
             frontmatter {
+              title
               image {
                 childImageSharp {
                   fluid(maxWidth: 150, maxHeight: 150) {

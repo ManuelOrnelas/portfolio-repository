@@ -90,7 +90,7 @@ export class IndexPageTemplate extends React.Component {
   render() {
     return (
       <div id='home' style={{ '--page-color': this.state.color }}>
-        <div className='full-page bcg-page-color'>
+        <div className='full-page bcg-color page-color'>
           <div className='flex justifycontent-center aligncontent-center'>
             <h1 id='page-title' className='huge-text text-center white-text'
               data-aos='fade-up' data-aos-delay='0'>{this.state.title}</h1>
@@ -100,12 +100,12 @@ export class IndexPageTemplate extends React.Component {
           </div>
         </div>
 
-        <div id='who-why' className='full-page-minimum flex alignitems-center'>
+        <div id='who-and-why' className='full-page-minimum flex alignitems-center'>
           <div className='container flex'>
-            <div> 
-              <h1 id='title' className='text-page-color'>Nucabé</h1>
+            <div>
+              <h1 id='title' className='text-color page-color margin-0'>Nucabé</h1>
               <p className='grey fontsize-3'>Pessoa com muita vontade de experimentar coisas novas, 20 anos e a contar, rabeta.</p>
-              <p className='grey fontsize-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan arcu a pulvinar mollis.
+              <p className='grey fontsize-2 fontweight-light'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan arcu a pulvinar mollis.
     Morbi a malesuada ipsum. Sed porttitor sagittis felis, at luctus metus ornare sit amet. Ut laoreet, arcu non
     vulputate dictum, elit nulla sodales ante, ac aliquet nulla nunc at dolor.</p>
               <div className='flex'>
@@ -137,7 +137,7 @@ export class IndexPageTemplate extends React.Component {
 
         <div className='full-page-minimum flex alignitems-center'>
           <div className='container'>
-            <h1 id='title'>News</h1>
+            <h1 id='title' className='text-color page-color'>News</h1>
             <NewsList news={this.state.news}></NewsList>
           </div>
         </div>

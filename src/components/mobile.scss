@@ -22,9 +22,11 @@
     #item-list {
       width: 50vw;
     }
+
     .logo {
       display: none;
     }
+
     .left {
       padding-top: 25px;
       width: 100%;
@@ -59,7 +61,9 @@
     word-break: break-all;
   }
 
-  #item-list {
-    width: 90vw;
+  nav {
+    #item-list {
+      width: 90vw;
+    }
   }
 }

@@ -34,14 +34,20 @@ export default class Navbar extends React.Component {
     return (
       <nav id="navbar" style={{backgroundColor: (isPost ? this.props.postColor : this.props.color)}}>
         {/* LOGO */}
-        <Link to="/" title="Logo" className='logo flex aligncontent-center'>
+        <Link to="/" title="Logo" className='logo flex aligncontent-center'
+          data-aos='fade-right'
+          data-aos-delay='0'
+          data-aos-offset='0'>
           <img src={(isPost ? logo : whiteLogo)} alt="NUCABE" />
         </Link>
 
         <div id='item-list' className='flex' style={{
           '--active-color': (isPost ? this.props.color : '#fff'), 
-          '--inactive-color': (isPost ? 'rgba(55,51,34, .6)' : '#ffffff50')
-          }}>
+          '--inactive-color': (isPost ? 'rgba(55,51,34, .3)' : '#ffffff50'),
+          '--inactive-color-hover': (isPost ? 'rgba(55, 51, 34, .2)' : '#ffffff90') 
+          }}
+          data-aos='fade-down'
+          data-aos-delay='0'>
           <Link className="flex justifycontent-center alignitems-center" to="/" data-target="root">
             <div id="root" className={(this.state.path === '/'
               ? 'square'

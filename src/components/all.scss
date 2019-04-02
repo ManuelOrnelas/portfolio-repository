@@ -1,17 +1,3 @@
-@import "~bulma/sass/utilities/initial-variables";
-
-// Config vars
-// Kaldi logo brand color: #FD461E
-$kaldi-red: #D64000;
-$kaldi-red-invert: #fff;
-
-$primary: $kaldi-red;
-$primary-invert: $kaldi-red-invert;
-$body-color: #333;
-$black: #2b2523;
-
-$red: #FF6060;
-
 // FONTS
 @font-face {
   font-family: 'SofiaPro';
@@ -87,19 +73,21 @@ p {
 }
 
 // COLOR BEHAVIOR
-.text {
+/* Specific color from CSS */
+.text-color {
   color: var(--color);
 }
 
-.bcg {
+.bcg-color {
   background-color: var(--color);
 }
 
-.text-page-color {
+/* Page Color */
+.text-color.page-color {
   color: var(--page-color);
 }
 
-.bcg-page-color {
+.bcg-color.page-color {
   background-color: var(--page-color);
 }
 
@@ -331,17 +319,15 @@ hr.rounded {
 nav { 
   display: flex;
   justify-content: center;
+  align-items: center;
   height: 5.5rem;
 
   a.logo {
-    // margin-right: auto;
-    // margin-left: 2rem;
-    position: absolute;
-    left: 30px;
-    top: 6px;
+    display: block;
+    margin: 0 auto .5rem 2rem;
 
     img {
-      width: 10rem;
+      width: 9rem;
     }
   }
 
@@ -359,6 +345,12 @@ nav {
 
       .circle {
         background-color: var(--inactive-color);
+      }
+
+      &:hover {
+        .circle {
+          background-color: var(--inactive-color-hover);
+        }
       }
     }
   }
@@ -444,16 +436,6 @@ footer.footer {
   fill: currentColor;
 }
 
-//Menu overrides
-$menu-item-color: $white-ter;
-$menu-item-hover-color: $black !important;
-$menu-item-hover-background-color: $black;
-$menu-item-active-color: $kaldi-red-invert;
-$menu-item-active-background-color:	$kaldi-red-invert;
-$menu-list-border-left: 1px solid $kaldi-red-invert;
-$menu-label-color: $white-ter;
-
-
 .menu-label {
   font-size: 1em !important;
   text-align: left;
@@ -470,7 +452,7 @@ $menu-label-color: $white-ter;
   a {
     padding: .5em .5em .3em .5em;
     border-radius: 1em;
-    background-color: $white-ter;
+    background-color: #fff;
     margin: .5em;
     width: 1em;
     height: 1em;
@@ -548,31 +530,6 @@ $menu-label-color: $white-ter;
   padding-right: 15vw;
 }
 
-//INDEX PAGE - Who and Why
-
-.who-and-why {
-  max-width: 40%;
-  padding: 30vh 0 10vh 20vw;
-
-  h1 {
-    font-size: 72px;
-    color: #ffd42d;
-    margin: 0 0 0 0;
-  }
-
-  p {
-    font-size: 18px;
-  }
-
-  p:last-of-type {
-    font-size: 18px;
-  }
-
-  .bio {
-    font-weight: light;
-  }
-}
-
 // INDEX - Historical Line
 
 .historical-left {
@@ -620,6 +577,12 @@ $menu-label-color: $white-ter;
 
 // INDEX PAGE
 #home {
+  #who-and-why {
+    h1 {
+      font-size: 72px;
+    }
+  }
+
   #news {
     li {
       #news-item {
