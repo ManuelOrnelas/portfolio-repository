@@ -44,10 +44,10 @@ class WritingPage extends React.Component {
   render() {
     return (
       <Layout primaryColor={this.state.pageColor}>
-        <div id='writing-page'>
+        <div id='writing-page'
+          style={{'--page-color': this.state.pageColor}}>
           <div
-            className='full-page white-text'
-            style={{backgroundColor: this.state.pageColor}}>
+            className='full-page white-text bcg-color page-color'>
             <div className='flex justifycontent-center alignitems-center'>
               <h1 id='page-title' className='text-center huge-text white-text'
                 data-aos='fade-up' data-aos-delay='0'>Writing.</h1>
@@ -60,8 +60,8 @@ class WritingPage extends React.Component {
 
 
           <div className='full-page-minimum'>
-            <div className='lateral-space'>
-              <h1 className='projects' style={{color: this.state.pageColor}}>Projects.</h1>
+            <div className='container'>
+              <h1 className='projects text-color page-color'>Projects.</h1>
               <WritingRoll />
             </div>
           </div>
