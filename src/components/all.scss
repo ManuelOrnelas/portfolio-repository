@@ -36,7 +36,8 @@ body {
 // ALL TEXT
 
 h1, h2, p, li {
-  color: #353535
+  color: #353535;
+  word-break: break-word;
 }
 
 h1 {

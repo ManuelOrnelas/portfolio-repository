@@ -61,6 +61,17 @@
     word-break: break-all;
   }
 
+  // GEOMETRY 
+  .circle {
+    width: 1rem !important;
+    height: 1rem !important;
+  }
+
+  .square {
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+  }
+
   nav {
     #item-list {
       width: 90vw;
