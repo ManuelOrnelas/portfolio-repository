@@ -27,9 +27,9 @@ function NewsItem(props) {
 }
 
 function NewsList(props) {
-  const newsItems = props.news.map(item => {
+  const newsItems = props.news.map((item, index) => {
     return (
-      <NewsItem data={item}></NewsItem>
+      <NewsItem data={item} key={index}></NewsItem>
     )
   })
 
@@ -52,8 +52,8 @@ export class IndexPageTemplate extends React.Component {
       subheading,
       mainpitch,
       description,
-      intro,
       main,
+      whoandwhy,
       news } = this.props
 
     this.state = {
@@ -65,8 +65,8 @@ export class IndexPageTemplate extends React.Component {
       subheading,
       mainpitch,
       description,
-      intro,
       main,
+      whoandwhy,
       news
     }
   }
@@ -108,11 +108,9 @@ export class IndexPageTemplate extends React.Component {
         <div id='who-and-why' className='full-page-minimum flex alignitems-center'>
           <div className='container flex'>
             <div>
-              <h1 id='title' className='text-color page-color margin-0'>Nucabé</h1>
-              <p className='grey fontsize-3'>Pessoa com muita vontade de experimentar coisas novas, 20 anos e a contar, rabeta.</p>
-              <p className='grey fontsize-2 fontweight-light'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan arcu a pulvinar mollis.
-    Morbi a malesuada ipsum. Sed porttitor sagittis felis, at luctus metus ornare sit amet. Ut laoreet, arcu non
-    vulputate dictum, elit nulla sodales ante, ac aliquet nulla nunc at dolor.</p>
+              <h1 id='title' className='text-color page-color margin-0'>{this.state.whoandwhy.title}</h1>
+              <p className='grey fontsize-3'>{this.state.whoandwhy.subtitle}</p>
+              <p className='grey fontsize-2 fontweight-light'>{this.state.whoandwhy.description}</p>
               <div className='flex'>
                 <span id='email'></span>
                 <span id='instagram'></span>
@@ -128,7 +126,7 @@ export class IndexPageTemplate extends React.Component {
               
             </div>
             <div>
-              <h1 id='title' class='white-text'>Historical line</h1>
+              <h1 id='title' className='white-text'>Historical line</h1>
               <h2>Pre-Academic</h2>
               <ul>
                 <li>1998 Born in Terceira Island</li>
@@ -159,35 +157,24 @@ IndexPageTemplate.propTypes = {
   subheading: PropTypes.string,
   mainpitch: PropTypes.object,
   description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
+  whoandwhy: PropTypes.object,
   news: PropTypes.array
 }
 
 export const IndexPage = ({data}) => {
   // get graphql data
   let { colors } = data.colorsQuery.frontmatter
-  let page = data.pageQuery.frontmatter
+  let pageData = Object.assign({}, data.pageQuery.frontmatter)
 
   // if this color (index) exists use it,
   // otherwise, use the first color
-  let pageColor = ''
-  if (page.color && colors[page.color - 1]) pageColor = colors[page.color - 1].replace('\\', '')
-  else pageColor = colors[0].replace('\\', '')
+  if (pageData.color && colors[pageData.color - 1]) pageData.color = colors[pageData.color - 1].replace('\\', '')
+  else pageData.color = colors[0].replace('\\', '')
 
   return (
-    <Layout primaryColor={pageColor}>
+    <Layout primaryColor={pageData.color}>
       <IndexPageTemplate
-        color={pageColor}
-        image={page.image}
-        title={page.title}
-        heading={page.heading}
-        subheading={page.subheading}
-        mainpitch={page.mainpitch}
-        description={page.description}
-        intro={page.intro}
-        news={page.news}
+        {...pageData}
       /> 
     </Layout>
   )
@@ -219,22 +206,9 @@ query IndexPageTemplate($pageKey: String!) {
       heading
       subheading
       description
-      intro {
-        blurbs {
-          image {
-            childImageSharp {
-              fluid(maxWidth: 240, quality: 64) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          text
-        }
-        heading
-        description
-      }
-      mainpitch {
+      whoandwhy {
         title
+        subtitle
         description
       }
       news {
