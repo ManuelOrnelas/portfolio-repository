@@ -173,6 +173,14 @@ img.fit-contain {
   object-fit: contain;
 }
 
+img.w-1 {
+  width: 1rem;
+}
+
+img.h-1 {
+  height: 1rem;
+}
+
 // WIDTH
 .w-90 {
   width: 90%;
@@ -581,6 +589,10 @@ footer.footer {
   #who-and-why {
     h1 {
       font-size: 72px;
+    }
+
+    #social a {
+      margin-right: 1rem;
     }
   }
 

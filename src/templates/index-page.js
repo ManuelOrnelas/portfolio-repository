@@ -5,6 +5,34 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 // import Features from '../components/Features'
 
+import * as facebook from  '../img/social/facebook.svg'
+import * as instagram from '../img/social/instagram.svg'
+import * as email from '../img/social/email.svg'
+
+function WhoAndWhy(props) {
+  let { title, subtitle, description, social } = props
+
+  console.log(social)
+  return (
+    <div>
+      <h1 id='title' className='text-color page-color margin-0'>{title}</h1>
+      <p className='grey fontsize-3'>{subtitle}</p>
+      <p className='grey fontsize-2 fontweight-light'>{description}</p>
+      <div id='social' className='flex'>
+        <a id='email' href={'mailto:' + social.email} target='_blank norefferer'>
+          <img alt='Send Nucabé an email' src={email} className='w-1 h-1'></img>
+        </a> 
+        <a id='instagram' href={social.instagram} target='_blank norefferer'>
+          <img alt='Nucabé Instagram page' src={instagram} className='w-1 h-1'></img>
+        </a>
+        <a id='facebook' href={social.facebook} target='_blank norefferer'>
+          <img alt='Nucabé Facebook page' src={facebook} className='w-1 h-1'></img>
+        </a>
+      </div>
+    </div>  
+  )
+}
+
 function NewsItem(props) {
   return (
     <li>
@@ -46,6 +74,7 @@ export class IndexPageTemplate extends React.Component {
 
     // fetch all data from the props
     let { color,
+      social,
       image,
       title,
       heading,
@@ -59,6 +88,7 @@ export class IndexPageTemplate extends React.Component {
     this.state = {
       color,
       secondaryColor: '',
+      social,
       image,
       title,
       heading,
@@ -107,16 +137,7 @@ export class IndexPageTemplate extends React.Component {
 
         <div id='who-and-why' className='full-page-minimum flex alignitems-center'>
           <div className='container flex'>
-            <div>
-              <h1 id='title' className='text-color page-color margin-0'>{this.state.whoandwhy.title}</h1>
-              <p className='grey fontsize-3'>{this.state.whoandwhy.subtitle}</p>
-              <p className='grey fontsize-2 fontweight-light'>{this.state.whoandwhy.description}</p>
-              <div className='flex'>
-                <span id='email'></span>
-                <span id='instagram'></span>
-                <span id='facebook'></span>
-              </div>
-            </div>
+            <WhoAndWhy {...this.state.whoandwhy} social={this.state.social} />
           </div>
         </div>
 
@@ -170,6 +191,9 @@ export const IndexPage = ({data}) => {
   // otherwise, use the first color
   if (pageData.color && colors[pageData.color - 1]) pageData.color = colors[pageData.color - 1].replace('\\', '')
   else pageData.color = colors[0].replace('\\', '')
+
+  // add social network query data to the page data
+  pageData.social = data.socialQuery.frontmatter
 
   return (
     <Layout primaryColor={pageData.color}>
@@ -229,6 +253,14 @@ query IndexPageTemplate($pageKey: String!) {
   colorsQuery: markdownRemark(frontmatter: { fileID: { eq: "colors" } }) {
     frontmatter {
       colors
+    }
+  }
+
+  socialQuery: markdownRemark(frontmatter: { fileID: { eq: "social" } }) {
+    frontmatter {
+      email
+      facebook
+      instagram
     }
   }
 }
