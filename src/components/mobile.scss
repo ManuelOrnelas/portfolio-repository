@@ -39,11 +39,13 @@
   }
 
   #home {
-    #news-item {
-      flex-direction: column;
-
-      #info {
-        padding: 0;
+    #news {
+      li #news-item {
+        flex-direction: column;
+  
+        #info {
+          padding: 0;
+        }
       }
     }
   }
