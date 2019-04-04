@@ -106,6 +106,7 @@ export class IndexPageTemplate extends React.Component {
         navbar = document.querySelector('nav')
       // get the main section element
       let el = event.target.closest('.full-page')
+      if (!el) el = event.target.closest('.full-page-minimum')
 
       // find out index number of the section div relative to the parent
       let i = 0;
@@ -120,7 +121,7 @@ export class IndexPageTemplate extends React.Component {
         // if the navbar has its arrow disabled, enable it
         let arrow = navbar.querySelector('#navbar-arrow')
         setTimeout(() => {
-          arrow.classList.toggle('show')
+          arrow.classList.add('show')
         }, 750)
       }
     }
@@ -185,18 +186,10 @@ export class IndexPageTemplate extends React.Component {
           </div>
         </div>
 
-        <div className='full-page-minimum flex alignitems-center'>
+        <div id='news' className='full-page-minimum flex alignitems-center'>
           <div className='container'>
             <h1 id='title' className='text-color page-color'>News</h1>
             <NewsList news={this.state.news}></NewsList>
-
-            <div>
-              <div data-aos='fade-up' data-aos-delay='0'
-                data-aos-offset='0' data-aos-anchor='#arrow'>
-                <span className="arrow arrow-down bottom-center clickable"
-                  onClick={this.handleArrowDownClick}></span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
