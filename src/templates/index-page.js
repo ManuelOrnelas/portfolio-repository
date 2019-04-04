@@ -129,40 +129,19 @@ export class IndexPageTemplate extends React.Component {
     if (dy > 0) up = false
     else up = true
 
-    let pageRoot = document.querySelector('div#home'),
-      navbar = document.querySelector('nav'),
-      activeSections = document.querySelectorAll('.full-page-section.active')
+    let activeSections = document.querySelectorAll('.full-page-section.active')
     
     if (up && activeSections.length) {
       // let's deactivate the last one and make it slide down
-      activeSections[activeSections.length-1].classList.remove('active')
-      
-      if (!(activeSections.length > 1)) {
-        let arrow = document.querySelector('#navbar-arrow')
-        arrow.classList.toggle('show')
-      }
+      scrollUpToNextSection(activeSections[activeSections.length - 1], !(activeSections.length > 1))
     } else {
       let el = target.closest('.full-page')
       // if event's target was not .full-page div then closest will be null
       // if it wasn't .full-page it has to be .full-page-section
       if (!el) el = target.closest('.full-page-section')
-
-      // find out index number of the section div relative to the parent
-      let i = 0;
-      while( (el = el.previousSibling) != null) i++
-
-      if (pageRoot.children[i + 1]) {
-        // slide up next section
-        pageRoot.children[i+1].classList.toggle('active')
-        
-        // if the navbar has its arrow disabled, enable it
-        let arrow = navbar.querySelector('#navbar-arrow')
-        setTimeout(() => {
-          arrow.classList.add('show')
-        }, 750)
-      }
+      
+      scrollDownToNextSection(el)
     }
-    
   }
 
   render() {
