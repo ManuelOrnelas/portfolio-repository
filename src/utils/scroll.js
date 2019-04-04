@@ -1,7 +1,7 @@
 /**
  * @param {HTMLElement} currentSection 
  */
-export function scrollToNextSection(currentSection) {
+export function scrollDownToNextSection(currentSection) {
   let pageRoot = document.querySelector('div#home'),
     navbar = document.querySelector('nav')
 
@@ -20,5 +20,21 @@ export function scrollToNextSection(currentSection) {
     setTimeout(() => {
       arrow.classList.add('show')
     }, 750)
+  }
+}
+
+/**
+ * 
+ * @param {HTMLElement} currentSection Current section user is viewing
+ * @param {boolean} isFirst Is this the first section of the page (not counting with the title/header)
+ */
+export function scrollUpToNextSection(currentSection, isFirst) {
+  // slide down section
+  currentSection.classList.remove('active')
+  
+  // hide navbar arrow
+  if (isFirst) {
+    let arrow = document.querySelector('#navbar-arrow')
+    arrow.classList.remove('show')
   }
 }

@@ -6,7 +6,7 @@ import { debounce } from 'lodash'
 import Layout from '../components/Layout'
 // import Features from '../components/Features'
 
-import { scrollToNextSection } from '../utils/scroll'
+import { scrollUpToNextSection, scrollDownToNextSection } from '../utils/scroll'
 
 import * as facebook from  '../img/social/facebook.svg'
 import * as instagram from '../img/social/instagram.svg'
@@ -112,7 +112,7 @@ export class IndexPageTemplate extends React.Component {
       let el = event.target.closest('.full-page')
       if (!el) el = event.target.closest('.full-page-section')
 
-      scrollToNextSection(el)
+      scrollDownToNextSection(el)
     }
   }
 
