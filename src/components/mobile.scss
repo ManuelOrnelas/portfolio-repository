@@ -3,8 +3,21 @@
     font-size: 6rem;
   }
 
-  #item-list {
-    width: 35vw;
+  nav {
+    #item-list {
+      width: 35vw;
+    }
+  
+    ~ div {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+    }
+  }
+
+  .full-page-minimum {
+    position: absolute;
+    width: 100vw;
   }
 
   .slight-left {

@@ -75,9 +75,9 @@ module.exports = {
     {
       resolve:'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
       options: {
-        develop: true, // Activates purging in npm run develop
+        develop: false, // Activates purging in npm run develop
         purgeOnly: [
-          '/all.scss',
+          //'/all.scss',
           //'/mobile.scss',
         ],
       },
