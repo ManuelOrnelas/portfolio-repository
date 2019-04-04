@@ -348,6 +348,7 @@ nav {
 
     a {
       flex-basis: 15%;
+      text-decoration: none;
 
       .square {
         background-color: var(--active-color);
@@ -360,6 +361,13 @@ nav {
       &:hover {
         .circle {
           background-color: var(--inactive-color-hover);
+        }
+
+        &::after {
+          content: attr(data-name);
+          position: absolute;
+          top: 3.5rem;
+          color: #fff;
         }
       }
     }
@@ -540,51 +548,6 @@ footer.footer {
   padding-right: 15vw;
 }
 
-// INDEX - Historical Line
-
-.historical-left {
-  width: 25%;
-  float: left;
-}
-
-.historical-right {
-  width: 75%;
-  float: right;
-}
-
-.historical-line {
-  margin: 27vh 0 0 20vw;
-  width: 7px;
-  height: 50vh;
-  background-color: white;
-  border-radius: 30px;
-
-  .white-circle {
-    border-radius: 50%;
-    height: 25px;
-    width: 25px;
-    background-color: white;
-  }
-}
-
-.historical-line-text {
-  padding: 20vh 0 10vh 0;
-
-  h1 {
-    font-size: 72px;
-    color: white;
-  }
-
-  h2 {
-
-  }
-
-  ul {
-    list-style-type: none;
-    padding-inline-start: 0;
-  }
-}
-
 // INDEX PAGE
 #home {
   #who-and-why {
@@ -596,6 +559,51 @@ footer.footer {
       margin-right: 1rem;
     }
   }
+
+  /*
+  .historical-left {
+    width: 25%;
+    float: left;
+  }
+  
+  .historical-right {
+    width: 75%;
+    float: right;
+  }
+  
+  .historical-line {
+    margin: 27vh 0 0 20vw;
+    width: 7px;
+    height: 50vh;
+    background-color: white;
+    border-radius: 30px;
+  
+    .white-circle {
+      border-radius: 50%;
+      height: 25px;
+      width: 25px;
+      background-color: white;
+    }
+  }
+  
+  .historical-line-text {
+    padding: 20vh 0 10vh 0;
+  
+    h1 {
+      font-size: 72px;
+      color: white;
+    }
+  
+    h2 {
+  
+    }
+  
+    ul {
+      list-style-type: none;
+      padding-inline-start: 0;
+    }
+  }
+  */
 
   #news {
     li {

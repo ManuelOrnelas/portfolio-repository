@@ -18,6 +18,12 @@ export default class Navbar extends React.Component {
     })
   }
 
+  navbarItemHover = (e) => {
+    let text = e.target.dataset.name
+
+    
+  }
+
   render() {
     // get setcion from URL pathname
     let urlParts = this.state.path.split('/'),
@@ -48,43 +54,50 @@ export default class Navbar extends React.Component {
           }}
           data-aos='fade-down'
           data-aos-delay='0'>
-          <Link className="flex justifycontent-center alignitems-center" to="/" data-target="root">
+          <Link className="flex justifycontent-center alignitems-center" to="/"
+            data-target="root" data-name='Home'>
             <div id="root" className={(this.state.path === '/'
               ? 'square'
               : 'circle')
             }/>
           </Link>
-          <Link className="flex justifycontent-center alignitems-center" to="/sculpture" data-target="sculpture">
+          <Link className="flex justifycontent-center alignitems-center" to="/sculpture"
+            data-target="sculpture" data-name='Sculpture'>
             <div id="sculpture" className={section.includes('sculpture')
               ? 'square'
               : 'circle'
             }/>
           </Link>
-          <Link className="flex justifycontent-center alignitems-center" to="/graphics-design" data-target="graphics-design">
+          <Link className="flex justifycontent-center alignitems-center" to="/graphics-design"
+            data-target="graphics-design" data-name='Graphic'>
             <div id="graphics-design" className={section.includes('graphics-design')
               ? 'square'
               : 'circle'
             }/>
           </Link>
-          <Link className="flex justifycontent-center alignitems-center" to="/product-design" data-target="product-design">
+          <Link className="flex justifycontent-center alignitems-center" to="/product-design"
+            data-target="product-design" data-name='Product' onMouseOver={this.navbarItemHover}>
             <div id="product-design" className={section.includes('product-design')
               ? 'square'
               : 'circle'
             }/>
           </Link>
-          <Link className="flex justifycontent-center alignitems-center" to="/interior-design" data-target="interior-design">
+          <Link className="flex justifycontent-center alignitems-center" to="/interior-design"
+            data-target="interior-design" data-name='Interior'>
             <div id="interior-design" className={section.includes('interior-design')
               ? 'square'
               : 'circle'
             } />
           </Link>
-          <Link className="flex justifycontent-center alignitems-center" to="/drawing" data-target="drawing">
+          <Link className="flex justifycontent-center alignitems-center" to="/drawing"
+            data-target="drawing" data-name='Drawing'>
             <div id="drawing" className={section.includes('drawing')
               ? 'square'
               : 'circle'
             }/>
           </Link>
-          <Link className="flex justifycontent-center alignitems-center" to="/writing" data-target="writing">
+          <Link className="flex justifycontent-center alignitems-center" to="/writing"
+            data-target="writing" data-name='Writing'>
             <div id="writing" className={section.includes('writing')
               ? 'square'
               : 'circle'
