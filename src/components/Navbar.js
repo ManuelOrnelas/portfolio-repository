@@ -21,12 +21,15 @@ export default class Navbar extends React.Component {
   handleArrowUpClick = (event) => {
     if(typeof document !== 'undefined' && document) {
       // get the section being shown and slide it down
-      let el = document.querySelector('.full-page-minimum.active')
-      el.classList.toggle('active')
+      let el = document.querySelectorAll('.full-page-minimum.active')
+      // the last item of this array is the last activated section 
+      el[el.length-1].classList.toggle('active')
 
       // hide navbar arrow
-      let arrow = document.querySelector('#navbar-arrow')
-      arrow.classList.toggle('show')
+      if (!(el.length > 1)) {
+        let arrow = document.querySelector('#navbar-arrow')
+        arrow.classList.toggle('show')
+      }
     }
   }
 
