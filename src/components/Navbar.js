@@ -21,7 +21,7 @@ export default class Navbar extends React.Component {
   handleArrowUpClick = (event) => {
     if(typeof document !== 'undefined' && document) {
       // get the section being shown and slide it down
-      let el = document.querySelectorAll('.full-page-minimum.active')
+      let el = document.querySelectorAll('.full-page-section.active')
       // the last item of this array is the last activated section 
       el[el.length-1].classList.toggle('active')
 

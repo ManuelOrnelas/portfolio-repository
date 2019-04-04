@@ -62,7 +62,7 @@ class WritingPage extends React.Component {
           </div>
 
 
-          <div className='full-page-minimum'>
+          <div className='full-page-section'>
             <div className='container'>
               <h1 className='projects text-color page-color'>Projects.</h1>
               <WritingRoll />

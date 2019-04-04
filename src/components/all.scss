@@ -515,7 +515,7 @@ footer.footer {
   align-items: center;
 }
 
-.full-page-minimum {
+.full-page-section {
   position: absolute;
   min-width: 100vw;
   min-height: 100vh;
@@ -532,7 +532,7 @@ footer.footer {
   }
 }
 
-.full-page-minimum:nth-of-type(2n+1) {
+.full-page-section:nth-of-type(2n+1) {
   background-color: var(--page-color); 
 }
 
