@@ -106,7 +106,7 @@ export class IndexPageTemplate extends React.Component {
         navbar = document.querySelector('nav')
       // get the main section element
       let el = event.target.closest('.full-page')
-      if (!el) el = event.target.closest('.full-page-minimum')
+      if (!el) el = event.target.closest('.full-page-section')
 
       // find out index number of the section div relative to the parent
       let i = 0;
@@ -127,10 +127,31 @@ export class IndexPageTemplate extends React.Component {
     }
   }
 
+  handleScroll = (event) => {
+    // deltaY > 0 means user is trying to scroll DOWN
+    // deltaY < 0 means user is trying to scroll UP
+    let up = undefined
+    if (event.deltaY > 0) up = false
+    else up = true
+
+    let activeSections = document.querySelectorAll('.full-page-section.active')
+    if (up && activeSections.length) {
+      // let's deactivate the last one and make it slide down
+      activeSections[activeSections.length-1].classList.remove('active')
+      console.log("Just hidden ", activeSections[activeSections.length - 1])
+      
+      if (!(activeSections.length > 1)) {
+        let arrow = document.querySelector('#navbar-arrow')
+        arrow.classList.toggle('show')
+      }
+    } else {
+      
+    }
+  }
+
   render() {
     return (
-      <div id='home' style={{ '--page-color': this.state.color }} onScroll={this.handleScroll}
-        onScrollCapture={this.handleScroll}>
+      <div id='home' style={{ '--page-color': this.state.color }} onWheel={this.handleScroll}>
         <div className='full-page flex justifycontent-center alignitems-center bcg-color page-color'>
           <div className='flex justifycontent-center aligncontent-center'>
             <h1 id='page-title' className='huge-text text-center white-text'
@@ -146,7 +167,7 @@ export class IndexPageTemplate extends React.Component {
           </div>
         </div>
 
-        <div id='who-and-why' className='full-page-minimum flex alignitems-center'>
+        <div id='who-and-why' className='full-page-section flex alignitems-center'>
           <div className='container flex'>
             <WhoAndWhy {...this.state.whoandwhy} social={this.state.social} />
             
@@ -160,7 +181,7 @@ export class IndexPageTemplate extends React.Component {
           </div>
         </div>
 
-        <div id='historical-line' className='full-page-minimum flex alignitems-center'>
+        <div id='historical-line' className='full-page-section flex alignitems-center'>
           <div className='container'>
             <div id='timeline'>
               
@@ -186,7 +207,7 @@ export class IndexPageTemplate extends React.Component {
           </div>
         </div>
 
-        <div id='news' className='full-page-minimum flex alignitems-center'>
+        <div id='news' className='full-page-section flex alignitems-center'>
           <div className='container'>
             <h1 id='title' className='text-color page-color'>News</h1>
             <NewsList news={this.state.news}></NewsList>

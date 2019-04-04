@@ -13,9 +13,16 @@
       width: 100vw;
       height: 100vh;
     }
+
+    #navbar-arrow {
+      position: absolute;
+      right: 0;
+      top: 6rem;
+      margin-right: 1rem;
+    }
   }
 
-  .full-page-minimum {
+  .full-page-section {
     position: absolute;
     width: 100vw;
   }
