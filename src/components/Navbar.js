@@ -18,10 +18,16 @@ export default class Navbar extends React.Component {
     })
   }
 
-  navbarItemHover = (e) => {
-    let text = e.target.dataset.name
+  handleArrowUpClick = (event) => {
+    if(typeof document !== 'undefined' && document) {
+      // get the section being shown and slide it down
+      let el = document.querySelector('.full-page-minimum.active')
+      el.classList.toggle('active')
 
-    
+      // hide navbar arrow
+      let arrow = document.querySelector('#navbar-arrow')
+      arrow.classList.toggle('show')
+    }
   }
 
   render() {
@@ -38,7 +44,7 @@ export default class Navbar extends React.Component {
     if(this.props.postColor) isPost = true 
     
     return (
-      <nav id="navbar" style={{backgroundColor: (isPost ? this.props.postColor : this.props.color)}}>
+      <nav id="navbar" style={{backgroundColor: (isPost ? this.props.postColor : 'transparent')}}>
         {/* LOGO */}
         <Link to="/" title="Logo" className='logo flex aligncontent-center'
           data-aos='fade-right'
@@ -104,6 +110,14 @@ export default class Navbar extends React.Component {
             }/>
           </Link>
         </div>
+
+        <div id='navbar-arrow'>
+            <div data-aos='fade-up'data-aos-delay='0'
+              data-aos-offset='0' data-aos-anchor='#arrow'>
+              <span className="arrow arrow-up clickable"
+                onClick={this.handleArrowUpClick}></span>
+            </div>
+          </div>
       </nav>
     )
   }

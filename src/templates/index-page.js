@@ -12,7 +12,6 @@ import * as email from '../img/social/email.svg'
 function WhoAndWhy(props) {
   let { title, subtitle, description, social } = props
 
-  console.log(social)
   return (
     <div>
       <h1 id='title' className='text-color page-color margin-0'>{title}</h1>
@@ -101,10 +100,10 @@ export class IndexPageTemplate extends React.Component {
     }
   }
 
-  handleArrowClick = (event) => {
+  handleArrowDownClick = (event) => {
     if(typeof document !== 'undefined' && document) {
-      let pageRoot = document.querySelector('div#home')
-
+      let pageRoot = document.querySelector('div#home'),
+        navbar = document.querySelector('nav')
       // get the main section element
       let el = event.target.closest('.full-page')
 
@@ -113,14 +112,25 @@ export class IndexPageTemplate extends React.Component {
       while( (el = el.previousSibling) != null) i++
 
       // we want to scroll to the next section so we will select it
-      if(pageRoot.children[i + 1]) pageRoot.children[i + 1].scrollIntoView()
+      // first, verify if section exists
+      if(pageRoot.children[i + 1]) {
+        // slide up next section
+        pageRoot.children[i+1].classList.toggle('active')
+        
+        // if the navbar has its arrow disabled, enable it
+        let arrow = navbar.querySelector('#navbar-arrow')
+        setTimeout(() => {
+          arrow.classList.toggle('show')
+        }, 750)
+      }
     }
   }
 
   render() {
     return (
-      <div id='home' style={{ '--page-color': this.state.color }}>
-        <div className='full-page bcg-color page-color'>
+      <div id='home' style={{ '--page-color': this.state.color }} onScroll={this.handleScroll}
+        onScrollCapture={this.handleScroll}>
+        <div className='full-page flex justifycontent-center alignitems-center bcg-color page-color'>
           <div className='flex justifycontent-center aligncontent-center'>
             <h1 id='page-title' className='huge-text text-center white-text'
               data-aos='fade-up' data-aos-delay='0'>{this.state.title}</h1>
@@ -130,7 +140,7 @@ export class IndexPageTemplate extends React.Component {
             <div data-aos='fade-up'data-aos-delay='0'
               data-aos-offset='0' data-aos-anchor='#arrow'>
               <span className="arrow arrow-down bottom-center clickable"
-                onClick={this.handleArrowClick}></span>
+                onClick={this.handleArrowDownClick}></span>
             </div>
           </div>
         </div>
@@ -138,6 +148,14 @@ export class IndexPageTemplate extends React.Component {
         <div id='who-and-why' className='full-page-minimum flex alignitems-center'>
           <div className='container flex'>
             <WhoAndWhy {...this.state.whoandwhy} social={this.state.social} />
+            
+            <div>
+              <div data-aos='fade-up' data-aos-delay='0'
+                data-aos-offset='0' data-aos-anchor='#arrow'>
+                <span className="arrow arrow-down bottom-center clickable"
+                  onClick={this.handleArrowDownClick}></span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -156,6 +174,14 @@ export class IndexPageTemplate extends React.Component {
                 <li>2017 Sent 2 Medals for the New Ideas in Medallic Sculpture exhibition in Japan</li>
               </ul>
             </div>
+
+            <div>
+              <div data-aos='fade-up' data-aos-delay='0'
+                data-aos-offset='0' data-aos-anchor='#arrow'>
+                <span className="arrow arrow-down bottom-center clickable"
+                  onClick={this.handleArrowDownClick}></span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -163,6 +189,14 @@ export class IndexPageTemplate extends React.Component {
           <div className='container'>
             <h1 id='title' className='text-color page-color'>News</h1>
             <NewsList news={this.state.news}></NewsList>
+
+            <div>
+              <div data-aos='fade-up' data-aos-delay='0'
+                data-aos-offset='0' data-aos-anchor='#arrow'>
+                <span className="arrow arrow-down bottom-center clickable"
+                  onClick={this.handleArrowDownClick}></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
