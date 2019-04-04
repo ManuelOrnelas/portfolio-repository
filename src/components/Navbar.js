@@ -3,6 +3,8 @@ import { Link } from 'gatsby'
 import logo from '../img/logo.svg'
 import whiteLogo from '../img/white-logo.svg'
 
+import {scrollUpToNextSection} from '../utils/scroll'
+
 export default class Navbar extends React.Component {
   constructor(props) {
     super(props);
@@ -19,18 +21,11 @@ export default class Navbar extends React.Component {
   }
 
   handleArrowUpClick = (event) => {
-    if(typeof document !== 'undefined' && document) {
-      // get the section being shown and slide it down
-      let el = document.querySelectorAll('.full-page-section.active')
-      // the last item of this array is the last activated section 
-      el[el.length-1].classList.toggle('active')
+    // get the section being shown and slide it down
+    // it's the last active from the array
+    let el = document.querySelectorAll('.full-page-section.active')
 
-      // hide navbar arrow
-      if (!(el.length > 1)) {
-        let arrow = document.querySelector('#navbar-arrow')
-        arrow.classList.toggle('show')
-      }
-    }
+    scrollUpToNextSection(el[el.length - 1], !(el.length > 1))
   }
 
   render() {
@@ -85,7 +80,7 @@ export default class Navbar extends React.Component {
             }/>
           </Link>
           <Link className="flex justifycontent-center alignitems-center" to="/product-design"
-            data-target="product-design" data-name='Product' onMouseOver={this.navbarItemHover}>
+            data-target="product-design" data-name='Product'>
             <div id="product-design" className={section.includes('product-design')
               ? 'square'
               : 'circle'
