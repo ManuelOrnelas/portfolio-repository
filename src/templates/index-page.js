@@ -1,9 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import { debounce } from 'lodash'
 
 import Layout from '../components/Layout'
 // import Features from '../components/Features'
+
+import { scrollToNextSection } from '../utils/scroll'
 
 import * as facebook from  '../img/social/facebook.svg'
 import * as instagram from '../img/social/instagram.svg'
@@ -97,24 +100,58 @@ export class IndexPageTemplate extends React.Component {
       main,
       whoandwhy,
       news
-    }
+    }   
   }
 
+  /**
+   * @param {React.WheelEvent} event
+   */
   handleArrowDownClick = (event) => {
     if(typeof document !== 'undefined' && document) {
-      let pageRoot = document.querySelector('div#home'),
-        navbar = document.querySelector('nav')
       // get the main section element
       let el = event.target.closest('.full-page')
       if (!el) el = event.target.closest('.full-page-section')
+
+      scrollToNextSection(el)
+    }
+  }
+
+  throttledHandleScroll = debounce((dy, target) => { this.handleScroll(dy, target) }, 500)
+
+  /**
+   * @param {number} dy Represents the scroll velocity
+   * @param {HTMLElement} target Element 
+   */
+  handleScroll = (dy, target) => {
+    // dY > 0 means user is trying to scroll DOWN
+    // dY < 0 means user is trying to scroll UP
+    let up = undefined
+    if (dy > 0) up = false
+    else up = true
+
+    let pageRoot = document.querySelector('div#home'),
+      navbar = document.querySelector('nav'),
+      activeSections = document.querySelectorAll('.full-page-section.active')
+    
+    if (up && activeSections.length) {
+      // let's deactivate the last one and make it slide down
+      activeSections[activeSections.length-1].classList.remove('active')
+      
+      if (!(activeSections.length > 1)) {
+        let arrow = document.querySelector('#navbar-arrow')
+        arrow.classList.toggle('show')
+      }
+    } else {
+      let el = target.closest('.full-page')
+      // if event's target was not .full-page div then closest will be null
+      // if it wasn't .full-page it has to be .full-page-section
+      if (!el) el = target.closest('.full-page-section')
 
       // find out index number of the section div relative to the parent
       let i = 0;
       while( (el = el.previousSibling) != null) i++
 
-      // we want to scroll to the next section so we will select it
-      // first, verify if section exists
-      if(pageRoot.children[i + 1]) {
+      if (pageRoot.children[i + 1]) {
         // slide up next section
         pageRoot.children[i+1].classList.toggle('active')
         
@@ -125,33 +162,12 @@ export class IndexPageTemplate extends React.Component {
         }, 750)
       }
     }
-  }
-
-  handleScroll = (event) => {
-    // deltaY > 0 means user is trying to scroll DOWN
-    // deltaY < 0 means user is trying to scroll UP
-    let up = undefined
-    if (event.deltaY > 0) up = false
-    else up = true
-
-    let activeSections = document.querySelectorAll('.full-page-section.active')
-    if (up && activeSections.length) {
-      // let's deactivate the last one and make it slide down
-      activeSections[activeSections.length-1].classList.remove('active')
-      console.log("Just hidden ", activeSections[activeSections.length - 1])
-      
-      if (!(activeSections.length > 1)) {
-        let arrow = document.querySelector('#navbar-arrow')
-        arrow.classList.toggle('show')
-      }
-    } else {
-      
-    }
+    
   }
 
   render() {
     return (
-      <div id='home' style={{ '--page-color': this.state.color }} onWheel={this.handleScroll}>
+      <div id='home' style={{ '--page-color': this.state.color }} onWheel={(e) => this.throttledHandleScroll(e.deltaY, e.target)}>
         <div className='full-page flex justifycontent-center alignitems-center bcg-color page-color'>
           <div className='flex justifycontent-center aligncontent-center'>
             <h1 id='page-title' className='huge-text text-center white-text'
