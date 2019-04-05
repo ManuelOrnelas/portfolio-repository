@@ -153,10 +153,10 @@ export class IndexPageTemplate extends React.Component {
               data-aos='fade-up' data-aos-delay='0'>{this.state.title}</h1>
           </div>
           
-          <div id='arrow'>
+          <div id='#arrow'>
             <div data-aos='fade-up'data-aos-delay='0'
               data-aos-offset='0' data-aos-anchor='#arrow'>
-              <span className="arrow arrow-down bottom-center clickable"
+              <span className="arrow arrow-down clickable"
                 onClick={this.handleArrowDownClick}></span>
             </div>
           </div>
@@ -168,7 +168,7 @@ export class IndexPageTemplate extends React.Component {
             
             <div>
               <div data-aos='fade-up' data-aos-delay='0'
-                data-aos-offset='0' data-aos-anchor='#arrow'>
+                data-aos-offset='0' data-aos-anchor='who-and-why'>
                 <span className="arrow arrow-down bottom-center clickable"
                   onClick={this.handleArrowDownClick}></span>
               </div>
@@ -194,7 +194,7 @@ export class IndexPageTemplate extends React.Component {
 
             <div>
               <div data-aos='fade-up' data-aos-delay='0'
-                data-aos-offset='0' data-aos-anchor='#arrow'>
+                data-aos-offset='0' data-aos-anchor='#historical-line'>
                 <span className="arrow arrow-down bottom-center clickable"
                   onClick={this.handleArrowDownClick}></span>
               </div>
