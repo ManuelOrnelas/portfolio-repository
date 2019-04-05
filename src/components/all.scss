@@ -1,36 +1,10 @@
-// FONTS
-@font-face {
-  font-family: 'SofiaPro';
-  src: url('/fonts/SofiaProLight.ttf');
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: 'SofiaPro';
-  src: urL('/fonts/SofiaProMedium.ttf');
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: 'SofiaPro';
-  src: url('/fonts/SofiaProSemiBold.ttf');
-  font-weight: 700; 
-}
-
-@font-face {
-  font-family: 'SofiaPro';
-  src: url('/fonts/SofiaProBold.ttf');
-  font-weight: 800;
-  font-style: normal;
-}
-
 html,
 body {
   margin: 0;
   overflow-x: hidden;
   overflow-y: hidden;
   scroll-behavior: smooth; 
-  font-family: 'SofiaPro';
+  font-family: 'Poppins';
   background-color: #e7eeed;
 }
 
@@ -154,15 +128,15 @@ p {
 
 // FONT WEIGHT
 .fontweight-light {
-  font-weight: lighter;
+  font-weight: 300;
 }
 
 .fontweight-normal {
-  font-weight: normal;
+  font-weight: 500;
 }
 
 .fontweight-bold {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .fontweight-bolder {
@@ -492,6 +466,13 @@ footer.footer {
 .full-page {
   width: 100vw;
   height: 100vh;
+
+  #arrow {
+    position: absolute;
+    bottom: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 .full-page:first-of-type {

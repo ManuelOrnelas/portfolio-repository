@@ -153,7 +153,7 @@ export class IndexPageTemplate extends React.Component {
               data-aos='fade-up' data-aos-delay='0'>{this.state.title}</h1>
           </div>
           
-          <div id='#arrow'>
+          <div id='arrow'>
             <div data-aos='fade-up'data-aos-delay='0'
               data-aos-offset='0' data-aos-anchor='#arrow'>
               <span className="arrow arrow-down clickable"
