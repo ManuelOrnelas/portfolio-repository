@@ -55,53 +55,58 @@ export default class Navbar extends React.Component {
           '--active-color': (isPost ? this.props.color : '#fff'), 
           '--inactive-color': (isPost ? 'rgba(55,51,34, .3)' : '#ffffff50'),
           '--inactive-color-hover': (isPost ? 'rgba(55, 51, 34, .2)' : '#ffffff90') 
-          }}
-          data-aos='fade-down'
-          data-aos-delay='0'>
+          }}>
           <Link className="flex justifycontent-center alignitems-center" to="/"
-            data-target="root" data-name='Home'>
+            data-target="root" data-name='Home' data-aos='fade-down'
+            data-aos-delay='0'>
             <div id="root" className={(this.state.path === '/'
               ? 'square'
               : 'circle')
             }/>
           </Link>
           <Link className="flex justifycontent-center alignitems-center" to="/sculpture"
-            data-target="sculpture" data-name='Sculpture'>
+            data-target="sculpture" data-name='Sculpture' data-aos='fade-down'
+            data-aos-delay='100'>
             <div id="sculpture" className={section.includes('sculpture')
               ? 'square'
               : 'circle'
             }/>
           </Link>
           <Link className="flex justifycontent-center alignitems-center" to="/graphics-design"
-            data-target="graphics-design" data-name='Graphic'>
+            data-target="graphics-design" data-name='Graphic' data-aos='fade-down'
+            data-aos-delay='200'>
             <div id="graphics-design" className={section.includes('graphics-design')
               ? 'square'
               : 'circle'
             }/>
           </Link>
           <Link className="flex justifycontent-center alignitems-center" to="/product-design"
-            data-target="product-design" data-name='Product'>
+            data-target="product-design" data-name='Product' data-aos='fade-down'
+            data-aos-delay='300'>
             <div id="product-design" className={section.includes('product-design')
               ? 'square'
               : 'circle'
             }/>
           </Link>
           <Link className="flex justifycontent-center alignitems-center" to="/interior-design"
-            data-target="interior-design" data-name='Interior'>
+            data-target="interior-design" data-name='Interior' data-aos='fade-down'
+            data-aos-delay='400'>
             <div id="interior-design" className={section.includes('interior-design')
               ? 'square'
               : 'circle'
             } />
           </Link>
           <Link className="flex justifycontent-center alignitems-center" to="/drawing"
-            data-target="drawing" data-name='Drawing'>
+            data-target="drawing" data-name='Drawing' data-aos='fade-down'
+            data-aos-delay='500'>
             <div id="drawing" className={section.includes('drawing')
               ? 'square'
               : 'circle'
             }/>
           </Link>
           <Link className="flex justifycontent-center alignitems-center" to="/writing"
-            data-target="writing" data-name='Writing'>
+            data-target="writing" data-name='Writing' data-aos='fade-down'
+            data-aos-delay='600'>
             <div id="writing" className={section.includes('writing')
               ? 'square'
               : 'circle'
