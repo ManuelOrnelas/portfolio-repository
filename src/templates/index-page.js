@@ -134,7 +134,7 @@ export class IndexPageTemplate extends React.Component {
     if (up && activeSections.length) {
       // let's deactivate the last one and make it slide down
       scrollUpToNextSection(activeSections[activeSections.length - 1], !(activeSections.length > 1))
-    } else {
+    } else if (!up) {
       let el = target.closest('.full-page')
       // if event's target was not .full-page div then closest will be null
       // if it wasn't .full-page it has to be .full-page-section
@@ -167,7 +167,7 @@ export class IndexPageTemplate extends React.Component {
             <WhoAndWhy {...this.state.whoandwhy} social={this.state.social} />
             
             <div>
-              <div data-aos='fade-up' data-aos-delay='0'
+              <div data-aos='fade-up' data-aos-delay='200'
                 data-aos-offset='0' data-aos-anchor='who-and-why'>
                 <span className="arrow arrow-down bottom-center clickable"
                   onClick={this.handleArrowDownClick}></span>
