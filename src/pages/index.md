@@ -20,7 +20,7 @@ whoandwhy:
     Pessoa com muita vontade de experimentar coisas novas, 20 anos e a contar, rabeta.
   description: >
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan arcu a pulvinar mollis. Morbi a malesuada ipsum. Sed porttitor sagittis felis, at luctus metus ornare sit amet. Ut laoreet, arcu non vulputate dictum, elit nulla sodales ante, ac aliquet nulla nunc at dolor.
-  image:
+  image: /img/index/whoandwhy/nucabe-man.png
 historicalline:
   - title: Pre-Academic
     achievements:

@@ -14,23 +14,29 @@ import * as email from '../img/social/email.svg'
 
 function WhoAndWhy(props) {
   let { title, subtitle, description, social } = props
+  let nucabeman = props.image.childImageSharp.fluid.src
 
   return (
-    <div>
-      <h1 id='title' className='text-color page-color margin-0'>{title}</h1>
-      <p className='grey fontsize-3'>{subtitle}</p>
-      <p className='grey fontsize-2 fontweight-light'>{description}</p>
-      <div id='social' className='flex'>
-        <a id='email' href={'mailto:' + social.email} target='_blank norefferer'>
-          <img alt='Send Nucabé an email' src={email} className='w-1 h-1'></img>
-        </a> 
-        <a id='instagram' href={social.instagram} target='_blank norefferer'>
-          <img alt='Nucabé Instagram page' src={instagram} className='w-1 h-1'></img>
-        </a>
-        <a id='facebook' href={social.facebook} target='_blank norefferer'>
-          <img alt='Nucabé Facebook page' src={facebook} className='w-1 h-1'></img>
-        </a>
+    <div className='grid'>
+      <div id='bio' className='flex alignitems-center'>
+        <div className=''>
+          <h1 id='title' className='text-color page-color margin-0'>{title}</h1>
+          <p className='grey fontsize-3'>{subtitle}</p>
+          <p className='grey fontsize-2 fontweight-light'>{description}</p>
+          <div id='social' className='flex'>
+            <a id='email' href={'mailto:' + social.email} target='_blank norefferer'>
+              <img alt='Send Nucabé an email' src={email} className='w-1 h-1'></img>
+            </a> 
+            <a id='instagram' href={social.instagram} target='_blank norefferer'>
+              <img alt='Nucabé Instagram page' src={instagram} className='w-1 h-1'></img>
+            </a>
+            <a id='facebook' href={social.facebook} target='_blank norefferer'>
+              <img alt='Nucabé Facebook page' src={facebook} className='w-1 h-1'></img>
+            </a>
+          </div>
+        </div>
       </div>
+      <img src={nucabeman} alt='NUCABÉ'></img>
     </div>  
   )
 }
@@ -38,7 +44,6 @@ function WhoAndWhy(props) {
 function HistoricalLine(props) {
   let timeline = props.timeline
   let chosenID = props.chosenItem
-  console.log(` %c ${chosenID}`, 'color: green')
 
   let changeItem = (e) => {
     // holds next active element
@@ -51,11 +56,11 @@ function HistoricalLine(props) {
       <div id='timeline' className='flex alignitems-center'>
         <ul className='list-reset margin-0'>
           {timeline.map((item, index) => {
-            let distanceFromTop = `${index * 1 + 2}rem`
+            let distanceFromTop = `${index * 3 + 2}rem`
 
             return (
-              <li key={index} data-index={index} className={ chosenID === index ? 'active' : undefined} onClick={changeItem}
-                style={{top: distanceFromTop}}></li>
+              <li key={index} data-index={index} className={chosenID === index ? 'active' : null}
+                onClick={changeItem} style={{top: distanceFromTop}}></li>
             )
           })}
         </ul>
@@ -63,7 +68,7 @@ function HistoricalLine(props) {
       
       <div id='title' className='white-text'>Historical Line</div>
       <div id='timeline-content'>
-        <h2 id='achievement-title'>{timeline[chosenID].title}</h2>
+        <h1 id='achievement-title'>{timeline[chosenID].title}</h1>
         <div id='achievement-list'>
           {timeline[chosenID].achievements.map(achievement => {
             return (
@@ -215,7 +220,7 @@ export class IndexPageTemplate extends React.Component {
         </div>
 
         <div id='who-and-why' className='full-page-section flex alignitems-center'>
-          <div className='container flex'>
+          <div className='container'>
             <WhoAndWhy {...this.state.whoandwhy} social={this.state.social} />
             
             <div>
@@ -320,6 +325,13 @@ query IndexPageTemplate($pageKey: String!) {
         title
         subtitle
         description
+        image {
+          childImageSharp {
+            fluid {
+              src
+            }
+          }
+        }
       }
       historicalline {
         title

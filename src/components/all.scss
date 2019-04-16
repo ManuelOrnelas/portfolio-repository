@@ -542,12 +542,28 @@ footer.footer {
 // INDEX PAGE
 #home {
   #who-and-why {
-    h1 {
-      font-size: 72px;
-    }
+    .grid {
+      grid-template-columns: 70% 30%;
+      grid-column-gap: 2rem;
+      grid-template-areas: "bio profile";
 
-    #social a {
-      margin-right: 1rem;
+
+      #bio {
+        grid-area: bio;
+
+        h1 {
+          font-size: 72px;
+        }
+
+        #social a {
+          margin-right: 1rem;
+        }
+      }
+
+      img {
+        grid-area: profile;
+        width: 15rem;
+      }
     }
   }
 
@@ -557,12 +573,14 @@ footer.footer {
       grid-template-rows: 25% 75%;
       grid-template-areas: "timeline title"
                             "timeline timeline-content";
+      height: 65vh;
+      max-height: 80vh;
 
       #timeline {
         grid-area: timeline;
 
         ul {
-          width: 0.75rem;
+          width: 0.5rem;
           height: 85%;
           border-radius: 1rem;
           background: #fff;
@@ -571,12 +589,16 @@ footer.footer {
             position: relative;
             left: 50%;
             transform: translateX(-50%);
-            width: 1.75rem;
-            height: 1.75rem;
-            border-radius: 50%;
+            width: 1.5rem;
+            height: 1.5rem;
             background: #fff;
+            border-radius: 50%;
             cursor: pointer;
-            margin-top: 1rem;
+            transition: .25s ease all;
+
+            &:first-of-type {
+              margin-top: 1rem;
+            }
 
             &.active {
               background: #373322;
@@ -592,6 +614,16 @@ footer.footer {
       #timeline-content {
         grid-area: timeline-content;
         margin-top: 4rem;
+
+        h1 {
+          font-size: 3rem;
+          margin-bottom: 1.5rem;
+        }
+        
+        p {
+          font-weight: 300;
+          margin: 0;
+        }
       }
     }
   }
