@@ -35,6 +35,47 @@ function WhoAndWhy(props) {
   )
 }
 
+function HistoricalLine(props) {
+  let timeline = props.timeline
+  let chosenID = props.chosenItem
+  console.log(` %c ${chosenID}`, 'color: green')
+
+  let changeItem = (e) => {
+    // holds next active element
+    let newElementID = e.target.dataset.index
+    props.changeItem(newElementID)
+  }
+
+  return (
+    <div className='grid'>
+      <div id='timeline' className='flex alignitems-center'>
+        <ul className='list-reset margin-0'>
+          {timeline.map((item, index) => {
+            let distanceFromTop = `${index * 1 + 2}rem`
+
+            return (
+              <li key={index} data-index={index} className={ chosenID === index ? 'active' : undefined} onClick={changeItem}
+                style={{top: distanceFromTop}}></li>
+            )
+          })}
+        </ul>
+      </div>
+      
+      <div id='title' className='white-text'>Historical Line</div>
+      <div id='timeline-content'>
+        <h2 id='achievement-title'>{timeline[chosenID].title}</h2>
+        <div id='achievement-list'>
+          {timeline[chosenID].achievements.map(achievement => {
+            return (
+              <p>{achievement.date} {achievement.description}</p>
+            )
+          })}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function NewsItem(props) {
   return (
     <li>
@@ -85,6 +126,7 @@ export class IndexPageTemplate extends React.Component {
       description,
       main,
       whoandwhy,
+      historicalline,
       news } = this.props
 
     this.state = {
@@ -99,8 +141,12 @@ export class IndexPageTemplate extends React.Component {
       description,
       main,
       whoandwhy,
+      historicalline,
+      historicalSectionSelected: 0,
       news
-    }   
+    }
+
+    this.changeHistoricalSection = this.changeHistoricalSection.bind(this);   
   }
 
   /**
@@ -144,6 +190,12 @@ export class IndexPageTemplate extends React.Component {
     }
   }
 
+  changeHistoricalSection(newID) {
+    this.setState({
+      historicalSectionSelected: newID
+    })
+  }
+  
   render() {
     return (
       <div id='home' style={{ '--page-color': this.state.color }} onWheel={(e) => this.throttledHandleScroll(e.deltaY, e.target)}>
@@ -178,19 +230,9 @@ export class IndexPageTemplate extends React.Component {
 
         <div id='historical-line' className='full-page-section flex alignitems-center'>
           <div className='container'>
-            <div id='timeline'>
-              
-            </div>
-            <div>
-              <h1 id='title' className='white-text'>Historical line</h1>
-              <h2>Pre-Academic</h2>
-              <ul>
-                <li>1998 Born in Terceira Island</li>
-                <li>2016 Participation in MITO's art installation exhibition</li>
-                <li>2016 Changed Course from Sculpture to Equipment Design</li>
-                <li>2017 Sent 2 Medals for the New Ideas in Medallic Sculpture exhibition in Japan</li>
-              </ul>
-            </div>
+            <HistoricalLine timeline={this.state.historicalline}
+              chosenItem={this.state.historicalSectionSelected}
+              changeItem={this.changeHistoricalSection} />
 
             <div>
               <div data-aos='fade-up' data-aos-delay='0'
@@ -222,6 +264,7 @@ IndexPageTemplate.propTypes = {
   mainpitch: PropTypes.object,
   description: PropTypes.string,
   whoandwhy: PropTypes.object,
+  historicalline: PropTypes.object,
   news: PropTypes.array
 }
 
@@ -277,6 +320,13 @@ query IndexPageTemplate($pageKey: String!) {
         title
         subtitle
         description
+      }
+      historicalline {
+        title
+        achievements {
+          date
+          description
+        }
       }
       news {
         title

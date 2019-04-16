@@ -223,6 +223,11 @@ img.h-1 {
   align-items: center;
 }
 
+// GRID
+.grid {
+  display: grid;
+}
+
 // CONTAINERS
 .container {
   width: 65rem;
@@ -375,8 +380,8 @@ nav {
   }
 }
 
-.navbar-brand .navbar-item.logo {
-  padding: 0 1rem;
+#page-content {
+  overflow-y: hidden;
 }
 
 // FOOTER
@@ -426,24 +431,6 @@ footer.footer {
   align-items: center;
 }
 
-.btn {
-  display: inline-block;
-  padding: 12px 16px 10px;
-  font-size: 18px;
-  font-size: 1rem;
-  line-height: 1.25;
-  background-color: #fff;
-  border-radius: .25rem;
-  text-decoration: none;
-  font-weight: 700;
-  color: #CC3700;
-  text-align: center;
-  -webkit-box-shadow: inset 0 0 0 2px #CC3700;
-  box-shadow: inset 0 0 0 2px #f40;
-  -webkit-transition: all .15s ease;
-  transition: all .15s ease;
-}
-
 .margin-top-0 {
   margin-top: 0 !important;
 }
@@ -489,20 +476,21 @@ footer.footer {
   max-width: 100vw;
   min-height: 100vh;
   transition: 0.5s ease-in all;
+  overflow-y: visible;
   background-color: #e7eeed;
 
   &.active {
     transform: translateY(-100vh);
   }
 
+  &:nth-of-type(2n+1) {
+    background-color: var(--page-color); 
+  }
+
   #title {
     font-size: 7rem;
     margin: 0;
   }
-}
-
-.full-page-section:nth-of-type(2n+1) {
-  background-color: var(--page-color); 
 }
 
 .lateral-space {
@@ -560,6 +548,51 @@ footer.footer {
 
     #social a {
       margin-right: 1rem;
+    }
+  }
+
+  #historical-line {
+    .grid {
+      grid-template-columns: 10% 90%;
+      grid-template-rows: 25% 75%;
+      grid-template-areas: "timeline title"
+                            "timeline timeline-content";
+
+      #timeline {
+        grid-area: timeline;
+
+        ul {
+          width: 0.75rem;
+          height: 85%;
+          border-radius: 1rem;
+          background: #fff;
+
+          li {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1.75rem;
+            height: 1.75rem;
+            border-radius: 50%;
+            background: #fff;
+            cursor: pointer;
+            margin-top: 1rem;
+
+            &.active {
+              background: #373322;
+            }
+          }
+        }
+      }
+
+      #title {
+        grid-area: title;
+      }
+
+      #timeline-content {
+        grid-area: timeline-content;
+        margin-top: 4rem;
+      }
     }
   }
 

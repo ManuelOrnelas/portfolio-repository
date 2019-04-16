@@ -32,6 +32,10 @@ historicalline:
         description: Sent 2 Medals for the New IDeas in Medallic Sculpture exhibition in Japan
       - date: 2018
         description: Changed course from Sculpture to Equipment Design
+  - title: Academic
+    achievements:
+      - date: 2018
+        description: Octosólido job
 news:
   - title: Sent 2 dicks to Mateus
     thumbnail: /img/news/news.png

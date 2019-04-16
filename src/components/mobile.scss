@@ -22,9 +22,17 @@
     }
   }
 
+  #page-content {
+    overflow-y: visible;
+  }
+
   .full-page-section {
     position: absolute;
     width: 100vw;
+
+    .container {
+      padding-top: 5.5rem;
+    }
   }
 
   .slight-left {
