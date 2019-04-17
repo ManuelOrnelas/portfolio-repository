@@ -203,7 +203,8 @@ export class IndexPageTemplate extends React.Component {
   
   render() {
     return (
-      <div id='home' style={{ '--page-color': this.state.color }} onWheel={(e) => this.throttledHandleScroll(e.deltaY, e.target)}>
+      <div id='home' style={{ '--page-color': this.state.color }}
+        onWheel={(e) => this.throttledHandleScroll(e.deltaY, e.target)}>
         <div className='full-page flex justifycontent-center alignitems-center bcg-color page-color'>
           <div className='flex justifycontent-center aligncontent-center'>
             <h1 id='page-title' className='huge-text text-center white-text'

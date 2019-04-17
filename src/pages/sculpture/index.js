@@ -1,9 +1,12 @@
-import React from 'react'
-
 import { graphql } from 'gatsby'
+import { debounce } from 'lodash'
+import React from 'react'
 
 import Layout from '../../components/Layout'
 import SculptureRoll from '../../components/SculptureRoll'
+
+import { scrollDownToNextSection, scrollUpToNextSection } from '../../utils/scroll'
+
 
 class SculpturePage extends React.Component {
   constructor(props) {
@@ -24,30 +27,53 @@ class SculpturePage extends React.Component {
     }
   }
   
-  handleArrowClick = (event) => {
+  /**
+   * @param {React.WheelEvent} event
+   */
+  handleArrowDownClick = (event) => {
     if(typeof document !== 'undefined' && document) {
-      let pageRoot = document.querySelector('div#sculpture-page')
-
       // get the main section element
       let el = event.target.closest('.full-page')
+      if (!el) el = event.target.closest('.full-page-section')
+      
+      scrollDownToNextSection(el)
+    }
+  }
 
-      // find out index number of the section div relative to the parent
-      let i = 0;
-      while( (el = el.previousSibling) != null) i++
+  throttledHandleScroll = debounce((dy, target) => { this.handleScroll(dy, target) }, 500)
 
-      console.log(pageRoot.children[i+1])
-      // we want to scroll to the next section so we will select it
-      if(pageRoot.children[i + 1]) pageRoot.children[i + 1].scrollIntoView()
+  /**
+   * @param {number} dy Represents the scroll velocity
+   * @param {HTMLElement} target Element 
+   */
+  handleScroll = (dy, target) => {
+    // dY > 0 means user is trying to scroll DOWN
+    // dY < 0 means user is trying to scroll UP
+    let up = undefined
+    if (dy > 0) up = false
+    else up = true
+
+    let activeSections = document.querySelectorAll('.full-page-section.active')
+    
+    if (up && activeSections.length) {
+      // let's deactivate the last one and make it slide down
+      scrollUpToNextSection(activeSections[activeSections.length - 1], !(activeSections.length > 1))
+    } else if (!up) {
+      let el = target.closest('.full-page')
+      // if event's target was not .full-page div then closest will be null
+      // if it wasn't .full-page it has to be .full-page-section
+      if (!el) el = target.closest('.full-page-section')
+      
+      scrollDownToNextSection(el)
     }
   }
 
   render () {
     return (
       <Layout primaryColor={this.state.pageColor}>
-        <div id='sculpture-page' style={{
-          '--page-color': this.state.pageColor
-        }}>
-          <div className='full-page bcg-color page-color'>
+        <div id='sculpture' style={{ '--page-color': this.state.pageColor }}
+          onWheel={(e) => this.throttledHandleScroll(e.deltaY, e.target)}>
+          <div className='full-page flex justifycontent-center alignitems-center bcg-color page-color'>
             <div className='flex justifycontent-center aligncontent-center'>
               <h1 id='page-title' className='text-center huge-text white-text'
                 data-aos='fade-up' data-aos-delay='0'>Sculpture.</h1>
@@ -56,8 +82,8 @@ class SculpturePage extends React.Component {
             <div id='arrow'>
               <div data-aos='fade-up'data-aos-delay='0'
                 data-aos-offset='0' data-aos-anchor='#arrow'>
-                <span className="arrow arrow-down bottom-center clickable"
-                  onClick={this.handleArrowClick}></span>
+                <span className="arrow arrow-down clickable"
+                  onClick={this.handleArrowDownClick}></span>
               </div>
             </div>
           </div>

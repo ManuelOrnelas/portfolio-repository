@@ -2,7 +2,7 @@
  * @param {HTMLElement} currentSection 
  */
 export function scrollDownToNextSection(currentSection) {
-  let pageRoot = document.querySelector('div#home'),
+  let pageRoot = currentSection.parentElement,
     navbar = document.querySelector('nav')
 
   // find out index number of the section div relative to the parent
