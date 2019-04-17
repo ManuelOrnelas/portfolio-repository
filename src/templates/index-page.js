@@ -43,7 +43,6 @@ function WhoAndWhy(props) {
 
 function HistoricalLine(props) {
   let timeline = props.timeline
-  let chosenID = props.chosenItem
 
   let changeItem = (e) => {
     // holds next active element
@@ -57,9 +56,9 @@ function HistoricalLine(props) {
         <ul className='list-reset margin-0'>
           {timeline.map((item, index) => {
             let distanceFromTop = `${index * 3 + 2}rem`
-
+            
             return (
-              <li key={index} data-index={index} className={chosenID === index ? 'active' : null}
+              <li key={index} data-index={index} className={Number(props.chosenItem) === Number(index) ? 'active' : null}
                 onClick={changeItem} style={{top: distanceFromTop}}></li>
             )
           })}
@@ -68,9 +67,9 @@ function HistoricalLine(props) {
       
       <div id='title' className='white-text'>Historical Line</div>
       <div id='timeline-content'>
-        <h1 id='achievement-title'>{timeline[chosenID].title}</h1>
+        <h1 id='achievement-title'>{timeline[props.chosenItem].title}</h1>
         <div id='achievement-list'>
-          {timeline[chosenID].achievements.map(achievement => {
+          {timeline[props.chosenItem].achievements.map(achievement => {
             return (
               <p>{achievement.date} {achievement.description}</p>
             )
