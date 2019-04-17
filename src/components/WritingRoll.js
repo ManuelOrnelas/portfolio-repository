@@ -3,20 +3,20 @@ import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 
 class WritingRoll extends React.Component {
-
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-      <div className='thumbnail-gallery'>
+      <div className='post-list'>
         {posts && (posts.map(({ node: post }) => (
-          <Link title={post.frontmatter.title} className="title has-text-primary is-size-4" to={post.fields.slug}>
+          <Link title={post.frontmatter.title} className="post title has-text-primary is-size-4"
+            to={post.fields.slug}>
             <img alt={post.frontmatter.title} className="thumbnail" src={post.frontmatter.image.childImageSharp.fluid.src} />
           </Link>
         )))}
       </div>
-    );
+    )
   }
 }
 
@@ -28,10 +28,9 @@ WritingRoll.propTypes = {
   }),
 }
 
-export default () => (
-  <StaticQuery
-    query={graphql`
-    query WritingRollQuery {
+export default () => {
+  return (<StaticQuery
+    query={graphql`query WritingRollQuery {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] },
         filter: { frontmatter: { templateKey: { eq: "writing-post" } }}
@@ -56,10 +55,9 @@ export default () => (
           }
         }
       }
-    }
-    `}
+    }`}
     render={(data, count) => (
       <WritingRoll data={data} count={count} />
     )}
-  />
-)
+  />)
+}

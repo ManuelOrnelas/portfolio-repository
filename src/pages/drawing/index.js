@@ -89,7 +89,7 @@ class DrawingPage extends React.Component {
             </div>
           </div>
   
-          <div id='post-list' className='full-page-section flex alignitems-center'>
+          <div className='full-page-section flex alignitems-center'>
             <div className='container'>
               <h1 className='projects text-color page-color'>Projects.</h1>
               <DrawingRoll />

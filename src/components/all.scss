@@ -156,6 +156,10 @@ img.h-1 {
   height: 1rem;
 }
 
+img.thumbnail {
+  border-radius: 0.25rem;
+}
+
 // WIDTH
 .w-90 {
   width: 90%;
@@ -382,6 +386,15 @@ nav {
 
 #page-content {
   overflow-y: hidden;
+
+  .post-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    .post {
+      margin: 0 auto;
+    }
+  }
 }
 
 // FOOTER
@@ -520,11 +533,6 @@ footer.footer {
   padding-top: 100px;
   width: 50%;
   float: right;
-}
-
-.thumbnail {
-  border-radius: 5px;
-  margin: 3px 5px 3px 5px;
 }
 
 .thumbnail-gallery {

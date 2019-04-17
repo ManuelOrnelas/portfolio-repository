@@ -69,9 +69,9 @@ function HistoricalLine(props) {
       <div id='timeline-content'>
         <h1 id='achievement-title'>{timeline[props.chosenItem].title}</h1>
         <div id='achievement-list'>
-          {timeline[props.chosenItem].achievements.map(achievement => {
+          {timeline[props.chosenItem].achievements.map((achievement, index) => {
             return (
-              <p>{achievement.date} {achievement.description}</p>
+              <p key={index}>{achievement.date} {achievement.description}</p>
             )
           })}
         </div>
@@ -145,12 +145,12 @@ export class IndexPageTemplate extends React.Component {
       description,
       main,
       whoandwhy,
-      historicalline,
-      historicalSectionSelected: 0,
+      history: historicalline,
+      historySectionSelected: 0,
       news
     }
 
-    this.changeHistoricalSection = this.changeHistoricalSection.bind(this);   
+    this.changeHistorySection = this.changeHistorySection.bind(this);   
   }
 
   /**
@@ -194,9 +194,9 @@ export class IndexPageTemplate extends React.Component {
     }
   }
 
-  changeHistoricalSection(newID) {
+  changeHistorySection(newID) {
     this.setState({
-      historicalSectionSelected: newID
+      historySectionSelected: newID
     })
   }
   
@@ -235,9 +235,9 @@ export class IndexPageTemplate extends React.Component {
 
         <div id='historical-line' className='full-page-section flex alignitems-center'>
           <div className='container'>
-            <HistoricalLine timeline={this.state.historicalline}
-              chosenItem={this.state.historicalSectionSelected}
-              changeItem={this.changeHistoricalSection} />
+            <HistoricalLine timeline={this.state.history}
+              chosenItem={this.state.historySectionSelected}
+              changeItem={this.changeHistorySection} />
 
             <div>
               <div data-aos='fade-up' data-aos-delay='0'
@@ -269,7 +269,7 @@ IndexPageTemplate.propTypes = {
   mainpitch: PropTypes.object,
   description: PropTypes.string,
   whoandwhy: PropTypes.object,
-  historicalline: PropTypes.object,
+  historicalline: PropTypes.array,
   news: PropTypes.array
 }
 
