@@ -1,6 +1,6 @@
-import React from 'react'
-
 import { graphql } from 'gatsby'
+import { debounce } from 'lodash'
+import React from 'react'
 
 import Layout from '../../components/Layout'
 import WritingRoll from '../../components/WritingRoll'
