@@ -40,7 +40,7 @@ class GraphicsDesignPage extends React.Component {
     }
   }
 
-  throttledHandleScroll = debounce((dy, target) => { this.handleScroll(dy, target) }, 500)
+  throttledHandleScroll = debounce((dy, target) => { this.handleScroll(dy, target) }, 100)
 
   /**
    * @param {number} dy Represents the scroll velocity
