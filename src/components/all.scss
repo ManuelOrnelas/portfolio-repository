@@ -361,6 +361,10 @@ nav {
         }
       }
     }
+
+    #navbar-arrow span {
+      --color: #353535;
+    }
   }
 
   a.logo {
@@ -411,7 +415,7 @@ nav {
     margin-right: 2.5rem;
     visibility: hidden;
     opacity: 0;
-    transition: 0.25s ease opacity;
+    transition: 0.25s ease all;
 
     &.show {
       visibility: visible;
@@ -544,18 +548,18 @@ footer.footer {
   width: 100vw;
   height: 100vh;
 
+  &:first-of-type {
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
+
   #arrow {
     position: absolute;
     bottom: 4rem;
     left: 50%;
     transform: translateX(-50%);
   }
-}
-
-.full-page:first-of-type {
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
 }
 
 .full-page-section {

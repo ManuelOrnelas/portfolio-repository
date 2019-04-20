@@ -26,13 +26,16 @@ export function scrollDownToNextSection(currentSection) {
     }, 750)
 
 
-    // change navbar colors if next section is white
+
+    setTimeout(() => {
+      // change navbar colors if next section is white
       // check if section is odd nth child
-    if (i % 2) {
-      toggleBlackNavbar()
-    } else {
-      toggleBlackNavbar()
-    }
+      if (i % 2) {
+        toggleBlackNavbar()
+      } else {
+        toggleBlackNavbar()
+      }
+    }, 525)
   }
 }
 
