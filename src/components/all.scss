@@ -234,7 +234,7 @@ img.thumbnail {
 
 // CONTAINERS
 .container {
-  width: 65rem;
+  width: 75rem;
   max-width: 90%;
   margin: 0 auto;
 }
@@ -570,7 +570,7 @@ footer.footer {
 
       img {
         grid-area: profile;
-        width: 15rem;
+        max-height: 60vh;
       }
     }
   }
