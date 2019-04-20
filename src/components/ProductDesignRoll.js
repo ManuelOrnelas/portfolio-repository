@@ -9,9 +9,10 @@ class ProductDesignRoll extends React.Component {
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-      <div className='thumbnail-gallery'>
+      <div className='post-list'>
         {posts && (posts.map(({ node: post }) => (
-          <Link title={post.frontmatter.title} className="title has-text-primary is-size-4" to={post.fields.slug}>
+          <Link title={post.frontmatter.title} className="post title has-text-primary is-size-4"
+            to={post.fields.slug}>
             <img alt={post.frontmatter.title} className="thumbnail" src={post.frontmatter.image.childImageSharp.fluid.src}/>
           </Link>
         )))}

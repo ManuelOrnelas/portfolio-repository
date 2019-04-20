@@ -75,23 +75,23 @@ class DrawingPage extends React.Component {
           onWheel={(e) => this.throttledHandleScroll(e.deltaY, e.target)}>
           <div
             className='full-page flex justifycontent-center alignitems-center bcg-color page-color'>
-            <div className='flex justifycontent-center aligncontent-center'>
+            <div className='flex justifycontent-center alignitems-center'>
               <h1 id='page-title' className='text-center huge-text white-text'
                 data-aos='fade-up' data-aos-delay='0'>Drawing.</h1>
             </div>
   
             <div id='arrow'>
-              <div data-aos='fade-up'data-aos-delay='0'
+              <div data-aos='fade-up' data-aos-delay='0'
                 data-aos-offset='0' data-aos-anchor='#arrow'>
-                <span className="arrow arrow-down clickable"
-                  onClick={this.handleArrowDownClick}></span>
+                <span className="arrow arrow-down clickable" onClick={this.handleArrowDownClick}></span>
               </div>
             </div>
           </div>
   
-          <div className='full-page-section flex alignitems-center'>
-            <div className='container'>
+          <div className='full-page-section'>
+            <div className='container small'>
               <h1 className='projects text-color page-color'>Projects.</h1>
+
               <DrawingRoll />
             </div>
           </div>

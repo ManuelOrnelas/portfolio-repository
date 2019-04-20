@@ -220,7 +220,7 @@ export class IndexPageTemplate extends React.Component {
         </div>
 
         <div id='who-and-why' className='full-page-section flex alignitems-center'>
-          <div className='container'>
+          <div className='container small'>
             <WhoAndWhy {...this.state.whoandwhy} social={this.state.social} />
             
             <div>
@@ -234,7 +234,7 @@ export class IndexPageTemplate extends React.Component {
         </div>
 
         <div id='historical-line' className='full-page-section flex alignitems-center'>
-          <div className='container'>
+          <div className='container small'>
             <HistoricalLine timeline={this.state.history}
               chosenItem={this.state.historySectionSelected}
               changeItem={this.changeHistorySection} />
@@ -250,7 +250,7 @@ export class IndexPageTemplate extends React.Component {
         </div>
 
         <div id='news' className='full-page-section flex alignitems-center'>
-          <div className='container'>
+          <div className='container small'>
             <h1 id='title' className='text-color page-color'>News</h1>
             <NewsList news={this.state.news}></NewsList>
           </div>

@@ -237,6 +237,10 @@ img.thumbnail {
   width: 75rem;
   max-width: 90%;
   margin: 0 auto;
+
+  &.small {
+    width: 60rem;
+  }
 }
 
 // LISTS
@@ -336,6 +340,12 @@ nav {
     }
   }
 
+  &.black-logo {
+    a.logo img {
+      fill: #353535;
+    }
+  }
+
   #item-list {
     position: fixed;
     left: 50%;
@@ -392,7 +402,9 @@ nav {
     grid-template-columns: repeat(5, 1fr);
 
     .post {
-      margin: 0 auto;
+      img {
+        border-radius: 0.5rem;
+      }
     }
   }
 }
