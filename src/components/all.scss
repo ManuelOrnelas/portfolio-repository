@@ -331,18 +331,22 @@ nav {
   align-items: center;
   -webkit-overflow-scrolling: touch;
 
+  &.black {
+    img path {
+      fill: #353535;
+    }
+
+    #item-list a .circle {
+      background: #373322;        
+    }
+  }
+
   a.logo {
     display: block;
     margin: 0 auto .5rem 2rem;
 
     img {
       width: 9rem;
-    }
-  }
-
-  &.black-logo {
-    a.logo img {
-      fill: #353535;
     }
   }
 

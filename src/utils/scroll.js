@@ -1,3 +1,7 @@
+function toggleBlackNavbar() {
+  document.querySelector('nav').classList.toggle('black')
+}
+
 /**
  * @param {HTMLElement} currentSection 
  */
@@ -20,6 +24,15 @@ export function scrollDownToNextSection(currentSection) {
     setTimeout(() => {
       arrow.classList.add('show')
     }, 750)
+
+
+    // change navbar colors if next section is white
+    // check if section is odd nth child
+    if (i % 2) {
+      toggleBlackNavbar()
+    } else {
+      toggleBlackNavbar()
+    }
   }
 }
 
@@ -37,6 +50,9 @@ export function scrollUpToNextSection(currentSection, isFirst) {
     let arrow = document.querySelector('#navbar-arrow')
     arrow.classList.remove('show')
   }
+
+  // change navbar colors
+  toggleBlackNavbar()
 }
 
 
