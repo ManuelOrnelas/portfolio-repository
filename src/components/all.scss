@@ -340,8 +340,14 @@ nav {
   justify-content: center;
   align-items: center;
   -webkit-overflow-scrolling: touch;
+  background: var(--nav-color);
+  transition: .5s ease background;
 
-  &.black,
+  &.secondary {
+    background: var(--nav-color-secondary);
+  }
+
+  &.secondary,
   &.post {
     img path {
       fill: #353535;

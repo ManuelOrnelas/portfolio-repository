@@ -65,7 +65,7 @@ const GraphicsDesignPost = ({ data }) => {
   else pageColor = colors[0].replace('\\', '')
 
   return (
-    <Layout primaryColor={pageColor} postColor={postColor}>
+    <Layout primaryColor={pageColor} postColor={postColor} isPost={true}>
       <GraphicsDesignPostTemplate
         description={post.description}
         helmet={

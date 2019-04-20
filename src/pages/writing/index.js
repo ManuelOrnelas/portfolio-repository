@@ -12,8 +12,10 @@ class WritingPage extends React.Component {
     super(props)
     
     // get graphql data
-    let { colors } = this.props.data.colorsQuery.frontmatter
+    let { colors, postColor } = this.props.data.colorsQuery.frontmatter
     let page = this.props.data.pageQuery.frontmatter
+
+    postColor = postColor.replace('\\', '')
 
     // if this color (index) exists use it,
     // otherwise, use the first color
@@ -22,7 +24,8 @@ class WritingPage extends React.Component {
     else pageColor = colors[0].replace('\\', '')
 
     this.state = {
-      pageColor
+      pageColor,
+      postColor
     }
   }
   
@@ -43,7 +46,7 @@ class WritingPage extends React.Component {
 
   render() {
     return (
-      <Layout primaryColor={this.state.pageColor}>
+      <Layout primaryColor={this.state.pageColor} postColor={this.state.postColor} isPost={false}>
         <div id='writing' style={{ '--page-color': this.state.pageColor }}
           onWheel={(e) => this.throttledHandleScroll(e.deltaY, e.target)}>
           <div
@@ -86,6 +89,7 @@ export const query = graphql`
     colorsQuery: markdownRemark(frontmatter: { fileID: { eq: "colors" } }) {
       frontmatter {
         colors
+        postColor
       }
     }
   }

@@ -1,5 +1,5 @@
-function toggleBlackNavbar() {
-  document.querySelector('nav').classList.toggle('black')
+function toggleSecondaryNavbar() {
+  document.querySelector('nav').classList.toggle('secondary')
 }
 
 /**
@@ -31,9 +31,9 @@ export function scrollDownToNextSection(currentSection) {
       // change navbar colors if next section is white
       // check if section is odd nth child
       if (i % 2) {
-        toggleBlackNavbar()
+        toggleSecondaryNavbar()
       } else {
-        toggleBlackNavbar()
+        toggleSecondaryNavbar()
       }
     }, 525)
   }
@@ -55,7 +55,7 @@ export function scrollUpToNextSection(currentSection, isFirst) {
   }
 
   // change navbar colors
-  toggleBlackNavbar()
+  toggleSecondaryNavbar()
 }
 
 

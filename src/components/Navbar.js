@@ -36,13 +36,16 @@ export default class Navbar extends React.Component {
     // then it means the URL is different than "/"
     if(urlParts.length > 1) section = urlParts[1]
     
-    // if postColor is set on props obj
-    // then this is a post
-    let isPost = false
-    if(this.props.postColor) isPost = true 
+    let isPost = this.props.isPost
     
     return (
-      <nav id="navbar" style={{backgroundColor: (isPost ? this.props.postColor : 'transparent')}} className={isPost ? 'post' : undefined}>
+      <nav id="navbar"
+        style={{
+          '--nav-color': this.props.color,
+          '--nav-color-secondary': this.props.postColor
+        }}
+        className={isPost ? 'post secondary' : undefined}>
+
         {/* LOGO */}
         <Link to="/" title="Logo" className='logo flex aligncontent-center'
           data-aos='fade-right'

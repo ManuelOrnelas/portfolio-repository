@@ -65,7 +65,7 @@ const DrawingPost = ({ data }) => {
   else pageColor = colors[0].replace('\\', '')
 
   return (
-    <Layout primaryColor={pageColor} postColor={postColor}>
+    <Layout primaryColor={pageColor} postColor={postColor} isPost={true}>
       <DrawingPostTemplate
         description={post.description}
         helmet={

@@ -249,8 +249,11 @@ IndexPageTemplate.propTypes = {
 
 export const IndexPage = ({data}) => {
   // get graphql data
-  let { colors } = data.colorsQuery.frontmatter
+  let { colors, postColor } = data.colorsQuery.frontmatter
   let pageData = Object.assign({}, data.pageQuery.frontmatter)
+
+  // parse post color code
+  pageData.postColor = postColor.replace('\\', '')
 
   // if this color (index) exists use it,
   // otherwise, use the first color
@@ -261,7 +264,7 @@ export const IndexPage = ({data}) => {
   pageData.social = data.socialQuery.frontmatter
 
   return (
-    <Layout primaryColor={pageData.color}>
+    <Layout primaryColor={pageData.color} postColor={pageData.postColor} isPost={false}>
       <IndexPageTemplate
         {...pageData}
       /> 
@@ -332,6 +335,7 @@ query IndexPageTemplate($pageKey: String!) {
   colorsQuery: markdownRemark(frontmatter: { fileID: { eq: "colors" } }) {
     frontmatter {
       colors
+      postColor
     }
   }
 

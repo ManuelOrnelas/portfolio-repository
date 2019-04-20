@@ -78,7 +78,7 @@ const TemplateWrapper = (props) => {
             <meta property="og:url" content="/" />
             <meta property="og:image" content="/img/og-image.jpg" />
           </Helmet>
-          <Navbar color={color} postColor={props.postColor} />
+          <Navbar color={color} postColor={props.postColor} isPost={props.isPost} />
           <div id='page-content' className='overflowx-hidden'>{props.children}</div>
           {props.footer
             ? <Footer color={color} />

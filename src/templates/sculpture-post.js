@@ -65,7 +65,7 @@ const SculpturePost = ({ data }) => {
   else sectionColor = colors[0].replace('\\', '')
 
   return (
-    <Layout primaryColor={sectionColor} postColor={postColor}>
+    <Layout primaryColor={sectionColor} postColor={postColor} isPost={true}>
       <SculpturePostTemplate
         description={post.description}
         helmet={
