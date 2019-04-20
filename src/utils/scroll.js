@@ -23,16 +23,15 @@ export function scrollDownToNextSection(currentSection) {
     let arrow = navbar.querySelector('#navbar-arrow')
     setTimeout(() => {
       arrow.classList.add('show')
+      
+      // change navbar colors if next section is white
+      // check if section is odd nth child
+      if (i % 2) {
+        toggleBlackNavbar()
+      } else {
+        toggleBlackNavbar()
+      }
     }, 750)
-
-
-    // change navbar colors if next section is white
-    // check if section is odd nth child
-    if (i % 2) {
-      toggleBlackNavbar()
-    } else {
-      toggleBlackNavbar()
-    }
   }
 }
 

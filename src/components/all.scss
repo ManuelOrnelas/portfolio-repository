@@ -1,3 +1,9 @@
+:root {
+  --navbaritem-active: #fff;
+  --navbaritem-inactive: #ffffff50;
+  --navbaritem-inactive-hover: #ffffff90;
+}
+
 html,
 body {
   margin: 0;
@@ -336,8 +342,18 @@ nav {
       fill: #353535;
     }
 
-    #item-list a .circle {
-      background: #373322;        
+    #item-list a {
+      .square {
+        background: var(--active-color);
+      }
+
+      .circle {
+        background:var(--inactive-color);
+        
+        &::hover {
+          background: var(--inactive-color-hover);
+        }
+      }
     }
   }
 
@@ -362,17 +378,17 @@ nav {
       text-decoration: none;
 
       .square {
-        background-color: var(--active-color);
+        background-color: var(--navbaritem-active);
       }
 
       .circle {
-        background-color: var(--inactive-color);
+        background-color: var(--navbaritem-inactive);
       }
 
       &:focus,
       &:hover {
         .circle {
-          background-color: var(--inactive-color-hover);
+          background-color: var(--navbaritem-inactive-hover);
         }
 
         &::after {

@@ -35,7 +35,7 @@ export default class Navbar extends React.Component {
     // if the URL parts array is bigger than 1
     // then it means the URL is different than "/"
     if(urlParts.length > 1) section = urlParts[1]
-
+    
     // if postColor is set on props obj
     // then this is a post
     let isPost = false
@@ -52,9 +52,9 @@ export default class Navbar extends React.Component {
         </Link>
 
         <div id='item-list' className='flex' style={{
-          '--active-color': (isPost ? this.props.color : '#fff'), 
-          '--inactive-color': (isPost ? 'rgba(55,51,34, .3)' : '#ffffff50'),
-          '--inactive-color-hover': (isPost ? 'rgba(55, 51, 34, .2)' : '#ffffff90') 
+          '--active-color': this.props.color, 
+          '--inactive-color': 'rgba(55,51,34, .15)',
+          '--inactive-color-hover': 'rgba(55, 51, 34, .2)' 
           }}>
           <Link className="flex justifycontent-center alignitems-center" to="/"
             data-target="root" data-name='Home' data-aos='fade-down'
