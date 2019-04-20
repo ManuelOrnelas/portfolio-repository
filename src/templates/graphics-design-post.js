@@ -13,25 +13,34 @@ export const GraphicsDesignPostTemplate = ({
 }) => {
 
   return (
-    <section className="section">
-      {helmet || ''}
-      <div className="left">
-        <div className="flex justifycontent-center aligncontent-center slight-left">
+    <div className='post full-page-section'>
+      <section className='container small flex'>
+        {helmet || ''}
         <div>
-          <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-            {title}
-          </h1>
-          <p>{description}</p>
-          <p>{details}</p>
+          <div className="flex justifycontent-center aligncontent-center">
+            <div>
+              <h1 className="title fontsize-5">
+                {title}
+              </h1>
+              <p id='description' className='fontsize-2'>{description}</p>
+              <div id='details'>
+                {details && details.split('. ').map(item => {
+                  return (
+                    <p className='fontsize-2'>{item}</p>
+                  )
+                })}
+              </div>
+            </div>
+          </div>
         </div>
+
+        <div>
+          <div className='flex justifycontent-center aligncontent-center'>
+            <img src={image.childImageSharp.fluid.src} alt="Hello" />
+          </div>
         </div>
-      </div>
-      <div className="right">
-        <div className="flex justifycontent-center aligncontent-center slight-right">
-          <img src={image.childImageSharp.fluid.src} alt="Hello" />
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   )
 }
 

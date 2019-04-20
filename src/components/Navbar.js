@@ -42,7 +42,7 @@ export default class Navbar extends React.Component {
     if(this.props.postColor) isPost = true 
     
     return (
-      <nav id="navbar" style={{backgroundColor: (isPost ? this.props.postColor : 'transparent')}}>
+      <nav id="navbar" style={{backgroundColor: (isPost ? this.props.postColor : 'transparent')}} className={isPost ? 'post' : undefined}>
         {/* LOGO */}
         <Link to="/" title="Logo" className='logo flex aligncontent-center'
           data-aos='fade-right'

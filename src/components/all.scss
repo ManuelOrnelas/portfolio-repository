@@ -129,6 +129,10 @@ p {
 }
 
 .fontsize-5 {
+  font-size: 4.375rem;
+}
+
+.fontsize-6 {
   font-size: 7rem;
 }
 
@@ -337,7 +341,8 @@ nav {
   align-items: center;
   -webkit-overflow-scrolling: touch;
 
-  &.black {
+  &.black,
+  &.post {
     img path {
       fill: #353535;
     }
@@ -350,6 +355,7 @@ nav {
       .circle {
         background:var(--inactive-color);
         
+        &::focus,
         &::hover {
           background: var(--inactive-color-hover);
         }
@@ -424,6 +430,43 @@ nav {
     .post {
       img {
         border-radius: 0.5rem;
+      }
+    }
+  }
+
+  .post.full-page-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    section {
+      > div:nth-child(1) {
+        flex-basis: 40%;
+
+        #description {
+          opacity: 0.9;
+        }
+
+        #details {
+          margin-top: 1.5rem;
+          
+          p {
+            margin: 0;
+          }
+        }
+      }
+
+      > div:nth-child(2) {
+        flex-basis: 60%;
+      }
+      
+      h1 {
+        margin: 0;
+      }
+
+      img {
+        max-width: 45vw;
+        min-height: 45vh;
       }
     }
   }
