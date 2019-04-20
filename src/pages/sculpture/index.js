@@ -5,7 +5,7 @@ import React from 'react'
 import Layout from '../../components/Layout'
 import SculptureRoll from '../../components/SculptureRoll'
 
-import { scrollDownToNextSection, scrollUpToNextSection } from '../../utils/scroll'
+import { handleScroll, scrollDownToNextSection } from '../../utils/scroll'
 
 
 class SculpturePage extends React.Component {
@@ -40,33 +40,7 @@ class SculpturePage extends React.Component {
     }
   }
 
-  throttledHandleScroll = debounce((dy, target) => { this.handleScroll(dy, target) }, 100)
-
-  /**
-   * @param {number} dy Represents the scroll velocity
-   * @param {HTMLElement} target Element 
-   */
-  handleScroll = (dy, target) => {
-    // dY > 0 means user is trying to scroll DOWN
-    // dY < 0 means user is trying to scroll UP
-    let up = undefined
-    if (dy > 0) up = false
-    else up = true
-
-    let activeSections = document.querySelectorAll('.full-page-section.active')
-    
-    if (up && activeSections.length) {
-      // let's deactivate the last one and make it slide down
-      scrollUpToNextSection(activeSections[activeSections.length - 1], !(activeSections.length > 1))
-    } else if (!up) {
-      let el = target.closest('.full-page')
-      // if event's target was not .full-page div then closest will be null
-      // if it wasn't .full-page it has to be .full-page-section
-      if (!el) el = target.closest('.full-page-section')
-      
-      scrollDownToNextSection(el)
-    }
-  }
+  throttledHandleScroll = debounce((dy, target) => { handleScroll(dy, target) }, 100)
 
   render () {
     return (
