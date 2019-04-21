@@ -71,7 +71,7 @@ function HistoricalLine(props) {
         <div id='achievement-list'>
           {timeline[props.chosenItem].achievements.map((achievement, index) => {
             return (
-              <p key={index}>{achievement.date} {achievement.description}</p>
+              <p key={index}><span>{achievement.date}</span> {achievement.description}</p>
             )
           })}
         </div>
