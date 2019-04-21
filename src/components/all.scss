@@ -349,7 +349,7 @@ nav {
 
   &.secondary,
   &.post {
-    img path {
+    .logo svg {
       fill: #353535;
     }
 
@@ -373,12 +373,14 @@ nav {
     }
   }
 
-  a.logo {
+  .logo {
     display: block;
     margin: 0 auto .5rem 2rem;
 
-    img {
+    svg {
       width: 9rem;
+      fill: #fff;
+      transition: .5s ease fill;
     }
   }
 

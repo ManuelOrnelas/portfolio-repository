@@ -24,9 +24,9 @@ export const ProductDesignPostTemplate = ({
               </h1>
               <p id='description' className='fontsize-2'>{description}</p>
               <div id='details'>
-                {details && details.split('. ').map(item => {
+                {details && details.split('. ').map((item, index) => {
                   return (
-                    <p className='fontsize-2'>{item}</p>
+                    <p key={index} className='fontsize-2'>{item}</p>
                   )
                 })}
               </div>
