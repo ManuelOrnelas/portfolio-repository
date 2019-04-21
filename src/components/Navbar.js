@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, StaticQuery } from 'gatsby'
+import { Link } from 'gatsby'
 
 import { scrollUpToNextSection } from '../utils/scroll'
 

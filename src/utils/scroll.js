@@ -11,14 +11,14 @@ export function scrollDownToNextSection(currentSection) {
 
   // find out index number of the section div relative to the parent
   let i = 0;
-  while( (currentSection = currentSection.previousSibling) != null) i++
+  while ((currentSection = currentSection.previousSibling) != null) i++
 
   // we want to scroll to the next section so we will select it
   // first, verify if section exists
-  if(pageRoot.children[i + 1]) {
+  if (pageRoot.children[i + 1]) {
     // slide up next section
-    pageRoot.children[i+1].classList.toggle('active')
-    
+    pageRoot.children[i + 1].classList.toggle('active')
+
     // if the navbar has its arrow disabled, enable it
     let arrow = navbar.querySelector('#navbar-arrow')
     setTimeout(() => {
@@ -47,7 +47,7 @@ export function scrollDownToNextSection(currentSection) {
 export function scrollUpToNextSection(currentSection, isFirst) {
   // slide down section
   currentSection.classList.remove('active')
-  
+
   // hide navbar arrow
   if (isFirst) {
     let arrow = document.querySelector('#navbar-arrow')
@@ -64,14 +64,15 @@ export function scrollUpToNextSection(currentSection, isFirst) {
  * @param {HTMLElement} target Element 
  */
 export function handleScroll(dy, target) {
-  // dY > 0 means user is trying to scroll DOWN
+  if (window.outerWidth > 720) {
+    // dY > 0 means user is trying to scroll DOWN
     // dY < 0 means user is trying to scroll UP
     let up = undefined
     if (dy > 0) up = false
     else up = true
 
     let activeSections = document.querySelectorAll('.full-page-section.active')
-    
+
     if (up && activeSections.length) {
       // let's deactivate the last one and make it slide down
       scrollUpToNextSection(activeSections[activeSections.length - 1], !(activeSections.length > 1))
@@ -80,7 +81,8 @@ export function handleScroll(dy, target) {
       // if event's target was not .full-page div then closest will be null
       // if it wasn't .full-page it has to be .full-page-section
       if (!el) el = target.closest('.full-page-section')
-      
+
       scrollDownToNextSection(el)
     }
+  }
 }
