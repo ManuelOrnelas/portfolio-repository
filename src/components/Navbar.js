@@ -3,13 +3,12 @@ import { Link, StaticQuery } from 'gatsby'
 
 import { scrollUpToNextSection } from '../utils/scroll'
 
-class Navbar extends React.Component {
+export default class Navbar extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      path: '',
-      logoSrc: this.props.logo
+      path: ''
     }
   }
 
@@ -137,20 +136,3 @@ class Navbar extends React.Component {
     )
   }
 }
-
-
-export default (props) => (
-  <StaticQuery
-    query={graphql`
-      query navbar {
-        logo: file(absolutePath: { regex: "/static/img" }, name: { eq: "logo" }) {
-          publicURL
-        }
-      }`}
-    render={(data) => {
-      return (
-        <Navbar logo={data.logo.publicURL} {...props} />
-      )
-    }}
-  ></StaticQuery>
-)
