@@ -23,7 +23,7 @@
   }
 
   #page-content {
-    overflow-y: visible;
+    overflow-y: hidden;
   }
 
   .full-page-section {
@@ -68,7 +68,6 @@
 
   // SECTIONS
   .full-page-section {
-    position: relative;
     padding: 1.5rem;
   }
 
