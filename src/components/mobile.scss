@@ -69,9 +69,18 @@
   // SECTIONS
   .full-page-section {
     position: relative;
+    padding: 1.5rem;
   }
 
   #home {
+    #who-and-why {
+      .grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: none;
+        grid-column-gap: 0;
+      }
+    }
+
     #news {
       li #news-item {
         flex-direction: column;
