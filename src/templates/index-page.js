@@ -2,12 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { debounce } from 'lodash'
+import { Scrollbars } from 'react-custom-scrollbars'
 
 import Layout from '../components/Layout'
 // import Features from '../components/Features'
 
 import { handleScroll, scrollDownToNextSection } from '../utils/scroll'
 
+// ICONS
 import * as facebook from  '../img/social/facebook.svg'
 import * as instagram from '../img/social/instagram.svg'
 import * as email from '../img/social/email.svg'
@@ -225,8 +227,10 @@ export class IndexPageTemplate extends React.Component {
 
         <div id='news' className='full-page-section flex alignitems-center'>
           <div className='container small'>
-            <h1 id='title' className='text-color page-color'>News</h1>
-            <NewsList news={this.state.news}></NewsList>
+            <Scrollbars style={{ width: '100%', height: '80vh'}}>
+              <h1 id='title' className='text-color page-color'>News</h1>
+              <NewsList news={this.state.news}></NewsList>
+            </Scrollbars>
           </div>
         </div>
       </div>
