@@ -197,31 +197,42 @@ export class IndexPageTemplate extends React.Component {
 
         <div id='who-and-why' className='full-page-section flex alignitems-center'>
           <div className='container small'>
-            <WhoAndWhy {...this.state.whoandwhy} social={this.state.social} />
-            
-            <div>
-              <div data-aos='fade-up' data-aos-delay='200'
-                data-aos-offset='0' data-aos-anchor='who-and-why'>
-                <span className="arrow arrow-down bottom-center clickable"
+            <Scrollbars style={{ width: '100%', height: '80vh'}}>
+              <WhoAndWhy {...this.state.whoandwhy} social={this.state.social} />
+              
+              <div data-aos='fade-up'data-aos-delay='0'
+                data-aos-offset='0'>
+                <span className="arrow arrow-down clickable"
                   onClick={this.handleArrowDownClick}></span>
               </div>
-            </div>
+
+              
+              <div>
+                <div data-aos='fade-up' data-aos-delay='200'
+                  data-aos-offset='0' data-aos-anchor='who-and-why'>
+                  <span className="arrow arrow-down bottom-center clickable"
+                    onClick={this.handleArrowDownClick}></span>
+                </div>
+              </div>
+            </Scrollbars>
           </div>
         </div>
 
         <div id='historical-line' className='full-page-section flex alignitems-center'>
           <div className='container small'>
-            <HistoricalLine timeline={this.state.history}
-              chosenItem={this.state.historySectionSelected}
-              changeItem={this.changeHistorySection} />
+            <Scrollbars style={{ width: '100%', height: '80vh'}}>
+              <HistoricalLine timeline={this.state.history}
+                chosenItem={this.state.historySectionSelected}
+                changeItem={this.changeHistorySection} />
 
-            <div>
-              <div data-aos='fade-up' data-aos-delay='0'
-                data-aos-offset='0' data-aos-anchor='#historical-line'>
-                <span className="arrow arrow-down bottom-center clickable"
-                  onClick={this.handleArrowDownClick}></span>
+              <div>
+                <div data-aos='fade-up' data-aos-delay='0'
+                  data-aos-offset='0' data-aos-anchor='#historical-line'>
+                  <span className="arrow arrow-down bottom-center clickable"
+                    onClick={this.handleArrowDownClick}></span>
+                </div>
               </div>
-            </div>
+            </Scrollbars>
           </div>
         </div>
 

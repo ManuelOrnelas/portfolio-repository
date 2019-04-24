@@ -15,10 +15,7 @@
     }
 
     #navbar-arrow {
-      position: absolute;
-      right: 0;
-      top: 6rem;
-      margin-right: 1rem;
+      display: none;
     }
   }
 
@@ -69,6 +66,25 @@
   // SECTIONS
   .full-page-section {
     padding: 1.5rem;
+    box-sizing: border-box;
+
+    .container {
+      margin: unset;
+      max-width: 100%;
+      overflow-x: hidden;
+    
+      .arrow {
+        position: relative;
+        top: unset;
+        bottom: unset;
+        left: unset;
+      }
+    }
+  }
+
+  // enable black arrows when navbar is in secondary mode
+  nav.secondary + #page-content .arrow {
+    --color: #353535;
   }
 
   #home {
