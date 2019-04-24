@@ -103,6 +103,20 @@
           margin: 0 auto;
           max-height: 100vh;
         }
+
+        #bio {
+          p:nth-of-type() {
+            font-size: 1rem;
+          }
+
+          p:nth-of-type(2) {
+            font-size: 0.9rem;
+          }
+
+          #social {
+            justify-content: center;
+          }
+        }
       }
     }
 
@@ -142,7 +156,7 @@
       }
 
       hr {
-        
+
       }
     }
   }
