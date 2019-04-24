@@ -230,12 +230,12 @@ export class IndexPageTemplate extends React.Component {
         </div>
 
         <div id='news' className='full-page-section flex alignitems-center'>
-          <div className='container small'>
-            <Scrollbars style={{ width: '100%', height: '80vh'}}>
+          <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}}>
+            <div className='container small'>
               <h1 id='title' className='text-color page-color'>News</h1>
               <NewsList news={this.state.news}></NewsList>
-            </Scrollbars>
-          </div>
+            </div>
+          </Scrollbars>
         </div>
       </div>
     )
