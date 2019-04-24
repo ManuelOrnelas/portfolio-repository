@@ -149,7 +149,9 @@ export class IndexPageTemplate extends React.Component {
       whoandwhy,
       history: historicalline,
       historySectionSelected: 0,
-      news
+      news,
+      scroll: false,
+      scrollPerc: undefined,
     }
 
     this.changeHistorySection = this.changeHistorySection.bind(this);   
@@ -168,7 +170,27 @@ export class IndexPageTemplate extends React.Component {
     }
   }
 
-  throttledHandleScroll = debounce((dy, target) => { handleScroll(dy, target) }, 100)
+  throttledHandleScroll = debounce((dy, target) => {
+    // handle scroll if the section has been scrolled
+    if (dy < 0 && this.state.scroll && this.state.scrollPerc < 5) handleScroll(dy, target) // trying to scroll up in any section
+    else if (dy < 0 && this.state.scroll === false && this.state.scrollPerc === undefined) handleScroll(dy, target)
+    else if (dy > 0 && this.state.scroll === false && this.state.scrollPerc === undefined) handleScroll(dy, target) // trying to scroll down in first section
+    else if (dy > 0 && this.state.scroll && this.state.scrollPerc > 94) handleScroll(dy, target)
+
+    // reset scroll progress
+    this.setState({scroll: false, scrollPerc: undefined})
+  }, 100)
+
+  handleCustomScrollbar = (event) => {
+    let newTop = event.top
+
+    // console.log(newTop);
+
+    if (!this.state.scroll) this.setState({
+      scroll: true,
+      scrollPerc: newTop * 100,
+    })
+  }
 
   changeHistorySection(newID) {
     this.setState({
@@ -196,7 +218,8 @@ export class IndexPageTemplate extends React.Component {
         </div>
 
         <div id='who-and-why' className='full-page-section flex alignitems-center'>
-          <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}}>
+          <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}}
+            onScrollFrame={this.handleCustomScrollbar}>
             <div className='container small'>
               <WhoAndWhy {...this.state.whoandwhy} social={this.state.social} />
 
@@ -212,7 +235,8 @@ export class IndexPageTemplate extends React.Component {
         </div>
 
         <div id='historical-line' className='full-page-section flex alignitems-center'>
-          <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}}>
+          <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}}
+            onScrollFrame={this.handleCustomScrollbar}>
             <div className='container small'>
                 <HistoricalLine timeline={this.state.history}
                   chosenItem={this.state.historySectionSelected}
@@ -230,7 +254,8 @@ export class IndexPageTemplate extends React.Component {
         </div>
 
         <div id='news' className='full-page-section flex alignitems-center'>
-          <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}}>
+          <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}}
+            onScrollFrame={this.handleCustomScrollbar}>
             <div className='container small'>
               <h1 id='title' className='text-color page-color'>News</h1>
               <NewsList news={this.state.news}></NewsList>

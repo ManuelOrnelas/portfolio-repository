@@ -589,6 +589,10 @@ footer.footer {
     background-color: var(--page-color); 
   }
 
+  &:last-of-type .container {
+    padding-bottom: 5rem;
+  }
+
   #title {
     font-size: 7rem;
     margin: 0;

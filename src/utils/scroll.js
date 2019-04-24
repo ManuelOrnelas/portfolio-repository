@@ -64,7 +64,8 @@ export function scrollUpToNextSection(currentSection, isFirst) {
  * @param {HTMLElement} target Element 
  */
 export function handleScroll(dy, target) {
-  if (window.outerWidth > 720) {
+  //window.outerWidth > 720
+  if (true) {
     // dY > 0 means user is trying to scroll DOWN
     // dY < 0 means user is trying to scroll UP
     let up = undefined
