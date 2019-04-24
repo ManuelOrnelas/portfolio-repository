@@ -26,10 +26,6 @@
   .full-page-section {
     position: absolute;
     width: 100vw;
-
-    .container {
-      padding-top: 5.5rem;
-    }
   }
 
   .slight-left {
@@ -44,6 +40,11 @@
 
 @media (max-width: 720px) {
   nav {
+    // enable black arrows when navbar is in secondary mode
+    &.secondary + #page-content .arrow {
+      --color: #353535;
+    }
+
     #item-list {
       width: 50vw;
     }
@@ -65,13 +66,20 @@
 
   // SECTIONS
   .full-page-section {
-    padding: 1.5rem;
+    padding: 5.5rem 0;
     box-sizing: border-box;
 
+    // GENERIC STYLES
     .container {
-      margin: unset;
-      max-width: 100%;
+      padding: 0 1rem 2rem 1rem;
       overflow-x: hidden;
+      overflow-y: hidden;
+      max-width: 100%;
+      margin: unset;
+
+      #title {
+        font-size: 4rem;
+      }
     
       .arrow {
         position: relative;
@@ -82,26 +90,54 @@
     }
   }
 
-  // enable black arrows when navbar is in secondary mode
-  nav.secondary + #page-content .arrow {
-    --color: #353535;
-  }
-
   #home {
     #who-and-why {
       .grid {
-        grid-template-columns: 1fr;
-        grid-template-areas: none;
+        grid-template-rows: auto;
+        grid-template-columns: none;
+        grid-row-gap: 0;
         grid-column-gap: 0;
+        grid-template-areas: "bio" "profile";
+        
+        img {
+          margin: 0 auto;
+          max-height: 100vh;
+        }
       }
     }
 
     #news {
       li #news-item {
-        flex-direction: column;
-  
+        display: grid;
+        grid-template-columns: 5rem auto;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-areas: "main info"
+                            "description description";
+        
+        img {
+          max-height: 5rem;
+        }
+
         #info {
+          grid-area: info;
           padding: 0;
+          margin-left: 0.5rem;
+
+          p#date {
+            font-size: 0.75rem;
+          }
+          
+          h1 {
+            font-size: 1.25rem;
+          }
+        }
+
+        #description {
+          grid-area: description;
+          
+          p {
+            font-size: 1rem;
+          }
         }
       }
     }

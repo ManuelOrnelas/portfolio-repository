@@ -247,6 +247,7 @@ img.thumbnail {
   width: 75rem;
   max-width: 90%;
   margin: 0 auto;
+  box-sizing: border-box;
 
   &.small {
     width: 60rem;
@@ -677,8 +678,9 @@ footer.footer {
         ul {
           width: 0.5rem;
           height: 85%;
-          border-radius: 1rem;
           background: #fff;
+          border-radius: 1rem;
+          margin: 0 auto;
 
           li {
             position: relative;
@@ -775,6 +777,8 @@ footer.footer {
   #news {
     li {
       #news-item {
+        display: flex;
+        
         img {
           flex-basis: 10%;
         }
