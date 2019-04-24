@@ -33,9 +33,9 @@ export default class Navbar extends React.Component {
             scrollUpToNextSection(el[el.length - 1], !(el.length > 1))
 
             el = Array.prototype.slice.call(el).slice(0, el.length - 1)
+            
+            if (el.length) hideSection()
           }
-
-          hideSection()
         }, 500)
       }
 
