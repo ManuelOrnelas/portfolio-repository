@@ -1,0 +1,46 @@
+// MOVE (TOP)
+@keyframes moveToTop {
+    to {
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes moveFromTop {
+    from {
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+    }
+}
+
+// MOVE (RIGHT)
+@keyframes moveToRight {
+    to {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes moveFromRight {
+    from {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+}
+
+// Use classes to apply animations
+.moveToTop {
+    animation: moveToTop 0.75s both;
+}
+
+.moveFromTop {
+    animation: moveFromTop 0.75s both;
+}
+
+.moveToRight {
+    animation: moveToRight 0.75s both;
+}
+
+.moveFromRight {
+    animation: moveFromRight 0.75s both;
+}
