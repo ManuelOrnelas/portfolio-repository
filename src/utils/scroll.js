@@ -31,7 +31,7 @@ export function scrollDownToNextSection(currentSection) {
       } else {
         toggleSecondaryNavbar()
       }
-    }, 500)
+    }, 250)
   }
 }
 
