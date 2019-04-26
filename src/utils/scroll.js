@@ -1,7 +1,4 @@
-function toggleSecondaryNavbar() {
-  document.querySelector('nav').classList.toggle('secondary')
-}
-
+import { enableNavbarArrow, toggleSecondaryNavbar } from './navbar'
 /**
  * @param {HTMLElement} currentSection 
  */
@@ -16,16 +13,15 @@ export function scrollDownToNextSection(currentSection) {
   // we want to scroll to the next section so we will select it
   // first, verify if section exists
   if (pageRoot.children[i + 1]) {
-    // slide up next section
     pageRoot.children[i + 1].classList.toggle('active')
+    // animate next section with move animation
+    pageRoot.children[i+1].classList.toggle('moveFromRight')
+
+    // hide current active section by moving it to the origin of the next section
+    pageRoot.children[i].classList.toggle('moveToRight')
 
     // if the navbar has its arrow disabled, enable it
-    let arrow = navbar.querySelector('#navbar-arrow')
-    setTimeout(() => {
-      arrow.classList.add('show')
-    }, 750)
-
-
+    enableNavbarArrow(750)
 
     setTimeout(() => {
       // change navbar colors if next section is white
@@ -35,7 +31,7 @@ export function scrollDownToNextSection(currentSection) {
       } else {
         toggleSecondaryNavbar()
       }
-    }, 525)
+    }, 500)
   }
 }
 

@@ -7,6 +7,7 @@ import Footer from '../components/Footer'
 
 import './all.scss'
 import './mobile.scss'
+import './animations.scss'
 import 'aos/dist/aos.css'
 
 const TemplateWrapper = (props) => {

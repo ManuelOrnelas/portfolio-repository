@@ -206,6 +206,10 @@ img.thumbnail {
   margin-bottom: 2rem;
 }
 
+.margin-top-0 {
+  margin-top: 0 !important;
+}
+
 // OVERFLOW
 .overflowy-hidden {
   overflow-y: hidden;
@@ -491,68 +495,6 @@ footer.footer {
   background-color: transparent;
 }
 
-.content .taglist {
-  list-style: none;
-  margin-bottom: 0;
-  margin-left: 0;
-  margin-right: 1.5rem;
-  margin-top: 1.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: left;
-  align-items: center;
-  li {
-    padding: 0 2rem 1rem 0;
-    margin-bottom: 1.5rem;
-    margin-top: 0;
-  }
-}
-// Helper Classes
-.full-width-image-container {
-  width: 100vw;
-  height: 400px;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin: 2em -50vw;
-  background-size: cover;
-  background-position: bottom;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.full-width-image {
-  width: 100vw;
-  height: 400px;
-  background-size: cover;
-  background-position: bottom;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.margin-top-0 {
-  margin-top: 0 !important;
-}
-
-// Override for use of svg's from https://simpleicons.org/
-.icon svg {
-  width: 1.5rem;
-  height: 1.5rem;
-  fill: currentColor;
-}
-
-.menu-label {
-  font-size: 1em !important;
-  text-align: left;
-}
-
-.menu-list {
-  list-style: none !important;
-  text-align: left;
-}
-
 .full-page {
   width: 100vw;
   height: 100vh;
@@ -569,20 +511,32 @@ footer.footer {
     left: 50%;
     transform: translateX(-50%);
   }
+
+  h1#page-title {
+    font-weight: 600;
+  }
 }
 
 .full-page-section {
   position: absolute;
-  min-width: 100vw;
-  max-width: 100vw;
-  min-height: 100vh;
-  padding: 5.5rem 0;
-  transition: 0.5s ease-in transform;
-  overflow-y: visible;
-  background-color: #e7eeed;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  width: 100vw;
+  height: 100vh;
 
+  padding: 5.5rem 0;
+  transition: 0.750s ease-in transform;
+  overflow-y: hidden;
+  background-color: #e7eeed;
+ 
   &.active {
-    transform: translateY(-100vh);
+    visibility: visible;
+    z-index: 1;
+  }
+
+  &.aboveEverything {
+    z-index: 999;
   }
 
   &:nth-of-type(2n+1) {
@@ -609,11 +563,6 @@ footer.footer {
   padding-top: 20vh;
   padding-bottom: 36px;
   font-family: "Sofia Pro SemiBold";
-}
-
-// PAGE
-.full-page h1#page-title {
-  font-weight: 600;
 }
 
 .left {
