@@ -1,37 +1,53 @@
+import { findElementIndex } from './html'
 import { enableNavbarArrow, toggleSecondaryNavbar } from './navbar'
+import { shuffle } from './shuffle'
+
+let animationDirections = [
+  "Top",
+  "Right",
+  "Bottom",
+  "Left"
+]
+
 /**
  * @param {HTMLElement} currentSection 
  */
 export function scrollDownToNextSection(currentSection) {
-  let pageRoot = currentSection.parentElement,
-    navbar = document.querySelector('nav')
+  let pageRoot = currentSection.parentElement
 
   // find out index number of the section div relative to the parent
-  let i = 0;
-  while ((currentSection = currentSection.previousSibling) != null) i++
+  let i = findElementIndex(currentSection)
 
   // we want to scroll to the next section so we will select it
   // first, verify if section exists
   if (pageRoot.children[i + 1]) {
+    // change next section visibility
     pageRoot.children[i + 1].classList.toggle('active')
-    // animate next section with move animation
-    pageRoot.children[i+1].classList.toggle('moveFromRight')
+    // if the current section visibility is hidden
+    // then change it to visible
+    if (!pageRoot.children[i].classList.contains('active')) {
+      pageRoot.children[i].classList.toggle('active')
+    }
 
-    // hide current active section by moving it to the origin of the next section
-    pageRoot.children[i].classList.toggle('moveToRight')
+    // shuffle animations array
+    animationDirections = shuffle(animationDirections)
+
+    // animate next section with moveFrom animation
+    pageRoot.children[i+1].classList.toggle(`moveFrom${animationDirections[0]}`)
+    // hide current active section with moveTo animation
+    pageRoot.children[i].classList.toggle(`moveTo${animationDirections[0]}`)
+
+    // remove classes after animation
+    setTimeout(() => {
+      pageRoot.children[i].classList.toggle(`moveTo${animationDirections[0]}`)
+      pageRoot.children[i].classList.toggle('active')
+      pageRoot.children[i+1].classList.toggle(`moveFrom${animationDirections[0]}`)
+    }, 750);
 
     // if the navbar has its arrow disabled, enable it
+    // change navbar mode
     enableNavbarArrow(750)
-
-    setTimeout(() => {
-      // change navbar colors if next section is white
-      // check if section is odd nth child
-      if (i % 2) {
-        toggleSecondaryNavbar()
-      } else {
-        toggleSecondaryNavbar()
-      }
-    }, 250)
+    toggleSecondaryNavbar(250)
   }
 }
 
@@ -41,17 +57,31 @@ export function scrollDownToNextSection(currentSection) {
  * @param {boolean} isFirst Is this the first section of the page (not counting with the title/header)
  */
 export function scrollUpToNextSection(currentSection, isFirst) {
-  // slide down section
-  currentSection.classList.remove('active')
+  currentSection.previousSibling.classList.toggle('active')
 
-  // hide navbar arrow
+  // shuffle animations array
+  animationDirections = shuffle(animationDirections)
+  
+  // animate current section with moveTo animation
+  currentSection.classList.toggle(`moveTo${animationDirections[0]}`)
+  // show previous section with moveFrom animation
+  currentSection.previousSibling.classList.toggle(`moveFrom${animationDirections[0]}`)
+
+  setTimeout(() => {
+    currentSection.previousSibling.classList.toggle(`moveFrom${animationDirections[0]}`)
+    currentSection.classList.toggle(`moveTo${animationDirections[0]}`)
+    currentSection.classList.toggle('active')
+  }, 750)
+
+
+  // hide navbar arrow if the next section is the first section
   if (isFirst) {
     let arrow = document.querySelector('#navbar-arrow')
     arrow.classList.remove('show')
   }
 
   // change navbar colors
-  toggleSecondaryNavbar()
+  toggleSecondaryNavbar(250)
 }
 
 
