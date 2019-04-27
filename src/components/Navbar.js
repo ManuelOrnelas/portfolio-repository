@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import { scrollUpToNextSection } from '../utils/scroll'
+import { scrollUpToNextSection, scrollToFirstSection } from '../utils/scroll'
+import { findElementIndex } from '../utils/html'
 
 export default class Navbar extends React.Component {
   constructor(props) {
@@ -25,21 +26,8 @@ export default class Navbar extends React.Component {
       // prevent from redirect and go to the top of the page
       event.preventDefault()
 
-      let el = document.querySelectorAll('.full-page-section.active')
-
-      let hideSection = () => {
-        setTimeout(() => {
-          if (el.length) {
-            scrollUpToNextSection(el[el.length - 1], !(el.length > 1))
-
-            el = Array.prototype.slice.call(el).slice(0, el.length - 1)
-            
-            if (el.length) hideSection()
-          }
-        }, 500)
-      }
-
-      hideSection()
+      let el = document.querySelector('.full-page-section.active')
+      scrollToFirstSection(el, findElementIndex(el))
     }
   }
 
