@@ -37,12 +37,32 @@ class ProductDesignPage extends React.Component {
       // get the main section element
       let el = event.target.closest('.full-page')
       if (!el) el = event.target.closest('.full-page-section')
-      
+
       scrollDownToNextSection(el)
     }
   }
 
-  throttledHandleScroll = debounce((dy, target) => { handleScroll(dy, target) }, 100)
+  throttledHandleScroll = debounce((dy, target) => {
+    // handle scroll if the section has been scrolled
+    if (dy < 0 && this.state.scroll && this.state.scrollPerc < 5) handleScroll(dy, target) // trying to scroll up in any section
+    else if (dy < 0 && this.state.scroll === false && this.state.scrollPerc === undefined) handleScroll(dy, target)
+    else if (dy > 0 && this.state.scroll === false && this.state.scrollPerc === undefined) handleScroll(dy, target) // trying to scroll down in first section
+    else if (dy > 0 && this.state.scroll && this.state.scrollPerc > 94) handleScroll(dy, target)
+
+    // reset scroll progress
+    this.setState({scroll: false, scrollPerc: undefined})
+  }, 100)
+
+  handleCustomScrollbar = (event) => {
+    let newTop = event.top
+
+    // console.log(newTop);
+
+    if (!this.state.scroll) this.setState({
+      scroll: true,
+      scrollPerc: newTop * 100,
+    })
+  }
   
   render() {
     return (

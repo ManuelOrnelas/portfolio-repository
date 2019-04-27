@@ -1,15 +1,15 @@
 // MOVE (TOP)
 @keyframes moveToTop {
     to {
-        -webkit-transform: translateY(-100%);
-        transform: translateY(-100%);
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
     }
 }
 
 @keyframes moveFromTop {
     from {
-        -webkit-transform: translateY(100%);
-        transform: translateY(100%);
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
     }
 }
 
@@ -28,6 +28,36 @@
     }
 }
 
+// MOVE (BOTTOM)
+@keyframes moveToBottom {
+    to {
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes moveFromBottom {
+    from {
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+    }
+}
+
+// MOVE (LEFT)
+@keyframes moveToLeft {
+    to {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+}
+
+@keyframes moveFromLeft {
+    from {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}
+
 // Use classes to apply animations
 .moveToTop {
     animation: moveToTop 0.75s both;
@@ -43,4 +73,20 @@
 
 .moveFromRight {
     animation: moveFromRight 0.75s both;
+}
+
+.moveToBottom {
+    animation: moveToBottom 0.75s both;
+}
+
+.moveFromBottom {
+    animation: moveFromBottom 0.75s both;
+}
+
+.moveToLeft {
+    animation: moveToLeft 0.75s both;
+}
+
+.moveFromLeft {
+    animation: moveFromLeft 0.75s both;
 }
