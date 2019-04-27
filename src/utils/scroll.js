@@ -9,10 +9,29 @@ let animationDirections = [
   "Left"
 ]
 
+function isScrolling() {
+  console.log('Verifying the page scroll state')
+  let firstSection = document.querySelector('.full-page.active')
+  let activeElements = document.querySelector('.full-page-section.active')
+
+  console.log(firstSection)
+  console.log(activeElements)
+  if (activeElements && activeElements.length >= 2) {
+    console.log('PAGE IS SCROLLING', 'color: red')
+    return true
+  } else if (activeElements && activeElements.length === 1 && firstSection) {
+    console.log('PAGE IS SCROLLING', 'color: red')
+    return true
+  }
+}
+
 /**
  * @param {HTMLElement} currentSection 
  */
 export function scrollDownToNextSection(currentSection) {
+  // if the page is currently scrolling, don't fuck it up
+  if (isScrolling()) return
+
   let pageRoot = currentSection.parentElement
 
   // find out index number of the section div relative to the parent
@@ -37,17 +56,17 @@ export function scrollDownToNextSection(currentSection) {
     // hide current active section with moveTo animation
     pageRoot.children[i].classList.toggle(`moveTo${animationDirections[0]}`)
 
-    // remove classes after animation
+    // if the navbar has its arrow disabled, enable it
+    // change navbar mode
+    enableNavbarArrow(600)
+    toggleSecondaryNavbar(300)
+
+    // add timer to remove classes after animation
     setTimeout(() => {
       pageRoot.children[i].classList.toggle(`moveTo${animationDirections[0]}`)
       pageRoot.children[i].classList.toggle('active')
       pageRoot.children[i+1].classList.toggle(`moveFrom${animationDirections[0]}`)
-    }, 750);
-
-    // if the navbar has its arrow disabled, enable it
-    // change navbar mode
-    enableNavbarArrow(750)
-    toggleSecondaryNavbar(250)
+    }, 600);
   }
 }
 
@@ -57,6 +76,9 @@ export function scrollDownToNextSection(currentSection) {
  * @param {boolean} isFirst Is this the first section of the page (not counting with the title/header)
  */
 export function scrollUpToNextSection(currentSection, isFirst) {
+  // if the page is currently scrolling, don't fuck it up
+  if (isScrolling()) return
+
   currentSection.previousSibling.classList.toggle('active')
 
   // shuffle animations array
@@ -67,13 +89,6 @@ export function scrollUpToNextSection(currentSection, isFirst) {
   // show previous section with moveFrom animation
   currentSection.previousSibling.classList.toggle(`moveFrom${animationDirections[0]}`)
 
-  setTimeout(() => {
-    currentSection.previousSibling.classList.toggle(`moveFrom${animationDirections[0]}`)
-    currentSection.classList.toggle(`moveTo${animationDirections[0]}`)
-    currentSection.classList.toggle('active')
-  }, 750)
-
-
   // hide navbar arrow if the next section is the first section
   if (isFirst) {
     let arrow = document.querySelector('#navbar-arrow')
@@ -81,7 +96,52 @@ export function scrollUpToNextSection(currentSection, isFirst) {
   }
 
   // change navbar colors
-  toggleSecondaryNavbar(250)
+  toggleSecondaryNavbar(300)
+
+  // add timer to remove classes after animation
+  setTimeout(() => {
+    currentSection.previousSibling.classList.toggle(`moveFrom${animationDirections[0]}`)
+    currentSection.classList.toggle(`moveTo${animationDirections[0]}`)
+    currentSection.classList.toggle('active')
+  }, 600)
+}
+
+/**
+ * @param {HTMLElement} currentSection
+ * @param {Number} sectionIndex
+ */
+export function scrollToFirstSection(currentSection, sectionIndex) {
+  let firstSection = document.querySelector('.full-page')
+  // add visibility to first section
+  firstSection.classList.toggle('active')
+
+  // shuffle animations array
+  animationDirections = shuffle(animationDirections)
+
+  // hide current section
+  currentSection.classList.toggle(`moveTo${animationDirections[0]}`)
+  // show first section
+  firstSection.classList.toggle(`moveFrom${animationDirections[0]}`)
+
+
+  // hide navbar arrow if the next section is the first section
+  if (sectionIndex === 1) {
+    let arrow = document.querySelector('#navbar-arrow')
+    arrow.classList.remove('show')
+  }
+
+  // change navbar colors
+  if ((sectionIndex % 2)) toggleSecondaryNavbar(300)
+
+  setTimeout(() => {
+    currentSection.classList.toggle('active')
+  }, 400)
+
+  // add timer to remove classes after animation
+  setTimeout(() => {
+    currentSection.classList.toggle(`moveTo${animationDirections[0]}`)
+    firstSection.classList.toggle(`moveFrom${animationDirections[0]}`)
+  }, 600)
 }
 
 

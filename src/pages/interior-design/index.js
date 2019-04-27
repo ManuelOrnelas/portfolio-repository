@@ -56,8 +56,6 @@ class InteriorDesignPage extends React.Component {
   handleCustomScrollbar = (event) => {
     let newTop = event.top
 
-    // console.log(newTop);
-
     if (!this.state.scroll) this.setState({
       scroll: true,
       scrollPerc: newTop * 100,
