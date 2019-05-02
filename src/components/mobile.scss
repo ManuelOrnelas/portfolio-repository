@@ -68,6 +68,10 @@
   .full-page-section {
     padding: 5.5rem 0;
     box-sizing: border-box;
+    
+    &.active { 
+      align-items: unset;
+    }
 
     // GENERIC STYLES
     .container {
@@ -153,10 +157,6 @@
             font-size: 1rem;
           }
         }
-      }
-
-      hr {
-
       }
     }
   }
