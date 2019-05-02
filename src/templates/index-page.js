@@ -123,6 +123,7 @@ export class IndexPageTemplate extends React.Component {
 
     // fetch all data from the props
     let { color,
+      secondaryColor,
       social,
       image,
       title,
@@ -137,7 +138,7 @@ export class IndexPageTemplate extends React.Component {
 
     this.state = {
       color,
-      secondaryColor: '',
+      secondaryColor,
       social,
       image,
       title,
@@ -216,44 +217,39 @@ export class IndexPageTemplate extends React.Component {
         </div>
 
         <div id='who-and-why' className='full-page-section flex alignitems-center'>
-          <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}}
-            onScrollFrame={this.handleCustomScrollbar}>
+          <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}} autoHIde
+            onScrollFrame={this.handleCustomScrollbar} universal={true}>
             <div className='container small'>
               <WhoAndWhy {...this.state.whoandwhy} social={this.state.social} />
 
               <span className="arrow arrow-down clickable"
                   onClick={this.handleArrowDownClick}></span>
-              {/* <div data-aos='fade-up' data-aos-delay='0'
-                data-aos-offset='0' data-aos-anchor='#who-and-why'>
-                <span className="arrow arrow-down clickable"
-                  onClick={this.handleArrowDownClick}></span>
-              </div> */}
             </div>
           </Scrollbars>
         </div>
 
         <div id='historical-line' className='full-page-section flex alignitems-center'>
-          <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}}
-            onScrollFrame={this.handleCustomScrollbar}>
+          <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}} autoHIde
+            onScrollFrame={this.handleCustomScrollbar} universal={true}>
             <div className='container small'>
-                <HistoricalLine timeline={this.state.history}
-                  chosenItem={this.state.historySectionSelected}
-                  changeItem={this.changeHistorySection} />
+              <HistoricalLine timeline={this.state.history}
+                chosenItem={this.state.historySectionSelected}
+                changeItem={this.changeHistorySection} />
 
-                <div>
-                  <div data-aos='fade-up' data-aos-delay='0'
-                    data-aos-offset='0' data-aos-anchor='#historical-line'>
-                    <span className="arrow arrow-down bottom-center clickable"
-                      onClick={this.handleArrowDownClick}></span>
-                  </div>
+              <div>
+                <div data-aos='fade-up' data-aos-delay='0'
+                  data-aos-offset='0' data-aos-anchor='#historical-line'>
+                  <span className="arrow arrow-down bottom-center clickable"
+                    onClick={this.handleArrowDownClick}></span>
                 </div>
+              </div>
             </div>
           </Scrollbars>
         </div>
 
         <div id='news' className='full-page-section flex alignitems-center'>
           <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}}
-            onScrollFrame={this.handleCustomScrollbar}>
+            onScrollFrame={this.handleCustomScrollbar} universal={true}>
             <div className='container small'>
               <h1 id='title' className='text-color page-color'>News</h1>
               <NewsList news={this.state.news}></NewsList>
@@ -267,6 +263,7 @@ export class IndexPageTemplate extends React.Component {
 
 IndexPageTemplate.propTypes = {
   color: PropTypes.string,
+  secondaryColor: PropTypes.string,
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
   heading: PropTypes.string,
@@ -284,7 +281,7 @@ export const IndexPage = ({data}) => {
   let pageData = Object.assign({}, data.pageQuery.frontmatter)
 
   // parse post color code
-  pageData.postColor = postColor.replace('\\', '')
+  pageData.secondaryColor = postColor.replace('\\', '')
 
   // if this color (index) exists use it,
   // otherwise, use the first color
