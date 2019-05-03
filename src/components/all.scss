@@ -522,6 +522,7 @@ footer.footer {
   top: 0;
   left: 0;
   visibility: hidden;
+  overflow-x: hidden;
   width: 100vw;
   height: 100vh;
 
@@ -550,6 +551,10 @@ footer.footer {
   #title {
     font-size: 7rem;
     margin: 0;
+  }
+
+  .container.small {
+    overflow-x: hidden !important;
   }
 }
 

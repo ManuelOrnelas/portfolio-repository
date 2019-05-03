@@ -52,16 +52,27 @@ function HistoricalLine(props) {
     props.changeItem(newElementID)
   }
 
+  // determine if it's a mobile device
+  let viewportWidth = document !== 'undefined' ? document.documentElement.clientWidth : undefined
+  let mobile = false
+  if (viewportWidth && viewportWidth < 720) mobile = true
+
   return (
     <div className='grid'>
       <div id='timeline' className='flex alignitems-center'>
         <ul className='list-reset margin-0'>
           {timeline.map((item, index) => {
-            let distanceFromTop = `${index * 3 + 2}rem`
+            let distance = `${index * 3 + 2}rem`
+            let translatePerc = -33
+            if (mobile) translatePerc = `${translatePerc - (index * 100)}%`
             
             return (
               <li key={index} data-index={index} className={Number(props.chosenItem) === Number(index) ? 'active' : null}
-                onClick={changeItem} style={{top: distanceFromTop}}></li>
+                onClick={changeItem} style={
+                  (!mobile
+                  ? { top: distance }
+                  : { left: distance, transform: `translateY(${translatePerc})` })
+                }></li>
             )
           })}
         </ul>
@@ -71,11 +82,17 @@ function HistoricalLine(props) {
       <div id='timeline-content'>
         <h1 id='achievement-title'>{timeline[props.chosenItem].title}</h1>
         <div id='achievement-list'>
+          {/* <Scrollbars style={{ width: '100%', height: '10vh'}} autoHide
+            universal={true} renderView={props => (
+              <div {...props} style={{ ...props.style, overflowX: 'hidden' }} />
+            )}> */}
+          
           {timeline[props.chosenItem].achievements.map((achievement, index) => {
             return (
               <p key={index}><span>{achievement.date}</span> {achievement.description}</p>
             )
           })}
+          {/* </Scrollbars> */}
         </div>
       </div>
     </div>
@@ -218,7 +235,10 @@ export class IndexPageTemplate extends React.Component {
 
         <div id='who-and-why' className='full-page-section flex alignitems-center'>
           <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}} autoHIde
-            onScrollFrame={this.handleCustomScrollbar} universal={true}>
+            onScrollFrame={this.handleCustomScrollbar} universal={true}
+            renderView={props => (
+              <div {...props} style={{ ...props.style, overflowX: 'hidden' }} />
+            )}>
             <div className='container small'>
               <WhoAndWhy {...this.state.whoandwhy} social={this.state.social} />
 
@@ -230,26 +250,27 @@ export class IndexPageTemplate extends React.Component {
 
         <div id='historical-line' className='full-page-section flex alignitems-center'>
           <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}} autoHIde
-            onScrollFrame={this.handleCustomScrollbar} universal={true}>
+            onScrollFrame={this.handleCustomScrollbar} universal={true}
+            renderView={props => (
+              <div {...props} style={{ ...props.style, overflowX: 'hidden' }} />
+            )}>
             <div className='container small'>
               <HistoricalLine timeline={this.state.history}
                 chosenItem={this.state.historySectionSelected}
                 changeItem={this.changeHistorySection} />
 
-              <div>
-                <div data-aos='fade-up' data-aos-delay='0'
-                  data-aos-offset='0' data-aos-anchor='#historical-line'>
-                  <span className="arrow arrow-down bottom-center clickable"
-                    onClick={this.handleArrowDownClick}></span>
-                </div>
-              </div>
+              <span className="arrow arrow-down clickable"
+                onClick={this.handleArrowDownClick}></span>
             </div>
           </Scrollbars>
         </div>
 
         <div id='news' className='full-page-section flex alignitems-center'>
           <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}}
-            onScrollFrame={this.handleCustomScrollbar} universal={true}>
+            onScrollFrame={this.handleCustomScrollbar} universal={true}
+            renderView={props => (
+              <div {...props} style={{ ...props.style, overflowX: 'hidden' }} />
+            )}>
             <div className='container small'>
               <h1 id='title' className='text-color page-color'>News</h1>
               <NewsList news={this.state.news}></NewsList>
