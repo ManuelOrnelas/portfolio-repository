@@ -13,7 +13,6 @@ import { handleScroll, scrollDownToNextSection } from '../utils/scroll'
 import * as facebook from  '../img/social/facebook.svg'
 import * as instagram from '../img/social/instagram.svg'
 import * as email from '../img/social/email.svg'
-import { clearInterval } from 'timers';
 
 function WhoAndWhy(props) {
   let { title, subtitle, description, social } = props
