@@ -7,6 +7,10 @@ import { Scrollbars } from 'react-custom-scrollbars'
 import Layout from '../components/Layout'
 // import Features from '../components/Features'
 
+// Section scroll panel
+import { SectionPanel } from '../components/SectionPanel';
+
+// Scroll library
 import { handleScroll, scrollDownToNextSection } from '../utils/scroll'
 
 // ICONS
@@ -85,7 +89,9 @@ function HistoricalLine(props) {
         </ul>
       </div>
       
-      <div id='title' className='white-text'>Historical Line</div>
+      <div>
+        <h1 id='title' className='white-text'>Historical Line</h1>        
+      </div>
       <div id='timeline-content'>
         <h1 id='achievement-title'>{timeline[props.chosenItem].title}</h1>
         <div id='achievement-list'>
@@ -284,6 +290,8 @@ export class IndexPageTemplate extends React.Component {
             </div>
           </Scrollbars>
         </div>
+
+        <SectionPanel />
       </div>
     )
   }
