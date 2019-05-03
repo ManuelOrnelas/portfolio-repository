@@ -13,10 +13,15 @@ import { handleScroll, scrollDownToNextSection } from '../utils/scroll'
 import * as facebook from  '../img/social/facebook.svg'
 import * as instagram from '../img/social/instagram.svg'
 import * as email from '../img/social/email.svg'
+import { clearInterval } from 'timers';
 
 function WhoAndWhy(props) {
   let { title, subtitle, description, social } = props
   let nucabeman = props.image.childImageSharp.fluid.src
+
+  let mobile = false
+  let clientWidth = typeof document !== 'undefined' ? document.documentElement.clientWidth : null;
+  if (clientWidth && clientWidth < 720) mobile = true
 
   return (
     <div className='grid'>
@@ -38,7 +43,10 @@ function WhoAndWhy(props) {
           </div>
         </div>
       </div>
-      <img src={nucabeman} alt='NUCABÉ'></img>
+      { mobile
+        ? <div id='nucabeman' style={{ backgroundImage: `url(${nucabeman})`}} />
+        : <img src={nucabeman} alt='NUCABÉ'></img>
+      }
     </div>  
   )
 }
@@ -53,7 +61,7 @@ function HistoricalLine(props) {
   }
 
   // determine if it's a mobile device
-  let viewportWidth = document !== 'undefined' ? document.documentElement.clientWidth : undefined
+  let viewportWidth = typeof document !== 'undefined' ? document.documentElement.clientWidth : undefined
   let mobile = false
   if (viewportWidth && viewportWidth < 720) mobile = true
 

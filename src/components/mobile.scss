@@ -39,6 +39,16 @@
 }
 
 @media (max-width: 720px) {
+  // Font sizes
+  .fontsize-1 {
+    font-size: 0.68rem;
+  }
+
+  .fontsize-2,
+  .fontsize-3 {
+    font-size: 0.875rem;
+  }
+
   nav {
     // enable black arrows when navbar is in secondary mode
     &.secondary + #page-content .arrow {
@@ -82,7 +92,7 @@
       margin: unset;
 
       #title {
-        font-size: 4rem;
+        font-size: 3.75rem;
       }
     
       .arrow {
@@ -103,12 +113,15 @@
         grid-column-gap: 0;
         grid-template-areas: "bio" "profile";
         
-        img {
+        div#nucabeman {
           margin: 0 auto;
-          max-height: 100vh;
+          width: 100%;
+          height: 35vh;
+          background-position-y: 10%;
         }
 
         #bio {
+          /*
           p:nth-of-type() {
             font-size: 1rem;
           }
@@ -116,6 +129,7 @@
           p:nth-of-type(2) {
             font-size: 0.9rem;
           }
+          */
 
           #social {
             justify-content: center;
