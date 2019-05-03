@@ -241,7 +241,7 @@ export class IndexPageTemplate extends React.Component {
         </div>
 
         <div id='who-and-why' className='full-page-section flex alignitems-center'>
-          <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}} autoHIde
+          <Scrollbars style={{ width: '100%', height: 'calc(100vh - 5rem)'}} autoHide
             onScrollFrame={this.handleCustomScrollbar} universal={true}
             renderView={props => (
               <div {...props} style={{ ...props.style, overflowX: 'hidden' }} />
@@ -256,7 +256,7 @@ export class IndexPageTemplate extends React.Component {
         </div>
 
         <div id='historical-line' className='full-page-section flex alignitems-center'>
-          <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}} autoHIde
+          <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}} autoHide
             onScrollFrame={this.handleCustomScrollbar} universal={true}
             renderView={props => (
               <div {...props} style={{ ...props.style, overflowX: 'hidden' }} />
