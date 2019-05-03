@@ -34,9 +34,10 @@ export default class Navbar extends React.Component {
   handleArrowUpClick = (event) => {
     // get the section being shown and slide it down
     // it's the last active from the array
-    let el = document.querySelectorAll('.full-page-section.active')
-
-    scrollUpToNextSection(el[el.length - 1], !(el.length > 1))
+    let el = document.querySelector('.full-page-section.active')
+    let sectionIndex = findElementIndex(el)
+    
+    scrollUpToNextSection(el, !(sectionIndex > 1))
   }
 
   render() {
