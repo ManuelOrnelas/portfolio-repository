@@ -48,13 +48,10 @@ export function scrollDownToNextSection(currentSection) {
       pageRoot.children[i].classList.toggle('active')
     }
 
-    // shuffle animations array
-    animationDirections = shuffle(animationDirections)
-
     // animate next section with moveFrom animation
-    pageRoot.children[i+1].classList.toggle(`moveFrom${animationDirections[0]}`)
+    pageRoot.children[i+1].classList.toggle(`moveFromBottom`)
     // hide current active section with moveTo animation
-    pageRoot.children[i].classList.toggle(`moveTo${animationDirections[0]}`)
+    pageRoot.children[i].classList.toggle(`moveToBottom`)
 
     // if the navbar has its arrow disabled, enable it
     // change navbar mode
@@ -63,9 +60,9 @@ export function scrollDownToNextSection(currentSection) {
 
     // add timer to remove classes after animation
     setTimeout(() => {
-      pageRoot.children[i].classList.toggle(`moveTo${animationDirections[0]}`)
+      pageRoot.children[i].classList.toggle(`moveToBottom`)
       pageRoot.children[i].classList.toggle('active')
-      pageRoot.children[i+1].classList.toggle(`moveFrom${animationDirections[0]}`)
+      pageRoot.children[i+1].classList.toggle(`moveFromBottom`)
     }, 600);
   }
 }
@@ -85,9 +82,9 @@ export function scrollUpToNextSection(currentSection, isFirst) {
   animationDirections = shuffle(animationDirections)
   
   // animate current section with moveTo animation
-  currentSection.classList.toggle(`moveTo${animationDirections[0]}`)
+  currentSection.classList.toggle(`moveToTop`)
   // show previous section with moveFrom animation
-  currentSection.previousSibling.classList.toggle(`moveFrom${animationDirections[0]}`)
+  currentSection.previousSibling.classList.toggle(`moveFromTop`)
 
   // hide navbar arrow if the next section is the first section
   if (isFirst) {
@@ -100,8 +97,8 @@ export function scrollUpToNextSection(currentSection, isFirst) {
 
   // add timer to remove classes after animation
   setTimeout(() => {
-    currentSection.previousSibling.classList.toggle(`moveFrom${animationDirections[0]}`)
-    currentSection.classList.toggle(`moveTo${animationDirections[0]}`)
+    currentSection.previousSibling.classList.toggle(`moveFromTop`)
+    currentSection.classList.toggle(`moveToTop`)
     currentSection.classList.toggle('active')
   }, 600)
 }
