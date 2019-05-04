@@ -117,10 +117,8 @@ export default (props) => (
         }
       }
     `}
-    render={(data) => {
-      console.log(data)
-  
-      return <TemplateWrapper {...props} siteMetadata={data.site.siteMetadata}/>
-    }}
+    render={(data) => (
+      <TemplateWrapper {...props} siteMetadata={data.site.siteMetadata}/>
+    )}
   />
 )
