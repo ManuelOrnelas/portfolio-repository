@@ -8,7 +8,7 @@ export class SectionPanel extends React.Component {
     super(props)
 
     this.state = {
-      sections: []
+      sections: (this.props.sections && this.props.sections.length ? this.props.sections : [])
     }
   }
 
@@ -43,7 +43,6 @@ export class SectionPanel extends React.Component {
             {this.state.sections.length
               ? this.state.sections.map((section => {
                   if (section.querySelector('h1#title')) {
-                    console.log(section)
                     return (
                       <li>{section.querySelector("h1#title").innerText}</li>
                     )

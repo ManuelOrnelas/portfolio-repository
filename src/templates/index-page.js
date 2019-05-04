@@ -161,6 +161,7 @@ export class IndexPageTemplate extends React.Component {
       subheading,
       mainpitch,
       description,
+      sidebarSections,
       main,
       whoandwhy,
       historicalline,
@@ -176,6 +177,7 @@ export class IndexPageTemplate extends React.Component {
       subheading,
       mainpitch,
       description,
+      sidebarSections,
       main,
       whoandwhy,
       history: historicalline,
@@ -228,6 +230,11 @@ export class IndexPageTemplate extends React.Component {
   }
   
   render() {
+    // determine if it's a mobile device
+    let viewportWidth = typeof document !== 'undefined' ? document.documentElement.clientWidth : undefined
+    let mobile = false
+    if (viewportWidth && viewportWidth < 720) mobile = true
+
     return (
       <div id='home' style={{ '--page-color': this.state.color }}
         onWheel={(e) => this.throttledHandleScroll(e.deltaY, e.target)}>
@@ -260,23 +267,25 @@ export class IndexPageTemplate extends React.Component {
             </div>
           </Scrollbars>
         </div>
+        
+        { !mobile
+        ? <div id='historical-line' className='full-page-section flex alignitems-center'>
+            <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}} autoHide
+              onScrollFrame={this.handleCustomScrollbar} universal={true}
+              renderView={props => (
+                <div {...props} style={{ ...props.style, overflowX: 'hidden' }} />
+              )}>
+              <div className='container small'>
+                <HistoricalLine timeline={this.state.history}
+                  chosenItem={this.state.historySectionSelected}
+                  changeItem={this.changeHistorySection} />
 
-        <div id='historical-line' className='full-page-section flex alignitems-center'>
-          <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}} autoHide
-            onScrollFrame={this.handleCustomScrollbar} universal={true}
-            renderView={props => (
-              <div {...props} style={{ ...props.style, overflowX: 'hidden' }} />
-            )}>
-            <div className='container small'>
-              <HistoricalLine timeline={this.state.history}
-                chosenItem={this.state.historySectionSelected}
-                changeItem={this.changeHistorySection} />
-
-              <span className="arrow arrow-down clickable"
-                onClick={this.handleArrowDownClick}></span>
-            </div>
-          </Scrollbars>
-        </div>
+                <span className="arrow arrow-down clickable"
+                  onClick={this.handleArrowDownClick}></span>
+              </div>
+            </Scrollbars>
+          </div>
+        : null }
 
         <div id='news' className='full-page-section flex alignitems-center'>
           <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}}
@@ -290,8 +299,6 @@ export class IndexPageTemplate extends React.Component {
             </div>
           </Scrollbars>
         </div>
-
-        <SectionPanel />
       </div>
     )
   }
@@ -306,6 +313,7 @@ IndexPageTemplate.propTypes = {
   subheading: PropTypes.string,
   mainpitch: PropTypes.object,
   description: PropTypes.string,
+  sidebarSections: PropTypes.object,
   whoandwhy: PropTypes.object,
   historicalline: PropTypes.array,
   news: PropTypes.array

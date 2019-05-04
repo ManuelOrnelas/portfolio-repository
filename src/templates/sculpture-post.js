@@ -13,7 +13,7 @@ export const SculpturePostTemplate = ({
 }) => {
   
   return (
-    <div className='post full-page-section'>
+    <div className='post full-page-section moveFromBottom'>
       <section className='container small flex'>
         {helmet || ''}
         <div>

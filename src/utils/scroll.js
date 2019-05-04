@@ -55,8 +55,10 @@ export function scrollDownToNextSection(currentSection) {
 
     // if the navbar has its arrow disabled, enable it
     // change navbar mode
+    // TODO: remove if clauses after historical line is finished on mobile version
     enableNavbarArrow(600)
-    toggleSecondaryNavbar(300)
+    if (document.documentElement.clientWidth > 720) toggleSecondaryNavbar(300)
+    else if (document.documentElement.clientWidth < 720 && i+1 == 1) toggleSecondaryNavbar(300)
 
     // add timer to remove classes after animation
     setTimeout(() => {
@@ -93,7 +95,9 @@ export function scrollUpToNextSection(currentSection, isFirst) {
   }
 
   // change navbar colors
-  toggleSecondaryNavbar(300)
+  // TODO: remove if clauses after historical line is finished on mobile version
+  if (document.documentElement.clientWidth > 720) toggleSecondaryNavbar(300)
+  else if (document.documentElement.clientWidth < 720 && findElementIndex(currentSection.previousSibling) == 0) toggleSecondaryNavbar(300)
 
   // add timer to remove classes after animation
   setTimeout(() => {
