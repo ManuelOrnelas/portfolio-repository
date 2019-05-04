@@ -4,7 +4,12 @@ import { Link } from 'gatsby'
 import { scrollUpToNextSection, scrollToFirstSection } from '../utils/scroll'
 import { findElementIndex } from '../utils/html'
 
+// Without context, you have no idea what the fuck is going on right?
+import AppContext from './AppContext'
+
 export default class Navbar extends React.Component {
+  static contextType = AppContext
+
   constructor(props) {
     super(props);
 
@@ -56,7 +61,7 @@ export default class Navbar extends React.Component {
           '--nav-color': this.props.color,
           '--nav-color-secondary': this.props.postColor
         }}
-        className={isPost ? 'post secondary' : undefined}>
+        className={(isPost ? 'post secondary ' : '') + (!this.context.animatePages ? 'noAnimations' : '')}>
 
         {/* LOGO */}
         <Link to="/" title="Logo" className='logo flex aligncontent-center'
