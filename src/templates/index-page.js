@@ -17,6 +17,7 @@ import { handleScroll, scrollDownToNextSection } from '../utils/scroll'
 import * as facebook from  '../img/social/facebook.svg'
 import * as instagram from '../img/social/instagram.svg'
 import * as email from '../img/social/email.svg'
+import AppContext from '../components/AppContext';
 
 function WhoAndWhy(props) {
   let { title, subtitle, description, social } = props
@@ -148,6 +149,8 @@ function NewsList(props) {
 }
 
 export class IndexPageTemplate extends React.Component {
+  static contextType = AppContext
+
   constructor(props) {
     super(props)
 
@@ -190,6 +193,34 @@ export class IndexPageTemplate extends React.Component {
     this.changeHistorySection = this.changeHistorySection.bind(this);   
   }
 
+  convertIdToName = (id) => {
+    let name = id
+
+    // Change first char to uppercase
+    name = name.charAt(0).toUpperCase() + name.substr(1)
+    // Replace hyphens
+    name = name.replace(new RegExp(/\-/g), ' ')
+
+    return name
+  }
+
+  componentDidMount() {
+    let htmlSections = document.querySelectorAll('.full-page-section')
+    htmlSections = Array.prototype.slice.call(htmlSections)
+    
+    let sections = []
+    for (let section of htmlSections) {
+      sections.push({
+        originalID: section.id,
+        element: section,
+        name: this.convertIdToName(section.id),
+        active: section.classList.contains('active') ? true : false,
+      })
+    }
+    
+    this.context.sidebar.setSections(sections)
+  }
+
   /**
    * @param {React.WheelEvent} event
    */
@@ -228,7 +259,7 @@ export class IndexPageTemplate extends React.Component {
       historySectionSelected: newID
     })
   }
-  
+
   render() {
     // determine if it's a mobile device
     let viewportWidth = typeof document !== 'undefined' ? document.documentElement.clientWidth : undefined
@@ -254,50 +285,62 @@ export class IndexPageTemplate extends React.Component {
         </div>
 
         <div id='who-and-why' className='full-page-section flex alignitems-center'>
-          <Scrollbars style={{ width: '100%', height: 'calc(100vh - 5rem)'}} autoHide
-            onScrollFrame={this.handleCustomScrollbar} universal={true}
-            renderView={props => (
-              <div {...props} style={{ ...props.style, overflowX: 'hidden' }} />
-            )}>
-            <div className='container small'>
-              <WhoAndWhy {...this.state.whoandwhy} social={this.state.social} />
+          <div id='section-grid'>
+            <SectionPanel />
 
-              <span className="arrow arrow-down clickable"
-                  onClick={this.handleArrowDownClick}></span>
-            </div>
-          </Scrollbars>
-        </div>
-        
-        { !mobile
-        ? <div id='historical-line' className='full-page-section flex alignitems-center'>
-            <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}} autoHide
+            <Scrollbars style={{ width: '100%', height: 'calc(100vh - 5rem)'}} autoHide
               onScrollFrame={this.handleCustomScrollbar} universal={true}
               renderView={props => (
                 <div {...props} style={{ ...props.style, overflowX: 'hidden' }} />
               )}>
               <div className='container small'>
-                <HistoricalLine timeline={this.state.history}
-                  chosenItem={this.state.historySectionSelected}
-                  changeItem={this.changeHistorySection} />
+                <WhoAndWhy {...this.state.whoandwhy} social={this.state.social} />
 
                 <span className="arrow arrow-down clickable"
-                  onClick={this.handleArrowDownClick}></span>
+                    onClick={this.handleArrowDownClick}></span>
               </div>
             </Scrollbars>
+          </div>
+        </div>
+        
+        { !mobile
+        ? <div id='historical-line' className='full-page-section flex alignitems-center'>
+            <div id='section-grid'>
+              <SectionPanel />
+              
+              <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}} autoHide
+                onScrollFrame={this.handleCustomScrollbar} universal={true}
+                renderView={props => (
+                  <div {...props} style={{ ...props.style, overflowX: 'hidden' }} />
+                )}>
+                <div className='container small'>
+                  <HistoricalLine timeline={this.state.history}
+                    chosenItem={this.state.historySectionSelected}
+                    changeItem={this.changeHistorySection} />
+
+                  <span className="arrow arrow-down clickable"
+                    onClick={this.handleArrowDownClick}></span>
+                </div>
+              </Scrollbars>
+            </div>
           </div>
         : null }
 
         <div id='news' className='full-page-section flex alignitems-center'>
-          <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}}
-            onScrollFrame={this.handleCustomScrollbar} universal={true}
-            renderView={props => (
-              <div {...props} style={{ ...props.style, overflowX: 'hidden' }} />
-            )}>
-            <div className='container small'>
-              <h1 id='title' className='text-color page-color'>News</h1>
-              <NewsList news={this.state.news}></NewsList>
-            </div>
-          </Scrollbars>
+          <div id='section-grid'>
+            <SectionPanel />
+            
+            <Scrollbars style={{ width: '100%', height: 'calc(100vh - 6rem)'}}
+              onScrollFrame={this.handleCustomScrollbar} universal={true}
+              renderView={props => (
+                <div {...props} style={{ ...props.style, overflowX: 'hidden' }} />
+              )}>
+              <div className='container small'>
+                <h1 id='title' className='text-color page-color'>News</h1>
+                <NewsList news={this.state.news}></NewsList>
+              </div>
+            </Scrollbars>
+          </div>
         </div>
       </div>
     )

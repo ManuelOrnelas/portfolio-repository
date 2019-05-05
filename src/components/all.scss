@@ -549,6 +549,14 @@ footer.footer {
     padding-bottom: 5rem;
   }
 
+  #section-grid {
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    grid-template-areas: "panel content";
+  }
+
   #title {
     font-size: 7rem;
     margin: 0;

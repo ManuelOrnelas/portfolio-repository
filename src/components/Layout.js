@@ -27,7 +27,48 @@ class TemplateWrapper extends React.Component {
         duration: 1000,
       })
     }
+
+    this.state = {
+      pageSections: [],
+      activePageSection: 0,
+    }
   }
+
+  convertIdToName = (id) => {
+    let name = id
+
+    // Change first char to uppercase
+    name = name.charAt(0).toUpperCase() + name.substr(1)
+    // Replace hyphens
+    name = name.replace(new RegExp(/\-/g), ' ')
+
+    return name
+  }
+
+  // set page sections
+  getPageSections = () => {
+    let htmlSections = document.querySelectorAll('.full-page-section')
+    htmlSections = Array.prototype.slice.call(htmlSections)
+    
+    let sections = []
+    for (let section of htmlSections) {
+      sections.push({
+        originalID: section.id,
+        element: section,
+        name: this.convertIdToName(section.id),
+        active: section.classList.contains('active') ? true : false,
+      })
+    }
+
+    return sections
+  }
+
+  setPageSections = (sections) => {
+    this.setState({pageSections: sections && sections.length ?  sections : this.getPageSections() }) 
+  }
+
+  // set active page section
+  setActivePageSection = (activePage) => this.setState({activePageSection: activePage})
 
   render() {
     let color = ''
@@ -35,8 +76,15 @@ class TemplateWrapper extends React.Component {
 
     let contextValue = {
       animatePages: true,
+      sidebar : {
+        sections: this.state.pageSections,
+        setSections: this.setPageSections,
+        activeSection: this.state.activePageSection,
+        setActiveSection: this.setActivePageSection,
+      }
     }
 
+    // check if the visited page is the first page visited on this session
     if (typeof window !== 'undefined' && typeof document !== 'undefined') {
       // let's determine if the current page is the first page visited
       // on this session 

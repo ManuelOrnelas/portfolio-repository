@@ -58,7 +58,7 @@ export function scrollDownToNextSection(currentSection) {
     // TODO: remove if clauses after historical line is finished on mobile version
     enableNavbarArrow(600)
     if (document.documentElement.clientWidth > 720) toggleSecondaryNavbar(300)
-    else if (document.documentElement.clientWidth < 720 && i+1 == 1) toggleSecondaryNavbar(300)
+    else if (document.documentElement.clientWidth < 720 && i+1 === 1) toggleSecondaryNavbar(300)
 
     // add timer to remove classes after animation
     setTimeout(() => {
@@ -97,7 +97,7 @@ export function scrollUpToNextSection(currentSection, isFirst) {
   // change navbar colors
   // TODO: remove if clauses after historical line is finished on mobile version
   if (document.documentElement.clientWidth > 720) toggleSecondaryNavbar(300)
-  else if (document.documentElement.clientWidth < 720 && findElementIndex(currentSection.previousSibling) == 0) toggleSecondaryNavbar(300)
+  else if (document.documentElement.clientWidth < 720 && findElementIndex(currentSection.previousSibling) === 0) toggleSecondaryNavbar(300)
 
   // add timer to remove classes after animation
   setTimeout(() => {
@@ -120,9 +120,9 @@ export function scrollToFirstSection(currentSection, sectionIndex) {
   animationDirections = shuffle(animationDirections)
 
   // hide current section
-  currentSection.classList.toggle(`moveTo${animationDirections[0]}`)
+  currentSection.classList.toggle(`moveToTop`)
   // show first section
-  firstSection.classList.toggle(`moveFrom${animationDirections[0]}`)
+  firstSection.classList.toggle(`moveFromTop`)
 
 
   // hide navbar arrow if the next section is the first section
@@ -140,8 +140,8 @@ export function scrollToFirstSection(currentSection, sectionIndex) {
 
   // add timer to remove classes after animation
   setTimeout(() => {
-    currentSection.classList.toggle(`moveTo${animationDirections[0]}`)
-    firstSection.classList.toggle(`moveFrom${animationDirections[0]}`)
+    currentSection.classList.toggle(`moveToTop`)
+    firstSection.classList.toggle(`moveFromTop`)
   }, 600)
 }
 

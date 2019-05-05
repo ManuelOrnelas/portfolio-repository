@@ -1,3 +1,30 @@
 div#scroll-panel {
-  display: none;
+  display: block;
+  grid-area: panel;
+
+  ul {
+    position: absolute;
+    transform: translateY(-50%);
+    top: calc(50% - 2.75rem);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      font-size: 1.125rem;
+      color: #37322160;
+      margin: 1rem 0;
+      transition: 0.25s ease color;
+      cursor: pointer;
+
+      &:hover {
+        color: #37322180;
+      }
+
+      &.active {
+        font-weight: 600;
+        color: #373322;
+      }
+    }
+  }
 }
