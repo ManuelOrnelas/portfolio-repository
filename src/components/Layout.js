@@ -1,12 +1,18 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import { debounce } from 'lodash'
 
 import AppContext from './AppContext'
 
 // Page partials
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+
+// Utils
+import { scrollDownToNextSection, scrollUpToNextSection, handleScroll } from '../utils/scroll'
+import { findElementIndex } from '../utils/html'
+
 
 // CSS files
 import './all.scss'
@@ -29,11 +35,76 @@ class TemplateWrapper extends React.Component {
     }
 
     this.state = {
+      scroll: false,
+      scrollPerc: undefined,
+
       pageSections: [],
-      activePageSection: 0,
+      activePageSection: -1,
     }
   }
 
+  // Arrow Down and Up clicks
+  handleArrowDownClick = (event) => {
+    if(typeof document !== 'undefined' && document) {
+      // If the event target is a child of the first page section
+      // The current active section is the first section
+      let el = event.target.closest('.full-page')
+      // Otherwise, it is a full-page section (second to ith-section)
+      // Query closest page section element
+      if (!el) el = event.target.closest('.full-page-section')
+      
+      // Increase page section index in state and context
+      this.setState({ activePageSection: this.state.activePageSection + 1 })
+      
+      scrollDownToNextSection(el)
+    }
+  }
+
+  handleArrowUpClick = (event) => {
+    // Get active section which is being shown and animate it
+    let el = document.querySelector('.full-page-section.active')
+    let sectionIndex = findElementIndex(el)
+
+    // Decrease page section in state and context
+    this.setState({ activePageSection: this.state.activePageSection - 1 })
+    
+    scrollUpToNextSection(el, !(sectionIndex > 1))
+  }
+
+  // Mouse/Trackpad scroll handling
+  throttledHandleScroll = debounce((dy, target) => {
+    // Get current section
+    let section = target.closest('.full-page-section')
+    if (!section) section = target.closest('.full-page')
+
+    let nextActivePageSection = this.state.activePageSection
+
+    if (dy < 0 && section.previousElementSibling) { // scroll up
+      if (this.state.scroll && this.state.scrollPerc < 5
+        || !this.state.scroll && this.state.scrollPerc === undefined) handleScroll(dy, section)
+
+      nextActivePageSection--
+    } else if (dy > 0 && section.nextElementSibling) { // scroll down 
+      if (!this.state.scroll && this.state.scrollPerc === undefined
+        || this.state.scroll && this.state.scrollPerc > 95) handleScroll(dy, section)
+       
+        nextActivePageSection++
+    }
+
+    // reset scroll progress
+    this.setState({activePageSection: nextActivePageSection, scroll: false, scrollPerc: undefined})
+  }, 100)
+
+  handleCustomScrollbar = (event) => {
+    let newTop = event.top
+
+    if (!this.state.scroll) this.setState({
+      scroll: true,
+      scrollPerc: newTop * 100,
+    })
+  }
+
+  // Sidebar sections
   convertIdToName = (id) => {
     let name = id
 
@@ -76,6 +147,11 @@ class TemplateWrapper extends React.Component {
 
     let contextValue = {
       animatePages: true,
+      scroll: {
+        arrowDownClick: this.handleArrowDownClick,
+        arrowUpClick: this.handleArrowUpClick,
+        scrollbar: this.throttledHandleScroll,
+      },
       sidebar : {
         sections: this.state.pageSections,
         setSections: this.setPageSections,

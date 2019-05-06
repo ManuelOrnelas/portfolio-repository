@@ -24,28 +24,50 @@ export class SectionPanel extends React.Component {
     return name
   }
 
-  componentDidMount() {
-    // let htmlSections = document.querySelectorAll('.full-page-section')
-    // htmlSections = Array.prototype.slice.call(htmlSections)
-    
-    // let sections = []  
-    // for (let section of htmlSections) {
-    //   console.log(section)
-    //   sections.push({
-    //     originalID: section.id,
-    //     element: section,
-    //     name: this.convertIdToName(section.id),
-    //     active: section.classList.contains('active') ? true : false,
-    //   })
-    // }
-    
-    // this.context.sidebar.setSections(sections)
+  animateSectionChange = (currentSection, nextSection) => {
+    // active next section (show it)
+    nextSection.classList.toggle('active')
+
+    if (findElementIndex(currentSection) > findElementIndex(nextSection)) { // scrolling up
+      // Add top animation classes
+      currentSection.classList.toggle('moveToTop')
+      nextSection.classList.toggle('moveFromTop')
+
+      // Navbar secondary mode is only changed when device is desktop 
+      if (document.documentElement.clientWidth > 720 ) toggleSecondaryNavbar(300)
+      // else if (document.documentElement.clientWidth < 720 && findElementIndex(nextSection) === 0) toggleSecondaryNavbar(300)
+
+      // Remove animation classes and hide current section 
+      setTimeout(() => {
+        nextSection.classList.toggle('moveFromTop')
+        currentSection.classList.toggle('moveToTop')
+        currentSection.classList.toggle('active')
+      }, 600)
+
+    } else { // Scrolling down
+      // Add bottom animation classes
+      currentSection.classList.toggle('moveToBottom')
+      nextSection.classList.toggle('moveFromBottom')
+      
+      // Add active class to navbar arrow
+      enableNavbarArrow(600)
+      // Navbar secondary mode is only changed when device is desktop
+      if (document.documentElement.clientWidth > 720) toggleSecondaryNavbar(300)
+
+      // Remove animation classes and hide current section
+      setTimeout(() => {
+        currentSection.classList.toggle('moveToBottom')
+        currentSection.classList.toggle('active')
+        nextSection.classList.toggle('moveFromBottom')
+      }, 600)
+    }
   }
 
   changeSection = (event) => {
     // check if item already active
     if (event.target.classList.contains('active')) return
 
+    // get the id of the section selected and update sections in context
     let id = event.target.dataset.id
   
     let sections = this.context.sidebar.sections.slice()
@@ -58,41 +80,10 @@ export class SectionPanel extends React.Component {
     let currentSection = this.context.sidebar.sections[this.context.sidebar.activeSection].element
     let nextSection = this.context.sidebar.sections[id].element
 
+    // change active section to the selected section
     this.context.sidebar.setActiveSection(findElementIndex(this.context.sidebar.sections[id].element) - 1)
 
-    // animate section change
-    if (findElementIndex(currentSection) > findElementIndex(nextSection)) {
-      // move to top
-      nextSection.classList.toggle('active')
-
-      currentSection.classList.toggle('moveToTop')
-      nextSection.classList.toggle('moveFromTop')
-
-      if (document.documentElement.clientWidth > 720 ) toggleSecondaryNavbar(300)
-      // else if (document.documentElement.clientWidth < 720 && findElementIndex(nextSection) === 0) toggleSecondaryNavbar(300)
-
-      setTimeout(() => {
-        nextSection.classList.toggle('moveFromTop')
-        currentSection.classList.toggle('moveToTop')
-        currentSection.classList.toggle('active')
-      }, 600)
-
-    } else {
-      // move to bottom
-      nextSection.classList.toggle('active')
-
-      currentSection.classList.toggle('moveToBottom')
-      nextSection.classList.toggle('moveFromBottom')
-      
-      enableNavbarArrow(600)
-      if (document.documentElement.clientWidth > 720) toggleSecondaryNavbar(300)
-
-      setTimeout(() => {
-        currentSection.classList.toggle('moveToBottom')
-        currentSection.classList.toggle('active')
-        nextSection.classList.toggle('moveFromBottom')
-      }, 600)
-    }
+    this.animateSectionChange(currentSection, nextSection)
   }
   
   render() {

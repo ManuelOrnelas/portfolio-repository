@@ -36,15 +36,6 @@ export default class Navbar extends React.Component {
     }
   }
 
-  handleArrowUpClick = (event) => {
-    // get the section being shown and slide it down
-    // it's the last active from the array
-    let el = document.querySelector('.full-page-section.active')
-    let sectionIndex = findElementIndex(el)
-    
-    scrollUpToNextSection(el, !(sectionIndex > 1))
-  }
-
   render() {
     // get setcion from URL pathname
     let urlParts = this.state.path.split('/'),
@@ -149,7 +140,7 @@ export default class Navbar extends React.Component {
           <div data-aos='fade-up' data-aos-delay='0'
             data-aos-offset='0' data-aos-anchor='#arrow'>
             <span className="arrow arrow-up clickable"
-              onClick={this.handleArrowUpClick}></span>
+              onClick={this.context.scroll.arrowUpClick}></span>
           </div>
         </div>
       </nav>

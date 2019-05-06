@@ -72,24 +72,21 @@ export function scrollDownToNextSection(currentSection) {
 /**
  * 
  * @param {HTMLElement} currentSection Current section user is viewing
- * @param {boolean} isFirst Is this the first section of the page (not counting with the title/header)
+ * @param {Boolean} isNextSectionFirst
  */
-export function scrollUpToNextSection(currentSection, isFirst) {
+export function scrollUpToNextSection(currentSection, isNextSectionFirst) {
   // if the page is currently scrolling, don't fuck it up
   if (isScrolling()) return
 
   currentSection.previousSibling.classList.toggle('active')
 
-  // shuffle animations array
-  animationDirections = shuffle(animationDirections)
-  
   // animate current section with moveTo animation
   currentSection.classList.toggle(`moveToTop`)
   // show previous section with moveFrom animation
   currentSection.previousSibling.classList.toggle(`moveFromTop`)
 
   // hide navbar arrow if the next section is the first section
-  if (isFirst) {
+  if (isNextSectionFirst) {
     let arrow = document.querySelector('#navbar-arrow')
     arrow.classList.remove('show')
   }
@@ -105,6 +102,26 @@ export function scrollUpToNextSection(currentSection, isFirst) {
     currentSection.classList.toggle(`moveToTop`)
     currentSection.classList.toggle('active')
   }, 600)
+}
+
+/**
+ * @param {number} dy Represents the scroll velocity
+ * @param {HTMLElement} section Element 
+ */
+export function handleScroll(dy, section) {
+  //window.outerWidth > 720
+  if (true) {
+    // dY > 0 means user is trying to scroll DOWN
+    // dY < 0 means user is trying to scroll UP
+    let up = undefined
+    if (dy > 0) up = false
+    else up = true
+
+    let nextSectionIndex = findElementIndex(section)
+
+    if (up && section.previousElementSibling) scrollUpToNextSection(section, !(nextSectionIndex > 1))
+    else if (!up) scrollDownToNextSection(section)
+  }
 }
 
 /**
@@ -143,34 +160,4 @@ export function scrollToFirstSection(currentSection, sectionIndex) {
     currentSection.classList.toggle(`moveToTop`)
     firstSection.classList.toggle(`moveFromTop`)
   }, 600)
-}
-
-
-/**
- * @param {number} dy Represents the scroll velocity
- * @param {HTMLElement} target Element 
- */
-export function handleScroll(dy, target) {
-  //window.outerWidth > 720
-  if (true) {
-    // dY > 0 means user is trying to scroll DOWN
-    // dY < 0 means user is trying to scroll UP
-    let up = undefined
-    if (dy > 0) up = false
-    else up = true
-
-    let activeSections = document.querySelectorAll('.full-page-section.active')
-
-    if (up && activeSections.length) {
-      // let's deactivate the last one and make it slide down
-      scrollUpToNextSection(activeSections[activeSections.length - 1], !(activeSections.length > 1))
-    } else if (!up) {
-      let el = target.closest('.full-page')
-      // if event's target was not .full-page div then closest will be null
-      // if it wasn't .full-page it has to be .full-page-section
-      if (!el) el = target.closest('.full-page-section')
-
-      scrollDownToNextSection(el)
-    }
-  }
 }
