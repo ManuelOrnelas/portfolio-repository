@@ -28,3 +28,28 @@ div#scroll-panel {
     }
   }
 }
+
+@media (max-width: 720px) {
+  div#scroll-panel {
+    grid-area: unset;
+
+    ul {
+      width: 10vw;
+      z-index: 12;
+      cursor: pointer;
+
+      li {
+        width: 5vw;
+        height: 0.075rem;
+        background-color: #707070;
+        cursor: pointer !important;
+
+        &.active {
+          width: 7.5vw;
+          height: 0.35rem;
+          background-color: #303030;
+        }
+      }
+    }
+  }
+}

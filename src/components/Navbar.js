@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import { scrollUpToNextSection, scrollToFirstSection } from '../utils/scroll'
+import { scrollToFirstSection } from '../utils/scroll'
 import { findElementIndex } from '../utils/html'
 
 // Without context, you have no idea what the fuck is going on right?

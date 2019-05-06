@@ -1,3 +1,5 @@
+/* eslint no-useless-escape: 0 */
+
 import React from 'react'
 
 
@@ -94,14 +96,15 @@ export class SectionPanel extends React.Component {
 
       if (clientWidth < 720) mobile = true;
     }
-    
+
     if (mobile) {
       return (
         <div id='scroll-panel'>
           <ul>
             {this.context.sidebar.sections.length
-              ? this.context.sidebar.sections.map(section => (
-                <li className={section.active ? 'active' : ''}></li>
+              ? this.context.sidebar.sections.map((section, index) => (
+                <li className={this.context.sidebar.activeSection === index ? 'active' : ''}
+                  onTouchStartCapture={this.changeSection} data-id={index}></li>
               ))
               : null
             }
@@ -114,7 +117,7 @@ export class SectionPanel extends React.Component {
           <ul>
             {this.context.sidebar.sections.length
               ? this.context.sidebar.sections.map((section, index) => (
-                <li className={this.context.sidebar.activeSection == index ? 'active' : ''}
+                <li className={this.context.sidebar.activeSection === index ? 'active' : ''}
                   onClick={this.changeSection} data-id={index}>{section.name}</li>
               ))
               : null

@@ -1,3 +1,5 @@
+/* eslint no-useless-escape: 0 */
+
 import React from 'react'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
@@ -80,13 +82,13 @@ class TemplateWrapper extends React.Component {
     let nextActivePageSection = this.state.activePageSection
 
     if (dy < 0 && section.previousElementSibling) { // scroll up
-      if (this.state.scroll && this.state.scrollPerc < 5
-        || !this.state.scroll && this.state.scrollPerc === undefined) handleScroll(dy, section)
+      if ((this.state.scroll && this.state.scrollPerc < 5)
+        || (!this.state.scroll && this.state.scrollPerc === undefined)) handleScroll(dy, section)
 
       nextActivePageSection--
     } else if (dy > 0 && section.nextElementSibling) { // scroll down 
-      if (!this.state.scroll && this.state.scrollPerc === undefined
-        || this.state.scroll && this.state.scrollPerc > 95) handleScroll(dy, section)
+      if ((!this.state.scroll && this.state.scrollPerc === undefined)
+        || (this.state.scroll && this.state.scrollPerc > 95)) handleScroll(dy, section)
        
         nextActivePageSection++
     }

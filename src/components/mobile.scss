@@ -88,6 +88,13 @@
       align-items: unset;
     }
 
+    #section-grid {
+      margin: 0;
+      width: 100%;
+      grid-template-columns: 100%;
+      grid-template-areas: "content";
+    }
+
     // GENERIC STYLES
     .container {
       padding: 0 1rem 2rem 1rem;
