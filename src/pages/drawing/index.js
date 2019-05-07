@@ -4,8 +4,12 @@ import React from 'react'
 import Layout from '../../components/Layout'
 import DrawingRoll from '../../components/DrawingRoll'
 
+// Utils
+import { scrollDownToNextSection } from '../../utils/scroll'
+
 // Context is important bois
 import AppContext from '../../components/AppContext'
+
 
 class DrawingPage extends React.Component {
   static contextType = AppContext
@@ -29,6 +33,20 @@ class DrawingPage extends React.Component {
       postColor
     }
   }
+
+  // Arrow Down and Up clicks
+  handleArrowDownClick = (event) => {
+    if(typeof document !== 'undefined' && document) {
+      // If the event target is a child of the first page section
+      // The current active section is the first section
+      let el = event.target.closest('.full-page')
+      // Otherwise, it is a full-page section (second to ith-section)
+      // Query closest page section element
+      if (!el) el = event.target.closest('.full-page-section')
+      
+      scrollDownToNextSection(el)
+    }
+  }
   
   render() {
     return (
@@ -45,7 +63,8 @@ class DrawingPage extends React.Component {
               <div data-aos='fade-up' data-aos-delay='0'
                 data-aos-offset='0' data-aos-anchor='#arrow'>
                 <span className="arrow arrow-down clickable"
-                  onClick={this.context.scroll.arrowDownClick}></span>
+                  onTouchStartCapture={this.handleArrowDownClick}
+                  onClick={this.handleArrowDownClick}></span>
               </div>
             </div>
           </div>

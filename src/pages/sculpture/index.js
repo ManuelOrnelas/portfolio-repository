@@ -4,6 +4,9 @@ import React from 'react'
 import Layout from '../../components/Layout'
 import SculptureRoll from '../../components/SculptureRoll'
 
+// Utils
+import { scrollDownToNextSection } from '../../utils/scroll'
+
 // Context is important
 import AppContext from '../../components/AppContext';
 
@@ -31,6 +34,20 @@ class SculpturePage extends React.Component {
       postColor
     }
   }
+
+  // Arrow Down and Up clicks
+  handleArrowDownClick = (event) => {
+    if(typeof document !== 'undefined' && document) {
+      // If the event target is a child of the first page section
+      // The current active section is the first section
+      let el = event.target.closest('.full-page')
+      // Otherwise, it is a full-page section (second to ith-section)
+      // Query closest page section element
+      if (!el) el = event.target.closest('.full-page-section')
+      
+      scrollDownToNextSection(el)
+    }
+  }
   
   render () {
     return (
@@ -42,11 +59,12 @@ class SculpturePage extends React.Component {
                 data-aos='fade-up' data-aos-delay='0'>Sculpture.</h1>
             </div>
 
-            <div id='arrow' onClick={this.context.scroll.arrowDownClick}>
+            <div id='arrow'>
               <div data-aos='fade-up'data-aos-delay='0'
-                data-aos-offset='0' data-aos-anchor='#arrow' onClick={this.context.scroll.arrowDownClick}>
+                data-aos-offset='0' data-aos-anchor='#arrow'>
                 <span className="arrow arrow-down clickable"
-                  onTouchStartCapture={this.context.scroll.arrowDownClick} onClick={(e) => this.context.scroll.arrowDownClick()}></span>
+                  onTouchStartCapture={this.handleArrowDownClick}
+                  onClick={this.handleArrowDownClick}></span>
               </div>
             </div>
           </div>
