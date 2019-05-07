@@ -10,12 +10,12 @@ class InteriorDesignRoll extends React.Component {
 
     return (
       <div className='post-list'>
-        {posts && (posts.map(({ node: post }) => (
+        {posts && (posts.map(({ node: post }, index) => (
           <Link title={post.frontmatter.title} className="post title has-text-primary is-size-4"
-            to={post.fields.slug}>
+            to={post.fields.slug} key={index}>
             <img alt={post.frontmatter.title} className="thumbnail" src={post.frontmatter.image.childImageSharp.fluid.src}/>
           </Link>
-        )))}
+          )))}
       </div>
     );
   }

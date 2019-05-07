@@ -256,6 +256,10 @@ img.thumbnail {
   &.small {
     width: 60rem;
   }
+
+  &.xtrasmall {
+    width: 50rem;
+  }
 }
 
 // LISTS
@@ -443,10 +447,14 @@ nav {
   .post-list {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    grid-gap: 1rem;
+    margin: 2rem 0;
 
     .post {
       img {
         border-radius: 0.5rem;
+        width: 100%;
+        height: 100%;
       }
     }
   }
@@ -570,14 +578,6 @@ footer.footer {
 
 .lateral-space {
   padding: 0 20vw 0 20vw;
-}
-
-.projects {
-  margin: 0;
-  font-size: 72px;
-  padding-top: 20vh;
-  padding-bottom: 36px;
-  font-family: "Sofia Pro SemiBold";
 }
 
 .left {

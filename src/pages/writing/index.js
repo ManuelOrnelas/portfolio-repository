@@ -1,13 +1,14 @@
 import { graphql } from 'gatsby'
-import { debounce } from 'lodash'
 import React from 'react'
 
 import Layout from '../../components/Layout'
 import WritingRoll from '../../components/WritingRoll'
 
-import { handleScroll, scrollDownToNextSection } from '../../utils/scroll'
+import AppContext from '../../components/AppContext'
 
 class WritingPage extends React.Component {
+  static contextType = AppContext
+
   constructor(props) {
     super(props)
     
@@ -29,44 +30,10 @@ class WritingPage extends React.Component {
     }
   }
   
-  /**
-   * @param {React.WheelEvent} event
-   */
-  handleArrowDownClick = (event) => {
-    if(typeof document !== 'undefined' && document) {
-      // get the main section element
-      let el = event.target.closest('.full-page')
-      if (!el) el = event.target.closest('.full-page-section')
-
-      scrollDownToNextSection(el)
-    }
-  }
-
-  throttledHandleScroll = debounce((dy, target) => {
-    // handle scroll if the section has been scrolled
-    if (dy < 0 && this.state.scroll && this.state.scrollPerc < 5) handleScroll(dy, target) // trying to scroll up in any section
-    else if (dy < 0 && this.state.scroll === false && this.state.scrollPerc === undefined) handleScroll(dy, target)
-    else if (dy > 0 && this.state.scroll === false && this.state.scrollPerc === undefined) handleScroll(dy, target) // trying to scroll down in first section
-    else if (dy > 0 && this.state.scroll && this.state.scrollPerc > 94) handleScroll(dy, target)
-
-    // reset scroll progress
-    this.setState({scroll: false, scrollPerc: undefined})
-  }, 100)
-
-  handleCustomScrollbar = (event) => {
-    let newTop = event.top
-
-    if (!this.state.scroll) this.setState({
-      scroll: true,
-      scrollPerc: newTop * 100,
-    })
-  }
-
   render() {
     return (
       <Layout primaryColor={this.state.pageColor} postColor={this.state.postColor} isPost={false}>
-        <div id='writing' style={{ '--page-color': this.state.pageColor }}
-          onWheel={(e) => this.throttledHandleScroll(e.deltaY, e.target)}>
+        <div id='writing' style={{ '--page-color': this.state.pageColor }}>
           <div
             className='full-page flex justifycontent-center alignitems-center bcg-color page-color'>
             <div className='flex justifycontent-center alignitems-center'>
@@ -77,7 +44,8 @@ class WritingPage extends React.Component {
             <div id='arrow'>
               <div data-aos='fade-up' data-aos-delay='0'
                 data-aos-offset='0' data-aos-anchor='#arrow'>
-                <span className="arrow arrow-down clickable" onClick={this.handleArrowClick}></span>
+                <span className="arrow arrow-down clickable"
+                  onClick={this.context.scroll.arrowDownClick}></span>
               </div>
             </div>
           </div>
@@ -85,7 +53,7 @@ class WritingPage extends React.Component {
 
           <div className='full-page-section'>
             <div className='container small'>
-              <h1 className='projects text-color page-color'>Projects.</h1>
+              <h1 id='title' className='text-color page-color'>Projects.</h1>
               
               <WritingRoll />
             </div>

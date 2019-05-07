@@ -4,14 +4,13 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
-export const SculpturePostTemplate = ({
+const SculpturePostTemplate = ({
   description,
   image,
   details,
   title,
   helmet,
 }) => {
-  
   return (
     <div className='post full-page-section moveFromBottom'>
       <section className='container small flex'>

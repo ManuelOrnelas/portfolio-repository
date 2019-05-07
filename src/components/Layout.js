@@ -222,7 +222,8 @@ class TemplateWrapper extends React.Component {
         </Helmet>
         <AppContext.Provider value={contextValue}>
           <Navbar color={color} postColor={this.props.postColor} isPost={this.props.isPost} />
-          <div id='page-content' className='overflowx-hidden'>{this.props.children}</div>
+          <div id='page-content' className='overflowx-hidden'
+            onWheel={(e) => this.throttledHandleScroll(e.deltaY, e.target)}>{this.props.children}</div>
           {this.props.footer
             ? <Footer color={color} />
             : null
