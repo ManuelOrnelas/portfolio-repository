@@ -75,26 +75,28 @@ class TemplateWrapper extends React.Component {
 
   // Mouse/Trackpad scroll handling
   throttledHandleScroll = debounce((dy, target) => {
-    // Get current section
-    let section = target.closest('.full-page-section')
-    if (!section) section = target.closest('.full-page')
+    if (target) {
+      // Get current section
+      let section = target.closest('.full-page-section')
+      if (!section) section = target.closest('.full-page')
 
-    let nextActivePageSection = this.state.activePageSection
+      let nextActivePageSection = this.state.activePageSection
 
-    if (dy < 0 && section.previousElementSibling) { // scroll up
-      if ((this.state.scroll && this.state.scrollPerc < 5)
-        || (!this.state.scroll && this.state.scrollPerc === undefined)) handleScroll(dy, section)
+      if (dy < 0 && section.previousElementSibling) { // scroll up
+        if ((this.state.scroll && this.state.scrollPerc < 5)
+          || (!this.state.scroll && this.state.scrollPerc === undefined)) handleScroll(dy, section)
 
-      nextActivePageSection--
-    } else if (dy > 0 && section.nextElementSibling) { // scroll down 
-      if ((!this.state.scroll && this.state.scrollPerc === undefined)
-        || (this.state.scroll && this.state.scrollPerc > 95)) handleScroll(dy, section)
-       
-        nextActivePageSection++
+        nextActivePageSection--
+      } else if (dy > 0 && section.nextElementSibling) { // scroll down 
+        if ((!this.state.scroll && this.state.scrollPerc === undefined)
+          || (this.state.scroll && this.state.scrollPerc > 95)) handleScroll(dy, section)
+        
+          nextActivePageSection++
+      }
+
+      // reset scroll progress
+      this.setState({activePageSection: nextActivePageSection, scroll: false, scrollPerc: undefined})
     }
-
-    // reset scroll progress
-    this.setState({activePageSection: nextActivePageSection, scroll: false, scrollPerc: undefined})
   }, 100)
 
   handleCustomScrollbar = (event) => {
