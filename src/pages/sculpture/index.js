@@ -42,11 +42,11 @@ class SculpturePage extends React.Component {
                 data-aos='fade-up' data-aos-delay='0'>Sculpture.</h1>
             </div>
 
-            <div id='arrow'>
+            <div id='arrow' onClick={this.context.scroll.arrowDownClick}>
               <div data-aos='fade-up'data-aos-delay='0'
-                data-aos-offset='0' data-aos-anchor='#arrow'>
+                data-aos-offset='0' data-aos-anchor='#arrow' onClick={this.context.scroll.arrowDownClick}>
                 <span className="arrow arrow-down clickable"
-                  onClick={this.context.scroll.arrowDownClick}></span>
+                  onTouchStartCapture={this.context.scroll.arrowDownClick} onClick={(e) => this.context.scroll.arrowDownClick()}></span>
               </div>
             </div>
           </div>

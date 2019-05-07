@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
-const SculpturePostTemplate = ({
+export const SculpturePostTemplate = ({
   description,
   image,
   details,
