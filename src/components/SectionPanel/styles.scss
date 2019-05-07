@@ -34,22 +34,35 @@ div#scroll-panel {
     grid-area: unset;
 
     ul {
-      width: 10vw;
+      width: 7.5vw;
+      max-width: 10%;
       z-index: 12;
       cursor: pointer;
 
       li {
-        width: 5vw;
-        height: 0.075rem;
-        background-color: #707070;
+        padding: 0.5rem 0;
         cursor: pointer !important;
 
-        &.active {
-          width: 7.5vw;
+        &.active span {
+          display: block;
+          width: 75%;
           height: 0.35rem;
           background-color: #303030;
         }
+
+        span {
+          display: block;
+          width: 50%;
+          height: 0.075rem;
+          background-color: #707070;
+        }
       }
     }
+  }
+}
+
+@media (max-width: 580px) {
+  div#scroll-panel ul {
+    max-width: 7.5%;
   }
 }

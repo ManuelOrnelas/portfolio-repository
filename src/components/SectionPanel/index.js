@@ -21,7 +21,7 @@ export class SectionPanel extends React.Component {
     // Change first char to uppercase
     name = name.charAt(0).toUpperCase() + name.substr(1)
     // Replace hyphens
-    name = name.replace(new RegExp(/\-/g), ' ')
+    name = name.replace(/\-/g, ' ')
 
     return name
   }
@@ -104,7 +104,7 @@ export class SectionPanel extends React.Component {
             {this.context.sidebar.sections.length
               ? this.context.sidebar.sections.map((section, index) => (
                 <li className={this.context.sidebar.activeSection === index ? 'active' : ''}
-                  onTouchStartCapture={this.changeSection} data-id={index}></li>
+                  onClick={this.changeSection} onTouchStartCapture={this.changeSection} data-id={index}><span id='bar'></span></li>
               ))
               : null
             }
