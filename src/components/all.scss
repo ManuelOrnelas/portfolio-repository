@@ -559,7 +559,7 @@ footer.footer {
 
   #section-grid {
     width: 90%;
-    margin: 0 auto;
+    margin: 0 auto 0 2rem;
     display: grid;
     grid-template-columns: 15% 85%;
     grid-template-areas: "panel content";
@@ -574,34 +574,6 @@ footer.footer {
     min-height: 80vh;
     overflow-x: hidden !important;
   }
-}
-
-.lateral-space {
-  padding: 0 20vw 0 20vw;
-}
-
-.left {
-  padding-top: 100px;
-  width: 50%;
-  float: left;
-}
-
-.right {
-  padding-top: 100px;
-  width: 50%;
-  float: right;
-}
-
-.thumbnail-gallery {
-  text-align: center;
-}
-
-.slight-left {
-  padding-left: 15vw;
-}
-
-.slight-right {
-  padding-right: 15vw;
 }
 
 // INDEX PAGE
@@ -628,7 +600,7 @@ footer.footer {
       div#nucabeman,
       img {
         grid-area: profile;
-        max-height: 60vh;
+        max-height: 70vh;
       }
     }
   }
