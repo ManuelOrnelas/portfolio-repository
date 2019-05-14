@@ -49,7 +49,7 @@ export default class Navbar extends React.Component {
     return (
       <nav id="navbar"
         style={{
-          '--nav-color': this.props.color,
+          // '--nav-color': this.props.color,
           '--nav-color-secondary': this.props.postColor
         }}
         className={(isPost ? 'post secondary ' : '') + (!this.context.animatePages ? 'noAnimations' : '')}>

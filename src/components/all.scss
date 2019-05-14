@@ -349,12 +349,12 @@ nav {
   justify-content: center;
   align-items: center;
   -webkit-overflow-scrolling: touch;
-  background: var(--nav-color);
-  transition: .5s ease background;
+  // background: var(--nav-color);
+  // transition: .5s ease background;
 
-  &.secondary {
-    background: var(--nav-color-secondary);
-  }
+  // &.secondary {
+  //   background: var(--nav-color-secondary);
+  // }
 
   &.secondary,
   &.post {
