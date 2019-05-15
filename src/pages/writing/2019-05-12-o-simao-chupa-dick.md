@@ -1,7 +1,9 @@
 ---
 templateKey: writing-post
-title: O SIMAO CHUPA DICK
-date: 2019-05-12T12:43:09.511Z
-description: OH YEEEH
+color: 7
+title: Exemplo Writing
+date: 2016-12-17T15:04:10.000Z
+image: /img/thumbnail.png
+description: This is just a small example of Writing
+details: Book. 99x99. 12/2010
 ---
-Chupa tudinho

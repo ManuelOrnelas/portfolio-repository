@@ -28,8 +28,8 @@ WritingRoll.propTypes = {
   }),
 }
 
-export default () => {
-  return (<StaticQuery
+export default () => (
+  <StaticQuery
     query={graphql`query WritingRollQuery {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] },
@@ -59,5 +59,6 @@ export default () => {
     render={(data, count) => (
       <WritingRoll data={data} count={count} />
     )}
-  />)
-}
+  />
+)
+
