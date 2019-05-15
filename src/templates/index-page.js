@@ -31,7 +31,7 @@ function WhoAndWhy(props) {
         <div className=''>
           <h1 id='title' className='text-color page-color margin-0'>{title}</h1>
           <p className='grey fontsize-3'>{subtitle}</p>
-          <p className='grey fontsize-2 fontweight-light'>{description}</p>
+          <p className='grey fontsize-1 fontweight-light'>{description}</p>
           <div id='social' className='flex'>
             <a id='email' href={'mailto:' + social.email} target='_blank norefferer'>
               <img alt='Send Nucabé an email' src={email} className='w-1 h-1'></img>
