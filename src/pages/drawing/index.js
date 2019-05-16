@@ -95,6 +95,13 @@ export const query = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        image {
+          childImageSharp {
+            fluid(maxWidth: 150, maxHeight: 150) {
+              src
+            }
+          }
+        }
       }
     }
 
