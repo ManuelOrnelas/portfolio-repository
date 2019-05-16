@@ -17,6 +17,13 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Details", name: "details", widget: "text"}
+      - {label: "Featured Image",
+        name: "thumbnail",
+        widget: "image",
+        default: "/uploads/chocolate-dogecoin.jpg",
+        media_library:
+          config:
+            multiple: true}
 
   - name: "graphics design"
     label: "Graphics Design"
@@ -25,11 +32,18 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "graphics-design-post"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "drawing-post"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Details", name: "details", widget: "text"}
+      - {label: "Featured Image",
+        name: "thumbnail",
+        widget: "image",
+        default: "/uploads/chocolate-dogecoin.jpg",
+        media_library:
+          config:
+            multiple: true}
 
   - name: "interior design"
     label: "Interior Design"
@@ -38,11 +52,18 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "interior-design-post"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "drawing-post"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Details", name: "details", widget: "text"}
+      - {label: "Featured Image",
+        name: "thumbnail",
+        widget: "image",
+        default: "/uploads/chocolate-dogecoin.jpg",
+        media_library:
+          config:
+            multiple: true}
 
   - name: "product design"
     label: "Product Design"
@@ -51,11 +72,18 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "product-design-post"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "drawing-post"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Details", name: "details", widget: "text"}
+      - {label: "Featured Image",
+        name: "thumbnail",
+        widget: "image",
+        default: "/uploads/chocolate-dogecoin.jpg",
+        media_library:
+          config:
+            multiple: true}
 
   - name: "sculpture"
     label: "Sculpture"
@@ -64,11 +92,18 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "sculpture-post"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "drawing-post"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Details", name: "details", widget: "text"}
+      - {label: "Featured Image",
+        name: "thumbnail",
+        widget: "image",
+        default: "/uploads/chocolate-dogecoin.jpg",
+        media_library:
+          config:
+            multiple: true}
 
   - name: "writing"
     label: "Writing"
@@ -77,11 +112,18 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "writing-post"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "drawing-post"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Details", name: "details", widget: "text"}
+      - {label: "Featured Image",
+        name: "thumbnail",
+        widget: "image",
+        default: "/uploads/chocolate-dogecoin.jpg",
+        media_library:
+          config:
+            multiple: true}
 
   - name: "pages"
     label: "Pages"
