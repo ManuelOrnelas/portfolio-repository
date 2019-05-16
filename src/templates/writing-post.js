@@ -98,7 +98,6 @@ export const pageQuery = graphql`
     pageQuery: markdownRemark(id: { eq: $id }, frontmatter: { templateKey: { eq: $pageKey } }) {
       id
       frontmatter {
-        color
         date(formatString: "MMMM DD, YYYY")
         title
         description
