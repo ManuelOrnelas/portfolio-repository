@@ -538,7 +538,7 @@ footer.footer {
   width: 100vw;
   height: 100vh;
 
-  padding: 5.5rem 0;
+  padding: 3.5rem 0;
   transition: 0.750s ease-in transform;
   overflow-y: hidden;
   background-color: #e7eeed;
@@ -603,7 +603,7 @@ footer.footer {
       div#nucabeman,
       img {
         grid-area: profile;
-        max-height: 70vh;
+        max-height: 85vh;
       }
     }
   }
