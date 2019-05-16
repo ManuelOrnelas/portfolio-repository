@@ -36,7 +36,7 @@ export const WritingPostTemplate = ({
 
         <div>
           <div className='flex justifycontent-center aligncontent-center'>
-            <img src={image.childImageSharp.fluid.src} alt="Hello" />
+            <img src={image.childImageSharp ? image.childImageSharp.fluid.src : ""} alt="item" />
           </div>
         </div>
       </section>
