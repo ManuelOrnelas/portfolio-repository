@@ -17,13 +17,7 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Details", name: "details", widget: "text"}
-      - {label: "Featured Image",
-        name: "thumbnail",
-        widget: "image",
-        default: "/uploads/chocolate-dogecoin.jpg",
-        media_library:
-          config:
-            multiple: true}
+      - {label: "Image", name: "image", widget: "image"}
 
   - name: "graphics design"
     label: "Graphics Design"
@@ -37,13 +31,7 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Details", name: "details", widget: "text"}
-      - {label: "Featured Image",
-        name: "thumbnail",
-        widget: "image",
-        default: "/uploads/chocolate-dogecoin.jpg",
-        media_library:
-          config:
-            multiple: true}
+      - {label: "Image", name: "image", widget: "image"}
 
   - name: "interior design"
     label: "Interior Design"
@@ -57,13 +45,7 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Details", name: "details", widget: "text"}
-      - {label: "Featured Image",
-        name: "thumbnail",
-        widget: "image",
-        default: "/uploads/chocolate-dogecoin.jpg",
-        media_library:
-          config:
-            multiple: true}
+      - {label: "Image", name: "image", widget: "image"}
 
   - name: "product design"
     label: "Product Design"
@@ -77,13 +59,7 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Details", name: "details", widget: "text"}
-      - {label: "Featured Image",
-        name: "thumbnail",
-        widget: "image",
-        default: "/uploads/chocolate-dogecoin.jpg",
-        media_library:
-          config:
-            multiple: true}
+      - {label: "Image", name: "image", widget: "image"}
 
   - name: "sculpture"
     label: "Sculpture"
@@ -97,13 +73,7 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Details", name: "details", widget: "text"}
-      - {label: "Featured Image",
-        name: "thumbnail",
-        widget: "image",
-        default: "/uploads/chocolate-dogecoin.jpg",
-        media_library:
-          config:
-            multiple: true}
+      - {label: "Image", name: "image", widget: "image"}
 
   - name: "writing"
     label: "Writing"
@@ -117,13 +87,7 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Details", name: "details", widget: "text"}
-      - {label: "Featured Image",
-        name: "thumbnail",
-        widget: "image",
-        default: "/uploads/chocolate-dogecoin.jpg",
-        media_library:
-          config:
-            multiple: true}
+      - {label: "Image", name: "image", widget: "image"}
 
   - name: "pages"
     label: "Pages"
