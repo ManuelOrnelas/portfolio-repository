@@ -17,7 +17,7 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Details", name: "details", widget: "text"}
-      - {label: "Image", name: "image", widget: "image"}
+      - {label: Image, name: image, widget: image}
 
   - name: "graphics design"
     label: "Graphics Design"
@@ -26,12 +26,11 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "graphics-design-post"}
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "drawing-post"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Details", name: "details", widget: "text"}
-      - {label: "Image", name: "image", widget: "image"}
+      - {label: Image, name: image, widget: image}
 
   - name: "interior design"
     label: "Interior Design"
@@ -40,12 +39,11 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "interior-design-post"}
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "drawing-post"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Details", name: "details", widget: "text"}
-      - {label: "Image", name: "image", widget: "image"}
+      - {label: Image, name: image, widget: image}
 
   - name: "product design"
     label: "Product Design"
@@ -54,12 +52,11 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "product-design-post"}
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "drawing-post"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Details", name: "details", widget: "text"}
-      - {label: "Image", name: "image", widget: "image"}
+      - {label: Image, name: image, widget: image}
 
   - name: "sculpture"
     label: "Sculpture"
@@ -68,12 +65,11 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "sculpture-post"}
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "drawing-post"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Details", name: "details", widget: "text"}
-      - {label: "Image", name: "image", widget: "image"}
+      - {label: Image, name: image, widget: image}
 
   - name: "writing"
     label: "Writing"
@@ -82,12 +78,11 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "writing-post"}
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "drawing-post"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Details", name: "details", widget: "text"}
-      - {label: "Image", name: "image", widget: "image"}
+      - {label: Image, name: image, widget: image}
 
   - name: "pages"
     label: "Pages"
