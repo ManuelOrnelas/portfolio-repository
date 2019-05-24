@@ -3,7 +3,7 @@
   "private": true,
   "description": "Manuel Ornelas",
   "version": "0.1.0",
-  "author": "Fábio Ferreira <contact@ffcf.me>, Ulisses Ferreira <ulissesvf",
+  "author": "Fábio Ferreira <contact@ffcf.me>, Ulisses Ferreira <ulissesvf@gmail.com>",
   "dependencies": {
     "dotenv": "^8.0.0",
     "gatsby": "^2.6.0",
@@ -15,8 +15,10 @@
     "gatsby-source-contentful": "^2.0.62",
     "gatsby-source-filesystem": "^2.0.37",
     "gatsby-transformer-sharp": "^2.1.19",
+    "lodash": "^4.17.11",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
+    "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1"
   },
