@@ -11,13 +11,14 @@ class Writing extends Component {
     const writingItems = this.props.data.allContentfulWritingItems.edges
     return (
       <Layout>
+        <div className='full-page'>
+          <h1>Drawing.</h1>
+        </div>
+        <h1>Projects.</h1>
         <div>
-          <h1>Writing</h1>
           {writingItems.map((item) => {
             return (
-              <div>
-                <Link to={"/writing/" + item.node.slug}><img src={item.node.itemPicture.resize.src} /></Link>
-              </div>
+              <Link to={"/writing/" + item.node.slug}><img src={item.node.itemPicture.resize.src} /></Link>
             )
           })}
         </div>

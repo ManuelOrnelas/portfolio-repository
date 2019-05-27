@@ -1,0 +1,24 @@
+.logo {
+  display: block;
+  margin: 0 auto .5rem 4rem;
+}
+
+svg {
+  width: 9rem;
+  fill: #fff;
+  transition: .5s ease fill;
+}
+
+.circle {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background-color: #ffffff50;
+  transition: .25s ease-in-out;
+}
+
+.square {
+  width: 1rem;
+  height: 1rem;
+  transition: .25s ease-in-out;
+}

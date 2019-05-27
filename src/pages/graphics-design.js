@@ -11,13 +11,14 @@ class GraphicsDesign extends Component {
     const graphicsDesignItems = this.props.data.allContentfulGraphicsDesignItems.edges
     return (
       <Layout>
+        <div className='full-page'>
+          <h1>Graphics.</h1>
+        </div>
+        <h1>Projects.</h1>
         <div>
-          <h1>graphicsDesign</h1>
           {graphicsDesignItems.map((item) => {
             return (
-              <div>
-                <Link to={"/graphics-design/" + item.node.slug}><img src={item.node.itemPicture.resize.src} /></Link>
-              </div>
+              <Link to={"/graphics-design/" + item.node.slug}><img src={item.node.itemPicture.resize.src} /></Link>
             )
           })}
         </div>

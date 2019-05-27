@@ -11,13 +11,14 @@ class Drawing extends Component {
     const drawingItems = this.props.data.allContentfulDrawingItems.edges
     return (
       <Layout>
+        <div className='full-page'>
+          <h1>Drawing.</h1>
+        </div>
+        <h1>Projects.</h1>
         <div>
-          <h1>Drawing</h1>
           {drawingItems.map((item) => {
             return (
-              <div>
-                <Link to={"/drawing/" + item.node.slug}><img src={item.node.itemPicture.resize.src} /></Link>
-              </div>
+              <Link to={"/drawing/" + item.node.slug}><img src={item.node.itemPicture.resize.src} /></Link>
             )
           })}
         </div>

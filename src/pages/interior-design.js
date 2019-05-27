@@ -11,13 +11,14 @@ class InteriorDesign extends Component {
     const interiorDesignItems = this.props.data.allContentfulInteriorDesignItems.edges
     return (
       <Layout>
+        <div className='full-page'>
+          <h1>Interior.</h1>
+        </div>
+        <h1>Projects.</h1>
         <div>
-          <h1>InteriorDesign</h1>
           {interiorDesignItems.map((item) => {
             return (
-              <div>
-                <Link to={"/interior-design/" + item.node.slug}><img src={item.node.itemPicture.resize.src} /></Link>
-              </div>
+              <Link to={"/interior-design/" + item.node.slug}><img src={item.node.itemPicture.resize.src} /></Link>
             )
           })}
         </div>

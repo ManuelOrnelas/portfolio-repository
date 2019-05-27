@@ -11,13 +11,14 @@ class ProductDesign extends Component {
     const productDesignItems = this.props.data.allContentfulProductDesignItems.edges
     return (
       <Layout>
-        <div>
-          <h1>ProductDesign</h1>
+        <div className='full-page'>
+          <h1>Product.</h1>
+        </div>
+        <h1>Projects.</h1>
+        <div className='post-list'>
           {productDesignItems.map((item) => {
             return (
-              <div>
-                <Link to={"/product-design/" + item.node.slug}><img src={item.node.itemPicture.resize.src} /></Link>
-              </div>
+              <Link to={"/product-design/" + item.node.slug}><img src={item.node.itemPicture.resize.src} /></Link>
             )
           })}
         </div>

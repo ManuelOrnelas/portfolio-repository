@@ -11,13 +11,14 @@ class Sculpture extends Component {
     const sculptureItems = this.props.data.allContentfulSculptureItems.edges
     return (
       <Layout>
+        <div className='full-page'>
+          <h1>Drawing.</h1>
+        </div>
+        <h1>Projects.</h1>
         <div>
-          <h1>Sculpture</h1>
           {sculptureItems.map((item) => {
             return (
-              <div>
-                <Link to={"/sculpture/" + item.node.slug}><img src={item.node.itemPicture.resize.src} /></Link>
-              </div>
+              <Link to={"/sculpture/" + item.node.slug}><img src={item.node.itemPicture.resize.src} /></Link>
             )
           })}
         </div>

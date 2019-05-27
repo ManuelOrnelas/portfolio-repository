@@ -4,24 +4,41 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
+import Sidebar from '../components/sidebar'
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-    <Link to="/drawing/">Drawing</Link>
-    <Link to="/graphics-design/">Graphics Design</Link>
-    <Link to="/interior-design/">Interior Design</Link>
-    <Link to="/product-design/">Product Design</Link>
-    <Link to="/sculpture/">Sculpture</Link>
-    <Link to="/writing/">Writing</Link>
-  </Layout>
-)
+export default class IndexPage extends React.component {
+  constructor(props) {
+    super(props)
+  }
 
-export default IndexPage
+  componentDidMount() {
+
+  }
+
+  render() {
+    return (
+      <Layout>
+        <SEO title="Home" />
+        <Sidebar />
+        {/* Here come the divs */}
+        <div className="full-page">
+          <h1>Intro.</h1>
+        </div>
+        {/* Code below is not styled */}
+        <div id="information" className="full-page">
+          <h1>Nucabé</h1>
+          <p>Pessoa com muita vontade de experimentar coisas novas, 20 anos e a contar, rabeta.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan arcu a pulvinar mollis. Morbi a malesuada ipsum. Sed porttitor sagittis felis, at luctus metus ornare sit amet. Ut laoreet, arcu non vulputate dictum, elit nulla sodales ante, ac aliquet nulla nunc at dolor.</p>
+          <img>Hello</img>
+        </div>
+        <div id="historical-line" className="full-page">
+
+        </div>
+        <div id="news" className="full-page">
+
+        </div>
+
+      </Layout>
+    )
+  }
+}
