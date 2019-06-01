@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { graphql } from 'gatsby'
+import React, { Component } from "react"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
@@ -21,11 +21,11 @@ class SculptureItem extends Component {
   }
 }
 
-export default SculptureItem;
+export default SculptureItem
 
 export const pageQuery = graphql`
-  query sculptureItemQuery($slug: String!){
-    contentfulSculptureItems(slug: {eq: $slug}){
+  query sculptureItemQuery($slug: String!) {
+    contentfulSculptureItems(slug: { eq: $slug }) {
       slug
       title
       description

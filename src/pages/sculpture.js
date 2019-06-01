@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { graphql, Link } from 'gatsby'
+import React, { Component } from "react"
+import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
@@ -11,14 +11,16 @@ class Sculpture extends Component {
     const sculptureItems = this.props.data.allContentfulSculptureItems.edges
     return (
       <Layout>
-        <div className='full-page'>
+        <div className="full-page">
           <h1>Drawing.</h1>
         </div>
         <h1>Projects.</h1>
         <div>
-          {sculptureItems.map((item) => {
+          {sculptureItems.map(item => {
             return (
-              <Link to={"/sculpture/" + item.node.slug}><img src={item.node.itemPicture.resize.src} /></Link>
+              <Link to={"/sculpture/" + item.node.slug}>
+                <img src={item.node.itemPicture.resize.src} />
+              </Link>
             )
           })}
         </div>
@@ -27,7 +29,7 @@ class Sculpture extends Component {
   }
 }
 
-export default Sculpture;
+export default Sculpture
 
 export const pageQuery = graphql`
   query allSculptureItemsQuery {

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { graphql, Link } from 'gatsby'
+import React, { Component } from "react"
+import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
@@ -11,14 +11,16 @@ class Drawing extends Component {
     const drawingItems = this.props.data.allContentfulDrawingItems.edges
     return (
       <Layout>
-        <div className='full-page'>
+        <div className="full-page">
           <h1>Drawing.</h1>
         </div>
         <h1>Projects.</h1>
         <div>
-          {drawingItems.map((item) => {
+          {drawingItems.map(item => {
             return (
-              <Link to={"/drawing/" + item.node.slug}><img src={item.node.itemPicture.resize.src} /></Link>
+              <Link to={"/drawing/" + item.node.slug}>
+                <img src={item.node.itemPicture.resize.src} />
+              </Link>
             )
           })}
         </div>
@@ -27,7 +29,7 @@ class Drawing extends Component {
   }
 }
 
-export default Drawing;
+export default Drawing
 
 export const pageQuery = graphql`
   query allDrawingItemsQuery {

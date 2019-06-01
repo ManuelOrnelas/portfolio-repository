@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { graphql } from 'gatsby'
+import React, { Component } from "react"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
@@ -21,11 +21,11 @@ class GraphicsDesignItem extends Component {
   }
 }
 
-export default GraphicsDesignItem;
+export default GraphicsDesignItem
 
 export const pageQuery = graphql`
-  query graphicsDesignItemQuery($slug: String!){
-    contentfulGraphicsDesignItems(slug: {eq: $slug}){
+  query graphicsDesignItemQuery($slug: String!) {
+    contentfulGraphicsDesignItems(slug: { eq: $slug }) {
       slug
       title
       description
