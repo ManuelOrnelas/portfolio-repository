@@ -9,7 +9,8 @@ module.exports = {
     author: `@fabiofcferreira @ulissesvf`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-react-helmet`, 
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -40,7 +41,6 @@ module.exports = {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_CONTENT_DELIVERY
       }
-    },
-    'gatsby-plugin-sass'
+    }
   ],
 }
