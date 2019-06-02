@@ -15,9 +15,11 @@ class DrawingItem extends Component {
             <img src={data.itemPicture.resize.src} alt="item"/>
           </div>
           <div className="left">
+            <div>
               <h1>{data.title}</h1>
               <p>{data.description}</p>
               <p>{data.details}</p>
+            </div>
           </div>
         </div>
       </Layout>
