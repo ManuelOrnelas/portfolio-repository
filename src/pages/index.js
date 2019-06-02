@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
+// import Image from "../components/image"
 import SEO from "../components/seo"
 import Sidebar from "../components/sidebar"
 
@@ -32,8 +32,9 @@ export default class IndexPage extends Component {
           </p>
           <img />
         </div>
-        {/* <div id="historical-line" className="full-page">
-        </div> */}
+        <div id="historical-line" className="full-page">
+          <h1>Helloworld</h1>
+        </div>
         <div id="news" className="full-page">
           <div className="news-item">
             <img />

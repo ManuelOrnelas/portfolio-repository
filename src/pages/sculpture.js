@@ -2,8 +2,8 @@ import React, { Component } from "react"
 import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+// import Image from "../components/image"
+// import SEO from "../components/seo"
 
 class Sculpture extends Component {
   render() {
@@ -12,7 +12,7 @@ class Sculpture extends Component {
     return (
       <Layout>
         <div className="full-page">
-          <h1>Drawing.</h1>
+          <h1>Sculpture.</h1>
         </div>
         <h1>Projects.</h1>
         <div>
