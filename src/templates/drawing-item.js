@@ -11,15 +11,13 @@ class DrawingItem extends Component {
     return (
       <Layout>
         <div className="item-page">
-          <div className="right">
-            <img src={data.itemPicture.resize.src} alt="item"/>
-          </div>
           <div className="left">
-            <div>
               <h1>{data.title}</h1>
               <p>{data.description}</p>
               <p>{data.details}</p>
-            </div>
+          </div>
+          <div className="right">
+            <img src={data.itemPicture.resize.src} alt="item"/>
           </div>
         </div>
       </Layout>
