@@ -18,8 +18,8 @@ class Sculpture extends Component {
         <div>
           {sculptureItems.map(item => {
             return (
-              <Link to={"/sculpture/" + item.node.slug}>
-                <img src={item.node.itemPicture.resize.src} />
+              <Link to={"/sculpture/" + item.node.slug} key={item.node.slug}>
+                <img src={item.node.itemPicture.resize.src} alt="item"/>
               </Link>
             )
           })}

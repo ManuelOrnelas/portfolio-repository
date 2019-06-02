@@ -19,8 +19,8 @@ class InteriorDesign extends Component {
         <div>
           {interiorDesignItems.map(item => {
             return (
-              <Link to={"/interior-design/" + item.node.slug}>
-                <img src={item.node.itemPicture.resize.src} />
+              <Link to={"/interior-design/" + item.node.slug} key={item.node.slug}>
+                <img src={item.node.itemPicture.resize.src} alt="item"/>
               </Link>
             )
           })}

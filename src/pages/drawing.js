@@ -18,8 +18,8 @@ class Drawing extends Component {
         <div>
           {drawingItems.map(item => {
             return (
-              <Link to={"/drawing/" + item.node.slug}>
-                <img src={item.node.itemPicture.resize.src} />
+              <Link to={"/drawing/" + item.node.slug} key={item.node.slug}>
+                <img src={item.node.itemPicture.resize.src} alt="item"/>
               </Link>
             )
           })}

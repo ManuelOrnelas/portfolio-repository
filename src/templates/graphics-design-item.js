@@ -10,11 +10,15 @@ class GraphicsDesignItem extends Component {
     const data = this.props.data.contentfulGraphicsDesignItems
     return (
       <Layout>
-        <div>
-          <h1>{data.title}</h1>
-          <p>{data.descriptions}</p>
-          <p>{data.details}</p>
-          <img src={data.itemPicture.resize.src} />
+        <div className="item-page">
+          <div className="left">
+              <h1>{data.title}</h1>
+              <p>{data.description}</p>
+              <p>{data.details}</p>
+          </div>
+          <div className="right">
+            <img src={data.itemPicture.resize.src} alt="item"/>
+          </div>
         </div>
       </Layout>
     )

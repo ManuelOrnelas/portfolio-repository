@@ -18,8 +18,8 @@ class Writing extends Component {
         <div>
           {writingItems.map(item => {
             return (
-              <Link to={"/writing/" + item.node.slug}>
-                <img src={item.node.itemPicture.resize.src} />
+              <Link to={"/writing/" + item.node.slug} key={item.node.slug}>
+                <img src={item.node.itemPicture.resize.src} alt="item"/>
               </Link>
             )
           })}

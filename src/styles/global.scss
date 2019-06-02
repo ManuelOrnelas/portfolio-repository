@@ -1,23 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,500,600&display=swap');
+
 html,
 body {
   margin: 0;
   overflow-x: hidden;
   scroll-behavior: smooth; 
-  font-family: 'Poppins';
-  background-color: grey;
+  font-family: 'Poppins', sans-serif;
+  background-color: rgb(231, 238, 237);
 }
 
 .full-page {
   height: 100vh;
 
-  h1 {
-    font-weight: 600;
-    font-size: 10rem;
-    width:100%;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-  }
+  // h1 {
+  //   font-weight: 600;
+  //   font-size: 10rem;
+  //   width:100%;
+  //   display:flex;
+  //   align-items: center;
+  //   justify-content: center;
+  // }
 }
 
 

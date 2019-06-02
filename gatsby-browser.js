@@ -7,4 +7,5 @@
 // You can delete this file if you're not using it
 import "./src/styles/navbar.scss"
 import "./src/styles/sidebar.scss"
+import "./src/styles/item-page.scss"
 import "./src/styles/global.scss"

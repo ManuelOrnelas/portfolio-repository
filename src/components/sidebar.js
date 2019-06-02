@@ -37,11 +37,9 @@ class Sidebar extends Component {
   render() {
     if (this.props.hide) {
       return (
-        <React.Fragment>
         <React.Fragment/>
       )
     } else {
-      
       return (
         <div className="sidebar">
           <a href="#information" className={this.state.active === 1 ? "active" : ""}  onClick={this.setActiveWhoAndWhy}>Who and why</a>

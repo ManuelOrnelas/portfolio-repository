@@ -19,8 +19,8 @@ class GraphicsDesign extends Component {
         <div>
           {graphicsDesignItems.map(item => {
             return (
-              <Link to={"/graphics-design/" + item.node.slug}>
-                <img src={item.node.itemPicture.resize.src} />
+              <Link to={"/graphics-design/" + item.node.slug} key={item.node.slug}>
+                <img src={item.node.itemPicture.resize.src} alt="item"/>
               </Link>
             )
           })}

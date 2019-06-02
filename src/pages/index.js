@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 // import Image from "../components/image"
@@ -30,14 +30,12 @@ export default class IndexPage extends Component {
             laoreet, arcu non vulputate dictum, elit nulla sodales ante, ac
             aliquet nulla nunc at dolor.
           </p>
-          <img />
         </div>
         <div id="historical-line" className="full-page">
           <h1>Helloworld</h1>
         </div>
         <div id="news" className="full-page">
           <div className="news-item">
-            <img />
             <p>December 11, 2018</p>
             <h1>Sent 2 dicks to Mateus</h1>
             <p>
@@ -47,7 +45,6 @@ export default class IndexPage extends Component {
             </p>
           </div>
           <div className="news-item">
-            <img />
             <p>December 11, 2018</p>
             <h1>Sent 2 dicks to Mateus</h1>
             <p>

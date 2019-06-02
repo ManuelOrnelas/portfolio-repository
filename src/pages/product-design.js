@@ -19,8 +19,8 @@ class ProductDesign extends Component {
         <div className="post-list">
           {productDesignItems.map(item => {
             return (
-              <Link to={"/product-design/" + item.node.slug}>
-                <img src={item.node.itemPicture.resize.src} />
+              <Link to={"/product-design/" + item.node.slug} key={item.node.slug}>
+                <img src={item.node.itemPicture.resize.src} alt="item"/>
               </Link>
             )
           })}
