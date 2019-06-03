@@ -45,5 +45,10 @@
   },
   "bugs": {
     "url": "https://github.com/manuelornelas/portfolio/issues"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn build"
+    }
   }
 }
