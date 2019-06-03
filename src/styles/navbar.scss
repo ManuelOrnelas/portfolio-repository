@@ -1,16 +1,26 @@
+// nav
+//   a 
+//     svg
+//   div
+//     a
+//     a
+//     a
+
+
+/* O que estavas a fazer agora? :D */
 .circle {
   width: 0.6rem;
   height: 0.6rem;
   border-radius: 50%;
   background-color: #ffffff50;
-  transition: .25s ease-in-out;
+  transition: .25s ease-in-out all;
 }
 
 .square {
   width: 1rem;
   height: 1rem;
   background-color: black;
-  transition: .25s ease-in-out;
+  transition: .25s ease-in-out all;
 }
 
 .logo {
@@ -28,7 +38,7 @@ nav {
   position: fixed;
   display: flex;
   width: 100%;
-  height: 5.5;
+  height: 5.5rem;
   z-index: 1000;
   justify-content: center;
   align-items: center;
@@ -36,7 +46,9 @@ nav {
 }
 
 .links {
-  position: fixed;
+
+  display:flex;
+  align-items: center;
   left: 50%;
   transform: translateX(-50%);
   height: 5.5rem;
@@ -45,5 +57,6 @@ nav {
   a {
     flex-basis: 15%;
     text-decoration: none;
+    transform: translateX(-50%);
   }
 }

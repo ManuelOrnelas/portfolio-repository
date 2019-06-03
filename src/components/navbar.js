@@ -47,54 +47,48 @@ const Navbar = () => (
       <Link to="/sculpture">
         <div
           className={
-            (typeof window !== `undefined`) ? 
-              (window.location.pathname.includes("sculpture") ? 
-                "square" : "circle") : ""
+            (typeof window !== `undefined` &&
+            window.location.pathname.includes("sculpture")) ? "square" : "circle"
           }
         />
       </Link>
       <Link to="/graphics-design">
         <div
           className={
-            (typeof window !== `undefined`) ?
-              (window.location.pathname.includes("graphics-design") ?
-                "square" : "circle") : ""
+            (typeof window !== `undefined` &&
+            window.location.pathname.includes("graphics-design")) ? "square" : "circle"
           }
         />
       </Link>
       <Link to="/product-design">
         <div
           className={
-            (typeof window !== `undefined`) ?
-              (window.location.pathname.includes("product-design") ?
-                "square" : "circle") : ""
+            (typeof window !== `undefined` &&
+            window.location.pathname.includes("product-design")) ? "square" : "circle"
           }
         />
       </Link>
       <Link to="/interior-design">
         <div
           className={
-            (typeof window !== `undefined`) ?
-              (window.location.pathname.includes("interior-design") ?
-                "square" : "circle") : ""
+            (typeof window !== `undefined` &&
+            window.location.pathname.includes("interior-design")) ? "square" : "circle"
           }
         />
       </Link>
       <Link to="/drawing">
         <div
           className={
-            (typeof window !== `undefined`) ?
-              (window.location.pathname.includes("drawing") ?
-                "square" : "circle") : ""
+            (typeof window !== `undefined` &&
+            window.location.pathname.includes("drawing")) ? "square" : "circle"
           }
         />
       </Link>
       <Link to="/writing">
         <div
           className={
-            (typeof window !== `undefined`) ?
-              (window.location.pathname.includes("writing") ?
-                "square" : "circle") : ""
+            (typeof window !== `undefined` &&
+            window.location.pathname.includes("writing")) ? "square" : "circle"
           }
         />
       </Link>
