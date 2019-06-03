@@ -8,22 +8,23 @@ import Layout from "../components/layout"
 class ProductDesign extends Component {
   render() {
     console.log(this.props.data.allContentfulProductDesignItems.edges)
-    const productDesignItems = this.props.data.allContentfulProductDesignItems
-      .edges
+    const productDesignItems = this.props.data.allContentfulProductDesignItems.edges
     return (
       <Layout>
-        <div className="full-page portfolio-main pink">
+        <div className="portfolio-jumbotron bg-pink">
           <h1>Product.</h1>
         </div>
-        <div className="min-full-height">
-          <h1>Projects.</h1>
-          {productDesignItems.map(item => {
-            return (
-              <Link to={"/product-design/" + item.node.slug} key={item.node.slug}>
-                <img src={item.node.itemPicture.resize.src} alt="item"/>
-              </Link>
-            )
-          })}
+        <div className="portfolio-list">
+          <h1 className="pink">Projects.</h1>
+          <div className="post-list">
+            {productDesignItems.map(item => {
+              return (
+                <Link to={"/product-design/" + item.node.slug} key={item.node.slug}>
+                  <img src={item.node.itemPicture.resize.src} alt="item"/>
+                </Link>
+              )
+            })}
+          </div>
         </div>
       </Layout>
     )

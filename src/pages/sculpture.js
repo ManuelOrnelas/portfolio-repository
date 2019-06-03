@@ -11,18 +11,20 @@ class Sculpture extends Component {
     const sculptureItems = this.props.data.allContentfulSculptureItems.edges
     return (
       <Layout>
-        <div className="full-page portfolio-main red">
+        <div className="portfolio-jumbotron bg-red">
           <h1>Sculpture.</h1>
         </div>
-        <div className="min-full-height">
-          <h1>Projects.</h1>
-          {sculptureItems.map(item => {
-            return (
-              <Link to={"/sculpture/" + item.node.slug} key={item.node.slug}>
-                <img src={item.node.itemPicture.resize.src} alt="item"/>
-              </Link>
-            )
-          })}
+        <div className="portfolio-list">
+          <h1 className="red">Projects.</h1>
+          <div className="post-list">
+            {sculptureItems.map(item => {
+              return (
+                <Link to={"/sculpture/" + item.node.slug} key={item.node.slug}>
+                  <img src={item.node.itemPicture.resize.src} alt="item"/>
+                </Link>
+              )
+            })}
+          </div>
         </div>
       </Layout>
     )

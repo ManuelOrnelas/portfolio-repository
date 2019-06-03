@@ -6,7 +6,13 @@
   h1 {
     font-weight: 600;
     color: white;
-    font-size: 10rem;
+    // Fluit typography
+    //font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
+    font-size: calc(64px + (160 - 64) * ((100vw - 320px) / (1600 - 320)));
+    // min font : 4rem
+    // max font : 10rem;
+    // min size : 320px
+    // max width : 1800px
 
     position: relative;
     top: 50%;
@@ -21,17 +27,25 @@
   height: 100vh;
   padding: 8rem 15% 0 15%;
 
+  @media screen and (max-width: 400px) {
+    padding: 6rem 10% 0 10%;
+  }
+
   h1 {
-    font-size: 5rem;
+    font-size: calc(64px + (80 - 64) * ((100vw - 320px) / (1600 - 320)));
+    // min font : 4rem
+    // max font : 5rem
+    // min size : 320px
+    // max width : 1800px
   }
 
   .post-list {
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(4,1fr); //TODO: We might need to make this more responsive
     grid-gap: 1rem;
     margin: 2rem 0;
 
-    .post {
+    a {
       img {
         border-radius: 0.5rem;
         width: 100%;
@@ -39,5 +53,4 @@
       }
     }
   }
-
 }
