@@ -23,9 +23,8 @@
 }
 
 .portfolio-list {
-  max-height: 100vh;
   height: 100vh;
-  padding: 8rem 15% 0 15%;
+  padding: 0 15% 0 15%;
 
   @media screen and (max-width: 400px) {
     padding: 6rem 10% 0 10%;
@@ -33,6 +32,7 @@
 
   h1 {
     font-size: calc(64px + (80 - 64) * ((100vw - 320px) / (1600 - 320)));
+    padding-top: 6rem;
     // min font : 4rem
     // max font : 5rem
     // min size : 320px
