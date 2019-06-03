@@ -1,11 +1,3 @@
-// Navbar //
-
-:root {
-  --navbaritem-active: #fff;
-  --navbaritem-inactive: #ffffff50;
-  --navbaritem-inactive-hover: #ffffff90;
-}
-
 .circle {
   width: 0.6rem;
   height: 0.6rem;
@@ -17,23 +9,41 @@
 .square {
   width: 1rem;
   height: 1rem;
-  background-color: #ffffff50;
+  background-color: black;
   transition: .25s ease-in-out;
 }
 
-nav { 
+.logo {
+  display: block;
+  margin: 0 auto .5rem 4rem;
+
+  svg {
+    width: 9rem;
+    fill: #fff;
+    transition: .5s ease fill;
+  }
+}
+
+nav {
   position: fixed;
-  top: 0;
   display: flex;
   width: 100%;
-  height: 5.5rem;
+  height: 5.5;
   z-index: 1000;
   justify-content: center;
   align-items: center;
   -webkit-overflow-scrolling: touch;
+}
+
+.links {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 5.5rem;
+  min-width: 25vw;
 
   a {
-    margin-left: 5px;
-    margin-right: 5px;
+    flex-basis: 15%;
+    text-decoration: none;
   }
 }

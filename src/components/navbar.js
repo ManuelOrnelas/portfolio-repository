@@ -1,9 +1,10 @@
 import { Link } from "gatsby"
 import React from "react"
 
+// Navbar consist of a logo, a group of links, and an optional arrow
 const Navbar = () => (
   <nav>
-    <Link to="/" title="Logo">
+    <Link to="/" title="Logo" className="logo">
       <svg
         id="Layer_1"
         data-name="Layer 1"
@@ -42,60 +43,63 @@ const Navbar = () => (
         />
       </svg>
     </Link>
-    <Link to="/sculpture">
-      <div
-        className={
-          (typeof window !== `undefined`) ? 
-            (window.location.pathname.includes("sculpture") ? 
-              "square" : "circle") : ""
-        }
-      />
-    </Link>
-    <Link to="/graphics-design">
-      <div
-        className={
-          (typeof window !== `undefined`) ?
-            (window.location.pathname.includes("sculpture") ?
-              "square" : "circle") : ""
-        }
-      />
-    </Link>
-    <Link to="/product-design">
-      <div
-        className={
-          (typeof window !== `undefined`) ?
-            (window.location.pathname.includes("sculpture") ?
-              "square" : "circle") : ""
-        }
-      />
-    </Link>
-    <Link to="/interior-design">
-      <div
-        className={
-          (typeof window !== `undefined`) ?
-            (window.location.pathname.includes("sculpture") ?
-              "square" : "circle") : ""
-        }
-      />
-    </Link>
-    <Link to="/drawing">
-      <div
-        className={
-          (typeof window !== `undefined`) ?
-            (window.location.pathname.includes("sculpture") ?
-              "square" : "circle") : ""
-        }
-      />
-    </Link>
-    <Link to="/writing">
-      <div
-        className={
-          (typeof window !== `undefined`) ?
-            (window.location.pathname.includes("sculpture") ?
-              "square" : "circle") : ""
-        }
-      />
-    </Link>
+    <div className="links">
+      <Link to="/sculpture">
+        <div
+          className={
+            (typeof window !== `undefined`) ? 
+              (window.location.pathname.includes("sculpture") ? 
+                "square" : "circle") : ""
+          }
+        />
+      </Link>
+      <Link to="/graphics-design">
+        <div
+          className={
+            (typeof window !== `undefined`) ?
+              (window.location.pathname.includes("graphics-design") ?
+                "square" : "circle") : ""
+          }
+        />
+      </Link>
+      <Link to="/product-design">
+        <div
+          className={
+            (typeof window !== `undefined`) ?
+              (window.location.pathname.includes("product-design") ?
+                "square" : "circle") : ""
+          }
+        />
+      </Link>
+      <Link to="/interior-design">
+        <div
+          className={
+            (typeof window !== `undefined`) ?
+              (window.location.pathname.includes("interior-design") ?
+                "square" : "circle") : ""
+          }
+        />
+      </Link>
+      <Link to="/drawing">
+        <div
+          className={
+            (typeof window !== `undefined`) ?
+              (window.location.pathname.includes("drawing") ?
+                "square" : "circle") : ""
+          }
+        />
+      </Link>
+      <Link to="/writing">
+        <div
+          className={
+            (typeof window !== `undefined`) ?
+              (window.location.pathname.includes("writing") ?
+                "square" : "circle") : ""
+          }
+        />
+      </Link>
+    </div>
+    
   </nav>
 )
 

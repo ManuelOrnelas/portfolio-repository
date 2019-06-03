@@ -1,38 +1,26 @@
-import React, { Component, useState } from "react"
+import React, { useState } from "react"
 
 /*
   Creates a sidebar navigation with 3 links.
   Can receive prop hide = true to display nothing.
 */
-class Sidebar extends Component {
+const Sidebar = (props) => {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      active: 0
-    }
-  }
+  const [index, setIndex] = useState(0);
 
-  changeSection = index => {
-    this.setState({
-      active: index
-    })
-  }
-
-  render() {
-    if (this.props.hide) {
-      return (
-        <React.Fragment/>
-      )
-    } else {
-      return (
-        <div className="sidebar">
-          <a href="#information" className={this.state.active === 1 ? "active" : ""}  onClick={() => this.changeSection(1)}>Who and why</a>
-          <a href="#historical-line" className={this.state.active === 2 ? "active" : ""} onClick={() => this.changeSection(2)}>Historical line</a>
-          <a href="#news" className={this.state.active === 3 ? "active" : ""} onClick={() => this.changeSection(3)}>News</a>
-        </div>
-      )
-    }
+  if (props.hide) {
+    return (
+      <>
+      </>
+    )
+  } else {
+    return (
+      <div className="sidebar">
+        <a href="#information" className={index === 1 ? "active" : ""} onClick={() => setIndex(1)}>Who and why</a>
+        <a href="#historical-line" className={index === 2 ? "active" : ""} onClick={() => setIndex(2)}>Historical line</a>
+        <a href="#news" className={index === 3 ? "active" : ""} onClick={() => setIndex(3)}>News</a>
+      </div>
+    )
   }
 }
 

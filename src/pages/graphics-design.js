@@ -12,7 +12,7 @@ class GraphicsDesign extends Component {
     return (
       <Layout>
         <div className="portfolio-jumbotron bg-blue">
-          <h1>Graphics.</h1>
+          <h1>Graphic.</h1>
         </div>
         <div className="portfolio-list">
           <h1 className="blue">Projects.</h1>
