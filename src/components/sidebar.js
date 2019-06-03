@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component, useState } from "react"
 
 /*
   Creates a sidebar navigation with 3 links.
@@ -13,24 +13,9 @@ class Sidebar extends Component {
     }
   }
 
-  setActiveWhoAndWhy = () => {
-    console.log("Triggered")
+  changeSection = index => {
     this.setState({
-      active: 1
-    })
-  }
-
-  setActiveHistoricalLine = () => {
-    console.log("Triggered")
-    this.setState({
-      active: 2
-    })
-  }
-
-  setActiveNews = () => {
-    console.log("Triggered")
-    this.setState({
-      active: 3
+      active: index
     })
   }
 
@@ -42,9 +27,9 @@ class Sidebar extends Component {
     } else {
       return (
         <div className="sidebar">
-          <a href="#information" className={this.state.active === 1 ? "active" : ""}  onClick={this.setActiveWhoAndWhy}>Who and why</a>
-          <a href="#historical-line" className={this.state.active === 2 ? "active" : ""} onClick={this.setActiveHistoricalLine}>Historical line</a>
-          <a href="#news" className={this.state.active === 3 ? "active" : ""} onClick={this.setActiveNews}>News</a>
+          <a href="#information" className={this.state.active === 1 ? "active" : ""}  onClick={() => this.changeSection(1)}>Who and why</a>
+          <a href="#historical-line" className={this.state.active === 2 ? "active" : ""} onClick={() => this.changeSection(2)}>Historical line</a>
+          <a href="#news" className={this.state.active === 3 ? "active" : ""} onClick={() => this.changeSection(3)}>News</a>
         </div>
       )
     }
