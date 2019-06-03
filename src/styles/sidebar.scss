@@ -1,0 +1,19 @@
+.sidebar {
+  position: fixed;
+  left: 4rem;
+  top: 50%;
+  transform: translateY(-49%);
+
+  a {
+    display: block;
+    padding: 1rem 0 1rem 0;
+    font-weight: 600;
+    color: rgba(55,50,33,.5);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .active {
+    color: #373322;
+  }
+}
