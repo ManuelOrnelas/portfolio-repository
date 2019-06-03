@@ -12,11 +12,11 @@ class InteriorDesign extends Component {
       .edges
     return (
       <Layout>
-        <div className="full-page">
+        <div className="full-page portfolio-main green">
           <h1>Interior.</h1>
         </div>
-        <h1>Projects.</h1>
-        <div>
+        <div className="min-full-height">
+          <h1>Projects.</h1>
           {interiorDesignItems.map(item => {
             return (
               <Link to={"/interior-design/" + item.node.slug} key={item.node.slug}>

@@ -9,12 +9,70 @@ body {
   background-color: rgb(231, 238, 237);
 }
 
+h1 {
+  margin: 0;
+}
+
+// Background colors
+
+.bg-red {
+  background-color: #fa4a4d;
+}
+
+.bg-blue {
+  background-color: #4bb4fe;
+}
+
+.bg-pink {
+  background-color: #fa9bbc;
+}
+
+.bg-green {
+  background-color: #5cd657;
+}
+
+.bg-orange {
+  background-color: #fea529;
+}
+
+.bg-purple {
+  background-color: #964dfe;
+}
+
+// Colors
+
+.red {
+  color: #fa4a4d;
+}
+
+.blue {
+  color: #4bb4fe;
+}
+
+.pink {
+  color: #fa9bbc;
+}
+
+.green {
+  color: #5cd657;
+}
+
+.orange {
+  color: #fea529;
+}
+
+.purple {
+  color: #964dfe;
+}
+
+
+
 .full-page {
   height: 100vh;
 }
 
-h1 {
-  margin: 0;
+.min-full-height {
+  min-height: 100vh;
 }
 
 // Index Page //

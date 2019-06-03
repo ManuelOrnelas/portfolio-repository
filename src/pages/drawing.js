@@ -11,11 +11,11 @@ class Drawing extends Component {
     const drawingItems = this.props.data.allContentfulDrawingItems.edges
     return (
       <Layout>
-        <div className="full-page">
+        <div className="full-page portfolio-main orange">
           <h1>Drawing.</h1>
         </div>
-        <h1>Projects.</h1>
-        <div>
+        <div className="min-full-height">
+          <h1>Projects.</h1>
           {drawingItems.map(item => {
             return (
               <Link to={"/drawing/" + item.node.slug} key={item.node.slug}>

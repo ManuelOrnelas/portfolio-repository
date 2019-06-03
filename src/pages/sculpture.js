@@ -11,11 +11,11 @@ class Sculpture extends Component {
     const sculptureItems = this.props.data.allContentfulSculptureItems.edges
     return (
       <Layout>
-        <div className="full-page">
+        <div className="full-page portfolio-main red">
           <h1>Sculpture.</h1>
         </div>
-        <h1>Projects.</h1>
-        <div>
+        <div className="min-full-height">
+          <h1>Projects.</h1>
           {sculptureItems.map(item => {
             return (
               <Link to={"/sculpture/" + item.node.slug} key={item.node.slug}>

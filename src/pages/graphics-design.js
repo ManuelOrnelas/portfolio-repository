@@ -8,22 +8,23 @@ import Layout from "../components/layout"
 class GraphicsDesign extends Component {
   render() {
     console.log(this.props.data.allContentfulGraphicsDesignItems.edges)
-    const graphicsDesignItems = this.props.data.allContentfulGraphicsDesignItems
-      .edges
+    const graphicsDesignItems = this.props.data.allContentfulGraphicsDesignItems.edges
     return (
       <Layout>
-        <div className="full-page">
+        <div className="portfolio-jumbotron bg-blue">
           <h1>Graphics.</h1>
         </div>
-        <h1>Projects.</h1>
-        <div>
-          {graphicsDesignItems.map(item => {
-            return (
-              <Link to={"/graphics-design/" + item.node.slug} key={item.node.slug}>
-                <img src={item.node.itemPicture.resize.src} alt="item"/>
-              </Link>
-            )
-          })}
+        <div className="portfolio-list">
+          <h1 className="blue">Projects.</h1>
+          <div className="post-list">
+            {graphicsDesignItems.map(item => {
+              return (
+                <Link to={"/graphics-design/" + item.node.slug} key={item.node.slug} className="post">
+                  <img src={item.node.itemPicture.resize.src} alt="item"/>
+                </Link>
+              )
+            })}
+          </div>
         </div>
       </Layout>
     )

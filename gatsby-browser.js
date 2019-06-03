@@ -8,4 +8,5 @@
 import "./src/styles/navbar.scss"
 import "./src/styles/sidebar.scss"
 import "./src/styles/item-page.scss"
+import "./src/styles/portfolio-page.scss"
 import "./src/styles/global.scss"

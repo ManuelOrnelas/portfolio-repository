@@ -12,11 +12,11 @@ class ProductDesign extends Component {
       .edges
     return (
       <Layout>
-        <div className="full-page">
+        <div className="full-page portfolio-main pink">
           <h1>Product.</h1>
         </div>
-        <h1>Projects.</h1>
-        <div className="post-list">
+        <div className="min-full-height">
+          <h1>Projects.</h1>
           {productDesignItems.map(item => {
             return (
               <Link to={"/product-design/" + item.node.slug} key={item.node.slug}>
