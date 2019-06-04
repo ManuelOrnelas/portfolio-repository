@@ -14,10 +14,11 @@ export default class IndexPage extends Component {
         <Sidebar />
         
         <div class="page-content">
-          <div className="full-page">
+          <div className="full-page flex content-center items-center">
             <h1>Intro.</h1>
           </div>
           {/* Code below is not styled */}
+          
           <div id="information" className="full-page">
             <h1>Nucabé</h1>
             <p>
