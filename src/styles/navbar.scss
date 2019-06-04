@@ -9,6 +9,7 @@
 
 /* O que estavas a fazer agora? :D */
 .circle {
+  margin: 0 auto 0 auto;
   width: 0.6rem;
   height: 0.6rem;
   border-radius: 50%;
@@ -17,15 +18,21 @@
 }
 
 .square {
+  margin: 0 auto 0 auto;
   width: 1rem;
   height: 1rem;
-  background-color: black;
+  background-color: #fff;
   transition: .25s ease-in-out all;
 }
 
 .logo {
   display: block;
-  margin: 0 auto .5rem 4rem;
+  margin: 0.5rem auto .5rem 4rem;
+  
+
+  @media screen and (max-width: 720px) {
+    display: none;
+  }
 
   svg {
     width: 9rem;
@@ -47,16 +54,21 @@ nav {
 
 .links {
 
+  position: fixed;
   display:flex;
   align-items: center;
+  justify-content: center;
   left: 50%;
   transform: translateX(-50%);
   height: 5.5rem;
   min-width: 25vw;
 
   a {
+    display: flex;
+    width: 10px;
+    height: 100%;
     flex-basis: 15%;
     text-decoration: none;
-    transform: translateX(-50%);
+    align-items: center;
   }
 }
