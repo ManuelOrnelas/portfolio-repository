@@ -5,7 +5,7 @@ exports.createPages = ({graphql, actions}) => {
   const {createPage} = actions
 
   let drawingPages = new Promise((resolve, reject) => {
-    const drawingItemTemplate = path.resolve('src/templates/drawing-item.js')
+    const drawingItemTemplate = path.resolve('./src/templates/drawing-item.js')
     resolve(
       graphql(`
         {
@@ -37,7 +37,7 @@ exports.createPages = ({graphql, actions}) => {
   })
 
   let graphicsDesignPages = new Promise((resolve, reject) => {
-    const graphicsDesignItemTemplate = path.resolve('src/templates/graphics-design-item.js')
+    const graphicsDesignItemTemplate = path.resolve('./src/templates/graphics-design-item.js')
     resolve(
       graphql(`
         {
@@ -69,7 +69,7 @@ exports.createPages = ({graphql, actions}) => {
   })
 
   let interiorDesignPages = new Promise((resolve, reject) => {
-    const interiorDesignItemTemplate = path.resolve('src/templates/interior-design-item.js')
+    const interiorDesignItemTemplate = path.resolve('./src/templates/interior-design-item.js')
     resolve(
       graphql(`
         {
@@ -101,7 +101,7 @@ exports.createPages = ({graphql, actions}) => {
   })
 
   let productDesignPages = new Promise((resolve, reject) => {
-    const productDesignItemTemplate = path.resolve('src/templates/product-design-item.js')
+    const productDesignItemTemplate = path.resolve('./src/templates/product-design-item.js')
     resolve(
       graphql(`
         {
@@ -133,7 +133,7 @@ exports.createPages = ({graphql, actions}) => {
   })
 
   let sculpturePages = new Promise((resolve, reject) => {
-    const sculptureItemTemplate = path.resolve('src/templates/sculpture-item.js')
+    const sculptureItemTemplate = path.resolve('./src/templates/sculpture-item.js')
     resolve(
       graphql(`
         {
@@ -165,7 +165,7 @@ exports.createPages = ({graphql, actions}) => {
   })
 
   let writingPages = new Promise((resolve, reject) => {
-    const writingItemTemplate = path.resolve('src/templates/writing-item.js')
+    const writingItemTemplate = path.resolve('./src/templates/writing-item.js')
     resolve(
       graphql(`
         {
