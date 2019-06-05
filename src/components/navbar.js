@@ -44,48 +44,63 @@ const Navbar = () => (
       </svg>
     </Link>
     <div className="links">
-      <Link to="/sculpture">
+      <Link to="/" data-target="root" data-name='Home'>
         <div
+          id="root"
+          className={
+            (typeof window !== `undefined` &&
+              window.location.pathname ==="/") ? "square" : "circle"
+          }
+        />
+      </Link>
+      <Link to="/sculpture" data-target="sculpture" data-name='Sculpture'>
+        <div
+          id="sculpture"
           className={
             (typeof window !== `undefined` &&
             window.location.pathname.includes("sculpture")) ? "square" : "circle"
           }
         />
       </Link>
-      <Link to="/graphics-design">
+      <Link to="/graphics-design" data-target="graphics-design" data-name='Graphic'>
         <div
+          id="graphics-design"
           className={
             (typeof window !== `undefined` &&
             window.location.pathname.includes("graphics-design")) ? "square" : "circle"
           }
         />
       </Link>
-      <Link to="/product-design">
+      <Link to="/product-design" data-target="product-design" data-name='Product'>
         <div
+          id="product-design"
           className={
             (typeof window !== `undefined` &&
             window.location.pathname.includes("product-design")) ? "square" : "circle"
           }
         />
       </Link>
-      <Link to="/interior-design">
+      <Link to="/interior-design" data-target="interior-design" data-name='Interior'>
         <div
+          id="interior-design"
           className={
             (typeof window !== `undefined` &&
             window.location.pathname.includes("interior-design")) ? "square" : "circle"
           }
         />
       </Link>
-      <Link to="/drawing">
+      <Link to="/drawing" data-target="drawing" data-name='Drawing'>
         <div
+          id="drawing"
           className={
             (typeof window !== `undefined` &&
             window.location.pathname.includes("drawing")) ? "square" : "circle"
           }
         />
       </Link>
-      <Link to="/writing">
+      <Link to="/writing" data-target="writing" data-name='Writing'>
         <div
+          id="writing"
           className={
             (typeof window !== `undefined` &&
             window.location.pathname.includes("writing")) ? "square" : "circle"
