@@ -2,6 +2,8 @@
   --navbaritem-active: #fff;
   --navbaritem-inactive: #ffffff50;
   --navbaritem-inactive-hover: #ffffff90;
+  --navbar-logo: #000;
+  --navbar-after-text: #fff
 }
 
 .circle {
@@ -32,7 +34,7 @@
 
   svg {
     width: 9rem;
-    fill: #fff;
+    fill: var(--navbar-logo);
     transition: .5s ease fill;
   }
 }
@@ -66,12 +68,13 @@ nav {
     flex-basis: 20%;
     text-decoration: none;
     align-items: center;
+    justify-content: center;
 
     &:focus,
     &:hover {
 
       .circle {
-        background-color: #ffffff90;
+        background-color: var(--navbaritem-inactive-hover);
       }
 
       &::after {
@@ -79,7 +82,7 @@ nav {
         content: attr(data-name);
         position: absolute;
         top: 3.5rem;
-        color: #fff;
+        color: var(--navbar-after-text);
       }
     }
   }
