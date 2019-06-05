@@ -9,9 +9,11 @@ class Navbar extends Component {
     // We want to detect when we are about to reach the Nucabe letters
     // Which means that we have reached 3.5 rems (the Navbar is 5 rems)
     // Here we convert a rem unit to a pixel in this document.
-    // We save this in state to avoid unnecessary calculation
-    this.state = {
-      remToPx: parseFloat(getComputedStyle(document.documentElement).fontSize)
+    // We save this in state to avoid unnecessary calculation~
+    if (typeof window !== `undefined`) {
+      this.state = {
+        remToPx: parseFloat(getComputedStyle(document.documentElement).fontSize)
+      }
     }
   }
 
