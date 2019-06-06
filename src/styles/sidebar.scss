@@ -4,6 +4,10 @@
   top: 50%;
   transform: translateY(-49%);
 
+  @media screen and (max-width: 720px) {
+    display: none;
+  }
+
   a {
     display: block;
     padding: 0.5rem 0 0.5rem 0;
