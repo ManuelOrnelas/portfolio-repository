@@ -34,7 +34,7 @@ export default class IndexPage extends Component {
             <img src={imageSource} alt="Logo" />
         </div>
         <div id="historical-line" className="historical-line bg-yellow">
-          <h1>Helloworld</h1>
+          <h1>Historical Line</h1>
         </div>
         <div id="news" className="news">
           <div className="news-item">
