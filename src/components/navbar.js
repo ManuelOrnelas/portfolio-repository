@@ -3,6 +3,15 @@ import React, { Component } from "react"
 
 const remToPx = (typeof window !== `undefined`) ? parseFloat(getComputedStyle(document.documentElement).fontSize) : 0
 
+const pageToColor = {
+  'drawing': '#fea529',
+  'graphics': '#4bb4fe',
+  'interior': '#5cd657',
+  'product': '#fa9bbc',
+  'sculpture': '#fa4a4d',
+  'writing': '#964dfe',
+}
+
 class Navbar extends Component {
 
   componentDidMount() {
@@ -29,11 +38,34 @@ class Navbar extends Component {
 
         const page = ~~(currentScroll / maxHeight)
 
-        // If page is odd, then white background, else white
+        // If page is odd, then white background, else black
         if (page % 2 === 0) {
-          document.documentElement.style.setProperty('--navbar-logo', "#fff");
+          document.documentElement.style.setProperty('--navbar-logo', "#ffffff");
+          document.documentElement.style.setProperty('--navbaritem-active', "#fff"); //Cor do tema
+          document.documentElement.style.setProperty('--navbaritem-inactive', "#ffffff50");
+          document.documentElement.style.setProperty('--navbaritem-inactive-hover', "#ffffff90");
+          document.documentElement.style.setProperty('--navbar-after-text', "#fff");
         } else {
-          document.documentElement.style.setProperty('--navbar-logo', "#000");
+          document.documentElement.style.setProperty('--navbar-logo', "#000000");
+          document.documentElement.style.setProperty('--navbaritem-inactive', "#403A3A3A");
+          document.documentElement.style.setProperty('--navbaritem-inactive-hover', "#803A3A3A");
+          document.documentElement.style.setProperty('--navbar-after-text', "#803A3A3A");
+
+          if (window.location.pathname.includes('drawing')) {
+            document.documentElement.style.setProperty('--navbaritem-active', "#fea529")
+          } else if (window.location.pathname.includes('graphics-design')) {
+            document.documentElement.style.setProperty('--navbaritem-active', "#4bb4fe")
+          } else if (window.location.pathname.includes('interior-design')) {
+            document.documentElement.style.setProperty('--navbaritem-active', "#5cd657")
+          } else if (window.location.pathname.includes('product-design')) {
+            document.documentElement.style.setProperty('--navbaritem-active', "#fa9bbc")
+          } else if (window.location.pathname.includes('sculpture')) {
+            document.documentElement.style.setProperty('--navbaritem-active', "#fa4a4d")
+          } else if (window.location.pathname.includes('writing')) {
+            document.documentElement.style.setProperty('--navbaritem-active', "#964dfe")
+          } else {
+            document.documentElement.style.setProperty('--navbaritem-active', "#ffd42d")
+          }
         }
       }
     }

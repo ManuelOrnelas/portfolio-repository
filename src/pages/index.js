@@ -13,7 +13,7 @@ export default class IndexPage extends Component {
         <SEO title="Home" />
         <Sidebar />
         {/* Here come the divs */}
-        <div className="full-page">
+        <div className="portfolio-jumbotron bg-yellow">
           <h1>Intro.</h1>
         </div>
         {/* Code below is not styled */}
