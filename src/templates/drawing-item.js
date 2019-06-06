@@ -9,7 +9,8 @@ class DrawingItem extends Component {
 
   constructor(props) {
     super(props)
-    document.documentElement.style.setProperty('--navbaritem-active', "#fea529");
+    if (typeof window !== `undefined`)
+      document.documentElement.style.setProperty('--navbaritem-active', "#fea529");
   }
 
   componentWillUnmount() {

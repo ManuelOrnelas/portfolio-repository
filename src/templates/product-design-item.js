@@ -9,7 +9,8 @@ class ProductDesignItem extends Component {
 
   constructor(props) {
     super(props)
-    document.documentElement.style.setProperty('--navbaritem-active', "#fa9bbc");
+    if (typeof window !== `undefined`)
+      document.documentElement.style.setProperty('--navbaritem-active', "#fa9bbc");
   }
 
   componentWillUnmount() {

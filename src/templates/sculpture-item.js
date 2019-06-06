@@ -9,7 +9,8 @@ class SculptureItem extends Component {
 
   constructor(props) {
     super(props)
-    document.documentElement.style.setProperty('--navbaritem-active', "#fa4a4d");
+    if (typeof window !== `undefined`)
+      document.documentElement.style.setProperty('--navbaritem-active', "#fa4a4d");
   }
 
   componentWillUnmount() {

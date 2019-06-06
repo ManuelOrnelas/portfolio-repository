@@ -9,7 +9,8 @@ class InteriorDesignItem extends Component {
 
   constructor(props) {
     super(props)
-    document.documentElement.style.setProperty('--navbaritem-active', "#5cd657");
+    if (typeof window !== `undefined`)
+      document.documentElement.style.setProperty('--navbaritem-active', "#5cd657");
   }
 
   componentWillUnmount() {

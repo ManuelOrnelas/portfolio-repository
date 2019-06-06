@@ -9,7 +9,8 @@ class WritingItem extends Component {
 
   constructor(props) {
     super(props)
-    document.documentElement.style.setProperty('--navbaritem-active', "#964dfe");
+    if (typeof window !== `undefined`)
+      document.documentElement.style.setProperty('--navbaritem-active', "#964dfe");
   }
 
   componentWillUnmount() {

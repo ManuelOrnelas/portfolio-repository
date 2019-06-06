@@ -9,7 +9,8 @@ class GraphicsDesignItem extends Component {
 
   constructor(props) {
     super(props)
-    document.documentElement.style.setProperty('--navbaritem-active', "#4bb4fe");
+    if (typeof window !== `undefined`)
+      document.documentElement.style.setProperty('--navbaritem-active', "#4bb4fe");
   }
 
   componentWillUnmount() {
