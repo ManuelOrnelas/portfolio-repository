@@ -15,8 +15,11 @@ class ProductDesignItem extends Component {
 
   componentWillUnmount() {
     if (typeof window !== `undefined`) {
-      document.documentElement.style.setProperty('--navbar-logo', "#fff");
-      document.documentElement.style.setProperty('--navbaritem-active', "#fff");
+      document.documentElement.style.setProperty('--navbar-logo', "#ffffff");
+      document.documentElement.style.setProperty('--navbaritem-active', "#fff"); //Cor do tema
+      document.documentElement.style.setProperty('--navbaritem-inactive', "#ffffff50");
+      document.documentElement.style.setProperty('--navbaritem-inactive-hover', "#ffffff90");
+      document.documentElement.style.setProperty('--navbar-after-text', "#fff");
     }
   }
 
