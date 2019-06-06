@@ -26,9 +26,9 @@
   height: 100vh;
   padding: 0 15% 0 15%;
 
-  @media screen and (max-width: 400px) {
-    padding: 6rem 10% 0 10%;
-  }
+  // @media screen and (max-width: 400px) {
+  //   padding: 6rem 10% 0 10%;
+  // }
 
   h1 {
     font-size: calc(64px + (80 - 64) * ((100vw - 320px) / (1600 - 320)));
@@ -41,9 +41,21 @@
 
   .post-list {
     display: grid;
-    grid-template-columns: repeat(4,1fr); //TODO: We might need to make this more responsive
+    grid-template-columns: repeat(5,1fr); //TODO: We might need to make this more responsive
     grid-gap: 1rem;
     margin: 2rem 0;
+
+    @media screen and (max-width: 1500px) {
+      grid-template-columns: repeat(4,1fr);
+    }
+
+    @media screen and (max-width: 1200px) {
+      grid-template-columns: repeat(3,1fr);
+    }
+
+    @media screen and (max-width: 900px) {
+      grid-template-columns: repeat(2,1fr);
+    }
 
     a {
       img {
@@ -51,6 +63,11 @@
         width: 200px;
         height: 200px;
         object-fit: cover;
+
+        @media screen and (max-width: 550px) {
+          width: 100px;
+          height: 100px;
+        }
       }
     }
   }
