@@ -40,7 +40,7 @@ class Navbar extends Component {
           document.documentElement.style.setProperty('--navbar-logo', "#000000");
           document.documentElement.style.setProperty('--navbaritem-inactive', "#403A3A3A");
           document.documentElement.style.setProperty('--navbaritem-inactive-hover', "#803A3A3A");
-          document.documentElement.style.setProperty('--navbar-after-text', "#803A3A3A");
+          document.documentElement.style.setProperty('--navbar-after-text', "#000");
 
           if (window.location.pathname.includes('drawing')) {
             document.documentElement.style.setProperty('--navbaritem-active', "#fea529")
