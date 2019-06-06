@@ -19,7 +19,6 @@ export default class IndexPage extends Component {
         </div>
         {/* Code below is not styled */}
         <div id="information" className="manuel-info">
-
             <h1>Nucabé.</h1>
             <p>
               Pessoa com muita vontade de experimentar coisas novas, 20 anos e a

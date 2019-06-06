@@ -72,7 +72,7 @@ h1 {
 .manuel-info {
   height: 100vh;
   padding-left: 16rem;
-  max-width: 50vw;
+  max-width: 40vw;
 
   h1 {
     color: #ffd42d;
@@ -89,10 +89,11 @@ h1 {
   }
 
   img {
-    position: fixed;
-    top: 100vh;
-    left: 50vw;
-    z-index: 100;
+    max-width: 20vw;
+    position: absolute;
+    top: 110vh;
+    left: 70vw;
+    z-index: 10;
   }
 
 }
@@ -100,6 +101,12 @@ h1 {
 .historical-line {
   height: 100vh;
   padding-left: 40vh;
+
+  h1 {
+    color: white;
+    font-size: 5rem;
+    padding-top: 20vh;
+  }
 }
 
 .news {
