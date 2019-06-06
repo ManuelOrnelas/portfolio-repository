@@ -3,15 +3,6 @@ import React, { Component } from "react"
 
 const remToPx = (typeof window !== `undefined`) ? parseFloat(getComputedStyle(document.documentElement).fontSize) : 0
 
-const pageToColor = {
-  'drawing': '#fea529',
-  'graphics': '#4bb4fe',
-  'interior': '#5cd657',
-  'product': '#fa9bbc',
-  'sculpture': '#fa4a4d',
-  'writing': '#964dfe',
-}
-
 class Navbar extends Component {
 
   componentDidMount() {
