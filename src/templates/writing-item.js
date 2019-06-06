@@ -29,9 +29,11 @@ class WritingItem extends Component {
       <Layout>
         <div className="item-page">
           <div className="left">
+            <div className="stuff">
               <h1>{data.title}</h1>
               <p>{data.description}</p>
               <p>{data.details}</p>
+            </div>
           </div>
           <div className="right">
             <img src={data.itemPicture.resize.src} alt="item"/>

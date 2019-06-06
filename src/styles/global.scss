@@ -69,15 +69,45 @@ h1 {
   color: #964dfe;
 }
 
-
-
-.full-page {
+.manuel-info {
   height: 100vh;
+  padding-left: 16rem;
+  max-width: 50vw;
+
+  h1 {
+    color: #ffd42d;
+    font-size: 5rem;
+    padding-top: 30vh;
+  }
+
+  p:first-of-type {
+    font-weight: 400;
+  }
+
+  p {
+    font-weight: 200;
+  }
+
+  img {
+    position: fixed;
+    top: 100vh;
+    left: 50vw;
+    z-index: 100;
+  }
+
 }
 
-.min-full-height {
-  min-height: 100vh;
+.historical-line {
+  height: 100vh;
+  padding-left: 40vh;
 }
+
+.news {
+  height: 100vh;
+  padding-left: 40vh;
+}
+
+
 
 // Index Page //
 

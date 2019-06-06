@@ -13,37 +13,9 @@
       width: 100%;
     }
 
-    h1 {
-      padding-top: 30vh;
-      margin: auto;
-
-      font-size: 3rem;
-      line-height: 4.5rem;
-      color: #353535;
-      font-weight: 600;
-      word-break: break-word;
-      text-align: center;
-
-      @media screen and (max-width: 960px) {
-        padding-top: 10vh;
-      }
+    .stuff {
+      padding: 30vh 0 0 30vw;
     }
-
-    p {
-      margin: auto;
-
-      opacity: .9;
-      font-size: 1rem;
-      font-weight: 500;
-      color: #353535;
-      word-break: break-word;
-    }
-
-    p:first-of-type {
-      font-weight: 300;
-    }
-
-
   }
 
   .right {
@@ -55,10 +27,14 @@
     }
 
     img {
-      padding-top: 30vh;
-      margin: auto;
+      padding-top: 15vh;
+      // margin: auto;
+      width: 80vh;
+      height: 80vh;
+      object-fit: contain;
 
       @media screen and (max-width: 960px) {
+        margin: auto;
         padding-top: 15vh;
       }
     }
