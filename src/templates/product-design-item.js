@@ -56,6 +56,11 @@ export const pageQuery = graphql`
           src
         }
       }
+      itemThumbnail {
+        resize(width: 200, height: 200) {
+					src
+        }
+      }
     }
   }
 `

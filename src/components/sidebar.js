@@ -13,8 +13,9 @@ const Sidebar = (props) => {
 
     //ComponentDidMount
     window.addEventListener('scroll', stickyMode)
-
+    console.log('Just set')
     return function cleanup() {
+      console.log('Bye bye')
       //ComponentWillUnmount
       window.removeEventListener('scroll', stickyMode)
     }

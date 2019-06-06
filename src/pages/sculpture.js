@@ -20,7 +20,7 @@ class Sculpture extends Component {
             {sculptureItems.map(item => {
               return (
                 <Link to={"/sculpture/" + item.node.slug} key={item.node.slug}>
-                  <img src={item.node.itemPicture.resize.src} alt="item"/>
+                  <img src={item.node.itemThumbnail.resize.src} alt="item"/>
                 </Link>
               )
             })}
@@ -39,7 +39,7 @@ export const pageQuery = graphql`
       edges {
         node {
           slug
-          itemPicture {
+          itemThumbnail {
             resize {
               src
             }
