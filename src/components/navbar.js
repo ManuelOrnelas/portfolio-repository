@@ -1,21 +1,9 @@
 import { Link } from "gatsby"
 import React, { Component } from "react"
 
-// Navbar consist of a logo, a group of links, and an optional arrow
-class Navbar extends Component {
+const remToPx = (typeof window !== `undefined`) ? parseFloat(getComputedStyle(document.documentElement).fontSize) : 0
 
-  constructor() {
-    super()
-    // We want to detect when we are about to reach the Nucabe letters
-    // Which means that we have reached 3.5 rems (the Navbar is 5 rems)
-    // Here we convert a rem unit to a pixel in this document.
-    // We save this in state to avoid unnecessary calculation~
-    if (typeof window !== `undefined`) {
-      this.state = {
-        remToPx: parseFloat(getComputedStyle(document.documentElement).fontSize)
-      }
-    }
-  }
+class Navbar extends Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.listenToScroll)
@@ -28,18 +16,25 @@ class Navbar extends Component {
   listenToScroll = () => {
     if (typeof window !== `undefined`) {
 
-      // Now we get the current scroll value taking into account the Navbar
-      const currentScroll = window.pageYOffset + 3.5 * this.state.remToPx
-      // Now we get the viewports height.
-      const maxHeight = window.innerHeight
+      const isItem = window.location.pathname.match(/.*\/.*\/.*/g) !== null
 
-      const page = ~~(currentScroll / maxHeight)
-
-      // If page is odd, then white background, else white
-      if (page % 2 === 0) {
-        document.documentElement.style.setProperty('--navbar-logo', "#fff");
-      } else {
+      if (isItem) {
         document.documentElement.style.setProperty('--navbar-logo', "#000");
+      } else {
+
+        // Now we get the current scroll value taking into account the Navbar
+        const currentScroll = window.pageYOffset + 3.5 * remToPx
+        // Now we get the viewports height.
+        const maxHeight = window.innerHeight
+
+        const page = ~~(currentScroll / maxHeight)
+
+        // If page is odd, then white background, else white
+        if (page % 2 === 0) {
+          document.documentElement.style.setProperty('--navbar-logo', "#fff");
+        } else {
+          document.documentElement.style.setProperty('--navbar-logo', "#000");
+        }
       }
     }
   }

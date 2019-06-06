@@ -6,6 +6,19 @@ import Layout from "../components/layout"
 // import SEO from "../components/seo"
 
 class SculptureItem extends Component {
+
+  constructor(props) {
+    super(props)
+    document.documentElement.style.setProperty('--navbaritem-active', "#fa4a4d");
+  }
+
+  componentWillUnmount() {
+    if (typeof window !== `undefined`) {
+      document.documentElement.style.setProperty('--navbar-logo', "#fff");
+      document.documentElement.style.setProperty('--navbaritem-active', "#fff");
+    }
+  }
+
   render() {
     const data = this.props.data.contentfulSculptureItems
     return (

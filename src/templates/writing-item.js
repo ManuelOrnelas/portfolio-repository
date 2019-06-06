@@ -6,6 +6,19 @@ import Layout from "../components/layout"
 // import SEO from "../components/seo"
 
 class WritingItem extends Component {
+
+  constructor(props) {
+    super(props)
+    document.documentElement.style.setProperty('--navbaritem-active', "#964dfe");
+  }
+
+  componentWillUnmount() {
+    if (typeof window !== `undefined`) {
+      document.documentElement.style.setProperty('--navbar-logo', "#fff");
+      document.documentElement.style.setProperty('--navbaritem-active', "#fff");
+    }
+  }
+
   render() {
     const data = this.props.data.contentfulWritingItems
     return (
