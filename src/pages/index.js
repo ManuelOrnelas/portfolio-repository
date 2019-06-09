@@ -27,13 +27,11 @@ export default class IndexPage extends Component {
         </div>
         {/* Code below is not styled */}
         <div id="information" className="manuel-info">
-          <h1>Nucabé.</h1>
-          <p>
-            {indexPageData.subtitle}
-          </p>
-          <p>
-            {indexPageData.bio.bio}
-          </p>
+          <div className="information">
+            <h1>Nucabé.</h1>
+            <p>{indexPageData.subtitle}</p>
+            <p>{indexPageData.bio.bio}</p>
+          </div>
           <img src={imageSource} alt="Logo" />
         </div>
         <div id="historical-line" className="historical-line bg-yellow">

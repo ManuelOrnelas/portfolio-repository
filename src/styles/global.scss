@@ -74,15 +74,25 @@ h1 {
   padding-left: 16rem;
   max-width: 40vw;
 
+  @media screen and (max-width: 850px) {
+    padding-left: 14rem;
+    padding-right: 1rem;
+    max-width: 70vw;
+  }
+
   @media screen and (max-width: 720px) {
-    padding-left: 5rem;
-    max-width: 80vw;
+    padding-left: 5vw;
+    max-width: 90vw;
   }
 
   h1 {
     color: #ffd42d;
     font-size: 5rem;
     padding-top: 30vh;
+
+    @media screen and (max-width: 720px) {
+      padding-top: 20vh;
+    }
   }
 
   p:first-of-type {
@@ -94,17 +104,18 @@ h1 {
   }
 
   img {
-    max-width: 20vw;
+    width: 300px;
+    height: 625.5px;
+
     position: absolute;
-    top: 110vh;
+    top: 120vh;
     left: 70vw;
     z-index: 10;
 
-    @media screen and (max-width: 720px) {
+    @media screen and (max-width: 850px) {
       display: none;
     }
   }
-
 }
 
 .historical-line {
