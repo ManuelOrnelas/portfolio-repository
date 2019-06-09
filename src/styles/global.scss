@@ -70,7 +70,7 @@ h1 {
 }
 
 .manuel-info {
-  height: 100vh;
+  height: 110vh;
   padding-left: 16rem;
   max-width: 40vw;
 
@@ -108,7 +108,7 @@ h1 {
 }
 
 .historical-line {
-  height: 100vh;
+  height: 110vh;
   padding-left: 40vh;
 
   @media screen and (max-width: 720px) {
@@ -126,9 +126,44 @@ h1 {
   min-height: 100vh;
   padding-left: 40vh;
 
+  h1 {
+    color: #ffd42d;
+    font-size: 5rem;
+    padding-top: 20vh;
+    padding-bottom: 5vh;
+  }
+
   @media screen and (max-width: 720px) {
     padding-left: 5rem;
   }
+}
+
+.news-item {
+
+  max-width: 500px;
+
+  .container {
+    float: right;
+    padding-left: 10px;
+  }
+
+  img {
+    max-width: 200px;
+    max-height: 200px;
+    float: left;
+    border-radius: 12px;
+  }
+
+  p {
+
+  }
+
+  h1 {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 1rem;
+    padding: 0 0 0 0;
+  }
+
 }
 
 
