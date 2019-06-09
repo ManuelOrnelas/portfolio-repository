@@ -16,11 +16,21 @@
   }
 
   .stuff {
-    margin: auto;
+    margin: auto auto auto 25vw;
     max-width: 90%;
 
     @media screen and (max-width: 960px) {
+      margin: auto;
       padding: 6rem 5vw 0 5vw;
+    }
+
+    p {
+      font-weight: 300;
+      font-size: 1rem;
+    }
+
+    p:last-of-type {
+      font-weight: 500;
     }
   }
 } 

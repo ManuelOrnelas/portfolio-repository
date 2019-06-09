@@ -7,9 +7,16 @@ import SEO from "../components/seo"
 import Sidebar from "../components/sidebar"
 import imageSource from "../images/nucabe-men.png"
 
+import facebook from  '../images/facebook.svg'
+import instagram from '../images/instagram.svg'
+import email from '../images/email.svg'
+
 export default class IndexPage extends Component {
   render() {
     const indexPageData = this.props.data.allContentfulIndexPage.edges[0].node
+    const emailLink = 'mailto:hello@nucabe.com'
+    const facebookLink = 'https://facebook.com/nucabe'
+    const instagramLink = 'https://instagram.com/nucabe'
     return (
       <Layout>
         <SEO title="Home" />
@@ -20,14 +27,14 @@ export default class IndexPage extends Component {
         </div>
         {/* Code below is not styled */}
         <div id="information" className="manuel-info">
-            <h1>Nucabé.</h1>
-            <p>
-              {indexPageData.subtitle}
-            </p>
-            <p>
-              {indexPageData.bio.bio}
-            </p>
-            <img src={imageSource} alt="Logo" />
+          <h1>Nucabé.</h1>
+          <p>
+            {indexPageData.subtitle}
+          </p>
+          <p>
+            {indexPageData.bio.bio}
+          </p>
+          <img src={imageSource} alt="Logo" />
         </div>
         <div id="historical-line" className="historical-line bg-yellow">
           <h1>Historical Line</h1>
