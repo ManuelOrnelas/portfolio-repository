@@ -9,7 +9,6 @@ import imageSource from "../images/nucabe-men.png"
 
 export default class IndexPage extends Component {
   render() {
-    console.log(this.props.data.allContentfulIndexPage.edges[0].node)
     const indexPageData = this.props.data.allContentfulIndexPage.edges[0].node
     return (
       <Layout>

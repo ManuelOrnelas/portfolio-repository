@@ -7,7 +7,6 @@ import Layout from "../components/layout"
 
 class GraphicsDesign extends Component {
   render() {
-    console.log(this.props.data.allContentfulGraphicsDesignItems.edges)
     const graphicsDesignItems = this.props.data.allContentfulGraphicsDesignItems.edges
     return (
       <Layout>

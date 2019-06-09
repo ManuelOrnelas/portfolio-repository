@@ -7,7 +7,6 @@ import Layout from "../components/layout"
 
 class Drawing extends Component {
   render() {
-    console.log(this.props.data.allContentfulDrawingItems.edges)
     const drawingItems = this.props.data.allContentfulDrawingItems.edges
     return (
       <Layout>

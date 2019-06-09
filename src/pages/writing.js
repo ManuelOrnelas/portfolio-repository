@@ -7,7 +7,6 @@ import Layout from "../components/layout"
 
 class Writing extends Component {
   render() {
-    console.log(this.props.data.allContentfulWritingItems.edges)
     const writingItems = this.props.data.allContentfulWritingItems.edges
     return (
       <Layout>

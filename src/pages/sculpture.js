@@ -7,7 +7,6 @@ import Layout from "../components/layout"
 
 class Sculpture extends Component {
   render() {
-    console.log(this.props.data.allContentfulSculptureItems.edges)
     const sculptureItems = this.props.data.allContentfulSculptureItems.edges
     return (
       <Layout>
