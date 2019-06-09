@@ -55,6 +55,7 @@
     // grid-template-columns: repeat(5,1fr); //TODO: We might need to make this more responsive
     grid-gap: 1rem;
     margin-top: 2rem;
+    grid-template-columns: repeat(5,1fr);
 
     @media screen and (max-width: 1500px) {
       grid-template-columns: repeat(4,1fr);
