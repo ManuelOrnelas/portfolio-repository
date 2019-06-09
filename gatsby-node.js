@@ -1,67 +1,207 @@
-const _ = require('lodash')
 const path = require('path')
-const { createFilePath } = require('gatsby-source-filesystem')
-const { fmImagesToRelative } = require('gatsby-remark-relative-images')
 
-exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions
+exports.createPages = ({graphql, actions}) => {
 
-  return graphql(`
-    {
-      allMarkdownRemark(
-        limit: 1000,
-        filter: { fileAbsolutePath: { regex: "\/pages/" } }  
-      ) {
-        edges {
-          node {
-            id
-            fields {
-              slug
-            }
-            frontmatter {
-              templateKey
+  const {createPage} = actions
+
+  let drawingPages = new Promise((resolve, reject) => {
+    const drawingItemTemplate = path.resolve('src/templates/drawing-item.js')
+    resolve(
+      graphql(`
+        {
+          allContentfulDrawingItems (limit: 100) {
+            edges {
+              node {
+                id
+                slug
+              }
             }
           }
         }
-      }
-    }
-  `).then(result => {
-    if (result.errors) {
-      result.errors.forEach(e => console.error(e.toString()))
-      return Promise.reject(result.errors)
-    }
-
-    const posts = result.data.allMarkdownRemark.edges
-
-    posts.forEach(edge => {
-      const id = edge.node.id
-      const pageKey = edge.node.frontmatter.templateKey
-
-      createPage({
-        path: edge.node.fields.slug,
-        component: path.resolve(
-          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
-        ),
-        // additional data can be passed via context
-        context: {
-          id,
-          pageKey,
-        },
+      `).then((result) => {
+        if (result.errors) {
+          reject(result.errors)
+        }
+        result.data.allContentfulDrawingItems.edges.forEach((edge) => {
+          createPage({
+            path: 'drawing/' + edge.node.slug,
+            component: drawingItemTemplate,
+            context: {
+              slug: edge.node.slug
+            }
+          })
+        })
+        return
       })
-    })
+    )
   })
-}
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-  fmImagesToRelative(node) // convert image paths for gatsby images
+  let graphicsDesignPages = new Promise((resolve, reject) => {
+    const graphicsDesignItemTemplate = path.resolve('src/templates/graphics-design-item.js')
+    resolve(
+      graphql(`
+        {
+          allContentfulGraphicsDesignItems (limit: 100) {
+            edges {
+              node {
+                id
+                slug
+              }
+            }
+          }
+        }
+      `).then((result) => {
+        if (result.errors) {
+          reject(result.errors)
+        }
+        result.data.allContentfulGraphicsDesignItems.edges.forEach((edge) => {
+          createPage({
+            path: 'graphics-design/' + edge.node.slug,
+            component: graphicsDesignItemTemplate,
+            context: {
+              slug: edge.node.slug
+            }
+          })
+        })
+        return
+      })
+    )
+  })
 
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    })
-  }
+  let interiorDesignPages = new Promise((resolve, reject) => {
+    const interiorDesignItemTemplate = path.resolve('src/templates/interior-design-item.js')
+    resolve(
+      graphql(`
+        {
+          allContentfulInteriorDesignItems (limit: 100) {
+            edges {
+              node {
+                id
+                slug
+              }
+            }
+          }
+        }
+      `).then((result) => {
+        if (result.errors) {
+          reject(result.errors)
+        }
+        result.data.allContentfulInteriorDesignItems.edges.forEach((edge) => {
+          createPage({
+            path: 'interior-design/' + edge.node.slug,
+            component: interiorDesignItemTemplate,
+            context: {
+              slug: edge.node.slug
+            }
+          })
+        })
+        return
+      })
+    )
+  })
+
+  let productDesignPages = new Promise((resolve, reject) => {
+    const productDesignItemTemplate = path.resolve('src/templates/product-design-item.js')
+    resolve(
+      graphql(`
+        {
+          allContentfulProductDesignItems (limit: 100) {
+            edges {
+              node {
+                id
+                slug
+              }
+            }
+          }
+        }
+      `).then((result) => {
+        if (result.errors) {
+          reject(result.errors)
+        }
+        result.data.allContentfulProductDesignItems.edges.forEach((edge) => {
+          createPage({
+            path: 'product-design/' + edge.node.slug,
+            component: productDesignItemTemplate,
+            context: {
+              slug: edge.node.slug
+            }
+          })
+        })
+        return
+      })
+    )
+  })
+
+  let sculpturePages = new Promise((resolve, reject) => {
+    const sculptureItemTemplate = path.resolve('src/templates/sculpture-item.js')
+    resolve(
+      graphql(`
+        {
+          allContentfulSculptureItems (limit: 100) {
+            edges {
+              node {
+                id
+                slug
+              }
+            }
+          }
+        }
+      `).then((result) => {
+        if (result.errors) {
+          reject(result.errors)
+        }
+        result.data.allContentfulSculptureItems.edges.forEach((edge) => {
+          createPage({
+            path: 'sculpture/' + edge.node.slug,
+            component: sculptureItemTemplate,
+            context: {
+              slug: edge.node.slug
+            }
+          })
+        })
+        return
+      })
+    )
+  })
+
+  let writingPages = new Promise((resolve, reject) => {
+    const writingItemTemplate = path.resolve('src/templates/writing-item.js')
+    resolve(
+      graphql(`
+        {
+          allContentfulWritingItems (limit: 100) {
+            edges {
+              node {
+                id
+                slug
+              }
+            }
+          }
+        }
+      `).then((result) => {
+        if (result.errors) {
+          reject(result.errors)
+        }
+        result.data.allContentfulWritingItems.edges.forEach((edge) => {
+          createPage({
+            path: 'writing/' + edge.node.slug,
+            component: writingItemTemplate,
+            context: {
+              slug: edge.node.slug
+            }
+          })
+        })
+        return
+      })
+    )
+  })
+
+  return Promise.all([
+    drawingPages, 
+    graphicsDesignPages, 
+    interiorDesignPages, 
+    productDesignPages, 
+    sculpturePages, 
+    writingPages
+  ])
 }
