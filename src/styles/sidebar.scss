@@ -1,0 +1,23 @@
+.sidebar {
+  position: fixed;
+  left: 4rem;
+  top: 50%;
+  transform: translateY(-49%);
+
+  @media screen and (max-width: 720px) {
+    display: none;
+  }
+
+  a {
+    display: block;
+    padding: 0.5rem 0 0.5rem 0;
+    font-weight: 600;
+    color: rgba(55,50,33,.5);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .active {
+    color: #373322;
+  }
+}
