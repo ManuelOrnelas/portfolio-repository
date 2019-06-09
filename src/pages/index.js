@@ -54,6 +54,16 @@ export default class IndexPage extends Component {
               </p>
             </div>
           </div>
+          <div className="news-item">
+            <img src={indexPageData.firstNews.itemThumbnail.fluid.src} />
+            <div className="container">
+              <p>{indexPageData.firstNews.updatedAt}</p>
+              <h1>{indexPageData.firstNews.title}</h1>
+              <p>
+                {indexPageData.firstNews.description}
+              </p>
+            </div>
+          </div>
         </div>
       </Layout>
     )
