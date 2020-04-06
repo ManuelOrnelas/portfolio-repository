@@ -1,0 +1,56 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Robot', sans-serif;
+  margin: 0;
+}
+
+.gradient {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#ed5e94, #e77867);
+}
+
+h1 {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 4rem;
+  margin-bottom: 0;
+}
+
+p {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 1.5rem 0 0 0;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    padding: 0.5rem;
+  }
+
+  p {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+    margin: 0;
+  }
+}
+
+@media (max-width: 260px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 0.875rem;
+  }
+}
